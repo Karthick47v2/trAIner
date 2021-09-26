@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/drawable/ic_launcher_background.xml" value="0.290625" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/new_app_widget.xml" value="0.27447916666666666" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
   <component name="ProjectType">
     <option name="id" value="Android" />
