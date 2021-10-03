@@ -4,63 +4,54 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import com.dedsec_x47.trainer.databinding.ActivityMainBinding
+import android.content.Intent
+import android.widget.Button
+import android.widget.Toast
+import android.view.View
+//import android.R
+
 import com.facebook.CallbackManager
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.FacebookException
-
 import com.facebook.login.LoginResult
-
 import com.facebook.FacebookCallback
-
-import android.R
-import android.view.View
-
 import com.facebook.login.widget.LoginButton
 
-
-
-
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    //var callbackManager = CallbackManager.Factory.create();
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-/*
-        val EMAIL = "email"
-
-        loginButton = findViewById<View>(R.id.login_button) as LoginButton
-        loginButton.setReadPermissions(Arrays.asList(EMAIL))
-        // If you are using in a fragment, call loginButton.setFragment(this);
-
-        // Callback registration
-        // If you are using in a fragment, call loginButton.setFragment(this);
-
-        // Callback registration
-        loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult?> {
-            override fun onSuccess(loginResult: LoginResult?) {
-                // App code
-            }
-
-            override fun onCancel() {
-                // App code
-            }
-
-            override fun onError(exception: FacebookException) {
-                // App code
-            }
-        })*/
-
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // Initialize Firebase Auth
+        auth = Firebase.auth
 
         // Example of a call to a native method
         //binding.sampleText.text = stringFromJNI()
+        reload()
+    }
+
+//    public override fun onStart() {
+//        super.onStart()
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        val currentUser = auth.currentUser
+//        if(currentUser != null){
+//            reload();
+//        }
+//    }
+
+    private fun reload() {
+        val intent = Intent(this, SignIn::class.java)
+        startActivity(intent)
     }
 
     /**
@@ -72,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         // Used to load the 'trainer' library on application startup.
         init {
-            System.loadLibrary("trainer")
+            System.loadLibrary("native-lib")
         }
     }
 }
