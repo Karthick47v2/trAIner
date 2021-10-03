@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "829084645627",
+    "project_id": "trainer-180af",
+    "storage_bucket": "trainer-180af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829084645627:android:d374010733b635527f985e",
+        "android_client_info": {
+          "package_name": "com.dedsec_x47.trainer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829084645627-2574eh206emvjlb8dri6t2ds4mlbmado.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1_-zXNzZ19B7wRpOkIVcBJgmyd_FS-8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829084645627-2574eh206emvjlb8dri6t2ds4mlbmado.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
