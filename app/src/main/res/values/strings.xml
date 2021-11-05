@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">trAIner</string>
+    <string name="model">Model: </string>
+    <string name="fps">Fps: %d</string>
+    <string-array name="models_array">
+        <item>Light</item>
+        <item>Thunder</item>
+    </string-array>
+
+    <string-array name="accelerator">
+        <item>CPU</item>
+        <item>GPU</item>
+        <item>NNAPI</item>
+    </string-array>
 </resources>
