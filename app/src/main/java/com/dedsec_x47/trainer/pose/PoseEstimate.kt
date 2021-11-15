@@ -1,8 +1,10 @@
 package com.dedsec_x47.trainer.pose
 
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.graphics.*
 import android.os.SystemClock
+import android.util.Log
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.Interpreter
 import com.dedsec_x47.trainer.data.*
@@ -13,9 +15,7 @@ import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.image.ops.ResizeOp
 import org.tensorflow.lite.support.image.ops.ResizeWithCropOrPadOp
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import kotlin.math.abs
-import kotlin.math.max
-import kotlin.math.min
+import kotlin.math.*
 
 enum class ModelType {
     MidRange
@@ -170,7 +170,7 @@ class PoseEstimate(private val interpreter: Interpreter, private var gpuDelegate
         return RectF(xMin, yMin, xMin + width, yMin + height)
     }
 
-    //check torso for prediction
+    // check torso for prediction
     private fun torsoVisible(keyPoints: List<KeyPoint>): Boolean {
         return ((keyPoints[KeyPoints.LEFT_HIP.position].score > MIN_CROP_KEYPOINT_SCORE).or(
             keyPoints[KeyPoints.RIGHT_HIP.position].score > MIN_CROP_KEYPOINT_SCORE
@@ -179,6 +179,23 @@ class PoseEstimate(private val interpreter: Interpreter, private var gpuDelegate
                 keyPoints[KeyPoints.RIGHT_SHOULDER.position].score > MIN_CROP_KEYPOINT_SCORE
             )
         )
+    }
+
+    // get angle bw 3 joints
+    private fun getAngle(anglePoints: List<PointF>): Float {
+        val x1 = anglePoints[0].x
+        val y1 = anglePoints[0].y
+        val x2 = anglePoints[1].x
+        val y2 = anglePoints[1].y
+        val x3 = anglePoints[2].x
+        val y3 = anglePoints[2].y
+        
+        var angle = atan2((y3 - y2), (x3 - x2)) - atan2((y1 - y2), (x1 - x2))
+
+        if(angle < 0) angle += 360
+
+         Log.d(TAG, angle.toString())
+        return angle
     }
 
     // crop acc to prev frame
