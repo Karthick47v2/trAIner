@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "829084645627",
-    "project_id": "trainer-180af",
-    "storage_bucket": "trainer-180af.appspot.com"
+    "project_number": "1014030409680",
+    "firebase_url": "https://trainer-92046-default-rtdb.firebaseio.com",
+    "project_id": "trainer-92046",
+    "storage_bucket": "trainer-92046.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:829084645627:android:d374010733b635527f985e",
+        "mobilesdk_app_id": "1:1014030409680:android:efe2b72ea429ec9b8b63d5",
         "android_client_info": {
           "package_name": "com.dedsec_x47.trainer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "829084645627-2574eh206emvjlb8dri6t2ds4mlbmado.apps.googleusercontent.com",
+          "client_id": "1014030409680-nnh10di7efij733iq3gk6qp2lqr9tprb.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB1_-zXNzZ19B7wRpOkIVcBJgmyd_FS-8c"
+          "current_key": "AIzaSyDDOyRofCBBILncOvccWdlkBZwF8M6h6eA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "829084645627-2574eh206emvjlb8dri6t2ds4mlbmado.apps.googleusercontent.com",
+              "client_id": "1014030409680-nnh10di7efij733iq3gk6qp2lqr9tprb.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

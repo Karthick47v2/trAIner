@@ -1,56 +1,68 @@
 package com.dedsec_x47.trainer
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.widget.TextView
-import com.dedsec_x47.trainer.databinding.ActivityMainBinding
+//import packages
 import android.content.Intent
-import android.widget.Button
-import android.widget.Toast
-import android.view.View
-//import android.R
-
-import com.facebook.CallbackManager
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
-import com.facebook.FacebookException
-import com.facebook.login.LoginResult
-import com.facebook.FacebookCallback
-import com.facebook.login.widget.LoginButton
-
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.dedsec_x47.trainer.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class MainActivity : AppCompatActivity() {
+/** TODO: FB AUTHENTICATION
+ *  TODO: PASSWORD VALIDITY CHECKING
+ *  TODO: EMAIL VERTIFICATION
+ */
 
+class MainActivity : AppCompatActivity() {
+    // declare private late initializer variables
+    // create instance of ActivityMainBinding
     private lateinit var binding: ActivityMainBinding
+
+    // create instance of FirebaseAuth
     private lateinit var auth: FirebaseAuth
 
+
+    //main function of this activity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         // Initialize Firebase Auth
         auth = Firebase.auth
+        // creates an instance of the binding class for the activity to use.
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Example of a call to a native method
         //binding.sampleText.text = stringFromJNI()
-        reload()
+
+        auth.addAuthStateListener { auth ->
+            //get current user
+            val user = auth.currentUser
+            // Check if user is signed in (non-null) and update UI accordingly.
+            if (user != null) {
+                // User is signed in
+                gotask()
+            } else {
+                //User is signed out
+                signin()
+            }
+        }
     }
 
-//    public override fun onStart() {
-//        super.onStart()
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        val currentUser = auth.currentUser
-//        if(currentUser != null){
-//            reload();
-//        }
-//    }
-
-    private fun reload() {
+    //function for sign in task
+    private fun signin() {
+        //intent Sign in activity
         val intent = Intent(this, SignIn::class.java)
+        //starts an instance of the Sign in activity
+        startActivity(intent)
+    }
+
+    //function for go to main task
+    private fun gotask() {
+        //intent MainActivity2
+        val intent = Intent(this, MainActivity2::class.java)
+        //starts an instance of the MainActivity2
         startActivity(intent)
     }
 
