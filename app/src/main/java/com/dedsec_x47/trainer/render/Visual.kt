@@ -1,11 +1,11 @@
 package com.dedsec_x47.trainer.render
 
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
+import android.content.ContentValues
+import android.graphics.*
+import android.util.Log
 import com.dedsec_x47.trainer.data.KeyPoints
 import com.dedsec_x47.trainer.data.Human
+import kotlin.math.*
 
 object Visual {
     private const val LINE_WIDTH = 4f
@@ -34,13 +34,47 @@ object Visual {
             color = Color.RED
             style = Paint.Style.FILL
         }
+        val paintLine1 = Paint().apply{
+            strokeWidth = LINE_WIDTH
+            color = Color.BLUE
+            style = Paint.Style.FILL
+        }
         val output = input.copy(Bitmap.Config.ARGB_8888,true)
         val originalSizeCanvas = Canvas(output)
         bodyJoints.forEach{
             val pointA = person.keyPoints[it.first.position].coordinate
             val pointB = person.keyPoints[it.second.position].coordinate
-            originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
+            if(it.first == KeyPoints.LEFT_ELBOW || it.first == KeyPoints.LEFT_SHOULDER){
+                originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine1)
+            }
+            else originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
         }
+
+        //sample//////////////////////////////////////////////
+        val gfx = listOf<PointF>(
+            person.keyPoints[KeyPoints.LEFT_WRIST.position].coordinate,
+            person.keyPoints[KeyPoints.LEFT_ELBOW.position].coordinate,
+            person.keyPoints[KeyPoints.LEFT_SHOULDER.position].coordinate
+        )
+        getAngle(gfx)
+
         return output
+    }
+
+    // get angle bw 3 joints
+    private fun getAngle(anglePoints: List<PointF>): Double {
+        val x1 = anglePoints[0].x
+        val y1 = anglePoints[0].y
+        val x2 = anglePoints[1].x
+        val y2 = anglePoints[1].y
+        val x3 = anglePoints[2].x
+        val y3 = anglePoints[2].y
+
+        var angle = Math.toDegrees((atan2((y3 - y2), (x3 - x2)) - atan2((y1 - y2), (x1 - x2))).toDouble())
+
+        if(angle < 0) angle += 360
+
+        Log.d(ContentValues.TAG, angle.toString())
+        return angle
     }
 }

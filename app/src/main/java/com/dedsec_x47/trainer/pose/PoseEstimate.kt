@@ -181,23 +181,6 @@ class PoseEstimate(private val interpreter: Interpreter, private var gpuDelegate
         )
     }
 
-    // get angle bw 3 joints
-    private fun getAngle(anglePoints: List<PointF>): Float {
-        val x1 = anglePoints[0].x
-        val y1 = anglePoints[0].y
-        val x2 = anglePoints[1].x
-        val y2 = anglePoints[1].y
-        val x3 = anglePoints[2].x
-        val y3 = anglePoints[2].y
-        
-        var angle = atan2((y3 - y2), (x3 - x2)) - atan2((y1 - y2), (x1 - x2))
-
-        if(angle < 0) angle += 360
-
-         Log.d(TAG, angle.toString())
-        return angle
-    }
-
     // crop acc to prev frame
     private fun determineRectF(keyPoints: List<KeyPoint>, imageWidth: Int, imageHeight: Int): RectF{
         val targetKeyPoints = mutableListOf<KeyPoint>()

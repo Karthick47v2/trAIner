@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Process
 import android.view.SurfaceView
-import android.view.View
 import android.view.WindowManager
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
@@ -19,7 +18,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.dedsec_x47.trainer.camera.CameraSource
 import com.dedsec_x47.trainer.data.Accelerator
-import com.dedsec_x47.trainer.pose.ModelType
 import com.dedsec_x47.trainer.pose.PoseEstimate
 
 class MainActivity : AppCompatActivity(){
