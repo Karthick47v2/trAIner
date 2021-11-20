@@ -9,15 +9,23 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:padding="10dp">
 
         <ImageView
-            android:layout_width="190dp"
-            android:layout_height="386dp"
+            android:id="@+id/cloudMessage"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="160dp"
-            android:src="@drawable/welcome" />
+            android:layout_marginTop="1dp"
+            android:src="@drawable/android_logo_2019" />
+
+        <TextView
+            android:id="@+id/message"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="191dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="20dp"
+            android:text="       This is message" />
 
     </LinearLayout>
 

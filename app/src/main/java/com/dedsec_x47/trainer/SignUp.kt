@@ -1,7 +1,5 @@
 package com.dedsec_x47.trainer
 
-//import android.R
-
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-
 
 class SignUp : AppCompatActivity() {
 
@@ -33,8 +30,35 @@ class SignUp : AppCompatActivity() {
             val email: String = emailEt.text.toString()
             val password: String = passwordEt.text.toString()
 
-            createAccount(email, password)
+//            if (checkPasswordValidity()) {
+                createAccount(email, password)
+//            }
         }
+    }
+
+//    private fun checkPasswordValidity(): Boolean {
+//        return true;
+//    }
+
+    private fun sendEmailVerification() {
+        // [START send_email_verification]
+        val user = auth.currentUser!!
+        user.sendEmailVerification()
+            .addOnCompleteListener(this) { task ->
+                Toast.makeText(        //short time notification
+                    baseContext, "Verification Email is sent",
+                    Toast.LENGTH_SHORT
+                ).show()
+                //auth.signOut()
+                updateUI()
+            }
+            .addOnFailureListener(this){
+                Toast.makeText(        //short time notification
+                    baseContext, "Verification Email sending Failed",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        // [END send_email_verification]
     }
 
     private fun createAccount(email: String, password: String) {
@@ -42,17 +66,10 @@ class SignUp : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-//                    val user = auth.currentUser
-//                    sendEmailVerification()
-//                    while(!user!!.isEmailVerified){
-//                        Toast.makeText(        //short time notification
-//                            baseContext, "Email not verified",
-//                            Toast.LENGTH_SHORT
-//                        ).show()
-//                        Log.d(TAG, "Email not verified")
-//                    }
+                    //sendEmailVerification()
+                    updateUI()
                     Log.d(TAG, "createUserWithEmail:success")
-                    getDetails()
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -62,19 +79,10 @@ class SignUp : AppCompatActivity() {
             }
     }
 
-    private fun sendEmailVerification() {
-        // [START send_email_verification]
-        val user = auth.currentUser!!
-        user.sendEmailVerification()
-            .addOnCompleteListener(this) { task ->
-                // Email Verification sent
-            }
-        // [END send_email_verification]
-    }
-
-    private fun getDetails() {
-        val intent = Intent(this, GetUserDetails::class.java)
+    private fun updateUI() {
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     companion object {

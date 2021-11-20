@@ -1,14 +1,17 @@
 package com.dedsec_x47.trainer
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-
+import androidx.appcompat.app.AppCompatActivity
+import com.facebook.AccessToken
+import com.facebook.GraphRequest
+import com.facebook.HttpMethod
+import com.facebook.login.LoginManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class MainActivity2 : AppCompatActivity() {
+class LogOut : AppCompatActivity() {
     // declare private late initializer variables
     private lateinit var auth: FirebaseAuth  // create instance of FirebaseAuth
 
@@ -25,6 +28,20 @@ class MainActivity2 : AppCompatActivity() {
             auth = Firebase.auth
             // SignOut user
             auth.signOut()
+            disconnectFromFacebook()
+        }
+    }
+
+    private fun disconnectFromFacebook() {
+        if (AccessToken.getCurrentAccessToken() != null) {
+//            GraphRequest(
+//                AccessToken.getCurrentAccessToken(), "/me/permissions/", null, HttpMethod.DELETE, {
+//                    AccessToken.setCurrentAccessToken(null)
+//                    LoginManager.getInstance().logOut()
+//                    finish()
+//                }
+//            ).executeAsync()
+            LoginManager.getInstance().logOut()
         }
     }
 }
