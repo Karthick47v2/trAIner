@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">trainer</string>
+    <string name="sign_in">Sign In</string>
+    <string name="enter_email_id">Enter Your Email ID</string>
+    <string name="enter_password">Enter Your Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login_background_img">loginBackgroundImg</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">sign Up</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="signup_background_image">signup_background_image</string>
+    <string name="create">Create</string>
+    <string name="cancel">Cancel</string>
+</resources>
