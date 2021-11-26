@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.dedsec_x47.trainer"
-        minSdk 23
+        minSdk 26
         targetSdk 30
         versionCode 1
         versionName "1.0"
@@ -47,6 +47,7 @@ android {
         viewBinding = true
         dataBinding = true
     }
+    task wrapper(type: Wrapper) { gradleVersion = '2.14.1' }
 }
 
 // dependencies allows us to include external library or local jar files or other library modules in our Android project.

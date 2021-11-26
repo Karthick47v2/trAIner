@@ -22,10 +22,10 @@ class SignUp : AppCompatActivity() {
         auth = Firebase.auth
 
         //when button tapped execute create account task
-        val sign_up_button: Button = findViewById(R.id.sign_up_button)
+        val sign_up_button: Button = findViewById(R.id.btnCreate)
         sign_up_button.setOnClickListener {
-            val emailEt: EditText = findViewById(R.id.sign_up_email)
-            val passwordEt: EditText = findViewById(R.id.sign_up_password)
+            val emailEt: EditText = findViewById(R.id.textInputEditTextNewEmail)
+            val passwordEt: EditText = findViewById(R.id.textInputEditTextNewPassword)
 
             val email: String = emailEt.text.toString()
             val password: String = passwordEt.text.toString()

@@ -11,7 +11,7 @@ import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-
+/*
 const val channelId = "cloudMessageNotification"
 const val channelName = "com.dedsec_x47.trainer"
 
@@ -65,3 +65,4 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
     }
 
 }
+ */

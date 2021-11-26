@@ -25,19 +25,19 @@ class SignIn : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var callbackManager: CallbackManager
     private lateinit var buttonFacebookLogin: LoginButton
-    private lateinit var binding: ActivitySignInBinding
+    /*private lateinit var binding: ActivitySignInBinding*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //set activity sign in layout
-        binding = ActivitySignInBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        /*binding = ActivitySignInBinding.inflate(layoutInflater)*/
+        setContentView(R.layout.activity_login)
 
         //setContentView(R.layout.activity_sign_in)
         auth = Firebase.auth
         callbackManager = CallbackManager.Factory.create()
 
-        buttonFacebookLogin = findViewById(R.id.fb_login_button)
+        buttonFacebookLogin = findViewById(R.id.btnFacebook)
         buttonFacebookLogin.setReadPermissions(listOf("email", "public_profile"))
 
         buttonFacebookLogin.setOnClickListener {
@@ -45,12 +45,12 @@ class SignIn : AppCompatActivity() {
         }
 
         //when sign in button tapped execute sign in task
-        val sign_in_button: Button = findViewById(R.id.sign_in_button)
+        val sign_in_button: Button = findViewById(R.id.btnSignIn)
         sign_in_button.setOnClickListener {
             // Initialize Firebase Auth
 
-            val emailEt: EditText = findViewById(R.id.sign_in_email)
-            val passwordEt: EditText = findViewById(R.id.sign_in_password)
+            val emailEt: EditText = findViewById(R.id.textInputEditTextEmail)
+            val passwordEt: EditText = findViewById(R.id.textInputEditTextPassword)
 
             val email: String = emailEt.text.toString()
             val password: String = passwordEt.text.toString()
@@ -58,7 +58,7 @@ class SignIn : AppCompatActivity() {
             emailloginaccount(email, password)
         }
 
-        val sign_up_button: Button = findViewById(R.id.sign_up_button)
+        val sign_up_button: Button = findViewById(R.id.btnSignUp)
         sign_up_button.setOnClickListener {
             getDetails()
         }
@@ -127,10 +127,10 @@ class SignIn : AppCompatActivity() {
             val fbid = obj?.getLong("id")
 
             //val avatar = ImageRequest.getProfilePictureUri(fbid.toString(), 200, 200).toString()
-            val avatar = "https://graph.facebook.com/me/picture?access_token=${accessToken.toString()}"
+            /*val avatar = "https://graph.facebook.com/me/picture?access_token=${accessToken.toString()}"
             Glide.with(this)
                 .load(avatar)
-                .into(binding.profileImage)
+                .into(binding.profileImage)*/
 
             val name :String = obj?.getString("name").toString()
             val emailid = obj!!.getString("email")
