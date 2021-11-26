@@ -62,7 +62,7 @@ object Visual {
     }
 
     // get angle bw 3 joints
-    private fun getAngle(anglePoints: List<PointF>): Double {
+    fun getAngle(anglePoints: List<PointF>): Double {
         val x1 = anglePoints[0].x
         val y1 = anglePoints[0].y
         val x2 = anglePoints[1].x
@@ -70,9 +70,9 @@ object Visual {
         val x3 = anglePoints[2].x
         val y3 = anglePoints[2].y
 
-        var angle = Math.toDegrees((atan2((y3 - y2), (x3 - x2)) - atan2((y1 - y2), (x1 - x2))).toDouble())
+        var angle = Math.toDegrees((atan2((y1 - y2), (x1 - x2)) - atan2((y3 - y2), (x3 - x2))).toDouble())
 
-        if(angle < 0) angle += 360
+        if(angle < 0) angle *= -1
 
         Log.d(ContentValues.TAG, angle.toString())
         return angle
