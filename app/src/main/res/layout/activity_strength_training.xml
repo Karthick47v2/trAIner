@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StrengthTrainingActivity"
+    android:background="@color/bgBlack">
+
+    <ImageView
+        android:id="@+id/imgOrangeBg2"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:scaleX="1.8"
+        android:scaleY="2.2"
+        android:src="@drawable/bg_orange"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txtWeightLoss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/strength_training"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtWeightLoss"
+        android:layout_centerHorizontal="true"
+        android:text="@string/select_a_workout_to_start"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <ScrollView
+        android:id="@+id/scrollViewST"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txtDescription"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
+
+        <GridLayout
+            android:id="@+id/gridLayoutST"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPushUpST"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgPushUpST"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_push_up"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtPushUpST"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/push_up"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtPushUpST"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPushUpST"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSitUpST"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgSitUpST"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_sit_up"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtSitUpST"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/sit_up"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtSitUpST"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSitUpST"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardBenchPressDumbbellST"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgBenchPressDumbbellST"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_dumbbell_bench_press"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtBenchPressDumbbellST"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/bench_press_dumbbell"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtBenchPressDumbbellST"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtBenchPressDumbbellST"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardBenchPressBarbellST"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgBenchPressBarbellST"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_bench_press_barbell"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtBenchPressBarbellST"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/bench_press_barbell"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtBenchPressBarbellST"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtBenchPressBarbellST"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardShoulderPressDumbbell"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgShoulderPressDumbbell"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_dumbbell_shoulder_press"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtShoulderPressDumbbellST"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/shoulder_press_dumbbell"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtShoulderPressDumbbellST"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtShoulderPressDumbbellST"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardShoulderPressBarbellST"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgShoulderPressBarbellST"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_barbell_shoulder_press"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtShoulderPressBarbellST"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/shoulder_press_barbell"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtShoulderPressBarbellST"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtShoulderPressBarbellST"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardChinUpST"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgChinUpST"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_chin_up"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtChinUpST"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/chin_up"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtChinUpST"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtChinUpST"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDeadLiftST"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgDeadLiftST"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_dead_lift"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtDeadLiftST"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/dead_lift"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtDeadLiftST"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtDeadLiftST"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardHammerCurlST"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgHammerCurlST"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_hammer_curls"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtHammerCurlST"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/hammer_curl"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtHammerCurlST"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtHammerCurlST"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+        </GridLayout>
+    </ScrollView>
+
+</RelativeLayout>

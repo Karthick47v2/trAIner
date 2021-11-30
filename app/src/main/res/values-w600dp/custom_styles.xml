@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="specificCornerCut">
+        <item name="cornerSizeTopRight">100%</item>
+        <item name="cornerFamilyTopRight">rounded</item>
+    </style>
+
+    <style name="roundCorners">
+        <item name="cornerSize">50dp</item>
+    </style>
+
+    <style name="roundCornersHeader">
+        <item name="cornerSize">35dp</item>
+    </style>
+
+</resources>

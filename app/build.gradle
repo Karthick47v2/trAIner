@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk 31
     ndkVersion '23.0.7599858'
 
     defaultConfig {
         applicationId "com.dedsec_x47.trainer"
-        minSdk 23
+        minSdk 26
         targetSdk 30
         versionCode 1
         versionName "1.0"
@@ -43,13 +43,25 @@ android {
         }
     }
     buildFeatures {
+<<<<<<< Updated upstream
         viewBinding true
     }
+=======
+        // Enable view binding
+        viewBinding = true
+        dataBinding = true
+    }
+    task wrapper(type: Wrapper) { gradleVersion = '2.14.1' }
+>>>>>>> Stashed changes
 }
 
+// dependencies allows us to include external library or local jar files or other library modules in our Android project.
 dependencies {
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
@@ -59,7 +71,24 @@ dependencies {
     testImplementation 'junit:junit:4.5'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation 'androidx.core:core-ktx:1.6.0'
 
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.5.0-beta01'
+    implementation("androidx.recyclerview:recyclerview:1.2.1")
+    implementation("androidx.cardview:cardview:1.0.0")
+
+    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
+    implementation 'com.facebook.android:facebook-login:[8.1)'
+
+
+
+    //circular image library
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+<<<<<<< Updated upstream
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation platform('com.google.firebase:firebase-bom:28.4.1')
     implementation 'com.google.firebase:firebase-auth-ktx'
@@ -67,4 +96,25 @@ dependencies {
     implementation 'com.facebook.android:facebook-login:[8.1)'
     implementation 'com.google.firebase:firebase-common-ktx:20.0.0'
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
+=======
+    // Import the BoM for the Firebase platform
+    // For always use compatible versions of the Firebase Android libraries.
+    implementation platform('com.google.firebase:firebase-bom:28.4.1')
+    // Declare the dependency for the Firebase Authentication library
+    // We using the BoM, so we don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-common-ktx:20.0.0'
+    implementation 'com.google.firebase:firebase-database:20.0.2'
+    implementation 'com.google.firebase:firebase-database-ktx:20.0.2'
+    implementation 'com.google.firebase:firebase-storage:20.0.0'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.0.0'
+    implementation 'com.google.firebase:firebase-core:20.0.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+
+    //progress dialog library
+    implementation 'com.jpardogo.googleprogressbar:library:1.2.0'
+    //TODO:FB API 3.1 (GET REQUEST)
+>>>>>>> Stashed changes
 }

@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WeightLossActivity"
+    android:background="@color/bgBlack"
+    >
+
+    <ImageView
+        android:id="@+id/imgOrangeBg1"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:contentDescription="@string/bg_orange_image"
+        android:scaleX="1.8"
+        android:scaleY="2.2"
+        android:src="@drawable/bg_orange" />
+
+    <TextView
+        android:id="@+id/txtWeightLoss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/weight_loss"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/txtDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtWeightLoss"
+        android:layout_centerHorizontal="true"
+        android:text="@string/select_a_workout_to_start"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <ScrollView
+        android:id="@+id/scrollViewWL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txtDescription"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
+
+        <GridLayout
+            android:id="@+id/gridLayoutWL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPushUpWL"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgPushUpWL"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_push_up"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtPushUpWL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/push_up"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtPushUpWL"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPushUpWL"
+                        tools:ignore="ContentDescription" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSquatWL"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgSquatWL"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_squat"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtSquatWL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/squat"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtSquatWL"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSquatWL"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPlankWL"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgPlankWL"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_plank"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtPlankWL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/plank"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtPlankWL"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtPlankWL"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSplitSquatWL"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgSplitSquatWL"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_split_squat"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtSplitSquatWL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/split_squat"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtSplitSquatWL"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSplitSquatWL"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSitUpWL"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgSitUpWL"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_sit_up"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtSitUpWL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/sit_up"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtSitUpWL"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSitUpWL"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardChinUpWL"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgChinUpWL"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_chin_up"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtChinUpWL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/chin_up"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtChinUpWL"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtChinUpWL"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardLegRaiseWL"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgLegRaiseWL"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_leg_raises"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+
+                    <TextView
+                        android:id="@+id/txtLegRaiseWL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparentBlack2"
+                        android:maxWidth="160dp"
+                        android:text="@string/leg_raise"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/arrow_bg"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3"
+                        android:src="@drawable/ic_baseline_arrow_forward_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/txtLegRaiseWL"
+                        app:layout_constraintHorizontal_bias="0.88"
+                        app:layout_constraintVertical_bias="0.64"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtLegRaiseWL"
+                        tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </GridLayout>
+    </ScrollView>
+
+</RelativeLayout>

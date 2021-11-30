@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/miChallenges"
+        android:title="Challenges"
+        android:icon="@drawable/challenge_change"/>
+
+    <item
+        android:id="@+id/miStats"
+        android:title="Stats"
+        android:icon="@drawable/stats_change"/>
+
+    <item
+        android:id="@+id/miHome"
+        android:title="Home"
+        android:icon="@drawable/home_change"/>
+
+    <item
+        android:id="@+id/miLeaderboard"
+        android:title="Leaderboard"
+        android:icon="@drawable/leaderboard_change"/>
+
+    <item
+        android:id="@+id/miProfile"
+        android:title="Profile"
+        android:icon="@drawable/profile_change"/>
+
+</menu>

@@ -2,14 +2,31 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dedsec_x47.trainer">
 
+<<<<<<< Updated upstream
+=======
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+>>>>>>> Stashed changes
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TrAIner">
+        android:theme="@style/Theme.Trainer">
         <activity
+            android:name=".SetAlarm"
+            android:exported="true" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+<<<<<<< Updated upstream
             android:name=".SignIn"
             android:exported="true" />
         <activity
@@ -17,13 +34,64 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
+=======
+            android:name="com.facebook.CustomTabActivity"
+>>>>>>> Stashed changes
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".auth.LogOut"
+            android:exported="true" />
+        <activity
+            android:name=".auth.SignIn"
+            android:exported="true" />
+        <activity
+            android:name=".auth.SignUp"
+            android:exported="true" />
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="true">
+<!--            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+<<<<<<< Updated upstream
+=======
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
+        <activity
+            android:theme="@style/Theme.TrainerUI"
+            android:name=".homeFragments.FeedbackActivity"
+            android:exported="true" />
+        <activity
+            android:theme="@style/Theme.TrainerUI"
+            android:name=".homeFragments.SettingsActivity"
+            android:exported="true" />
+        <activity
+            android:theme="@style/Theme.TrainerUI"
+            android:name=".HomeScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
+>>>>>>> Stashed changes
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <receiver android:name=".AlarmReceiver" />
     </application>
 
 </manifest>

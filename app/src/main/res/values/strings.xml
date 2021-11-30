@@ -1,4 +1,5 @@
 <resources>
+<<<<<<< Updated upstream
     <string name="app_name">trAIner</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
@@ -12,4 +13,50 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+=======
+    <string name="app_name">trainer</string>
+    <string name="sign_in">Sign In</string>
+    <string name="enter_email_id">Enter Your Email ID</string>
+    <string name="enter_password">Enter Your Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login_background_img">loginBackgroundImg</string>
+    <string name="do_not_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">sign Up</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_new_password">Enter New Password</string>
+    <string name="signup_background_image">signup_background_image</string>
+    <string name="create">Create</string>
+    <string name="cancel">Cancel</string>
+    <string name="facebook_app_id">422720759576428</string>
+    <string name="fb_login_protocol_scheme">fb422720759576428</string>
+    <string name="enter_your_gender">Gender</string>
+    <string name="enter_your_age">Enter Your Age</string>
+
+    <string name="lorem_ipsum_title">Lorem Ipsum"</string>
+    <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
+        typesetting industry. Lorem Ipsum has been the industry\'s standard placeholder text ever
+        since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+        type specimen book"
+    </string>
+    <string name="bg_orange_image">bg orange image</string>
+    <string name="weight_loss">WEIGHT LOSS</string>
+    <string name="select_a_workout_to_start">Select A Workout To Start</string>
+    <string name="push_up">Push-up</string>
+    <string name="squat">Squat</string>
+    <string name="plank">Plank</string>
+    <string name="split_squat">Split Squat</string>
+    <string name="sit_up">Sit-up</string>
+    <string name="chin_up">Chin-up</string>
+    <string name="leg_raise">Leg Raise</string>
+    <string name="strength_training">STRENGTH TRAINING</string>
+    <string name="bench_press_dumbbell">Bench Press - Dumbbell</string>
+    <string name="bench_press_barbell">Bench Press - Barbell</string>
+    <string name="shoulder_press_dumbbell">Shoulder Press - Dumbbell</string>
+    <string name="shoulder_press_barbell">Shoulder Press - Barbell</string>
+    <string name="hammer_curl">Hammer Curl</string>
+    <string name="dead_lift">Dead Lift</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+>>>>>>> Stashed changes
 </resources>
