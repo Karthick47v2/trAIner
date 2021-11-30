@@ -31,17 +31,4 @@
     <style name="RatingTheme" parent="Theme.AppCompat">
         <item name="colorControlActivated">@color/white</item>
     </style>
-<<<<<<< Updated upstream
-    <style name="Theme.TrAIner.AppWidgetContainerParent"
-        parent="@android:style/Theme.DeviceDefault">
-        <item name="appWidgetRadius">8dp</item>
-        <item name="appWidgetPadding">4dp</item>
-        <item name="appWidgetInnerRadius">4dp</item>
-    </style>
-
-    <style name="Theme.TrAIner.AppWidgetContainer"
-        parent="Theme.TrAIner.AppWidgetContainerParent" />
 </resources>
-=======
-</resources>
->>>>>>> Stashed changes

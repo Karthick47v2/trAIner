@@ -1,55 +1,33 @@
 {
   "project_info": {
-<<<<<<< Updated upstream
-    "project_number": "829084645627",
-    "project_id": "trainer-180af",
-    "storage_bucket": "trainer-180af.appspot.com"
-=======
     "project_number": "952396493583",
     "project_id": "trainer-a1813",
     "storage_bucket": "trainer-a1813.appspot.com"
->>>>>>> Stashed changes
   },
   "client": [
     {
       "client_info": {
-<<<<<<< Updated upstream
-        "mobilesdk_app_id": "1:829084645627:android:d374010733b635527f985e",
-=======
         "mobilesdk_app_id": "1:952396493583:android:656e9867db2c34b436847a",
->>>>>>> Stashed changes
         "android_client_info": {
           "package_name": "com.dedsec_x47.trainer"
         }
       },
       "oauth_client": [
         {
-<<<<<<< Updated upstream
-          "client_id": "829084645627-2574eh206emvjlb8dri6t2ds4mlbmado.apps.googleusercontent.com",
-=======
           "client_id": "952396493583-4kplchclppk6cklshr69l654tiqqnk9m.apps.googleusercontent.com",
->>>>>>> Stashed changes
           "client_type": 3
         }
       ],
       "api_key": [
         {
-<<<<<<< Updated upstream
-          "current_key": "AIzaSyB1_-zXNzZ19B7wRpOkIVcBJgmyd_FS-8c"
-=======
           "current_key": "AIzaSyDUYt77_htajUibN4uL-Ul0H7-WcYT_KSU"
->>>>>>> Stashed changes
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-<<<<<<< Updated upstream
-              "client_id": "829084645627-2574eh206emvjlb8dri6t2ds4mlbmado.apps.googleusercontent.com",
-=======
               "client_id": "952396493583-4kplchclppk6cklshr69l654tiqqnk9m.apps.googleusercontent.com",
->>>>>>> Stashed changes
               "client_type": 3
             }
           ]

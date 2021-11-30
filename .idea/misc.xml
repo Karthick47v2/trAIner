@@ -3,18 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< Updated upstream
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/drawable/ic_launcher_background.xml" value="0.290625" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.17637215528781794" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_email.xml" value="0.264" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_login.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_register_user.xml" value="0.1" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_sign_in.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_signup.xml" value="0.176" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/new_app_widget.xml" value="0.27447916666666666" />
-=======
         <entry key="..\:/Users/DELL/Desktop/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.290625" />
         <entry key="..\:/Users/DELL/Desktop/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
         <entry key="..\:/Users/DELL/Desktop/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable/edit_text_ripple.xml" value="0.290625" />
@@ -48,7 +36,6 @@
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/new_app_widget.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.275" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.275" />
-        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_strength_training.xml" value="0.18819655521783182" />
         <entry key="..\:/Users/KTK_47/Downloads/123456/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable-nodpi/bottom_round_corners.xml" value="0.39692307692307693" />
         <entry key="..\:/Users/KTK_47/Downloads/123456/trAIner-Gowree/trAIner-Gowree/app/src/main/res/font/bungee.xml" value="0.4107692307692308" />
         <entry key="..\:/Users/KTK_47/Downloads/123456/trAIner-Gowree/trAIner-Gowree/app/src/main/res/layout/activity_feedback.xml" value="0.18819655521783182" />
@@ -70,7 +57,6 @@
         <entry key="..\:/Users/KTK_47/Downloads/trAIner/trAIner/app/src/main/res/layout/activity_signup.xml" value="0.37135416666666665" />
         <entry key="..\:/trAIner/app/src/main/res/layout/activity_main.xml" value="0.23385416666666667" />
         <entry key="..\:/trAIner/app/src/main/res/layout/activity_set_alarm.xml" value="0.23385416666666667" />
->>>>>>> Stashed changes
       </map>
     </option>
   </component>
