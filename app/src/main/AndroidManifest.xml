@@ -52,7 +52,7 @@
             </intent-filter>
         </activity>
 
-       <!-- <activity
+        <activity
             android:theme="@style/Theme.TrainerUI"
             android:name=".homeFragments.FeedbackActivity"
             android:exported="true" />
@@ -64,16 +64,13 @@
             android:theme="@style/Theme.TrainerUI"
             android:name=".HomeScreen"
             android:exported="true">
-            &lt;!&ndash;<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>&ndash;&gt;
+            </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />-->
 
         <receiver android:name=".AlarmReceiver" />
     </application>

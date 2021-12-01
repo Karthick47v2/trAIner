@@ -3,6 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/drawable-nodpi/logut_round_corners.xml" value="0.26614583333333336" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/drawable/btn_black_ripple.xml" value="0.26614583333333336" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/font/abeezee.xml" value="0.28020833333333334" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/font/roboto_thin.xml" value="0.2490740740740741" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_feedback.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_main2.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_setalarm.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_settings.xml" value="0.264" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_signup.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_strength_training.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_weight_loss.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/example_item.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_challenge.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_leaderboard.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_stats.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/nav_header.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/menu/nav_drawer_menu.xml" value="0.25" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.2765625" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_get_user_details.xml" value="0.1334853090172239" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_login.xml" value="0.27447916666666666" />

@@ -13,7 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        app:boxBackgroundColor="@color/transparentBlack2"
         android:hint="User Name"
+        android:textColorHint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,6 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Emma James"
+            android:textColor="@color/white"
             android:drawablePadding="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -33,6 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Age"
+        android:textColorHint="@color/grey"
+        app:boxBackgroundColor="@color/transparentBlack2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfFullName">
@@ -41,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="20"
+            android:textColor="@color/white"
             android:drawablePadding="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -51,6 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Weight (kg)"
+        android:textColorHint="@color/grey"
+        app:boxBackgroundColor="@color/transparentBlack2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfAge">
@@ -59,6 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="60"
+            android:textColor="@color/white"
             android:drawablePadding="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -69,6 +78,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Height (cm)"
+        android:textColorHint="@color/grey"
+        app:boxBackgroundColor="@color/transparentBlack2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfWeight">
@@ -77,6 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="120"
+            android:textColor="@color/white"
             android:drawablePadding="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -87,6 +99,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Gender"
+        android:textColorHint="@color/grey"
+        app:boxBackgroundColor="@color/transparentBlack2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfHeight">
@@ -95,6 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Male"
+            android:textColor="@color/white"
             android:drawablePadding="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,12 +117,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="@color/orange"
+        android:fontFamily="sans-serif-medium"
         android:padding="10dp"
         android:text="Update"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:fontFamily="@font/roboto_medium"
         app:layout_constraintEnd_toEndOf="@+id/tfGender"
         app:layout_constraintStart_toStartOf="@+id/tfGender"
         app:layout_constraintTop_toBottomOf="@+id/tfGender" />
