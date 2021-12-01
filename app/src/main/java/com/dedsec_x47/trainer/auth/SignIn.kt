@@ -35,8 +35,8 @@ class SignIn : AppCompatActivity() {
 
         activityLoginBinding.btnSignIn.setOnClickListener {
 
-            val email = activityLoginBinding.textInputEditTextEmail.text.toString()
-            val password  = activityLoginBinding.textInputEditTextPassword.text.toString()
+            val email = activityLoginBinding.textInputEditTextEmail.text.toString().trim()
+            val password  = activityLoginBinding.textInputEditTextPassword.text.toString().trim()
 
             if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(

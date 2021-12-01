@@ -18,7 +18,7 @@ lateinit var newUserImageUri: Uri
 lateinit var newUserName: String
 var newUserAge: Int = 0
 lateinit var userGender: String
-
+//todo:  changed //android:inputType="textPersonName"  as input type:textfilter
 class SignUp : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
@@ -34,7 +34,7 @@ class SignUp : AppCompatActivity() {
         activitySignupBinding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(activitySignupBinding.root)
 
-        auth = Firebase.auth                                        // Initialize Firebase Auth
+        auth = Firebase.auth
 
         activitySignupBinding.profileImage.setOnClickListener {
             selectProfileImage()
@@ -47,11 +47,17 @@ class SignUp : AppCompatActivity() {
                 ).show()
             } else {
                 newUserName = activitySignupBinding.textInputEditTextUserName.text.toString()
-                email = activitySignupBinding.textInputEditTextNewEmail.text.toString()
+                email = activitySignupBinding.textInputEditTextNewEmail.text.toString().trim()
                 password1 = activitySignupBinding.textInputEditTextNewPassword.text.toString()
                 password2 = activitySignupBinding.textInputEditTextConfirmPassword.text.toString()
-                newUserAge = Integer.parseInt(activitySignupBinding.textInputEditTextAge.text.toString())
+                val tempAge = activitySignupBinding.textInputEditTextAge.text.toString()
                 userGender = activitySignupBinding.textInputLayoutEditTextGender.text.toString()
+
+                if(!TextUtils.isEmpty(tempAge)){
+                    newUserAge = Integer.parseInt(tempAge)
+                }
+
+                Log.d("tag", newUserName +"\n"+email+"\n"+password1+"\n"+password2+"\n"+tempAge+"\n"+ userGender)
 
                 if (detailsValidityChecker(
                         newUserName,
@@ -102,13 +108,16 @@ class SignUp : AppCompatActivity() {
     ): Boolean {
 
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password1)
-            || TextUtils.isEmpty(password2) || (age == 0) || TextUtils.isEmpty(gender)
-        ) {
+            || TextUtils.isEmpty(password2) ) {
             Toast.makeText(
                 baseContext, "Please Fill all details",
                 Toast.LENGTH_SHORT
             ).show()
             return false
+        }
+
+        if((age == 0) || TextUtils.isEmpty(gender)){
+            //after adding list button
         }
 
         if (password1 != password2) {
@@ -124,7 +133,7 @@ class SignUp : AppCompatActivity() {
 
     private fun isPasswordValid(password: String): Boolean {
 
-        if (!(password.length > 8)) { //minimum chars 8
+        if (!(password.length >= 8)) { //minimum chars 8
             Toast.makeText(
                 baseContext, "Minimum password Length 8",
                 Toast.LENGTH_SHORT
@@ -200,6 +209,10 @@ class SignUp : AppCompatActivity() {
             }
         }
         if (!isPasswordHaveSmallLetters) {
+            Toast.makeText(
+                baseContext, "Password Should Contain A Small Letter",
+                Toast.LENGTH_SHORT
+            ).show()
             return false
         }
 

@@ -19,7 +19,7 @@ var isDetailsSaved = false
 var isfacebookLogin = false
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth           // create instance of FirebaseAuth
+    private lateinit var auth: FirebaseAuth
     var isVertificationEmailSent = false
     private lateinit var activityMainBinding: ActivityMainBinding
 
@@ -29,17 +29,15 @@ class LoginActivity : AppCompatActivity() {
         setContentView(activityMainBinding.root)
         createNotificationChannel()
 
-        auth = Firebase.auth                         // Initialize Firebase Auth
-        auth.addAuthStateListener { auth ->
-            //get current user
-            val user = auth.currentUser
-            Log.d("User Type : ", isNewUser.toString())
+        auth = Firebase.auth
+        val user = auth.currentUser
 
-            // Check if user is signed in (non-null) and update UI accordingly.
-            if (user != null) {                     //User is signed in
+        auth.addAuthStateListener { auth ->
+            Log.d("User Type : ", isNewUser.toString())
+            if (user != null) {
+
                 user.reload()
                 if (user.isEmailVerified && !isfacebookLogin) {
-
                     isVertificationEmailSent = false
                     Log.d(" ", "Email Is verified")
                     if (isNewUser) {
