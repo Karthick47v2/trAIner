@@ -43,7 +43,7 @@
             android:elevation="12dp"
             android:maxHeight="80dp"
             android:scaleType="centerCrop"
-            android:src=""
+            android:src="@null"
             app:shapeAppearanceOverlay="@style/RoundCornerImage"
             tools:ignore="ContentDescription" />
 
@@ -58,7 +58,7 @@
             android:elevation="12dp"
             android:maxHeight="80dp"
             android:scaleType="centerCrop"
-            android:src=""
+            android:src="@null"
             app:shapeAppearanceOverlay="@style/RoundCornerImage"
             tools:ignore="ContentDescription,ImageContrastCheck" />
     </LinearLayout>
