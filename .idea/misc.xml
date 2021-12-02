@@ -51,14 +51,29 @@
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/new_app_widget.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.275" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.275" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_bench_press_dinst.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_deadlift_inst.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_hammer_curl_inst.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_home.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_benchpressbarbell.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_benchpressdumbbell.xml" value="0.21875" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_plank.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_shoulderpressbarbell.xml" value="0.21875" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_shoulderpressdumbbell.xml" value="0.21875" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_leg_raise_inst.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_mainoo.xml" value="0.3446557971014493" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_mini_games.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_push_up_instr.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_shoulder_press_binst.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_shoulder_press_dinst.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_signup.xml" value="0.3161231884057971" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_situp_inst.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_splitsquat_inst.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_squat_inst.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_starting.xml" value="0.3446557971014493" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_strength.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_strength_training.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_weight_loss.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/fragment_home.xml" value="0.3161231884057971" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/fragment_profile.xml" value="0.3161231884057971" />
         <entry key="..\:/Users/KTK_47/Downloads/123456/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable-nodpi/bottom_round_corners.xml" value="0.39692307692307693" />
@@ -85,7 +100,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>
