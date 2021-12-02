@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/btn_black_ripple.xml" value="0.13125" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/spinner_style.xml" value="0.13125" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_login.xml" value="0.17" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_settings.xml" value="0.18" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_signup.xml" value="0.18" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_strength_training.xml" value="0.18" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_weight_loss.xml" value="0.18" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/dropdown_item.xml" value="0.12105263157894737" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/example_item.xml" value="0.16576576576576577" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_challenge.xml" value="0.16576576576576577" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_home.xml" value="0.16576576576576577" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_leaderboard.xml" value="0.16576576576576577" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_stats.xml" value="0.16576576576576577" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/nav_header.xml" value="0.16576576576576577" />
         <entry key="..\:/Users/DELL/Desktop/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.290625" />
         <entry key="..\:/Users/DELL/Desktop/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
         <entry key="..\:/Users/DELL/Desktop/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable/edit_text_ripple.xml" value="0.290625" />
@@ -70,5 +85,12 @@
   <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK" />
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.2" />
+      </ProjectState>
+    </option>
   </component>
 </project>
