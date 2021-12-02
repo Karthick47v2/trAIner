@@ -74,4 +74,7 @@
     <string name="right_hand_view">Right Hand View</string>
     <string name="left_hand_view">Left Hand View</string>
     <string name="front_view">Front View</string>
+    <string name="mini_games">MINI GAMES</string>
+    <string name="select_a_game_to_start">Select A Game To Start</string>
+    <string name="coming_soon">COMING SOON</string>
 </resources>

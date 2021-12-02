@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StrengthTrainingActivity"
-    android:background="@color/bgBlack">
+    android:background="@color/bgGrey">
 
     <ImageView
         android:id="@+id/imgOrangeBg2"
@@ -18,7 +18,7 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/txtWeightLoss"
+        android:id="@+id/txtTitleMiniGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -29,10 +29,10 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/txtDescription"
+        android:id="@+id/txtDescriptionMiniGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtWeightLoss"
+        android:layout_below="@+id/txtTitleMiniGames"
         android:layout_centerHorizontal="true"
         android:text="@string/select_a_workout_to_start"
         android:textColor="@color/white"
@@ -42,7 +42,7 @@
         android:id="@+id/scrollViewST"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/txtDescription"
+        android:layout_below="@id/txtDescriptionMiniGames"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
