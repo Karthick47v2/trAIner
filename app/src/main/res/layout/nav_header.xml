@@ -31,7 +31,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
             android:layout_toEndOf="@+id/sivProfileImage"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="sans-serif-medium"
             android:includeFontPadding="false"
             android:text="Emma James"
             android:textColor="@color/white"

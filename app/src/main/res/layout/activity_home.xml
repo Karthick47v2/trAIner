@@ -55,7 +55,7 @@
 
             <Button
                 android:id="@+id/btnLogOut"
-                android:layout_width="140dp"
+                android:layout_width="120dp"
                 android:layout_height="60dp"
                 android:layout_marginEnd="25dp"
                 android:layout_marginBottom="25dp"

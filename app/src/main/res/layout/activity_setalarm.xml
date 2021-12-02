@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E0010005">
+    android:background="@color/black">
 
     <Button
         android:id="@+id/button"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:background="@color/orange"
+        android:background="@drawable/btn_corner_radius"
         android:text="Select time"
         android:textSize="25sp"
         android:textAllCaps="false"
@@ -39,7 +39,7 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:background="@color/purple_500"
+        android:background="@drawable/btn_corner_radius"
         android:text="Set remainder"
         android:textSize="25sp"
         android:textAllCaps="false"
@@ -53,7 +53,7 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="24dp"
-        android:background="@color/purple_500"
+        android:background="@drawable/btn_corner_radius"
         android:text="Cancel remainder"
         android:textAllCaps="false"
         android:textSize="25sp"

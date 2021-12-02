@@ -25,7 +25,7 @@
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
             android:src="@drawable/weight_loss"
-            app:shapeAppearanceOverlay="@style/roundCorners"/>
+            app:shapeAppearanceOverlay="@style/roundCorners" />
 
         <TextView
             android:id="@+id/tvFullName"
@@ -34,7 +34,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="20dp"
             android:layout_toEndOf="@+id/sivProfileImage"
-            android:fontFamily="@font/bungee"
+            android:fontFamily="sans-serif-medium"
             android:includeFontPadding="false"
             android:text="Emma James"
             android:textColor="@color/white"
@@ -65,7 +65,7 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="sans-serif-medium"
             android:text="Name :"
             android:textColor="@color/white"
             android:textSize="20sp" />
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvName"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="sans-serif-medium"
             android:text="Gender :"
             android:textColor="@color/white"
             android:textSize="20sp" />
@@ -100,8 +100,8 @@
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvGender"
             android:text="Male"
-            android:textSize="20sp"
-            android:textColor="@color/grey"/>
+            android:textColor="@color/grey"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvAge"
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvGender"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="sans-serif-medium"
             android:text="Age :"
             android:textColor="@color/white"
             android:textSize="20sp" />
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvAge"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="sans-serif-medium"
             android:text="Weight :"
             android:textColor="@color/white"
             android:textSize="20sp" />
@@ -155,7 +155,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvWeight"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="sans-serif-medium"
             android:text="Height :"
             android:textColor="@color/white"
             android:textSize="20sp" />
@@ -178,7 +178,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tvHeight"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/roboto_medium"
+            android:fontFamily="sans-serif-medium"
             android:text="Email :"
             android:textColor="@color/white"
             android:textSize="20sp" />

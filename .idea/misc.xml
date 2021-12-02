@@ -51,6 +51,13 @@
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/new_app_widget.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.275" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.275" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_home.xml" value="0.3446557971014493" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_benchpressbarbell.xml" value="0.3446557971014493" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_benchpressdumbbell.xml" value="0.21875" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_shoulderpressbarbell.xml" value="0.21875" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_shoulderpressdumbbell.xml" value="0.21875" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_mainoo.xml" value="0.3446557971014493" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_starting.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/KTK_47/Downloads/123456/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable-nodpi/bottom_round_corners.xml" value="0.39692307692307693" />
         <entry key="..\:/Users/KTK_47/Downloads/123456/trAIner-Gowree/trAIner-Gowree/app/src/main/res/font/bungee.xml" value="0.4107692307692308" />
         <entry key="..\:/Users/KTK_47/Downloads/123456/trAIner-Gowree/trAIner-Gowree/app/src/main/res/layout/activity_feedback.xml" value="0.18819655521783182" />
@@ -75,7 +82,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="11" project-jdk-type="JavaSDK" />
   <component name="ProjectType">
     <option name="id" value="Android" />
   </component>

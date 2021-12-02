@@ -120,6 +120,7 @@
             android:drawableStart="@drawable/ic_baseline_account_circle_24"
             android:drawablePadding="10dp"
             android:inputType="textFilter"
+            android:inputType="textPersonName"
             android:padding="10dp"
             android:textColor="@color/white"
             android:textSize="17sp"
@@ -160,7 +161,6 @@
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutAge"
