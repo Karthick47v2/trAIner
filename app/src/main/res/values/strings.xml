@@ -69,4 +69,9 @@
     <string name="squat_caps">SQUAT</string>
     <string name="split_squat_cap">SPLIT SQUAT</string>
     <string name="hammer_curl_cap">HAMMER CURL</string>
+    <string name="select_a_view">Select A View</string>
+    <string name="view_instructions">HOLD ON! This workout can be done in different ways. Select a preferred type from below and place your mobile camera to obtain the correct view appropriately as shown in the image</string>
+    <string name="right_hand_view">Right Hand View</string>
+    <string name="left_hand_view">Left Hand View</string>
+    <string name="front_view">Front View</string>
 </resources>
