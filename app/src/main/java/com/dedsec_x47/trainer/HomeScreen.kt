@@ -66,14 +66,6 @@ class HomeScreen : AppCompatActivity() {
             }
             true
         }
-
-        // For recycler view - leaderboard
-        /*val exampleList = generateDummyList(100)
-        val recyclerview: RecyclerView = findViewById(R.id.recycler_view)
-
-        recyclerview.adapter = ExampleAdapter(exampleList)
-        recyclerview.layoutManager = LinearLayoutManager(this)
-        recyclerview.setHasFixedSize(true)*/
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -90,23 +82,4 @@ class HomeScreen : AppCompatActivity() {
             commit()
         }
     }
-
-   /* //TODO - This is a dummy list algorithm for the leaderboard -> get the list from firebase
-    private fun generateDummyList(size: Int): List<ExampleItem> {
-
-        val list = ArrayList<ExampleItem>()
-
-        for (i in 0 until size) {
-            val drawable = when (i % 3) {
-                0 -> R.drawable.ic_profile_white
-                1 -> R.drawable.ic_feedback
-                else -> R.drawable.ic_settings
-            }
-
-            val item = ExampleItem(drawable, "Item $i", "Line 2")
-            list += item
-        }
-
-        return list
-    }*/
 }
