@@ -56,7 +56,7 @@ class SignUp : AppCompatActivity() {
                 password1 = activitySignupBinding.textInputEditTextNewPassword.text.toString()
                 password2 = activitySignupBinding.textInputEditTextConfirmPassword.text.toString()
                 newUserAge = Integer.parseInt(activitySignupBinding.textInputEditTextAge.text.toString())
-                userGender = activitySignupBinding.textInputLayoutEditTextGender.text.toString()
+                //userGender = activitySignupBinding.textInputLayoutEditTextGender.text.toString()
 
                 if (detailsValidityChecker(
                         newUserName,
