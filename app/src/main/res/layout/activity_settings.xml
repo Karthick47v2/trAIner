@@ -13,8 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        app:boxBackgroundColor="@color/transparentBlack2"
         android:hint="User Name"
+        app:boxStrokeColor="@color/white"
+        app:hintTextAppearance="@style/TextLabel"
         android:textColorHint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +24,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tfEditName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="Emma James"
             android:textColor="@color/white"
             android:drawablePadding="10dp" />
@@ -36,15 +37,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Age"
+        app:boxStrokeColor="@color/white"
         android:textColorHint="@color/grey"
-        app:boxBackgroundColor="@color/transparentBlack2"
+        app:hintTextAppearance="@style/TextLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfFullName">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="20"
             android:textColor="@color/white"
             android:drawablePadding="10dp" />
@@ -56,16 +58,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:padding="5dp"
         android:hint="Weight (kg)"
+        app:boxStrokeColor="@color/white"
         android:textColorHint="@color/grey"
-        app:boxBackgroundColor="@color/transparentBlack2"
+        app:hintTextAppearance="@style/TextLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfAge">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="60"
             android:textColor="@color/white"
             android:drawablePadding="10dp" />
@@ -78,15 +82,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Height (cm)"
+        app:boxStrokeColor="@color/white"
         android:textColorHint="@color/grey"
-        app:boxBackgroundColor="@color/transparentBlack2"
+        app:hintTextAppearance="@style/TextLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfWeight">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="120"
             android:textColor="@color/white"
             android:drawablePadding="10dp" />
@@ -99,31 +104,34 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Gender"
+        app:boxStrokeColor="@color/white"
         android:textColorHint="@color/grey"
-        app:boxBackgroundColor="@color/transparentBlack2"
+        app:hintTextAppearance="@style/TextLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfHeight">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:text="Male"
             android:textColor="@color/white"
             android:drawablePadding="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/orange"
+        android:background="@drawable/btn_corner_radius"
         android:fontFamily="sans-serif-medium"
         android:padding="10dp"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
         android:text="Update"
         android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/tfGender"
         app:layout_constraintStart_toStartOf="@+id/tfGender"
         app:layout_constraintTop_toBottomOf="@+id/tfGender" />
