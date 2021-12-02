@@ -3,7 +3,7 @@
     <string name="sign_in">Sign In</string>
     <string name="enter_email_id">Enter Your Email ID</string>
     <string name="enter_password">Enter Your Password</string>
-    <string name="forgot_password">Forgot password?</string>
+    <string name="forgot_password">Forgot password ?</string>
     <string name="login_background_img">loginBackgroundImg</string>
     <string name="do_not_have_an_account">Don\'t have an account?</string>
     <string name="sign_up">sign Up</string>
@@ -43,4 +43,14 @@
     <string name="dead_lift">Dead Lift</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+<!--Gender drop down items - signUp activity-->
+    <string-array name="genderDropdown">
+        <!--suppress CheckTagEmptyBody -->
+        <item>Select Your Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+
 </resources>
