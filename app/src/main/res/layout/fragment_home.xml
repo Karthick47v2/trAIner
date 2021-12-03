@@ -42,9 +42,11 @@
         app:layout_constraintVertical_bias="0.0">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardWeightLoss"
             android:layout_width="match_parent"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
+            android:clickable="true"
             android:adjustViewBounds="true"
             app:cardCornerRadius="14dp">
 
@@ -92,9 +94,11 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardStrengthTraining"
             android:layout_width="match_parent"
             android:layout_rowWeight="1"
             app:cardCornerRadius="14dp"
+            android:clickable="true"
             android:layout_margin="8dp">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -140,9 +144,11 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardHIIT"
             android:layout_width="match_parent"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
+            android:clickable="true"
             app:cardCornerRadius="14dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
