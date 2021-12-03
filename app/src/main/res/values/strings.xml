@@ -77,4 +77,11 @@
     <string name="mini_games">MINI GAMES</string>
     <string name="select_a_game_to_start">Select A Game To Start</string>
     <string name="coming_soon">COMING SOON</string>
+    <string name="reward_txt2">Good job! Keep your pace, earn more, RANK UP.</string>
+    <string name="reward_txt1">You won xxxx trAIner coins</string>
+    <string name="congratulations">Congratulations !</string>
+    <string name="continuebtn">Continue</string>
+    <string name="better_luck_next_time">Better luck next time !</string>
+    <string name="oops_you_failed">Oops! You failed.</string>
+    <string name="loss_txt">You were close, Don\'t give up, You can still make it, CHALLANGE AGAIN.</string>
 </resources>

@@ -82,12 +82,11 @@
             android:layout_height="wrap_content"
             android:background="@color/transparentOrange"
             android:fontFamily="@font/roboto"
-            android:paddingHorizontal="100dp"
             android:text="@string/important"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="22sp"
-            app:drawableEndCompat="@drawable/ic_baseline_report_24" />
+            app:drawableRightCompat="@drawable/ic_baseline_report_24" />
 
         <TextView
             android:layout_width="match_parent"

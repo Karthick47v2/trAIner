@@ -133,7 +133,7 @@
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/viewDivider"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="@+id/viewDivider"
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"
         app:layout_constraintVertical_bias="0.36" />
@@ -184,16 +184,14 @@
         android:id="@+id/txtForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="18dp"
         android:layout_marginTop="28dp"
         android:clickable="true"
-
         android:text="@string/forgot_password"
         android:textColor="@color/white"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayoutPassword"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="@+id/textInputLayoutPassword"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword"
         tools:ignore="TouchTargetSizeCheck" />
