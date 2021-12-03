@@ -33,7 +33,7 @@
             android:layout_toEndOf="@+id/sivProfileImage"
             android:fontFamily="sans-serif-medium"
             android:includeFontPadding="false"
-            android:text="Emma James"
+            android:text="@string/user_name"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

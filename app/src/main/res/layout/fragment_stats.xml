@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="@+id/pbProgressBar"
         app:layout_constraintStart_toStartOf="@+id/pbProgressBar"
         app:layout_constraintTop_toTopOf="@+id/pbProgressBar"
-        android:text="80%"
+        android:text="@string/progress_percentage"
         android:textColor="@color/white"/>
 
     <TextView
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="@+id/pbProgressBar"
         app:layout_constraintStart_toStartOf="@+id/pbProgressBar"
         app:layout_constraintTop_toBottomOf="@+id/tvProgress"
-        android:text="Progress"
+        android:text="@string/text_progress"
         android:textColor="@color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
