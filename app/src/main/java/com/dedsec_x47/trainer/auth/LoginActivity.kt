@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
             // Check if user is signed in (non-null) and update UI accordingly.
             if (user != null) {                     //User is signed in
                 user.reload()
-                if (user.isEmailVerified && !isfacebookLogin) {
+                if (user.isEmailVerified) {// && !isfacebookLogin
 
                     isVertificationEmailSent = false
                     Log.d(" ", "Email Is verified")
