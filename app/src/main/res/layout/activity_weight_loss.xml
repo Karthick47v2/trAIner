@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WeightLossActivity"
-    android:background="@color/bgBlack"
+    android:background="@color/bgGrey"
     >
 
     <ImageView
@@ -19,7 +19,7 @@
         android:src="@drawable/bg_orange" />
 
     <TextView
-        android:id="@+id/txtWeightLoss"
+        android:id="@+id/txtTitleMiniGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -30,33 +30,33 @@
         android:layout_marginTop="20dp"/>
 
     <TextView
-        android:id="@+id/txtDescription"
+        android:id="@+id/txtDescriptionMiniGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtWeightLoss"
+        android:layout_below="@+id/txtTitleMiniGames"
         android:layout_centerHorizontal="true"
         android:text="@string/select_a_workout_to_start"
         android:textColor="@color/white"
         android:textSize="17sp" />
 
     <ScrollView
-        android:id="@+id/scrollViewWL"
+        android:id="@+id/scrollViewMG"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/txtDescription"
+        android:layout_below="@id/txtDescriptionMiniGames"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp">
 
         <GridLayout
-            android:id="@+id/gridLayoutWL"
+            android:id="@+id/gridLayoutMG"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardPushUpWL"
+                android:id="@+id/cardComingSoonMG"
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
@@ -64,7 +64,7 @@
                 app:cardElevation="12dp">
 
                 <ImageView
-                    android:id="@+id/imgPushUpWL"
+                    android:id="@+id/imgGame1MG"
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
                     android:layout_gravity="center_horizontal"
@@ -80,7 +80,7 @@
                     android:background="@color/transparentBlack">
 
                     <TextView
-                        android:id="@+id/txtPushUpWL"
+                        android:id="@+id/txtGame1MG"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/transparentBlack2"
@@ -101,11 +101,11 @@
                         android:scaleY="1.3"
                         android:src="@drawable/ic_baseline_arrow_forward_24"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/txtPushUpWL"
+                        app:layout_constraintEnd_toEndOf="@+id/txtGame1MG"
                         app:layout_constraintHorizontal_bias="0.88"
                         app:layout_constraintVertical_bias="0.64"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtPushUpWL"
+                        app:layout_constraintTop_toBottomOf="@+id/txtGame1MG"
                         tools:ignore="ContentDescription" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -442,6 +442,36 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtLegRaiseWL"
                         tools:ignore="ContentDescription" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAddNewWL"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgAddNewWL"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:src="@drawable/ic_baseline_add_box_24"
+                    android:scaleType="center"
+                    android:scaleX="3"
+                    android:scaleY="3"
+                    android:background="@color/transparentBlack2"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>

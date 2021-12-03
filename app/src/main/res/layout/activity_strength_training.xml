@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".exercisePages.Strength"
-    android:background="@color/bgBlack">
+    tools:context=".StrengthTrainingActivity"
+    android:background="@color/bgGrey">
 
     <ImageView
         android:id="@+id/imgOrangeBg2"
@@ -18,7 +18,7 @@
         tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/txtWeightLoss"
+        android:id="@+id/txtTitleMiniGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -29,10 +29,10 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/txtDescription"
+        android:id="@+id/txtDescriptionMiniGames"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtWeightLoss"
+        android:layout_below="@+id/txtTitleMiniGames"
         android:layout_centerHorizontal="true"
         android:text="@string/select_a_workout_to_start"
         android:textColor="@color/white"
@@ -42,7 +42,7 @@
         android:id="@+id/scrollViewST"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/txtDescription"
+        android:layout_below="@id/txtDescriptionMiniGames"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -557,6 +557,37 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAddNewST"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="12dp">
+
+                <ImageView
+                    android:id="@+id/imgAddNewST"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:adjustViewBounds="true"
+                    android:maxWidth="140dp"
+                    android:src="@drawable/ic_baseline_add_box_24"
+                    android:scaleType="center"
+                    android:scaleX="3"
+                    android:scaleY="3"
+                    android:background="@color/transparentBlack2"
+                    tools:ignore="ContentDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/transparentBlack">
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
         </GridLayout>
     </ScrollView>
 
