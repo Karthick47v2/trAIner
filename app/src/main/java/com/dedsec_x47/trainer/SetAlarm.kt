@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.dedsec_x47.trainer.auth.LogOut
 import com.dedsec_x47.trainer.databinding.ActivitySetalarmBinding
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -42,10 +41,7 @@ class SetAlarm : AppCompatActivity() {
         }
 
         binding.button3.setOnClickListener{
-            //cancelAlarm()
-            val intent = Intent(this, LogOut::class.java)//intent Sign in activity
-            startActivity(intent)
-
+            cancelAlarm()
         }
 
     }

@@ -3,14 +3,20 @@ package com.dedsec_x47.trainer
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.Button
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dedsec_x47.trainer.homeFragments.*
+import com.facebook.AccessToken
+import com.facebook.login.LoginManager
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class HomeScreen : AppCompatActivity() {
 // TODO : RESTRICT LANDSCAPE ___ SEPARATELY FOR ACTIVITIES////////////////////////
@@ -33,9 +39,11 @@ class HomeScreen : AppCompatActivity() {
         navView.setNavigationItemSelectedListener {
             val intent1 = Intent(this, SettingsActivity::class.java)
             val intent2 = Intent(this, FeedbackActivity::class.java)
+            val intent3 = Intent(this, SetAlarm::class.java)
             when(it.itemId){
                 R.id.miSettings -> startActivity(intent1)//Toast.makeText(applicationContext, "clicked settings", Toast.LENGTH_SHORT).show()
-                R.id.miFeedback-> startActivity(intent2)//Toast.makeText(applicationContext, "clicked feedback", Toast.LENGTH_SHORT).show()
+                R.id.miFeedback -> startActivity(intent2)//Toast.makeText(applicationContext, "clicked feedback", Toast.LENGTH_SHORT).show()
+                R.id.miRemainder -> startActivity(intent3)
             }
             true
         }
@@ -66,6 +74,11 @@ class HomeScreen : AppCompatActivity() {
             }
             true
         }
+
+        val btnLogout :Button = findViewById(R.id.btnLogOut)
+        btnLogout.setOnClickListener(){
+            logout()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -81,5 +94,13 @@ class HomeScreen : AppCompatActivity() {
             replace(R.id.flFragment, fragment)
             commit()
         }
+    }
+
+    private fun logout(){
+        if (AccessToken.getCurrentAccessToken() != null) {
+            LoginManager.getInstance().logOut()
+        }
+        val auth = Firebase.auth
+        auth.signOut()
     }
 }
