@@ -61,7 +61,7 @@
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/logut_round_corners"
                 android:drawableEnd="@drawable/ic_logout"
-                android:text="Logout"
+                android:text="@string/text_logout"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"

@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:hint="User Name"
+        android:hint="@string/user_name_hint_1"
         app:boxStrokeColor="@color/white"
         app:hintTextAppearance="@style/TextLabel"
         android:textColorHint="@color/grey"
@@ -25,7 +25,7 @@
             android:id="@+id/tfEditName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Emma James"
+            android:text="@string/user_name"
             android:textColor="@color/white"
             android:drawablePadding="10dp" />
 
@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Age"
+        android:hint="@string/age_hint"
         app:boxStrokeColor="@color/white"
         android:textColorHint="@color/grey"
         app:hintTextAppearance="@style/TextLabel"
@@ -47,7 +47,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="20"
+            android:text="@string/age_text"
             android:textColor="@color/white"
             android:drawablePadding="10dp" />
 
@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Weight (kg)"
+        android:hint="@string/weight_hint"
         app:boxStrokeColor="@color/white"
         android:textColorHint="@color/grey"
         app:hintTextAppearance="@style/TextLabel"
@@ -69,7 +69,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="20"
+            android:text="@string/text_weight"
             android:textColor="@color/white"
             android:drawablePadding="10dp" />
 
@@ -80,7 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Height (cm)"
+        android:hint="@string/height_hint"
         app:boxStrokeColor="@color/white"
         android:textColorHint="@color/grey"
         app:hintTextAppearance="@style/TextLabel"
@@ -91,7 +91,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="120"
+            android:text="@string/text_height"
             android:textColor="@color/white"
             android:drawablePadding="10dp" />
 
@@ -102,7 +102,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Gender"
+        android:hint="@string/gender_hint"
         app:boxStrokeColor="@color/white"
         android:textColorHint="@color/grey"
         app:hintTextAppearance="@style/TextLabel"
@@ -113,7 +113,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Male"
+            android:text="@string/text_gender"
             android:textColor="@color/white"
             android:drawablePadding="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -127,7 +127,7 @@
         android:padding="10dp"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
-        android:text="Update"
+        android:text="@string/text_update"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="18sp"
