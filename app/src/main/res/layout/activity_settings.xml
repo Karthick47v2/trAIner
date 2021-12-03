@@ -13,10 +13,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        app:boxBackgroundColor="?attr/colorOnSurface"
         android:hint="@string/user_name_hint_1"
-        app:boxStrokeColor="@color/white"
+        app:boxStrokeColor="?attr/colorOnSurface"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
         app:hintTextAppearance="@style/TextLabel"
-        android:textColorHint="@color/grey"
+        android:textColorHint="?attr/colorOnSurface"
+        app:hintTextColor="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,7 +31,7 @@
             android:layout_height="50dp"
             android:text="@string/user_name"
             android:textColor="@color/white"
-            android:drawablePadding="10dp" />
+            android:textSize="16sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -36,10 +40,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        app:boxBackgroundColor="?attr/colorOnSurface"
         android:hint="@string/age_hint"
-        app:boxStrokeColor="@color/white"
-        android:textColorHint="@color/grey"
+        app:boxStrokeColor="?attr/colorOnSurface"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
         app:hintTextAppearance="@style/TextLabel"
+        android:textColorHint="?attr/colorOnSurface"
+        app:hintTextColor="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfFullName">
@@ -49,7 +57,7 @@
             android:layout_height="50dp"
             android:text="@string/age_text"
             android:textColor="@color/white"
-            android:drawablePadding="10dp" />
+            android:textSize="16sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,10 +66,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        app:boxBackgroundColor="?attr/colorOnSurface"
         android:hint="@string/weight_hint"
-        app:boxStrokeColor="@color/white"
-        android:textColorHint="@color/grey"
+        app:boxStrokeColor="?attr/colorOnSurface"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
         app:hintTextAppearance="@style/TextLabel"
+        android:textColorHint="?attr/colorOnSurface"
+        app:hintTextColor="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfAge">
@@ -71,7 +83,7 @@
             android:layout_height="50dp"
             android:text="@string/text_weight"
             android:textColor="@color/white"
-            android:drawablePadding="10dp" />
+            android:textSize="16sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,10 +92,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        app:boxBackgroundColor="?attr/colorOnSurface"
         android:hint="@string/height_hint"
-        app:boxStrokeColor="@color/white"
-        android:textColorHint="@color/grey"
+        app:boxStrokeColor="?attr/colorOnSurface"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
         app:hintTextAppearance="@style/TextLabel"
+        android:textColorHint="?attr/colorOnSurface"
+        app:hintTextColor="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfWeight">
@@ -93,7 +109,7 @@
             android:layout_height="50dp"
             android:text="@string/text_height"
             android:textColor="@color/white"
-            android:drawablePadding="10dp" />
+            android:textSize="16sp"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,10 +118,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        app:boxBackgroundColor="?attr/colorOnSurface"
         android:hint="@string/gender_hint"
-        app:boxStrokeColor="@color/white"
-        android:textColorHint="@color/grey"
+        app:boxStrokeColor="?attr/colorOnSurface"
+        app:boxStrokeWidth="1dp"
+        app:boxStrokeWidthFocused="2dp"
         app:hintTextAppearance="@style/TextLabel"
+        android:textColorHint="?attr/colorOnSurface"
+        app:hintTextColor="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfHeight">
@@ -115,14 +135,16 @@
             android:layout_height="50dp"
             android:text="@string/text_gender"
             android:textColor="@color/white"
-            android:drawablePadding="10dp" />
+            android:textSize="16sp"/>
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:layout_width="wrap_content"
+        android:id="@+id/updateBtn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@drawable/btn_corner_radius"
+        android:background="@color/orange"
         android:fontFamily="sans-serif-medium"
         android:padding="10dp"
         android:paddingStart="30dp"
@@ -134,6 +156,5 @@
         app:layout_constraintEnd_toEndOf="@+id/tfGender"
         app:layout_constraintStart_toStartOf="@+id/tfGender"
         app:layout_constraintTop_toBottomOf="@+id/tfGender" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
