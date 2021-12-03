@@ -56,7 +56,7 @@
             android:columnCount="2">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardComingSoonMG"
+                android:id="@+id/cardPushUpWL"
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
