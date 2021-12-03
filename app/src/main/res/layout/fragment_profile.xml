@@ -36,7 +36,7 @@
             android:layout_toEndOf="@+id/sivProfileImage"
             android:fontFamily="sans-serif-medium"
             android:includeFontPadding="false"
-            android:text="Emma James"
+            android:text="@string/user_name"
             android:textColor="@color/white"
             android:textSize="25sp" />
 
@@ -48,7 +48,7 @@
             android:layout_marginStart="20dp"
             android:layout_toEndOf="@+id/sivProfileImage"
             android:includeFontPadding="false"
-            android:text="User name"
+            android:text="@string/user_name_hint"
             android:textSize="18sp" />
 
     </RelativeLayout>
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:text="Name :"
+            android:text="@string/name_fixed"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/tvName"
-            android:text="Emma James"
+            android:text="@string/user_name"
             android:textColor="@color/grey"
             android:textSize="20sp" />
 
@@ -87,7 +87,7 @@
             android:layout_below="@id/tvName"
             android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Gender :"
+            android:text="@string/gender_fixed"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -99,7 +99,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvGender"
-            android:text="Male"
+            android:text="@string/text_gender"
             android:textColor="@color/grey"
             android:textSize="20sp" />
 
@@ -110,7 +110,7 @@
             android:layout_below="@id/tvGender"
             android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Age :"
+            android:text="@string/age_fixed"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -122,7 +122,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvAge"
-            android:text="20"
+            android:text="@string/age_text"
             android:textSize="20sp"
             android:textColor="@color/grey"/>
 
@@ -133,7 +133,7 @@
             android:layout_below="@id/tvAge"
             android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Weight :"
+            android:text="@string/weight_fixed"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -145,7 +145,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvWeight"
-            android:text="60 kg"
+            android:text="@string/text_weight"
             android:textSize="20sp"
             android:textColor="@color/grey"/>
 
@@ -156,7 +156,7 @@
             android:layout_below="@id/tvWeight"
             android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Height :"
+            android:text="@string/height_fixed"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -168,7 +168,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvHeight"
-            android:text="170 cm"
+            android:text="@string/text_height"
             android:textSize="20sp"
             android:textColor="@color/grey"/>
 
@@ -179,7 +179,7 @@
             android:layout_below="@id/tvHeight"
             android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Email :"
+            android:text="@string/email_fixed"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
@@ -191,7 +191,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvHeight"
-            android:text="example@gmail.com"
+            android:text="@string/text_email"
             android:textSize="20sp"
             android:textColor="@color/grey"/>
 
