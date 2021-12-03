@@ -11,4 +11,9 @@
         android:title="Feedback"
         android:icon="@drawable/ic_feedback"/>
 
+    <item
+        android:id="@+id/miRemainder"
+        android:title="Change remainder"
+        android:icon="@drawable/ic_change_remainder"/>
+
 </menu>
