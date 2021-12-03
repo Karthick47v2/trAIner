@@ -48,7 +48,8 @@ class SignIn : AppCompatActivity() {
             }
         }
 
-        activityLoginBinding.btnFacebook.setReadPermissions(listOf("public_profile"))
+        /*activityLoginBinding.btnFacebook.setReadPermissions(listOf("public_profile"))*/
+        activityLoginBinding.btnFacebook.setReadPermissions("public_profile", "email")
         activityLoginBinding.btnFacebook.setOnClickListener {
             fbSignIn()
         }
@@ -119,7 +120,7 @@ class SignIn : AppCompatActivity() {
                 override fun onSuccess(result: LoginResult) {
                     Log.d(TAG, "facebook:onSuccess:$result")
                     handleFacebookAccessToken(result.accessToken)
-                    getFacebookData(result.accessToken)
+                    /*getFacebookData(result.accessToken)*/
                 }
 
                 override fun onCancel() {
@@ -132,7 +133,7 @@ class SignIn : AppCompatActivity() {
             })
     }
 
-    private fun getFacebookData(accessToken: AccessToken?) {
+/*    private fun getFacebookData(accessToken: AccessToken?) {
         val request = GraphRequest.newMeRequest(accessToken) { obj, response ->
             val fbid = obj?.getLong("id").toString()
 
@@ -142,9 +143,9 @@ class SignIn : AppCompatActivity() {
 ////                .load(avatar)
 ////                .into(.)
 
-            val gender:String = obj?.getString("gender").toString()
+*//*            val gender:String = obj?.getString("gender").toString()
             val birthday : String = obj?.getString("birthday").toString()
-            val profilename :String = obj?.getString("name").toString()
+            val profilename :String = obj?.getString("name").toString()*//*
 
 //            val todayDate = LocalDate.now()
 //            var timestamp: Instant? = null
@@ -160,7 +161,7 @@ class SignIn : AppCompatActivity() {
         parameters.putString("fields", "id,name,email,birthday,gender")
         request.parameters = parameters
         request.executeAsync()
-    }
+    }*/
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

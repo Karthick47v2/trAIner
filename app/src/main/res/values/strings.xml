@@ -1,22 +1,22 @@
 <resources>
     <string name="app_name">trainer</string>
     <string name="sign_in">Sign In</string>
-    <string name="enter_email_id">Enter Your Email ID</string>
-    <string name="enter_password">Enter Your Password</string>
+    <string name="enter_email_id">Enter Email ID</string>
+    <string name="enter_password">Enter Password</string>
     <string name="forgot_password">Forgot password ?</string>
     <string name="login_background_img">loginBackgroundImg</string>
     <string name="do_not_have_an_account">Don\'t have an account?</string>
     <string name="sign_up">sign Up</string>
-    <string name="enter_your_name">Enter Your Name</string>
+    <string name="enter_your_name">Enter First Name</string>
     <string name="confirm_password">Confirm Password</string>
-    <string name="enter_new_password">Enter New Password</string>
+    <string name="enter_new_password">Enter Password</string>
     <string name="signup_background_image">signup_background_image</string>
     <string name="create">Create</string>
     <string name="cancel">Cancel</string>
-    <string name="facebook_app_id">422720759576428</string>
-    <string name="fb_login_protocol_scheme">fb422720759576428</string>
+    <string name="facebook_app_id">452515276387883</string>
+    <string name="fb_login_protocol_scheme">fb452515276387883</string>
     <string name="enter_your_gender">Gender</string>
-    <string name="enter_your_age">Enter Your Age</string>
+    <string name="enter_your_age">Enter Age</string>
 
     <string name="lorem_ipsum_title">Lorem Ipsum"</string>
     <string name="lorem_ipsum">Lorem Ipsum is simply placeholder text of the printing and
@@ -46,7 +46,7 @@
     <!--Gender drop down items - signUp activity-->
     <string-array name="genderDropdown">
         <!--suppress CheckTagEmptyBody -->
-        <item>Select Your Gender</item>
+        <item>Select Gender</item>
         <item>Male</item>
         <item>Female</item>
     </string-array>

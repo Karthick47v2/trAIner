@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dedsec_x47.trainer.auth.*
 import com.dedsec_x47.trainer.databinding.ActivityMainBinding
+import com.dedsec_x47.trainer.databinding.ActivityStartingBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -17,15 +18,23 @@ import com.google.firebase.ktx.Firebase
 var isNewUser = false
 var isDetailsSaved = false
 var isfacebookLogin = false
+
+/*TODO: GET STARTED (ACTIVITY MAIN BINDING) SHOULD ONLY COMES IN FIRST USE.. SO IF USER IS LOGGED IN.. IT SHOULD NOT COME
+DO ACCORDING TO AUTH LISTER,
+AND WHY VERIFICATION EMAIL IS SENT WHEN CONTINUING WTIH FB ? THAT NOT HOW IT IS.. NO NEED OF VERIFICATION FOR THAT..
+
+AND AFTER LOGIN IN GO TO JATHURASHAN MAIN ACTIVITY  ___ HOMESCREEN.KT
+*/
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth           // create instance of FirebaseAuth
     var isVertificationEmailSent = false
-    private lateinit var activityMainBinding: ActivityMainBinding
+
+    private lateinit var activityMainBinding: ActivityStartingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+        activityMainBinding = ActivityStartingBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
         createNotificationChannel()
 
@@ -38,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
             // Check if user is signed in (non-null) and update UI accordingly.
             if (user != null) {                     //User is signed in
                 user.reload()
-                if (user.isEmailVerified && !isfacebookLogin) {
+                if (user.isEmailVerified) {// && !isfacebookLogin
 
                     isVertificationEmailSent = false
                     Log.d(" ", "Email Is verified")
@@ -66,13 +75,13 @@ class LoginActivity : AppCompatActivity() {
 
                 }
             } else {
-
                 Log.d(" ", "User Null")
                 if (!isVertificationEmailSent) {
                     signin()                         //User is signed out
                 }
             }
         }
+
     }
 
     private fun sendEmailVerification() {            // send_email_verification
