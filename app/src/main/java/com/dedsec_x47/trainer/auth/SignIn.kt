@@ -4,9 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.dedsec_x47.trainer.databinding.ActivityLoginBinding
+import com.dedsec_x47.trainer.R
+import com.dedsec_x47.trainer.databinding.ActivitySigninBinding
+import com.dedsec_x47.trainer.databinding.ActivityStartingBinding
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
@@ -23,52 +26,55 @@ class SignIn : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var callbackManager: CallbackManager
-    private lateinit var activityLoginBinding: ActivityLoginBinding
+    private lateinit var activitySignInBinding: ActivitySigninBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_starting)
+        val button: Button = findViewById(R.id.btnGetStarted)
 
-        activityLoginBinding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(activityLoginBinding.root) //set activity sign in layout
+        button.setOnClickListener() {
+            activitySignInBinding = ActivitySigninBinding.inflate(layoutInflater)
+            setContentView(activitySignInBinding.root) //set activity sign in layout
+            auth = Firebase.auth
+            callbackManager = CallbackManager.Factory.create()
 
-        auth = Firebase.auth
-        callbackManager = CallbackManager.Factory.create()
+            activitySignInBinding.btnSignIn.setOnClickListener {
 
-        activityLoginBinding.btnSignIn.setOnClickListener {
+                val email = activitySignInBinding.textInputEditTextEmail.text.toString()
+                val password = activitySignInBinding.textInputEditTextPassword.text.toString()
 
-            val email = activityLoginBinding.textInputEditTextEmail.text.toString()
-            val password  = activityLoginBinding.textInputEditTextPassword.text.toString()
-
-            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-                Toast.makeText(
-                    baseContext, "Please Enter Your email and Password",
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-                emailloginaccount(email, password)
+                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+                    Toast.makeText(
+                        baseContext, "Please Enter Your email and Password",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    emailloginaccount(email, password)
+                }
             }
-        }
 
-        /*activityLoginBinding.btnFacebook.setReadPermissions(listOf("public_profile"))*/
-        activityLoginBinding.btnFacebook.setReadPermissions("public_profile", "email")
-        activityLoginBinding.btnFacebook.setOnClickListener {
-            fbSignIn()
-        }
+            /*activitySignInBinding.btnFacebook.setReadPermissions(listOf("public_profile"))*/
+            activitySignInBinding.btnFacebook.setReadPermissions("public_profile", "email")
+            activitySignInBinding.btnFacebook.setOnClickListener {
+                fbSignIn()
+            }
 
-        activityLoginBinding.txtForgotPassword.setOnClickListener() {
-            resetPassword()
-        }
+            activitySignInBinding.txtForgotPassword.setOnClickListener() {
+                resetPassword()
+            }
 
-        activityLoginBinding.btnSignUp.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
-            startActivity(intent)
+            activitySignInBinding.btnSignUp.setOnClickListener {
+                val intent = Intent(this, SignUp::class.java)
+                startActivity(intent)
+            }
         }
 
     }
 
     private fun resetPassword() {
-        val email = activityLoginBinding.textInputEditTextEmail.text.toString()
+        val email = activitySignInBinding.textInputEditTextEmail.text.toString()
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(
@@ -114,7 +120,7 @@ class SignIn : AppCompatActivity() {
         FacebookSdk.setAutoInitEnabled(true)
         FacebookSdk.fullyInitialize()
 
-        activityLoginBinding.btnFacebook.registerCallback(callbackManager,
+        activitySignInBinding.btnFacebook.registerCallback(callbackManager,
             object : FacebookCallback<LoginResult> {
 
                 override fun onSuccess(result: LoginResult) {

@@ -33,12 +33,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth           // create instance of FirebaseAuth
     var isVertificationEmailSent = false
 
-    private lateinit var activityMainBinding: ActivityStartingBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityMainBinding = ActivityStartingBinding.inflate(layoutInflater)
-        setContentView(activityMainBinding.root)
         createNotificationChannel()
 
         auth = Firebase.auth
