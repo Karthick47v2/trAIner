@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+<!--    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
         android:layout_width="170dp"
         android:layout_height="170dp"
@@ -45,7 +45,7 @@
         app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck" />-->
 
     <TextView
         android:id="@+id/txtSignUp"
@@ -65,7 +65,7 @@
 
     <Button
         android:id="@+id/btnCreate"
-        android:layout_width="160dp"
+        android:layout_width="145dp"
         android:layout_height="36dp"
         android:background="@drawable/btn_orange_ripple"
         android:text="@string/create"
@@ -74,15 +74,15 @@
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutConfirmPassword"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="@+id/textInputLayoutConfirmPassword"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutConfirmPassword"
         tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
     <Button
         android:id="@+id/btnCancel"
-        android:layout_width="160dp"
+        android:layout_width="145dp"
         android:layout_height="36dp"
         android:background="@drawable/btn_black_ripple"
         android:text="@string/cancel"
@@ -90,9 +90,9 @@
         android:textColor="#E1BEE7"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textInputLayoutConfirmPassword"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textInputLayoutConfirmPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutConfirmPassword"
         tools:ignore="TouchTargetSizeCheck" />
 
@@ -100,9 +100,9 @@
         android:id="@+id/textInputLayoutUserName"
         android:layout_width="0dp"
         android:layout_height="54dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="28dp"
+        android:layout_marginEnd="18dp"
         android:hint="@string/enter_your_name"
         android:textColorHint="@color/white"
         app:hintTextColor="@color/orange"
@@ -152,7 +152,6 @@
             android:id="@+id/spinnerGender"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:entries="@array/genderDropdown"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewDrawabelGenderDropDown"
@@ -181,7 +180,7 @@
             android:digits="1234567890"
             android:drawableStart="@drawable/ic_baseline_calendar_today_24"
             android:drawablePadding="10dp"
-            android:inputType="textFilter"
+            android:inputType="number"
             android:padding="10dp"
             android:textColor="@color/white"
             android:textSize="17sp"

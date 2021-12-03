@@ -11,8 +11,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -41,21 +45,49 @@ class SignUp : AppCompatActivity() {
 
         auth = Firebase.auth                                        // Initialize Firebase Auth
 
-        activitySignupBinding.profileImage.setOnClickListener {
+/*        activitySignupBinding.profileImage.setOnClickListener {
             selectProfileImage()
+        }*/
+
+
+        val genOp = resources.getStringArray(R.array.genderDropdown)
+        val genSpin = findViewById<Spinner>(R.id.spinnerGender)
+
+        if (genSpin != null) {
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_dropdown_item, genOp
+            )
+            genSpin.adapter = adapter
+
+            genSpin.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View, position: Int, id: Long
+                ) {
+                    userGender = genOp[position]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                }
+            }
         }
 
         activitySignupBinding.btnCreate.setOnClickListener {
-            if (!isProfilePictureSelected) {
+/*            if (!isProfilePictureSelected) {
                 Toast.makeText(
                     baseContext, "Profile Image Not Selected", Toast.LENGTH_SHORT
                 ).show()
-            } else {
+            } else {*/
                 newUserName = activitySignupBinding.textInputEditTextUserName.text.toString()
                 email = activitySignupBinding.textInputEditTextNewEmail.text.toString()
                 password1 = activitySignupBinding.textInputEditTextNewPassword.text.toString()
                 password2 = activitySignupBinding.textInputEditTextConfirmPassword.text.toString()
-                newUserAge = Integer.parseInt(activitySignupBinding.textInputEditTextAge.text.toString())
+                newUserAge = if(activitySignupBinding.textInputEditTextAge.text.toString() != "") {
+                    Integer.parseInt(activitySignupBinding.textInputEditTextAge.text.toString())
+                } else 0
                 //userGender = activitySignupBinding.textInputLayoutEditTextGender.text.toString()
 
                 if (detailsValidityChecker(
@@ -69,7 +101,7 @@ class SignUp : AppCompatActivity() {
                 ) {
                     createAccount(email, password1)
                 }
-            }
+            //}
         }
 
         activitySignupBinding.btnCancel.setOnClickListener {
@@ -96,7 +128,7 @@ class SignUp : AppCompatActivity() {
     companion object {
         private const val TAG = "EmailPassword"
     }
-
+   // <!--android:entries="@array/genderDropdown"-->
     private fun detailsValidityChecker(
         name: String,
         email: String,
@@ -107,10 +139,27 @@ class SignUp : AppCompatActivity() {
     ): Boolean {
 
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password1)
-            || TextUtils.isEmpty(password2) || (age == 0) || TextUtils.isEmpty(gender)
+           // || TextUtils.isEmpty(password2) || (age == 0) || TextUtils.isEmpty(gender)
+            || TextUtils.isEmpty(password2) || (age == 0)
         ) {
             Toast.makeText(
                 baseContext, "Please Fill all details",
+                Toast.LENGTH_SHORT
+            ).show()
+            return false
+        }
+
+       if(age < 18 || age > 65){
+           Toast.makeText(
+               baseContext, "Only 18 - 65 are allowed",
+               Toast.LENGTH_SHORT
+           ).show()
+           return false
+       }
+
+        if(gender != "Male" && gender != "Female"){
+            Toast.makeText(
+                baseContext, "Please select a gender",
                 Toast.LENGTH_SHORT
             ).show()
             return false
@@ -233,7 +282,7 @@ class SignUp : AppCompatActivity() {
         startActivityForResult(openGalleryIntent, 100)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, imgdata: Intent?) {
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, imgdata: Intent?) {
         super.onActivityResult(requestCode, resultCode, imgdata)
         if ((requestCode == 100) && (resultCode == RESULT_OK) && (imgdata != null) && (imgdata.data != null)) {
             newUserImageUri = imgdata.data!!
@@ -241,5 +290,5 @@ class SignUp : AppCompatActivity() {
             isProfilePictureSelected = true
             Log.d(" ", "Select Image done")
         }
-    }
+    }*/
 }
