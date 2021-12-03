@@ -24,9 +24,11 @@ class SignIn : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var callbackManager: CallbackManager
     private lateinit var activityLoginBinding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
+
         activityLoginBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(activityLoginBinding.root) //set activity sign in layout
 
@@ -96,10 +98,8 @@ class SignIn : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
                 } else {
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                     Toast.makeText(
                         baseContext, "Authentication failed.",
@@ -118,6 +118,7 @@ class SignIn : AppCompatActivity() {
             object : FacebookCallback<LoginResult> {
 
                 override fun onSuccess(result: LoginResult) {
+                    //isfacebookLogin = true
                     Log.d(TAG, "facebook:onSuccess:$result")
                     handleFacebookAccessToken(result.accessToken)
                     /*getFacebookData(result.accessToken)*/
@@ -179,7 +180,6 @@ class SignIn : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG_FB, "signInWithCredential:success")
-                    //val user = auth.currentUser
                 } else {
                     if (AccessToken.getCurrentAccessToken() != null) {  //firebase doesnot grand permission
                         LoginManager.getInstance().logOut()             //so automatically fb log out

@@ -8,16 +8,19 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.dedsec_x47.trainer.HomeScreen
 import com.dedsec_x47.trainer.auth.*
-import com.dedsec_x47.trainer.databinding.ActivityMainBinding
 import com.dedsec_x47.trainer.databinding.ActivityStartingBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.facebook.AccessToken
+
+
+
 
 var isNewUser = false
 var isDetailsSaved = false
-var isfacebookLogin = false
 
 /*TODO: GET STARTED (ACTIVITY MAIN BINDING) SHOULD ONLY COMES IN FIRST USE.. SO IF USER IS LOGGED IN.. IT SHOULD NOT COME
 DO ACCORDING TO AUTH LISTER,
@@ -38,41 +41,52 @@ class LoginActivity : AppCompatActivity() {
         setContentView(activityMainBinding.root)
         createNotificationChannel()
 
-        auth = Firebase.auth                         // Initialize Firebase Auth
+        auth = Firebase.auth
         auth.addAuthStateListener { auth ->
-            //get current user
+
             val user = auth.currentUser
             Log.d("User Type : ", isNewUser.toString())
 
-            // Check if user is signed in (non-null) and update UI accordingly.
-            if (user != null) {                     //User is signed in
+            if (user != null) {
                 user.reload()
-                if (user.isEmailVerified) {// && !isfacebookLogin
 
-                    isVertificationEmailSent = false
-                    Log.d(" ", "Email Is verified")
-                    if (isNewUser) {
-                        user.reload()
-                        Toast.makeText( baseContext, "Welcome to trAIner", Toast.LENGTH_SHORT
-                        ).show()
-                        GetUserDetails().saveDetailsInFireStore( newUserImageUri, newUserName,
-                            newUserAge, userGender, false, " " )
-                        setAlarm()
+                val accessToken = AccessToken.getCurrentAccessToken()
+                val isLoggedIn = accessToken != null && !accessToken.isExpired
+                Log.d("fblog",""+isLoggedIn)
+
+                if (!isLoggedIn) {
+                    if (user.isEmailVerified) {
+                        isVertificationEmailSent = false
+                        Log.d(" ", "Email Is verified")
+//                        if (isNewUser) {
+//                            user.reload()
+//                            Toast.makeText(
+//                                baseContext, "Welcome to trAIner", Toast.LENGTH_SHORT
+//                            ).show()
+//                            GetUserDetails().saveDetailsInFireStore(
+//                                newUserImageUri, newUserName,
+//                                newUserAge, userGender, false, " "
+//                            )
+//                            setAlarm()
+//                        } else {
+//                            home()
+//                        }
+                        home()
                     } else {
-                        logOut()
-                    }
 
+                        Log.d(" ", "Email is not verified ")
+                        if (!isVertificationEmailSent) {
+                            sendEmailVerification()
+                        } else {
+                            Toast.makeText(
+                                baseContext, "Please verify your Email",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        auth.signOut()
+                    }
                 } else {
-
-                    Log.d(" ", "Email is not verified ")
-                    if (!isVertificationEmailSent) {
-                        sendEmailVerification()
-                    } else {
-                        Toast.makeText( baseContext, "Please verify your Email",
-                            Toast.LENGTH_SHORT ).show()
-                    }
-                    auth.signOut()
-
+                    home()
                 }
             } else {
                 Log.d(" ", "User Null")
@@ -81,7 +95,6 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 
     private fun sendEmailVerification() {            // send_email_verification
@@ -107,8 +120,8 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)                                     //starts an instance of the Sign in activity
     }
 
-    private fun logOut() {                                          //function for logout
-        val intent = Intent(this, LogOut::class.java)//intent MainActivity2
+    private fun home() {                                          //function for logout
+        val intent = Intent(this, HomeScreen::class.java)//intent MainActivity2
         startActivity(intent)                                       //starts an instance of the MainActivity2
     }
 
@@ -121,9 +134,10 @@ class LoginActivity : AppCompatActivity() {
         val name = "trAIner"
         val descriptionText = "remainder"
         val importance = NotificationManager.IMPORTANCE_HIGH
-        val channel = NotificationChannel(com.dedsec_x47.trainer.CHANNEL_ID, name, importance).apply {
-            description = descriptionText
-        }
+        val channel =
+            NotificationChannel(com.dedsec_x47.trainer.CHANNEL_ID, name, importance).apply {
+                description = descriptionText
+            }
         // Register the channel with the system
         val notificationManager: NotificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

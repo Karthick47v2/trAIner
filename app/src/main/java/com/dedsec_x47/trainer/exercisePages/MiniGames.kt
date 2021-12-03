@@ -2,13 +2,23 @@ package com.dedsec_x47.trainer.exercisePages
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.dedsec_x47.trainer.R
+import com.dedsec_x47.trainer.databinding.ActivityMiniGamesBinding
 
 class MiniGames : AppCompatActivity() {
+    private lateinit var activityMiniGamesBinding : ActivityMiniGamesBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mini_games)
-    }
+        activityMiniGamesBinding = ActivityMiniGamesBinding.inflate(layoutInflater)
+        setContentView(activityMiniGamesBinding.root)
 
-    //TODO: GOTO EACH INSTRUCTION PAGE WHEN SELECTED --
+        activityMiniGamesBinding.cardGame1MG.setOnClickListener(){
+//            val intent = Intent(this, ::class.java)
+//            startActivity(intent)
+        }
+        activityMiniGamesBinding.cardComingSoonMG.setOnClickListener(){
+//            val intent = Intent(this, ::class.java)
+//            startActivity(intent)
+        }
+
+    }
 }
