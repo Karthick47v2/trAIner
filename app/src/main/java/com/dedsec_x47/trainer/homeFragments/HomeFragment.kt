@@ -21,34 +21,19 @@ class HomeFragment: Fragment(){
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        //view.findViewById<>()
-        // TODO: GO TO STRENGTH.KT OR WEIGHTLOSS.KT OR MINIGAMES.KT ACCORDING TO SELECTED CARD
         val card1 = view.findViewById<CardView>(R.id.cardWeightLoss)
         val card2 = view.findViewById<CardView>(R.id.cardStrengthTraining)
         val card3 = view.findViewById<CardView>(R.id.cardHIIT)
 
         card1.setOnClickListener {
-            inflater.inflate(
-                R.layout.activity_weight_loss,
-                container,
-                false
-            )
+            startActivity(Intent(context, com.dedsec_x47.trainer.exercisePages.WeightLoss::class.java))
         }
         card2.setOnClickListener {
-            inflater.inflate(
-                R.layout.activity_strength_training,
-                container,
-                false
-            )
+            startActivity(Intent(context, com.dedsec_x47.trainer.exercisePages.Strength::class.java))
         }
         card3.setOnClickListener {
-            inflater.inflate(
-                R.layout.activity_mini_games,
-                container,
-                false
-            )
+            startActivity(Intent(context, com.dedsec_x47.trainer.exercisePages.MiniGames::class.java))
         }
-
         return view
     }
 
