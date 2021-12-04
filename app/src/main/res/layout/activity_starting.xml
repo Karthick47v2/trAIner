@@ -28,14 +28,13 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintVertical_bias="0.74" />
 
     <TextView
         android:id="@+id/txtAboutApp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:background="@color/transparentBlack"
         android:fontFamily="@font/roboto"
         android:paddingHorizontal="10dp"
         android:text="@string/text_about"
