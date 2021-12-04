@@ -7,9 +7,13 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import java.util.*
+import kotlin.collections.HashMap
 
 lateinit var document: DocumentSnapshot
+var userNameList =ArrayList<String>()
 var isDetailsLoaded = false
+
 class UserDetails {
 
     fun saveDetailsInFireStore(
@@ -23,7 +27,16 @@ class UserDetails {
         val dataBase = Firebase.firestore
 
         val userData: MutableMap<String, Any> = HashMap()
+        userData["Name"] = name
 
+//        dataBase.collection("All Users").document("Names").set(userData)
+//            .addOnSuccessListener {
+//                Log.d("Save Details", "user Name Saved SuccessFully ")
+//            }.addOnFailureListener {
+//                Log.d("Save Details", "User Name Saving Failure")
+//            }
+
+        userData["Email"] = currentUser.email.toString()
         userData["Age"] = age
         userData["Gender"] = gender
         val loss: MutableMap<String, Any> = HashMap()
@@ -52,14 +65,14 @@ class UserDetails {
         Strength["Push up"] = 0
         userData["Strength"] = Strength
 
+//        if (isFbLogin) {
+//            userData["Facebook Id"] = fid
+//            userData["Profile Name"] = name
+//        } else {
+//            userData["Name"] = name
+//            userData["Email"] = currentUser.email.toString()
+//        }
 
-        if (isFbLogin) {
-            userData["Facebook Id"] = fid
-            userData["Profile Name"] = name
-        } else {
-            userData["Name"] = name
-            userData["Email"] = currentUser.email.toString()
-        }
 
         dataBase.collection("users").document(currentUserId).set(userData)
             .addOnSuccessListener {
@@ -67,7 +80,6 @@ class UserDetails {
             }.addOnFailureListener {
                 Log.d("Save Details", "Failed to save Details ")
             }
-
     }
 
     fun loadFireStoreData() {
@@ -75,7 +87,7 @@ class UserDetails {
         val fAuth = Firebase.auth
         val currentUserId = fAuth.currentUser!!.uid
 
-        if(!isDetailsLoaded) {
+        if (!isDetailsLoaded) {
             dataBase.collection("users").document(currentUserId)
                 .get()
                 .addOnCompleteListener { task ->
@@ -123,6 +135,24 @@ class UserDetails {
         }.addOnFailureListener {
             Log.d("Save Details", "Image Upload Failure ")
         }
+    }
+
+    fun getAlluserNames() {
+
+        val dataBase = Firebase.firestore
+        dataBase.collection("users")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    userNameList.add(document["Name"].toString())
+                    Log.d("TAG", userNameList.last())
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.d("TAG", "Error getting documents: ", exception)
+            }
+
+        dataBase.collectionGroup("user")
     }
 
 }
