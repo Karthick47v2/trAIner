@@ -20,9 +20,9 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_centerVertical="true"
+            android:clickable="true"
             android:scaleType="centerCrop"
             android:src="@drawable/weight_loss"
-            android:clickable="true"
             app:shapeAppearanceOverlay="@style/roundCornersHeader" />
 
         <TextView

@@ -27,6 +27,8 @@ class poseDetect : AppCompatActivity(){
             System.loadLibrary("native-lib")
         }
         private const val FRAGMENT_DIALOG = "dialog"
+
+        var currentExercise = Exercise.Plank
     }
 
     private lateinit var surfaceView: SurfaceView

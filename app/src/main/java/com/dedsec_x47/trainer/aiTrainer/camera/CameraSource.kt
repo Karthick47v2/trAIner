@@ -1,5 +1,6 @@
 package com.dedsec_x47.trainer.aiTrainer.camera
 
+import android.content.ContentValues
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.ImageFormat
@@ -10,17 +11,21 @@ import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraDevice
 import android.hardware.camera2.CameraManager
 import android.media.ImageReader
+import android.os.Debug
 import android.os.Handler
 import android.os.HandlerThread
 import android.util.Log
 import android.view.Surface
 import android.view.SurfaceView
+import com.dedsec_x47.trainer.aiTrainer.Exercise
 import kotlinx.coroutines.suspendCancellableCoroutine
 import com.dedsec_x47.trainer.aiTrainer.render.Visual
 import com.dedsec_x47.trainer.aiTrainer.render.RGBConverter
 import com.dedsec_x47.trainer.aiTrainer.pose.PoseDetector
 import com.dedsec_x47.trainer.aiTrainer.data.Human
+import com.dedsec_x47.trainer.aiTrainer.poseClassify.HammerCurl
 import com.dedsec_x47.trainer.aiTrainer.poseClassify.Plank
+import com.dedsec_x47.trainer.aiTrainer.poseDetect
 import java.util.*
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -187,9 +192,35 @@ class CameraSource(private val surfaceView: SurfaceView, private val listener: C
 
         if (human.score > MIN_CONFIDENCE){
             outputBitmap = Visual.drawBodyKeypoints(bitmap, human)
-            //HammerCurl.getHammerCurlAngles(human, surfaceView)
+
+            when(poseDetect.currentExercise){
+                Exercise.Hammercurl -> HammerCurl.getHammerCurlAngles(human, surfaceView)
+                Exercise.Plank -> Log.d(ContentValues.TAG, "Plank")
+                Exercise.BenchpressBarbell -> Log.d(ContentValues.TAG, "BenchPressB")
+                Exercise.BenchpressDumbbell -> Log.d(ContentValues.TAG, "BenchPressD")
+                Exercise.Chinup -> Log.d(ContentValues.TAG, "Chinup")
+                Exercise.Deadlift -> Log.d(ContentValues.TAG, "DeadLift")
+                Exercise.Pushup -> Log.d(ContentValues.TAG, "Pushup")
+                Exercise.ShoulderpressBarbell -> Log.d(ContentValues.TAG, "ShoulderpreB")
+                Exercise.ShoulderpressDumbell -> Log.d(ContentValues.TAG, "ShoulderpeeD")
+                Exercise.Situp -> Log.d(ContentValues.TAG, "Situp")
+                Exercise.Splitsquat -> Log.d(ContentValues.TAG, "Splitsquat")
+                Exercise.Squat -> Log.d(ContentValues.TAG, "Squat")
+                else -> Log.d(ContentValues.TAG, "LegRaise")
+            }
+ /*           //poseDetect.currentExercise = Exercise.Hammercurl
+            if(poseDetect.currentExercise == Exercise.Hammercurl){
+                Log.d(ContentValues.TAG, "YES")
+
+            }
+            if(poseDetect.c)
+            else{
+                Log.d(ContentValues.TAG, "NOPE")
+            }*/
+
+
             //Squat.getSquatAngles(human, surfaceView)
-            Plank.getPlankAngles(human, surfaceView)
+            //Plank.getPlankAngles(human, surfaceView)
             /*Plank.getPlankAngles(person)*/
         }
 

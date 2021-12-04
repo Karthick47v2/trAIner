@@ -17,6 +17,7 @@ import com.dedsec_x47.trainer.auth.isNewUser
 import com.dedsec_x47.trainer.homeFragments.*
 import com.facebook.AccessToken
 import com.facebook.login.LoginManager
+import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -26,6 +27,7 @@ import java.io.File
 class HomeScreen : AppCompatActivity() {
     // TODO : RESTRICT LANDSCAPE ___ SEPARATELY FOR ACTIVITIES////////////////////////
     lateinit var toggle: ActionBarDrawerToggle
+    lateinit var profPic: ShapeableImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -93,10 +95,14 @@ class HomeScreen : AppCompatActivity() {
         btnLogout.setOnClickListener {
             logout()
         }
-//        val clkProfilePic: ImageView = findViewById(R.id.savProfileImage)
-//        clkProfilePic.setOnClickListener{
-//            selectProfileImage()
-//        }
+
+        val head_Nav: com.google.android.material.navigation.NavigationView =
+            findViewById(R.id.navView)
+
+        profPic = findViewById(R.id.savProfileImage)
+        profPic.setOnClickListener{
+            selectProfileImage()
+        }
 
     }
 
@@ -154,9 +160,9 @@ class HomeScreen : AppCompatActivity() {
     }
 
     private fun setProfilePic(){
-//        val cacheFile = File(this.cacheDir, "profilePic")
-//        val navView: ImageView = findViewById(R.id.savProfileImage)
-//        navView.setImageURI(cacheFile.toUri())
+        val cacheFile = File(this.cacheDir, "profilePic")
+        //val navView: ImageView = findViewById(R.id.savProfileImage)
+        profPic.setImageURI(cacheFile.toUri())
     }
 
 }
