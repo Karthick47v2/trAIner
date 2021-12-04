@@ -8,11 +8,19 @@
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/ic_baseline_watch_later_24.xml" value="0.13125" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/spinner_style.xml" value="0.13125" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_home.xml" value="0.16355555555555557" />
-        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_benchpressdumbbell.xml" value="0.16355555555555557" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_benchpressbarbell.xml" value="0.21" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_benchpressdumbbell.xml" value="0.25" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_chinup.xml" value="0.25" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_deadlift.xml" value="0.17037037037037037" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_hammercurl.xml" value="0.17037037037037037" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_legraise.xml" value="0.2" />
-        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_pushup.xml" value="0.33" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_plank.xml" value="0.17037037037037037" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_pushup.xml" value="0.22" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_shoulderpressbarbell.xml" value="0.16355555555555557" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_shoulderpressdumbbell.xml" value="0.17037037037037037" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_situp.xml" value="0.17037037037037037" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_splitsquat.xml" value="0.17037037037037037" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_squat.xml" value="0.18" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_login.xml" value="0.17" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_mini_games.xml" value="0.13" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_posedetect.xml" value="0.1" />

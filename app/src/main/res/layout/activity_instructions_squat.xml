@@ -21,16 +21,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textRepsCountSquat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Reps - 3 x 3"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSquatIns" />
+
     <LinearLayout
         android:id="@+id/linearLayout1SquatIns"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="10dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSquatIns">
+        app:layout_constraintTop_toBottomOf="@+id/textRepsCountSquat">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="match_parent"
@@ -42,8 +55,8 @@
             android:adjustViewBounds="true"
             android:elevation="12dp"
             android:maxHeight="80dp"
-            android:scaleType="centerCrop"
-            android:src="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_ins_squat1"
             app:shapeAppearanceOverlay="@style/RoundCornerImage"
             tools:ignore="ContentDescription" />
 
@@ -57,8 +70,8 @@
             android:adjustViewBounds="true"
             android:elevation="12dp"
             android:maxHeight="80dp"
-            android:scaleType="centerCrop"
-            android:src="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_ins_squat2"
             app:shapeAppearanceOverlay="@style/RoundCornerImage"
             tools:ignore="ContentDescription" />
     </LinearLayout>
