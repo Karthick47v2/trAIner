@@ -9,18 +9,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dedsec_x47.trainer.HomeScreen
-import com.dedsec_x47.trainer.auth.*
-import com.dedsec_x47.trainer.databinding.ActivityStartingBinding
+import com.facebook.AccessToken
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.facebook.AccessToken
-
-
-
 
 var isNewUser = false
-var isDetailsSaved = false
 
 /*TODO: GET STARTED (ACTIVITY MAIN BINDING) SHOULD ONLY COMES IN FIRST USE.. SO IF USER IS LOGGED IN.. IT SHOULD NOT COME
 DO ACCORDING TO AUTH LISTER,
@@ -48,25 +42,21 @@ class LoginActivity : AppCompatActivity() {
 
                 val accessToken = AccessToken.getCurrentAccessToken()
                 val isLoggedIn = accessToken != null && !accessToken.isExpired
-                Log.d("fblog",""+isLoggedIn)
+                Log.d("fblog", "" + isLoggedIn)
 
                 if (!isLoggedIn) {
                     if (user.isEmailVerified) {
                         isVertificationEmailSent = false
                         Log.d(" ", "Email Is verified")
-//                        if (isNewUser) {
-//                            user.reload()
-//                            Toast.makeText(
-//                                baseContext, "Welcome to trAIner", Toast.LENGTH_SHORT
-//                            ).show()
-//                            GetUserDetails().saveDetailsInFireStore(
-//                                newUserImageUri, newUserName,
-//                                newUserAge, userGender, false, " "
-//                            )
-//                            setAlarm()
-//                        } else {
-//                            home()
-//                        }
+                        if (isNewUser) {
+                            Toast.makeText(
+                                baseContext, "Welcome to trAIner", Toast.LENGTH_SHORT
+                            ).show()
+                            UserDetails().saveDetailsInFireStore(
+                                newUserName, newUserAge, userGender,
+                                false, " "
+                            )
+                        }
                         home()
                     } else {
 

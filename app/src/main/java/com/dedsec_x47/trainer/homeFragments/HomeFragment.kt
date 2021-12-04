@@ -7,11 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.dedsec_x47.trainer.R
-import com.dedsec_x47.trainer.auth.LogOut
-import com.google.android.material.navigation.NavigationView
+import com.dedsec_x47.trainer.auth.UserDetails
 
 class HomeFragment: Fragment(){
 
@@ -19,6 +16,7 @@ class HomeFragment: Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        UserDetails().loadFireStoreData()
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         val card1 = view.findViewById<CardView>(R.id.cardWeightLoss)

@@ -25,7 +25,7 @@ class LogOut : AppCompatActivity() {
         fauth = Firebase.auth
         val currentUserId = fauth.currentUser!!.uid
         val storageRef = Firebase.storage.reference
-        GetUserDetails().loadFireStoreData()
+        UserDetails().loadFireStoreData()
 
         activityMain2Binding.signOutButton.setOnClickListener {
             val imageRef = storageRef.child("users").child(currentUserId).child("ProfileImage")
@@ -38,24 +38,14 @@ class LogOut : AppCompatActivity() {
                 // Handle any errors
             }
 
-            GetUserDetails().readData("Loss.Plank")
-            GetUserDetails().readData("Name")
-            GetUserDetails().readData("Strength.Chin up")
-            GetUserDetails().readData("Strength.Shoulder Press.Barbell")
-            GetUserDetails().readData("Strength.bench press.Barbell")
+            UserDetails().readData("Loss.Plank")
+            UserDetails().readData("Name")
+            UserDetails().readData("Strength.Chin up")
+            UserDetails().readData("Strength.Shoulder Press.Barbell")
+            UserDetails().readData("Strength.bench press.Barbell")
 
-            GetUserDetails().updateFireStoreData("Strength.bench press.Barbell",1000)
+            UserDetails().updateFireStoreData("Strength.bench press.Barbell",1000)
 
-//            activitySignupBinding.profileImage.
-//            auth = Firebase.auth
-//            auth.signOut()
-//            disconnectFromFacebook()
-        }
-    }
-
-    private fun disconnectFromFacebook() {
-        if (AccessToken.getCurrentAccessToken() != null) {
-            LoginManager.getInstance().logOut()
         }
     }
 
