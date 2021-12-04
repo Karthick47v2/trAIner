@@ -22,6 +22,7 @@ import com.google.firebase.ktx.Firebase
 
 //TODO: GRAPH API DETAILS
 
+var isgetStart: Boolean = true
 
 class SignIn : AppCompatActivity() {
 
@@ -32,10 +33,14 @@ class SignIn : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_starting)
-        val button: Button = findViewById(R.id.btnGetStarted)
+//        setContentView(R.layout.activity_starting)
+//        val button: Button = findViewById(R.id.btnGetStarted)
+//
+//        button.setOnClickListener() {
+        if(isgetStart){
+            getStarted()
 
-        button.setOnClickListener() {
+        }
             activitySignInBinding = ActivitySigninBinding.inflate(layoutInflater)
             setContentView(activitySignInBinding.root) //set activity sign in layout
             auth = Firebase.auth
@@ -70,8 +75,22 @@ class SignIn : AppCompatActivity() {
                 val intent = Intent(this, SignUp::class.java)
                 startActivity(intent)
             }
-        }
+//        }
 
+    }
+
+    private fun getStarted() {
+
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.activity_starting, null)
+        val builder = AlertDialog.Builder(this).setView(dialogView)
+        val alertDialog = builder.show()
+
+        val btngetSt = dialogView.findViewById<Button>(R.id.btnGetStarted)
+
+        btngetSt.setOnClickListener {
+            isgetStart = false
+            alertDialog.dismiss()
+        }
     }
 
     private fun resetPassword() {
