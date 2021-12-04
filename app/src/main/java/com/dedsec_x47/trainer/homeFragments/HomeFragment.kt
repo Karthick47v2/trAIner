@@ -9,6 +9,7 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.auth.UserDetails
+import com.dedsec_x47.trainer.auth.isDetailsLoaded
 
 class HomeFragment: Fragment(){
 
@@ -16,7 +17,9 @@ class HomeFragment: Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         UserDetails().loadFireStoreData()
+
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         val card1 = view.findViewById<CardView>(R.id.cardWeightLoss)

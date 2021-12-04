@@ -9,7 +9,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
 lateinit var document: DocumentSnapshot
-
+var isDetailsLoaded = false
 class UserDetails {
 
     fun saveDetailsInFireStore(
@@ -56,11 +56,9 @@ class UserDetails {
         if (isFbLogin) {
             userData["Facebook Id"] = fid
             userData["Profile Name"] = name
-            //userData["Full Name"] = "Not Available"
         } else {
             userData["Name"] = name
             userData["Email"] = currentUser.email.toString()
-            userData["Full Name"] = "Not Available"
         }
 
         dataBase.collection("users").document(currentUserId).set(userData)
@@ -77,18 +75,21 @@ class UserDetails {
         val fAuth = Firebase.auth
         val currentUserId = fAuth.currentUser!!.uid
 
-        dataBase.collection("users").document(currentUserId)
-            .get()
-            .addOnCompleteListener { task ->
+        if(!isDetailsLoaded) {
+            dataBase.collection("users").document(currentUserId)
+                .get()
+                .addOnCompleteListener { task ->
 
-                if (task.isSuccessful) {
-                    document =
-                        task.result                              //document is global variable
-                    Log.d("TAG", "Cached document data: ${document.data}")
-                } else {
-                    Log.d("TAG", "Cached get failed: ", task.exception)
+                    if (task.isSuccessful) {
+                        isDetailsLoaded = true
+                        document =
+                            task.result                              //document is global variable
+                        Log.d("TAG", "Cached document data: ${document.data}")
+                    } else {
+                        Log.d("TAG", "Cached get failed: ", task.exception)
+                    }
                 }
-            }
+        }
     }
 
     fun readData(field: String): String {

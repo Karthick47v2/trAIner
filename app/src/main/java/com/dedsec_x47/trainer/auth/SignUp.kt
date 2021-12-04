@@ -43,12 +43,7 @@ class SignUp : AppCompatActivity() {
         activitySignupBinding = ActivitySignupBinding.inflate(layoutInflater)
         setContentView(activitySignupBinding.root)
 
-        auth = Firebase.auth                                        // Initialize Firebase Auth
-
-/*        activitySignupBinding.profileImage.setOnClickListener {
-            selectProfileImage()
-        }*/
-
+        auth = Firebase.auth
 
         val genOp = resources.getStringArray(R.array.genderDropdown)
         val genSpin = findViewById<Spinner>(R.id.spinnerGender)
@@ -88,7 +83,6 @@ class SignUp : AppCompatActivity() {
                 newUserAge = if(activitySignupBinding.textInputEditTextAge.text.toString() != "") {
                     Integer.parseInt(activitySignupBinding.textInputEditTextAge.text.toString())
                 } else 0
-                //userGender = activitySignupBinding.textInputLayoutEditTextGender.text.toString()
 
                 if (detailsValidityChecker(
                         newUserName,
@@ -101,7 +95,6 @@ class SignUp : AppCompatActivity() {
                 ) {
                     createAccount(email, password1)
                 }
-            //}
         }
 
         activitySignupBinding.btnCancel.setOnClickListener {
@@ -120,7 +113,7 @@ class SignUp : AppCompatActivity() {
                     Log.d(TAG, "createUserWithEmail:success")
                 } else {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "Signup failed.", Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -128,7 +121,7 @@ class SignUp : AppCompatActivity() {
     companion object {
         private const val TAG = "EmailPassword"
     }
-   // <!--android:entries="@array/genderDropdown"-->
+
     private fun detailsValidityChecker(
         name: String,
         email: String,
@@ -139,7 +132,6 @@ class SignUp : AppCompatActivity() {
     ): Boolean {
 
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password1)
-           // || TextUtils.isEmpty(password2) || (age == 0) || TextUtils.isEmpty(gender)
             || TextUtils.isEmpty(password2) || (age == 0)
         ) {
             Toast.makeText(
