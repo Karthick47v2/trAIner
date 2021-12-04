@@ -20,13 +20,14 @@
 
         <TextView
             android:id="@+id/tvDailyChallenge"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_daily_challenges"
+            android:textAlignment="center"
+            android:background="@color/darkRed_opacity_10"
+            android:padding="5dp"
             android:textSize="25sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -149,13 +150,14 @@
 
         <TextView
             android:id="@+id/tvWeeklyChallenges"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_weekly_challenges"
+            android:textAlignment="center"
+            android:background="@color/darkRed_opacity_10"
+            android:padding="5dp"
             android:textSize="25sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
