@@ -15,10 +15,9 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        //TODO:check profile pic
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
-        view.findViewById<TextView>(R.id.tvFullName).text = UserDetails().readData("Full Name")
-        view.findViewById<TextView>(R.id.username_field).text = UserDetails().readData("Name")
+        view.findViewById<TextView>(R.id.tvNameTop).text = UserDetails().readData("Name")
         view.findViewById<TextView>(R.id.tvGetName).text = UserDetails().readData("Name")
         view.findViewById<TextView>(R.id.tvGetGender).text = UserDetails().readData("Gender")
         view.findViewById<TextView>(R.id.tvGetAge).text = UserDetails().readData("Age")

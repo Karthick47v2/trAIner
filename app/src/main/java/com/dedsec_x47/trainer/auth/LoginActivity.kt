@@ -49,9 +49,6 @@ class LoginActivity : AppCompatActivity() {
                         isVertificationEmailSent = false
                         Log.d(" ", "Email Is verified")
                         if (isNewUser) {
-                            Toast.makeText(
-                                baseContext, "Welcome to trAIner", Toast.LENGTH_SHORT
-                            ).show()
                             UserDetails().saveDetailsInFireStore(
                                 newUserName, newUserAge, userGender,
                                 false, " "
