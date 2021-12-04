@@ -6,10 +6,8 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.net.toUri
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.auth.UserDetails
@@ -135,7 +133,7 @@ class HomeScreen : AppCompatActivity() {
             val newUserImageUri = imgdata.data!!
             Log.d(" ", "Select Image done")
             UserDetails().saveProfilePic(newUserImageUri)
-            downloadAndSaveProPic()
+            //downloadAndSaveProPic()
         }
     }
 

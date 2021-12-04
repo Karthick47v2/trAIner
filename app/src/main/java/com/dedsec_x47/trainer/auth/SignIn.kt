@@ -1,15 +1,17 @@
 package com.dedsec_x47.trainer.auth
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.databinding.ActivitySigninBinding
-import com.dedsec_x47.trainer.databinding.ActivityStartingBinding
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
@@ -17,7 +19,6 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import java.util.*
 
 //TODO: GRAPH API DETAILS
 
@@ -74,29 +75,44 @@ class SignIn : AppCompatActivity() {
     }
 
     private fun resetPassword() {
-        val email = activitySignInBinding.textInputEditTextEmail.text.toString()
 
-        if (TextUtils.isEmpty(email)) {
-            Toast.makeText(
-                baseContext, "Please Enter Your email",
-                Toast.LENGTH_SHORT
-            ).show()
-        } else {
-            Firebase.auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(
-                        baseContext, "Password Reset Email sent.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    Log.d(TAG, "Password Reset Email sent.")
-                } else {
-                    Toast.makeText(
-                        baseContext, "Password Reset Email not sent : Enter Valid Email",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    Log.d(TAG, "Password Reset Email not sent : Enter Valid Email")
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.password_reset_popup, null)
+        val builder = AlertDialog.Builder(this).setView(dialogView)
+        val alertDialog = builder.show()
+
+        val btnSend = dialogView.findViewById<Button>(R.id.btnOkay)
+        val btnCancel = dialogView.findViewById<Button>(R.id.btnCancelPopUp)
+
+        btnSend.setOnClickListener {
+            val email =
+                (dialogView.findViewById<EditText>(R.id.textInputEditTextResetEmail)).text.toString()
+
+            if (TextUtils.isEmpty(email)) {
+                Toast.makeText(
+                    baseContext, "Please Enter Your email",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                Firebase.auth.sendPasswordResetEmail(email).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(
+                            baseContext, "Password Reset Email sent.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        Log.d(TAG, "Password Reset Email sent.")
+                        alertDialog.dismiss()
+                    } else {
+                        Toast.makeText(
+                            baseContext, "Password Reset Email not sent : Enter Valid Email",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        Log.d(TAG, "Password Reset Email not sent : Enter Valid Email")
+                    }
                 }
             }
+        }
+        btnCancel.setOnClickListener {
+            alertDialog.dismiss()
         }
     }
 
@@ -184,13 +200,11 @@ class SignIn : AppCompatActivity() {
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG_FB, "signInWithCredential:success")
                 } else {
-                    if (AccessToken.getCurrentAccessToken() != null) {  //firebase doesnot grand permission
-                        LoginManager.getInstance().logOut()             //so automatically fb log out
+                    if (AccessToken.getCurrentAccessToken() != null) {
+                        LoginManager.getInstance().logOut()
                     }
-                    // If sign in fails, display a message to the user.
                     Log.w(TAG_FB, "signInWithCredential:failure", task.exception)
                     Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
                 }
