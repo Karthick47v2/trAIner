@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/bg_challenges.xml" value="0.17733333333333334" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/bg_challenges_vox.xml" value="0.17733333333333334" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/bg_popup.xml" value="0.20461538461538462" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/btn_black_ripple.xml" value="0.13125" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/ic_baseline_watch_later_24.xml" value="0.13125" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/spinner_style.xml" value="0.13125" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_create_new_challange.xml" value="0.22" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_home.xml" value="0.16355555555555557" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_benchpressbarbell.xml" value="0.21" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_instructions_benchpressdumbbell.xml" value="0.25" />
@@ -24,6 +27,7 @@
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_login.xml" value="0.17" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_mini_games.xml" value="0.13" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_posedetect.xml" value="0.1" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_rewards_lose.xml" value="0.16574074074074074" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_settings.xml" value="0.18" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_signup.xml" value="0.18" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_starting.xml" value="0.18" />
@@ -157,7 +161,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.2" />
+        <option name="scale" value="0.16" />
       </ProjectState>
     </option>
   </component>
