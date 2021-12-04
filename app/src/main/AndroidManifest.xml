@@ -68,6 +68,7 @@
             android:name=".exercisePages.Strength"
             android:exported="true" />
         <activity
+            android:theme="@style/FragmentTheme"
             android:name=".SetAlarm"
             android:exported="true" />
 

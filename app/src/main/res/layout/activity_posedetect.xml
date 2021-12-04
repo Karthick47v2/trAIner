@@ -32,7 +32,7 @@
         android:padding="10dp"
         android:text="@string/fixed_enable_hide_skeleton_mode"
         android:textAllCaps="false"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,23 +43,22 @@
         android:id="@+id/tvRepetitionCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/fixed_repetition_count"
-        android:textSize="30sp"
+        android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="p"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:text="@string/text_count"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toRightOf="@id/tvRepetitionCount"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:textSize="45sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRepetitionCount"/>
 
 
 

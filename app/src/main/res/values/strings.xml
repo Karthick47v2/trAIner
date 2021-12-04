@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">trainer</string>
+    <string name="app_name">TrAIner</string>
     <string name="sign_in">Sign In</string>
     <string name="enter_email_id">Enter Email ID</string>
     <string name="enter_password">Enter Password</string>
@@ -115,8 +115,8 @@
     <string name="text_update">Update</string>
     <string name="model">Model: </string>
     <string name="fps">Fps: %d</string>
-    <string name="fixed_repetition_count">Repetition count : </string>
-    <string name="fixed_enable_hide_skeleton_mode">Enable / Hide skeleton mode</string>
+    <string name="fixed_repetition_count">Reps</string>
+    <string name="fixed_enable_hide_skeleton_mode">Show debug</string>
     <string name="text_count">20</string>
     <string-array name="models_array">
         <item>Light</item>
