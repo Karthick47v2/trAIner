@@ -43,7 +43,7 @@
             android:elevation="12dp"
             android:maxHeight="80dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_ins_pushup2"
+            android:src="@null"
             app:shapeAppearanceOverlay="@style/RoundCornerImage"
             tools:ignore="ContentDescription" />
 
@@ -58,7 +58,7 @@
             android:elevation="12dp"
             android:maxHeight="80dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/img_ins_pushup1"
+            android:src="@null"
             app:shapeAppearanceOverlay="@style/RoundCornerImage"
             tools:ignore="ContentDescription" />
     </LinearLayout>
@@ -82,7 +82,6 @@
             android:layout_height="wrap_content"
             android:background="@color/transparentOrange"
             android:fontFamily="@font/roboto"
-            android:paddingHorizontal="100dp"
             android:text="@string/important"
             android:textAlignment="center"
             android:textColor="@color/white"

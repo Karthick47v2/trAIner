@@ -82,7 +82,6 @@
             android:layout_height="wrap_content"
             android:background="@color/transparentOrange"
             android:fontFamily="@font/roboto"
-            android:paddingHorizontal="100dp"
             android:text="@string/important"
             android:textAlignment="center"
             android:textColor="@color/white"

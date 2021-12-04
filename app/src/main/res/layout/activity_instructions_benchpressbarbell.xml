@@ -45,7 +45,7 @@
             android:scaleType="centerCrop"
             android:src="@null"
             app:shapeAppearanceOverlay="@style/RoundCornerImage"
-            tools:ignore="ContentDescription" />
+            tools:ignore="ContentDescription,ImageContrastCheck" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="match_parent"
@@ -82,7 +82,6 @@
             android:layout_height="wrap_content"
             android:background="@color/transparentOrange"
             android:fontFamily="@font/roboto"
-            android:paddingHorizontal="100dp"
             android:text="@string/important"
             android:textAlignment="center"
             android:textColor="@color/white"
