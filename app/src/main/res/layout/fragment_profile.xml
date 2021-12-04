@@ -28,7 +28,7 @@
             app:shapeAppearanceOverlay="@style/roundCorners" />
 
         <TextView
-            android:id="@+id/tvFullName"
+            android:id="@+id/tvNameTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -39,17 +39,6 @@
             android:text="@string/user_name"
             android:textColor="@color/white"
             android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/username_field"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvFullName"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/sivProfileImage"
-            android:includeFontPadding="false"
-            android:text="@string/user_name_hint"
-            android:textSize="18sp" />
 
     </RelativeLayout>
 
@@ -127,56 +116,10 @@
             android:textColor="@color/grey"/>
 
         <TextView
-            android:id="@+id/tvWeight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvAge"
-            android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/weight_fixed"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvGetWeight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvGetAge"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@id/tvWeight"
-            android:text="@string/text_weight"
-            android:textSize="20sp"
-            android:textColor="@color/grey"/>
-
-        <TextView
-            android:id="@+id/tvHeight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvWeight"
-            android:layout_marginTop="20dp"
-            android:fontFamily="sans-serif-medium"
-            android:text="@string/height_fixed"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/tvGetHeight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvGetWeight"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@id/tvHeight"
-            android:text="@string/text_height"
-            android:textSize="20sp"
-            android:textColor="@color/grey"/>
-
-        <TextView
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvHeight"
+            android:layout_below="@id/tvAge"
             android:layout_marginTop="20dp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/email_fixed"
@@ -187,7 +130,7 @@
             android:id="@+id/tvGetEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvGetHeight"
+            android:layout_below="@id/tvGetAge"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvEmail"

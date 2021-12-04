@@ -56,11 +56,9 @@ class UserDetails {
         if (isFbLogin) {
             userData["Facebook Id"] = fid
             userData["Profile Name"] = name
-            //userData["Full Name"] = "Not Available"
         } else {
             userData["Name"] = name
             userData["Email"] = currentUser.email.toString()
-            userData["Full Name"] = "Not Available"
         }
 
         dataBase.collection("users").document(currentUserId).set(userData)
