@@ -21,6 +21,8 @@
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/font/roboto_thin.xml" value="0.2490740740740741" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_feedback.xml" value="0.25" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_instructions_benchpressbarbell.xml" value="0.15789473684210525" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_instructions_benchpressdumbbell.xml" value="0.15789473684210525" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_instructions_chinup.xml" value="0.1875" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_instructions_deadlift.xml" value="0.1597972972972973" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_instructions_hammercurl.xml" value="0.1597972972972973" />
@@ -46,7 +48,7 @@
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_leaderboard.xml" value="0.25" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
-        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_stats.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_stats.xml" value="0.2" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/nav_header.xml" value="0.25" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/settings.xml" value="0.1555921052631579" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
