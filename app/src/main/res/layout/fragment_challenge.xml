@@ -5,18 +5,300 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:padding="20dp"
     tools:context=".homeFragments.ChallengeFragment">
 
-    <!--android:background="@color/black" // deleted-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clDailyChallenge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dail_challenge_bg_opacity"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvDailyChallenge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_daily_challenges"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPushUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="80dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_push_up"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvSitUp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDailyChallenge" />
+
+        <TextView
+            android:id="@+id/tvCompletedPushUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/daily_pushUp_completeness"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvPushUp"
+            app:layout_constraintStart_toStartOf="@+id/tvPushUp"
+            app:layout_constraintTop_toBottomOf="@+id/tvPushUp" />
+
+        <TextView
+            android:id="@+id/tvSitUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_sit_up"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvPushUp"
+            app:layout_constraintTop_toBottomOf="@+id/tvDailyChallenge" />
+
+        <TextView
+            android:id="@+id/tvCompletedSitUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/daily_sitUp_completeness"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvSitUp"
+            app:layout_constraintStart_toStartOf="@+id/tvSitUp"
+            app:layout_constraintTop_toBottomOf="@+id/tvSitUp" />
+
+        <TextView
+            android:id="@+id/tvSquats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_squats"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvCompletedPushUp"
+            app:layout_constraintEnd_toEndOf="@+id/tvCompletedPushUp"
+            app:layout_constraintTop_toBottomOf="@+id/tvCompletedPushUp"/>
+
+        <TextView
+            android:id="@+id/tvCompletedSquats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/daily_squats_completeness"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvSquats"
+            app:layout_constraintStart_toStartOf="@+id/tvSquats"
+            app:layout_constraintTop_toBottomOf="@+id/tvSquats" />
+
+        <TextView
+            android:id="@+id/tvPlank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_plank"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvCompletedSitUp"
+            app:layout_constraintEnd_toEndOf="@+id/tvCompletedSitUp"
+            app:layout_constraintTop_toBottomOf="@+id/tvCompletedSitUp"/>
+
+        <TextView
+            android:id="@+id/tvCompletedPlank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/daily_plank_completeness"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvPlank"
+            app:layout_constraintStart_toStartOf="@+id/tvPlank"
+            app:layout_constraintTop_toBottomOf="@+id/tvPlank" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/weekly_challenge_bg_opacity"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clDailyChallenge">
+
+        <TextView
+            android:id="@+id/tvWeeklyChallenges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_weekly_challenges"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvPushUp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="80dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_push_up"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvChinUp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWeeklyChallenges" />
+
+        <TextView
+            android:id="@+id/tvCompletedPushUp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/weekly_pushUp_completeness"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvPushUp1"
+            app:layout_constraintStart_toStartOf="@+id/tvPushUp1"
+            app:layout_constraintTop_toBottomOf="@+id/tvPushUp1" />
+
+        <TextView
+            android:id="@+id/tvChinUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_chin_up"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/tvPushUp1"
+            app:layout_constraintTop_toBottomOf="@+id/tvWeeklyChallenges" />
+
+        <TextView
+            android:id="@+id/tvCompletedChinUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/weekly_chinUp_completeness"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvChinUp"
+            app:layout_constraintStart_toStartOf="@+id/tvChinUp"
+            app:layout_constraintTop_toBottomOf="@+id/tvChinUp" />
+
+        <TextView
+            android:id="@+id/tvPlank1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_plank"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvCompletedPushUp1"
+            app:layout_constraintStart_toStartOf="@+id/tvCompletedPushUp1"
+            app:layout_constraintTop_toBottomOf="@+id/tvCompletedPushUp1" />
+
+        <TextView
+            android:id="@+id/tvCompletedPlank1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/weekly_plank_completeness"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvPlank1"
+            app:layout_constraintStart_toStartOf="@+id/tvPlank1"
+            app:layout_constraintTop_toBottomOf="@+id/tvPlank1" />
+
+        <TextView
+            android:id="@+id/tvHammerCurl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_hammer_curl"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvCompletedChinUp"
+            app:layout_constraintStart_toStartOf="@+id/tvCompletedChinUp"
+            app:layout_constraintTop_toBottomOf="@+id/tvCompletedChinUp" />
+
+        <TextView
+            android:id="@+id/tvCompletedHammerCurl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/weekly_hammerCurl_completeness"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvHammerCurl"
+            app:layout_constraintStart_toStartOf="@+id/tvHammerCurl"
+            app:layout_constraintTop_toBottomOf="@+id/tvHammerCurl" />
+
+        <TextView
+            android:id="@+id/tvSitUp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/fixed_sit_up"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvCompletedPlank1"
+            app:layout_constraintStart_toStartOf="@+id/tvCompletedPlank1"
+            app:layout_constraintTop_toBottomOf="@+id/tvCompletedPlank1" />
+
+        <TextView
+            android:id="@+id/tvCompletedSitUp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/weekly_sitUp_completeness"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvSitUp1"
+            app:layout_constraintStart_toStartOf="@+id/tvSitUp1"
+            app:layout_constraintTop_toBottomOf="@+id/tvSitUp1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_orange_ripple"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/round_corner"
         android:drawableStart="@drawable/ic_create_challenge"
         android:padding="15dp"
-        android:layout_marginBottom="50dp"
         android:text="@string/create_challenge_fixed"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -24,7 +306,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.07999998" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
