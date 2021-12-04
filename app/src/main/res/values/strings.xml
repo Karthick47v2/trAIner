@@ -118,6 +118,16 @@
     <string name="fixed_repetition_count">Repetition count : </string>
     <string name="fixed_enable_hide_skeleton_mode">Enable / Hide skeleton mode</string>
     <string name="text_count">20</string>
+    <string name="reward_txt2">Good job! Keep your pace, earn more, RANK UP.</string>
+    <string name="reward_txt1">You won xxxx trAIner coins</string>
+    <string name="congratulations">Congratulations !</string>
+    <string name="continue_btn">Continue</string>
+    <string name="better_luck_next_time">Better luck next time !</string>
+    <string name="oops_you_failed">Oops! You failed.</string>
+    <string name="loss_txt">You were close, Don\'t give up, You can still make it, CHALLANGE AGAIN.</string>
+    <string name="send">SEND</string>
+    <string name="txt_password_reset">A link will be sent to your email with further details. Please check.</string>
+    <string name="reset_password">Reset Password</string>
     <string-array name="models_array">
         <item>Light</item>
         <item>Thunder</item>
