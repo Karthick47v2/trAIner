@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TrAIner</string>
+    <string name="app_name">trAIner</string>
     <string name="sign_in">Sign In</string>
     <string name="enter_email_id">Enter Email ID</string>
     <string name="enter_password">Enter Password</string>
