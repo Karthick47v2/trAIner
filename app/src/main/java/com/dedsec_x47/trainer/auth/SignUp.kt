@@ -23,7 +23,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import java.util.regex.Pattern
 
-lateinit var newUserImageUri: Uri
+
 lateinit var newUserName: String
 var newUserAge: Int = 0
 lateinit var userGender: String
@@ -276,19 +276,5 @@ class SignUp : AppCompatActivity() {
         return true
     }
 
-    private fun selectProfileImage() {
-        val openGalleryIntent =
-            Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startActivityForResult(openGalleryIntent, 100)
-    }
 
-    /*override fun onActivityResult(requestCode: Int, resultCode: Int, imgdata: Intent?) {
-        super.onActivityResult(requestCode, resultCode, imgdata)
-        if ((requestCode == 100) && (resultCode == RESULT_OK) && (imgdata != null) && (imgdata.data != null)) {
-            newUserImageUri = imgdata.data!!
-            activitySignupBinding.profileImage.setImageURI(newUserImageUri)
-            isProfilePictureSelected = true
-            Log.d(" ", "Select Image done")
-        }
-    }*/
 }

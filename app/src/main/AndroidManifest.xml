@@ -66,13 +66,12 @@
             android:exported="true" />
         <activity
             android:name=".exercisePages.Strength"
-            android:exported="true" />
         <activity
             android:theme="@style/FragmentTheme"
             android:name=".SetAlarm"
             android:exported="true" />
 
-        <meta-data
+      <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
@@ -112,6 +111,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SetAlarm"
+            android:exported="true"
+            android:theme="@style/FragmentTheme"/>
 
         <activity
             android:name=".aiTrainer.poseDetect"
