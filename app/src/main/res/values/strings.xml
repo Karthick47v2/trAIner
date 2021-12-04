@@ -128,6 +128,24 @@
     <string name="send">SEND</string>
     <string name="txt_password_reset">A link will be sent to your email with further details. Please check.</string>
     <string name="reset_password">Reset Password</string>
+    <string name="fixed_daily_challenges">Daily Challenges</string>
+    <string name="fixed_weekly_challenges">Weekly Challenges</string>
+    <string name="fixed_push_up">PUSH UP</string>
+    <string name="fixed_sit_up">SIT UP</string>
+    <string name="fixed_chin_up">CHIN UP</string>
+    <string name="fixed_plank">PLANK</string>
+    <string name="fixed_hammer_curl">HAMMER CURL</string>
+    <string name="daily_pushUp_completeness">0 / 5</string>
+    <string name="daily_sitUp_completeness">0 / 5</string>
+    <string name="fixed_squats">SQUATS</string>
+    <string name="daily_squats_completeness">0 / 5</string>
+    <string name="fixed_plank">PLANK</string>
+    <string name="daily_plank_completeness">0 / 5</string>
+    <string name="weekly_pushUp_completeness">0 / 40</string>
+    <string name="weekly_chinUp_completeness">0 / 40</string>
+    <string name="weekly_plank_completeness">0 / 40</string>
+    <string name="weekly_hammerCurl_completeness">0 / 40</string>
+    <string name="weekly_sitUp_completeness">0 / 40</string>
     <string-array name="models_array">
         <item>Light</item>
         <item>Thunder</item>
