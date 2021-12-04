@@ -66,9 +66,12 @@
             android:exported="true" />
         <activity
             android:name=".exercisePages.Strength"
+        <activity
+            android:theme="@style/FragmentTheme"
+            android:name=".SetAlarm"
             android:exported="true" />
 
-        <meta-data
+      <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
@@ -84,11 +87,11 @@
         <activity
             android:name=".auth.LoginActivity"
             android:exported="true">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".homeFragments.FeedbackActivity"
@@ -102,11 +105,11 @@
             android:name=".HomeScreen"
             android:exported="true"
             android:theme="@style/FragmentTheme">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
         <activity
             android:name=".SetAlarm"
@@ -116,10 +119,10 @@
         <activity
             android:name=".aiTrainer.poseDetect"
             android:exported="true">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
 
         <receiver android:name=".AlarmReceiver" />
