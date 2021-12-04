@@ -6,6 +6,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
@@ -26,21 +27,22 @@ import java.io.File
 class HomeScreen : AppCompatActivity() {
     // TODO : RESTRICT LANDSCAPE ___ SEPARATELY FOR ACTIVITIES////////////////////////
     lateinit var toggle: ActionBarDrawerToggle
-    lateinit var profPic: ShapeableImageView
+    //lateinit var profPic: ShapeableImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        UserDetails().getAlluserNames()
+//        val cacheFile = File(this.cacheDir, "profilePic")
+//        profPic = findViewById(R.id.savProfileImage)
+//        if(!isNewUser) {
+//            if ((!cacheFile.isDirectory)) {
+//                downloadAndSaveProPic()
+//            }else{
+//                setProfilePic()
+//            }
+//        }
 
-
-        val cacheFile = File(this.cacheDir, "profilePic")
-        if(!isNewUser) {
-            if ((!cacheFile.isDirectory)) {
-                downloadAndSaveProPic()
-            }else{
-                setProfilePic()
-            }
-        }
         //for slider menu
         val drawLayout: DrawerLayout = findViewById(R.id.drawerLayout)
         toggle = ActionBarDrawerToggle(this, drawLayout, R.string.open, R.string.close)
@@ -99,10 +101,10 @@ class HomeScreen : AppCompatActivity() {
         val head_Nav: com.google.android.material.navigation.NavigationView =
             findViewById(R.id.navView)
 
-        profPic = findViewById(R.id.savProfileImage)
-        profPic.setOnClickListener{
-            selectProfileImage()
-        }
+
+//        profPic.setOnClickListener{
+//            selectProfileImage()
+//        }
 
     }
 
@@ -145,24 +147,24 @@ class HomeScreen : AppCompatActivity() {
         }
     }
 
-    private fun downloadAndSaveProPic() {
-        val storageRef = Firebase.storage.reference
-        val picRef = storageRef.child("users/ProfileImage.jpg")
-        File.createTempFile("profilePic", null, this.cacheDir)
-        val cacheFile = File(this.cacheDir, "profilePic")
-
-        picRef.getFile(cacheFile).addOnCompleteListener {
-            Log.d("downloadAndSave", "file created")
-        }.addOnFailureListener {
-            Log.d("downloadAndSave", "file not created")
-        }
-        setProfilePic()
-    }
-
-    private fun setProfilePic(){
-        val cacheFile = File(this.cacheDir, "profilePic")
-        //val navView: ImageView = findViewById(R.id.savProfileImage)
-        profPic.setImageURI(cacheFile.toUri())
-    }
+//    private fun downloadAndSaveProPic() {
+//        val storageRef = Firebase.storage.reference
+//        val picRef = storageRef.child("users/ProfileImage.jpg")
+//        File.createTempFile("profilePic", null, this.cacheDir)
+//        val cacheFile = File(this.cacheDir, "profilePic")
+//
+//        picRef.getFile(cacheFile).addOnCompleteListener {
+//            Log.d("downloadAndSave", "file created")
+//        }.addOnFailureListener {
+//            Log.d("downloadAndSave", "file not created")
+//        }
+//        setProfilePic()
+//    }
+//
+//    private fun setProfilePic(){
+//        val cacheFile = File(this.cacheDir, "profilePic")
+////        val navView: ImageView = findViewById(R.id.savProfileImage)
+//        profPic.setImageURI(cacheFile.toUri())
+//    }
 
 }

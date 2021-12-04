@@ -128,6 +128,7 @@
     <string name="send">SEND</string>
     <string name="txt_password_reset">A link will be sent to your email with further details. Please check.</string>
     <string name="reset_password">Reset Password</string>
+    <string name="add_new">Add</string>
     <string name="fixed_daily_challenges">Daily Challenges</string>
     <string name="fixed_weekly_challenges">Weekly Challenges</string>
     <string name="fixed_push_up">PUSH UP</string>
