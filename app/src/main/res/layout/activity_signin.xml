@@ -133,7 +133,7 @@
         android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/viewDivider"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="@+id/viewDivider"
         app:layout_constraintTop_toBottomOf="@+id/viewDivider"
         app:layout_constraintVertical_bias="0.36" />
@@ -193,7 +193,7 @@
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayoutPassword"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="@+id/textInputLayoutPassword"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutPassword"
         tools:ignore="TouchTargetSizeCheck" />
