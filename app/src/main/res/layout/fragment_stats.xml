@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
+    android:padding="20dp"
     tools:context=".homeFragments.StatsFragment">
-
+<!--
     <ProgressBar
         android:id="@+id/pbProgressBar"
         style="@style/CircularDeterminateProgressBar"
@@ -41,5 +42,318 @@
         app:layout_constraintTop_toBottomOf="@+id/tvProgress"
         android:text="@string/text_progress"
         android:textColor="@color/white"/>
+-->
+    <TextView
+        android:id="@+id/tvWorkoutCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/orange_opacity_60"
+        android:text="@string/fixed_workout_counts"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/benchPressBarbell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWorkoutCount"
+        android:text ="@string/tv_bench_press_barbell"/>
+
+    <TextView
+        android:id="@+id/benchPressBarbellCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/benchPressBarbell"
+        app:layout_constraintTop_toTopOf="@+id/benchPressBarbell"
+        app:layout_constraintBottom_toBottomOf="@+id/benchPressBarbell"
+        android:text ="@string/bench_press_barbell_count"/>
+
+    <TextView
+        android:id="@+id/benchPressDumbbell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/benchPressBarbell"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_bench_press_dumbbell"/>
+
+    <TextView
+        android:id="@+id/benchPressCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/benchPressDumbbell"
+        app:layout_constraintBottom_toBottomOf="@+id/benchPressDumbbell"
+        app:layout_constraintStart_toEndOf="@+id/benchPressDumbbell"
+        android:text ="@string/bench_press_dumbbell_count"/>
+    <TextView
+        android:id="@+id/chinUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/benchPressDumbbell"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_chin_up"/>
+
+    <TextView
+        android:id="@+id/chinUpCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/chinUp"
+        app:layout_constraintBottom_toBottomOf="@+id/chinUp"
+        app:layout_constraintStart_toEndOf="@+id/chinUp"
+        android:text ="@string/chin_up_count"/>
+
+    <TextView
+        android:id="@+id/deadLift"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/chinUp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_dead_lift"/>
+
+    <TextView
+        android:id="@+id/deadLiftCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/deadLift"
+        app:layout_constraintBottom_toBottomOf="@+id/deadLift"
+        app:layout_constraintStart_toEndOf="@+id/deadLift"
+        android:text ="@string/dead_lift_count"/>
+
+    <TextView
+        android:id="@+id/hammerCurl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/deadLift"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_hammer_curl"/>
+
+    <TextView
+        android:id="@+id/hammerCurlCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/hammerCurl"
+        app:layout_constraintBottom_toBottomOf="@+id/hammerCurl"
+        app:layout_constraintStart_toEndOf="@+id/hammerCurl"
+        android:text ="@string/hammer_curl_count"/>
+
+    <TextView
+        android:id="@+id/legRaise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/hammerCurl"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_leg_raise"/>
+
+    <TextView
+        android:id="@+id/legRaiseCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/legRaise"
+        app:layout_constraintBottom_toBottomOf="@+id/legRaise"
+        app:layout_constraintStart_toEndOf="@+id/legRaise"
+        android:text ="@string/leg_raise_count"/>
+
+    <TextView
+        android:id="@+id/plank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/legRaise"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_plank"/>
+
+    <TextView
+        android:id="@+id/plankCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/plank"
+        app:layout_constraintBottom_toBottomOf="@+id/plank"
+        app:layout_constraintStart_toEndOf="@+id/plank"
+        android:text ="@string/plank_count"/>
+
+    <TextView
+        android:id="@+id/pushUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/plank"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_push_up"/>
+
+    <TextView
+        android:id="@+id/pushUpCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/pushUp"
+        app:layout_constraintBottom_toBottomOf="@+id/pushUp"
+        app:layout_constraintStart_toEndOf="@+id/pushUp"
+        android:text ="@string/push_up_count"/>
+
+    <TextView
+        android:id="@+id/shoulderPressBarbell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/pushUp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_shoulder_press_barbell"/>
+
+    <TextView
+        android:id="@+id/shoulderPressBarbellCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/shoulderPressBarbell"
+        app:layout_constraintBottom_toBottomOf="@+id/shoulderPressBarbell"
+        app:layout_constraintStart_toEndOf="@+id/shoulderPressBarbell"
+        android:text ="@string/shoulder_press_barbell_count"/>
+
+    <TextView
+        android:id="@+id/shoulderPressDumbbell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/shoulderPressBarbell"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_shoulder_press_dumbbell"/>
+
+    <TextView
+        android:id="@+id/shoulderPressDumbbellCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/shoulderPressDumbbell"
+        app:layout_constraintBottom_toBottomOf="@+id/shoulderPressDumbbell"
+        app:layout_constraintStart_toEndOf="@+id/shoulderPressDumbbell"
+        android:text ="@string/shoulder_press_dumbbell_count"/>
+
+    <TextView
+        android:id="@+id/sitUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/shoulderPressDumbbell"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_sit_up"/>
+
+    <TextView
+        android:id="@+id/sitUpCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/sitUp"
+        app:layout_constraintBottom_toBottomOf="@+id/sitUp"
+        app:layout_constraintStart_toEndOf="@+id/sitUp"
+        android:text ="@string/sit_up_count"/>
+
+    <TextView
+        android:id="@+id/splitSquat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/sitUp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_split_squat"/>
+
+    <TextView
+        android:id="@+id/splitSquatCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/splitSquat"
+        app:layout_constraintBottom_toBottomOf="@+id/splitSquat"
+        app:layout_constraintStart_toEndOf="@+id/splitSquat"
+        android:text ="@string/split_squat_count"/>
+
+    <TextView
+        android:id="@+id/squat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/splitSquat"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text ="@string/tv_squat"/>
+
+    <TextView
+        android:id="@+id/squatCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="@id/squat"
+        app:layout_constraintBottom_toBottomOf="@+id/squat"
+        app:layout_constraintStart_toEndOf="@+id/squat"
+        android:text ="@string/squat_count"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

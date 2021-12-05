@@ -15,6 +15,8 @@
     <color name="btnTransparentBlack">#66000000</color>
     <color name="transparentBlack2">#CC000000</color>
     <color name="transparentBlack_opacity_65">#A6000000</color>
+    <color name="darkRed_opacity_10">#1A8B0000</color>
+    <color name="darkRed">#8B0000</color>
     <color name="transparentOrange">#B3FF3D00</color>
     <color name="black_menu">#FF000000</color>
     <color name="black">#E0010005</color>
