@@ -50,6 +50,16 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+    <string-array name="exerciseDropdown">
+        <!--suppress CheckTagEmptyBody -->
+        <item>Select Exercise</item>
+        <item>Push up</item>
+        <item>Sit up</item>
+        <item>Chin up</item>
+        <item>Hammer Curl</item>
+        <item>Squat</item>
+    </string-array>
+
     <string name="get_started">GET STARTED</string>
     <string name="welcome">WELCOME</string>
     <string name="text_about">Train and live the new experience of AI powered exercising at your home with trAIner and save your trainer costs!</string>
@@ -140,13 +150,13 @@
     <string name="daily_sitUp_completeness">0 / 5</string>
     <string name="fixed_squats">SQUATS</string>
     <string name="daily_squats_completeness">0 / 5</string>
-    <string name="fixed_plank">PLANK</string>
     <string name="daily_plank_completeness">0 / 5</string>
     <string name="weekly_pushUp_completeness">0 / 40</string>
     <string name="weekly_chinUp_completeness">0 / 40</string>
     <string name="weekly_plank_completeness">0 / 40</string>
     <string name="weekly_hammerCurl_completeness">0 / 40</string>
     <string name="weekly_sitUp_completeness">0 / 40</string>
+    <string name="Search">Search</string>
     <string-array name="models_array">
         <item>Light</item>
         <item>Thunder</item>

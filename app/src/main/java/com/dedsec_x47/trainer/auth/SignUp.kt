@@ -71,11 +71,7 @@ class SignUp : AppCompatActivity() {
         }
 
         activitySignupBinding.btnCreate.setOnClickListener {
-/*            if (!isProfilePictureSelected) {
-                Toast.makeText(
-                    baseContext, "Profile Image Not Selected", Toast.LENGTH_SHORT
-                ).show()
-            } else {*/
+
                 newUserName = activitySignupBinding.textInputEditTextUserName.text.toString()
                 email = activitySignupBinding.textInputEditTextNewEmail.text.toString()
                 password1 = activitySignupBinding.textInputEditTextNewPassword.text.toString()
@@ -99,8 +95,6 @@ class SignUp : AppCompatActivity() {
 
         activitySignupBinding.btnCancel.setOnClickListener {
             finish()
-            val intent = Intent(this, LoginActivity::class.java)//intent MainActivity2
-            startActivity(intent)
         }
 
     }

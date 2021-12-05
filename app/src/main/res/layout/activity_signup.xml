@@ -32,21 +32,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-<!--    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="100dp"
-        android:clickable="true"
-        android:src="@drawable/sample_user_profile_image"
-        app:civ_border_color="#FF000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.186"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />-->
-
     <TextView
         android:id="@+id/txtSignUp"
         android:layout_width="wrap_content"

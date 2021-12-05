@@ -25,7 +25,6 @@ class LogOut : AppCompatActivity() {
         fauth = Firebase.auth
         val currentUserId = fauth.currentUser!!.uid
         val storageRef = Firebase.storage.reference
-        UserDetails().loadFireStoreData()
 
         activityMain2Binding.signOutButton.setOnClickListener {
             val imageRef = storageRef.child("users").child(currentUserId).child("ProfileImage")

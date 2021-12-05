@@ -33,10 +33,6 @@ class SignIn : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_starting)
-//        val button: Button = findViewById(R.id.btnGetStarted)
-//
-//        button.setOnClickListener() {
         if(isgetStart){
             getStarted()
 
@@ -75,8 +71,6 @@ class SignIn : AppCompatActivity() {
                 val intent = Intent(this, SignUp::class.java)
                 startActivity(intent)
             }
-//        }
-
     }
 
     private fun getStarted() {
