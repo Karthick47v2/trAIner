@@ -104,5 +104,4 @@ dependencies {
 
     //progress dialog library
     implementation 'com.jpardogo.googleprogressbar:library:1.2.0'
-    //TODO:FB API 3.1 (GET REQUEST)
 }

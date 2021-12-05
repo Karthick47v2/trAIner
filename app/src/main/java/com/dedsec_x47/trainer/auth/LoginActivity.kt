@@ -54,6 +54,7 @@ class LoginActivity : AppCompatActivity() {
                                 false, " "
                             )
                         }
+                        finish()
                         home()
                     } else {
 
@@ -69,7 +70,8 @@ class LoginActivity : AppCompatActivity() {
                         auth.signOut()
                     }
                 } else {
-                    home()
+                    finish()
+                    UserDetails().loadFireStoreData()
                 }
             } else {
                 Log.d(" ", "User Null")
@@ -98,7 +100,8 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    private fun signin() {                                        //function for sign in task
+    private fun signin() {
+        //function for sign in task
         val intent = Intent(this, SignIn::class.java)//intent Sign in activity
         startActivity(intent)                                     //starts an instance of the Sign in activity
     }

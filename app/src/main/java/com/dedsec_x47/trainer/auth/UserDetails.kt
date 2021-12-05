@@ -8,10 +8,11 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 lateinit var document: DocumentSnapshot
-var userNameList =ArrayList<String>()
+public var userNameList = ArrayList<String>()
 var isDetailsLoaded = false
 
 class UserDetails {
@@ -28,14 +29,6 @@ class UserDetails {
 
         val userData: MutableMap<String, Any> = HashMap()
         userData["Name"] = name
-
-//        dataBase.collection("All Users").document("Names").set(userData)
-//            .addOnSuccessListener {
-//                Log.d("Save Details", "user Name Saved SuccessFully ")
-//            }.addOnFailureListener {
-//                Log.d("Save Details", "User Name Saving Failure")
-//            }
-
         userData["Email"] = currentUser.email.toString()
         userData["Age"] = age
         userData["Gender"] = gender
@@ -74,9 +67,10 @@ class UserDetails {
 //        }
 
 
-        dataBase.collection("users").document(currentUserId).set(userData)
+        dataBase.collection("users").document(currentUser.email.toString()).set(userData)
             .addOnSuccessListener {
                 Log.d("Save Details", "save Details Successfully ")
+                UserDetails().loadFireStoreData()
             }.addOnFailureListener {
                 Log.d("Save Details", "Failed to save Details ")
             }
@@ -85,10 +79,9 @@ class UserDetails {
     fun loadFireStoreData() {
         val dataBase = Firebase.firestore
         val fAuth = Firebase.auth
-        val currentUserId = fAuth.currentUser!!.uid
-
+        val currentUser = fAuth.currentUser
         if (!isDetailsLoaded) {
-            dataBase.collection("users").document(currentUserId)
+            dataBase.collection("users").document(currentUser?.email.toString())
                 .get()
                 .addOnCompleteListener { task ->
 
@@ -137,6 +130,10 @@ class UserDetails {
         }
     }
 
+    fun returnList(): ArrayList<String> {
+        return userNameList
+    }
+
     fun getAlluserNames() {
 
         val dataBase = Firebase.firestore
@@ -144,7 +141,7 @@ class UserDetails {
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    userNameList.add(document["Name"].toString())
+                    userNameList.add(document["Name"].toString().lowercase(Locale.getDefault()))
                     Log.d("TAG", userNameList.last())
                 }
             }
@@ -153,6 +150,19 @@ class UserDetails {
             }
 
         dataBase.collectionGroup("user")
+    }
+
+    fun createChallange(challengeHashMap: MutableMap<String, Any>) {
+        val dataBase = Firebase.firestore
+        val userName = readData("Name")
+
+        dataBase.collection("cloud").document(userName).set(challengeHashMap)
+            .addOnSuccessListener {
+                Log.d("TAG", "Challange Sucess ")
+            }
+            .addOnFailureListener { exception ->
+                Log.d("TAG", "Challange Sucess ", exception)
+            }
     }
 
 }

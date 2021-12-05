@@ -50,6 +50,16 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+    <string-array name="exerciseDropdown">
+        <!--suppress CheckTagEmptyBody -->
+        <item>Select Exercise</item>
+        <item>Push up</item>
+        <item>Sit up</item>
+        <item>Chin up</item>
+        <item>Hammer Curl</item>
+        <item>Squat</item>
+    </string-array>
+
     <string name="get_started">GET STARTED</string>
     <string name="welcome">WELCOME</string>
     <string name="text_about">Train and live the new experience of AI powered exercising at your home with trAIner and save your trainer costs!</string>
@@ -146,6 +156,7 @@
     <string name="weekly_plank_completeness">0 / 40</string>
     <string name="weekly_hammerCurl_completeness">0 / 40</string>
     <string name="weekly_sitUp_completeness">0 / 40</string>
+    <string name="Search">Search</string>
     <string name="fixed_workout_counts">Workout counts</string>
     <string name="tv_bench_press_barbell">BENCH PRESS BARBELL : </string>
     <string name="bench_press_barbell_count">0</string>
