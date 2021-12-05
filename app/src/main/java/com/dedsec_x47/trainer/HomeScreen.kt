@@ -42,6 +42,7 @@ class HomeScreen : AppCompatActivity() {
 //                setProfilePic()
 //            }
 //        }
+
         //for slider menu
         val drawLayout: DrawerLayout = findViewById(R.id.drawerLayout)
         toggle = ActionBarDrawerToggle(this, drawLayout, R.string.open, R.string.close)

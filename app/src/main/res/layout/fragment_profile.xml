@@ -24,7 +24,7 @@
             android:layout_height="100dp"
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/weight_loss"
+            android:src="@drawable/no_profile"
             app:shapeAppearanceOverlay="@style/roundCorners" />
 
         <TextView

@@ -20,13 +20,15 @@
 
         <TextView
             android:id="@+id/tvDailyChallenge"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_daily_challenges"
+            android:textAlignment="center"
+            android:background="@color/darkRed_opacity_10"
+            android:padding="5dp"
             android:textSize="25sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +42,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_push_up"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toStartOf="@+id/tvSitUp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDailyChallenge" />
@@ -52,7 +54,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/daily_pushUp_completeness"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvPushUp"
             app:layout_constraintStart_toStartOf="@+id/tvPushUp"
             app:layout_constraintTop_toBottomOf="@+id/tvPushUp" />
@@ -65,7 +67,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_sit_up"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tvPushUp"
@@ -78,7 +80,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/daily_sitUp_completeness"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvSitUp"
             app:layout_constraintStart_toStartOf="@+id/tvSitUp"
             app:layout_constraintTop_toBottomOf="@+id/tvSitUp" />
@@ -91,7 +93,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_squats"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="@+id/tvCompletedPushUp"
             app:layout_constraintEnd_toEndOf="@+id/tvCompletedPushUp"
             app:layout_constraintTop_toBottomOf="@+id/tvCompletedPushUp"/>
@@ -103,7 +105,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/daily_squats_completeness"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvSquats"
             app:layout_constraintStart_toStartOf="@+id/tvSquats"
             app:layout_constraintTop_toBottomOf="@+id/tvSquats" />
@@ -116,7 +118,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_plank"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="@+id/tvCompletedSitUp"
             app:layout_constraintEnd_toEndOf="@+id/tvCompletedSitUp"
             app:layout_constraintTop_toBottomOf="@+id/tvCompletedSitUp"/>
@@ -128,7 +130,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/daily_plank_completeness"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvPlank"
             app:layout_constraintStart_toStartOf="@+id/tvPlank"
             app:layout_constraintTop_toBottomOf="@+id/tvPlank" />
@@ -149,13 +151,15 @@
 
         <TextView
             android:id="@+id/tvWeeklyChallenges"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_weekly_challenges"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:background="@color/darkRed_opacity_10"
+            android:padding="5dp"
             android:textSize="25sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -170,7 +174,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_push_up"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toStartOf="@+id/tvChinUp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvWeeklyChallenges" />
@@ -182,7 +186,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/weekly_pushUp_completeness"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvPushUp1"
             app:layout_constraintStart_toStartOf="@+id/tvPushUp1"
             app:layout_constraintTop_toBottomOf="@+id/tvPushUp1" />
@@ -195,7 +199,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_chin_up"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tvPushUp1"
@@ -208,7 +212,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/weekly_chinUp_completeness"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvChinUp"
             app:layout_constraintStart_toStartOf="@+id/tvChinUp"
             app:layout_constraintTop_toBottomOf="@+id/tvChinUp" />
@@ -221,7 +225,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_plank"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvCompletedPushUp1"
             app:layout_constraintStart_toStartOf="@+id/tvCompletedPushUp1"
             app:layout_constraintTop_toBottomOf="@+id/tvCompletedPushUp1" />
@@ -233,7 +237,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/weekly_plank_completeness"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvPlank1"
             app:layout_constraintStart_toStartOf="@+id/tvPlank1"
             app:layout_constraintTop_toBottomOf="@+id/tvPlank1" />
@@ -246,7 +250,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_hammer_curl"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvCompletedChinUp"
             app:layout_constraintStart_toStartOf="@+id/tvCompletedChinUp"
             app:layout_constraintTop_toBottomOf="@+id/tvCompletedChinUp" />
@@ -258,7 +262,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/weekly_hammerCurl_completeness"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvHammerCurl"
             app:layout_constraintStart_toStartOf="@+id/tvHammerCurl"
             app:layout_constraintTop_toBottomOf="@+id/tvHammerCurl" />
@@ -271,7 +275,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_sit_up"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvCompletedPlank1"
             app:layout_constraintStart_toStartOf="@+id/tvCompletedPlank1"
             app:layout_constraintTop_toBottomOf="@+id/tvCompletedPlank1" />
@@ -283,7 +287,7 @@
             android:fontFamily="@font/roboto_medium"
             android:text="@string/weekly_sitUp_completeness"
             android:textSize="18sp"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/tvSitUp1"
             app:layout_constraintStart_toStartOf="@+id/tvSitUp1"
             app:layout_constraintTop_toBottomOf="@+id/tvSitUp1" />
