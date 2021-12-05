@@ -107,7 +107,7 @@ class SignUp : AppCompatActivity() {
                     Log.d(TAG, "createUserWithEmail:success")
                 } else {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Signup failed.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext,task.exception?.message.toString(),Toast.LENGTH_SHORT).show()
                 }
             }
     }

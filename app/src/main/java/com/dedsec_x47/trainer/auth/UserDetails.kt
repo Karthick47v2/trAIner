@@ -12,7 +12,7 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 lateinit var document: DocumentSnapshot
-public var userNameList =ArrayList<String>()
+public var userNameList = ArrayList<String>()
 var isDetailsLoaded = false
 
 class UserDetails {
@@ -67,7 +67,7 @@ class UserDetails {
 //        }
 
 
-        dataBase.collection("users").document(currentUserId).set(userData)
+        dataBase.collection("users").document(currentUser.email.toString()).set(userData)
             .addOnSuccessListener {
                 Log.d("Save Details", "save Details Successfully ")
                 UserDetails().loadFireStoreData()
@@ -79,10 +79,9 @@ class UserDetails {
     fun loadFireStoreData() {
         val dataBase = Firebase.firestore
         val fAuth = Firebase.auth
-        val currentUserId = fAuth.currentUser!!.uid
-
+        val currentUser = fAuth.currentUser
         if (!isDetailsLoaded) {
-            dataBase.collection("users").document(currentUserId)
+            dataBase.collection("users").document(currentUser?.email.toString())
                 .get()
                 .addOnCompleteListener { task ->
 
@@ -131,7 +130,7 @@ class UserDetails {
         }
     }
 
-    fun returnList():ArrayList<String>{
+    fun returnList(): ArrayList<String> {
         return userNameList
     }
 
@@ -153,17 +152,17 @@ class UserDetails {
         dataBase.collectionGroup("user")
     }
 
-    fun createChallange(challengeHashMap :  MutableMap<String, Any> ){
+    fun createChallange(challengeHashMap: MutableMap<String, Any>) {
         val dataBase = Firebase.firestore
         val userName = readData("Name")
 
-         dataBase.collection("cloud").document(userName).set(challengeHashMap)
-             .addOnSuccessListener {
-                 Log.d("TAG", "Challange Sucess ")
-             }
-             .addOnFailureListener {exception ->
-                 Log.d("TAG", "Challange Sucess ",exception)
-             }
+        dataBase.collection("cloud").document(userName).set(challengeHashMap)
+            .addOnSuccessListener {
+                Log.d("TAG", "Challange Sucess ")
+            }
+            .addOnFailureListener { exception ->
+                Log.d("TAG", "Challange Sucess ", exception)
+            }
     }
 
 }
