@@ -77,24 +77,23 @@ class UserDetails {
     }
 
     fun loadFireStoreData() {
+        Log.d("Tag","Load starting")
         val dataBase = Firebase.firestore
         val fAuth = Firebase.auth
         val currentUser = fAuth.currentUser
-        if (!isDetailsLoaded) {
-            dataBase.collection("users").document(currentUser?.email.toString())
-                .get()
-                .addOnCompleteListener { task ->
+        dataBase.collection("users").document(currentUser?.email.toString())
+            .get()
+            .addOnCompleteListener { task ->
 
-                    if (task.isSuccessful) {
-                        isDetailsLoaded = true
-                        document =
-                            task.result                              //document is global variable
-                        Log.d("TAG", "Cached document data: ${document.data}")
-                    } else {
-                        Log.d("TAG", "Cached get failed: ", task.exception)
-                    }
+                if (task.isSuccessful) {
+                    isDetailsLoaded = true
+                    document =
+                        task.result                              //document is global variable
+                    Log.d("TAG", "Cached document data: ${document.data}")
+                } else {
+                    Log.d("TAG", "Cached get failed: ", task.exception)
                 }
-        }
+            }
     }
 
     fun readData(field: String): String {
@@ -104,27 +103,34 @@ class UserDetails {
 
     fun updateFireStoreData(field: String, value: Any) {
         val fAuth = Firebase.auth
-        val currentUserId = fAuth.currentUser!!.uid
+        val currentUser = fAuth.currentUser
         val dataBase = Firebase.firestore
 
-        dataBase.collection("users").document(currentUserId)
+        dataBase.collection("users").document(currentUser?.email.toString())
             .update(
                 mapOf(
                     field to value
                 )
             )
+            .addOnSuccessListener {
+                loadFireStoreData()
+            }
     }
 
     fun saveProfilePic(imageUri: Uri) {
         val fAuth = Firebase.auth
-        val currentUserId = fAuth.currentUser!!.uid
+        val currentUser = fAuth.currentUser
         val storageRef = Firebase.storage.reference
 
-        Log.d("Save Details", currentUserId)
-        val imageRef = storageRef.child("users").child(currentUserId).child("ProfileImage")
+        val imageRef =
+            storageRef.child("users").child(currentUser?.email.toString()).child("ProfileImage")
         imageRef.putFile(imageUri).addOnCompleteListener {
             Log.d("Save Details", "Image Uploaded Successfully ")
-
+//            storageRef.child("users/" + currentUser?.email.toString() + "/ProfileImage").downloadUrl.addOnSuccessListener {
+//                //updateFireStoreData("Profile Pic Uri", it.toString())
+//            }.addOnFailureListener {
+//                // Handle any errors
+//            }
         }.addOnFailureListener {
             Log.d("Save Details", "Image Upload Failure ")
         }
@@ -135,7 +141,6 @@ class UserDetails {
     }
 
     fun getAlluserNames() {
-
         val dataBase = Firebase.firestore
         dataBase.collection("users")
             .get()
@@ -148,8 +153,6 @@ class UserDetails {
             .addOnFailureListener { exception ->
                 Log.d("TAG", "Error getting documents: ", exception)
             }
-
-        dataBase.collectionGroup("user")
     }
 
     fun createChallange(challengeHashMap: MutableMap<String, Any>) {

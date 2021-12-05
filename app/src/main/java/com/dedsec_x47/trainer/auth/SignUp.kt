@@ -1,16 +1,9 @@
 package com.dedsec_x47.trainer.auth
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.text.TextUtils
-import android.util.AttributeSet
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
@@ -72,25 +65,25 @@ class SignUp : AppCompatActivity() {
 
         activitySignupBinding.btnCreate.setOnClickListener {
 
-                newUserName = activitySignupBinding.textInputEditTextUserName.text.toString()
-                email = activitySignupBinding.textInputEditTextNewEmail.text.toString()
-                password1 = activitySignupBinding.textInputEditTextNewPassword.text.toString()
-                password2 = activitySignupBinding.textInputEditTextConfirmPassword.text.toString()
-                newUserAge = if(activitySignupBinding.textInputEditTextAge.text.toString() != "") {
-                    Integer.parseInt(activitySignupBinding.textInputEditTextAge.text.toString())
-                } else 0
+            newUserName = activitySignupBinding.textInputEditTextUserName.text.toString()
+            email = activitySignupBinding.textInputEditTextNewEmail.text.toString()
+            password1 = activitySignupBinding.textInputEditTextNewPassword.text.toString()
+            password2 = activitySignupBinding.textInputEditTextConfirmPassword.text.toString()
+            newUserAge = if (activitySignupBinding.textInputEditTextAge.text.toString() != "") {
+                Integer.parseInt(activitySignupBinding.textInputEditTextAge.text.toString())
+            } else 0
 
-                if (detailsValidityChecker(
-                        newUserName,
-                        email,
-                        password1,
-                        password2,
-                        newUserAge,
-                        userGender
-                    )
-                ) {
-                    createAccount(email, password1)
-                }
+            if (detailsValidityChecker(
+                    newUserName,
+                    email,
+                    password1,
+                    password2,
+                    newUserAge,
+                    userGender
+                )
+            ) {
+                createAccount(email, password1)
+            }
         }
 
         activitySignupBinding.btnCancel.setOnClickListener {
@@ -107,7 +100,11 @@ class SignUp : AppCompatActivity() {
                     Log.d(TAG, "createUserWithEmail:success")
                 } else {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext,task.exception?.message.toString(),Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext,
+                        task.exception?.message.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
     }
@@ -135,15 +132,15 @@ class SignUp : AppCompatActivity() {
             return false
         }
 
-       if(age < 18 || age > 65){
-           Toast.makeText(
-               baseContext, "Only 18 - 65 are allowed",
-               Toast.LENGTH_SHORT
-           ).show()
-           return false
-       }
+        if (age < 18 || age > 65) {
+            Toast.makeText(
+                baseContext, "Only 18 - 65 are allowed",
+                Toast.LENGTH_SHORT
+            ).show()
+            return false
+        }
 
-        if(gender != "Male" && gender != "Female"){
+        if (gender != "Male" && gender != "Female") {
             Toast.makeText(
                 baseContext, "Please select a gender",
                 Toast.LENGTH_SHORT

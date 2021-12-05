@@ -54,7 +54,6 @@ class LoginActivity : AppCompatActivity() {
                                 false, " "
                             )
                         }
-                        finish()
                         home()
                     } else {
 
@@ -70,8 +69,7 @@ class LoginActivity : AppCompatActivity() {
                         auth.signOut()
                     }
                 } else {
-                    finish()
-                    UserDetails().loadFireStoreData()
+                   home()
                 }
             } else {
                 Log.d(" ", "User Null")

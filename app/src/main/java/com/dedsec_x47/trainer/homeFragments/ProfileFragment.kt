@@ -22,6 +22,7 @@ class ProfileFragment : Fragment() {
         view.findViewById<TextView>(R.id.tvGetGender).text = UserDetails().readData("Gender")
         view.findViewById<TextView>(R.id.tvGetAge).text = UserDetails().readData("Age")
         view.findViewById<TextView>(R.id.tvGetEmail).text = UserDetails().readData("Email")
+        view.findViewById<TextView>(R.id.tvGetEmail).text = UserDetails().readData("Email")
         return view
     }
 

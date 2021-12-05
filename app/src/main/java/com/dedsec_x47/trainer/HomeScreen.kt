@@ -1,12 +1,12 @@
 package com.dedsec_x47.trainer
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
-import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
@@ -23,25 +23,28 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.File
+import android.view.View
+
+import android.widget.TextView
+import com.dedsec_x47.trainer.auth.isDetailsLoaded
+
 
 class HomeScreen : AppCompatActivity() {
     // TODO : RESTRICT LANDSCAPE ___ SEPARATELY FOR ACTIVITIES////////////////////////
     lateinit var toggle: ActionBarDrawerToggle
-    //lateinit var profPic: ShapeableImageView
+    lateinit var profPic: ShapeableImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         UserDetails().getAlluserNames()
-//        val cacheFile = File(this.cacheDir, "profilePic")
-//        profPic = findViewById(R.id.savProfileImage)
-//        if(!isNewUser) {
-//            if ((!cacheFile.isDirectory)) {
-//                downloadAndSaveProPic()
-//            }else{
-//                setProfilePic()
-//            }
-//        }
+
+        val navView: NavigationView = findViewById(R.id.navView)
+        val hView: View = navView.getHeaderView(0)
+
+        profPic = hView.findViewById(R.id.savProfileImage)
+        val uname : TextView= hView.findViewById(R.id.tvFullName)
+
         //for slider menu
         val drawLayout: DrawerLayout = findViewById(R.id.drawerLayout)
         toggle = ActionBarDrawerToggle(this, drawLayout, R.string.open, R.string.close)
@@ -51,8 +54,15 @@ class HomeScreen : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         //TODO - this is toast, change it to click listener
-        val navView: NavigationView = findViewById(R.id.navView)
+
         navView.setNavigationItemSelectedListener {
+            profPic.setOnClickListener{
+                selectProfileImage()
+            }
+            uname.text = UserDetails().readData("Name")
+            if(!isNewUser) {
+                setProfilePic()
+            }
             val intent1 = Intent(this, SettingsActivity::class.java)
             val intent2 = Intent(this, FeedbackActivity::class.java)
             val intent3 = Intent(this, SetAlarm::class.java)
@@ -97,14 +107,6 @@ class HomeScreen : AppCompatActivity() {
             logout()
         }
 
-        val head_Nav: com.google.android.material.navigation.NavigationView =
-            findViewById(R.id.navView)
-
-
-//        profPic.setOnClickListener{
-//            selectProfileImage()
-//        }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -142,7 +144,7 @@ class HomeScreen : AppCompatActivity() {
             val newUserImageUri = imgdata.data!!
             Log.d(" ", "Select Image done")
             UserDetails().saveProfilePic(newUserImageUri)
-            //downloadAndSaveProPic()
+            profPic.setImageURI(newUserImageUri)
         }
     }
 
@@ -159,11 +161,19 @@ class HomeScreen : AppCompatActivity() {
 //        }
 //        setProfilePic()
 //    }
-//
-//    private fun setProfilePic(){
-//        val cacheFile = File(this.cacheDir, "profilePic")
-////        val navView: ImageView = findViewById(R.id.savProfileImage)
-//        profPic.setImageURI(cacheFile.toUri())
-//    }
+
+    private fun setProfilePic(){
+        val fAuth = Firebase.auth
+        val currentuser = fAuth.currentUser
+        val storageRef = Firebase.storage.reference
+        val imageRef =
+            storageRef.child("users").child(currentuser?.email.toString()).child("ProfileImage")
+        val localFile = File.createTempFile("ProfileImage", "jpg")
+
+        imageRef.getFile(localFile).addOnSuccessListener {
+            profPic.setImageURI(Uri.fromFile(localFile))
+        }.addOnFailureListener {
+        }
+    }
 
 }
