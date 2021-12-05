@@ -33,7 +33,6 @@
         android:text="@string/fixed_enable_hide_skeleton_mode"
         android:textAllCaps="false"
         android:textSize="15sp"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,12 +51,12 @@
         app:layout_constraintVertical_bias="0.005">
 
         <TextView
-            android:id="@+id/tvRepetition"
+            android:id="@+id/tvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-medium"
-            android:text="@string/fixed_repetition_count"
+            android:text="@string/fixed_time"
             android:textSize="15sp"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,15 +64,15 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvRepetitionCount"
+            android:id="@+id/tvTimeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_count"
+            android:text="@string/text_time_count"
             android:textSize="45sp"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRepetition" />
+            app:layout_constraintTop_toBottomOf="@id/tvTime" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
