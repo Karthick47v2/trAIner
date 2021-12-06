@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black">
@@ -13,7 +14,8 @@
         android:src="@drawable/featured_workouts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -32,8 +34,8 @@
         android:layout_height="match_parent"
         android:layout_below="@id/ivFeaturedWorkouts"
         android:columnCount="1"
-        android:rowCount="3"
         android:padding="10dp"
+        android:rowCount="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -46,8 +48,9 @@
             android:layout_width="match_parent"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
-            android:clickable="true"
             android:adjustViewBounds="true"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="14dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,7 +68,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearanceOverlay="@style/specificCornerCut"/>
+                    app:shapeAppearanceOverlay="@style/specificCornerCut" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -88,7 +91,8 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_arrow_white"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="ContentDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -97,9 +101,11 @@
             android:id="@+id/cardStrengthTraining"
             android:layout_width="match_parent"
             android:layout_rowWeight="1"
-            app:cardCornerRadius="14dp"
+            android:layout_margin="8dp"
             android:clickable="true"
-            android:layout_margin="8dp">
+            android:foreground="?attr/selectableItemBackground"
+            app:cardCornerRadius="14dp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -108,14 +114,14 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:maxHeight="137dp"
                     android:adjustViewBounds="true"
+                    android:maxHeight="137dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/strength_training"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearanceOverlay="@style/specificCornerCut"/>
+                    app:shapeAppearanceOverlay="@style/specificCornerCut" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,17 +144,19 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_arrow_white"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="ContentDescription,ImageContrastCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardHIIT"
+            android:id="@+id/cardMiniGames"
             android:layout_width="match_parent"
             android:layout_rowWeight="1"
             android:layout_margin="8dp"
             android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="14dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -159,14 +167,14 @@
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="200dp"
                     android:layout_height="match_parent"
-                    android:maxHeight="137dp"
                     android:adjustViewBounds="true"
+                    android:maxHeight="137dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/mini_games"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:shapeAppearanceOverlay="@style/specificCornerCut"/>
+                    app:shapeAppearanceOverlay="@style/specificCornerCut" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -189,7 +197,8 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_arrow_white"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="ContentDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

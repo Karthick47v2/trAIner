@@ -24,6 +24,7 @@
         since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
         type specimen book"
     </string>
+
     <string name="bg_orange_image">bg orange image</string>
     <string name="weight_loss">WEIGHT LOSS</string>
     <string name="select_a_workout_to_start">Select A Workout To Start</string>
@@ -43,6 +44,7 @@
     <string name="dead_lift">Dead Lift</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
     <!--Gender drop down items - signUp activity-->
     <string-array name="genderDropdown">
         <!--suppress CheckTagEmptyBody -->
@@ -50,6 +52,7 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+
     <string-array name="exerciseDropdown">
         <!--suppress CheckTagEmptyBody -->
         <item>Select Exercise</item>
@@ -187,6 +190,7 @@
     <string name="text_time_count">00 : 00</string>
     <string name="fixed_time">Time</string>
     <string name="fixed_mini_games">Mini games</string>
+
     <string-array name="models_array">
         <item>Light</item>
         <item>Thunder</item>
