@@ -25,8 +25,8 @@ class AlarmReceiver : BroadcastReceiver() {
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.mipmap.ic_launcher)   //set icon for notification
-            .setContentTitle("Nithushan has challenged you!")              //set title of notification
-            .setContentText("Click to view")                    //this is notification message
+            .setContentTitle("It's time")              //set title of notification
+            .setContentText("Do exercise")                    //this is notification message
             .setPriority(NotificationCompat.PRIORITY_HIGH) //set priority of notification
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)

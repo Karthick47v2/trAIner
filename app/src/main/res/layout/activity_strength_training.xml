@@ -58,6 +58,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -110,12 +111,12 @@
             </androidx.cardview.widget.CardView>
 
 
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardBenchPressDumbbellST"
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -172,6 +173,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -228,6 +230,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -284,6 +287,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -340,6 +344,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -396,6 +401,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -452,6 +458,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -508,6 +515,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -565,6 +573,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -585,7 +594,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:background="@color/transparentBlack"></androidx.constraintlayout.widget.ConstraintLayout>
+                    android:background="@color/transparentBlack" />
             </androidx.cardview.widget.CardView>
 
         </GridLayout>

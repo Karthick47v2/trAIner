@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".exercisePages.MiniGames"
     android:background="@color/bgGrey"
-    >
+    tools:context=".exercisePages.MiniGames">
 
     <ImageView
         android:id="@+id/imgOrangeBg1"
@@ -64,6 +62,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="14dp">
 
@@ -107,6 +106,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="14dp">
 
