@@ -39,7 +39,6 @@ class HomeScreen : AppCompatActivity() {
         profPic = hView.findViewById(R.id.savProfileImage)
         val uname: TextView = hView.findViewById(R.id.tvFullName)
 
-        //for slider menu
         val drawLayout: DrawerLayout = findViewById(R.id.drawerLayout)
         toggle = object : ActionBarDrawerToggle(
             this,
@@ -127,20 +126,6 @@ class HomeScreen : AppCompatActivity() {
         val auth = Firebase.auth
         auth.signOut()
     }
-
-//    private fun downloadAndSaveProPic() {
-//        val storageRef = Firebase.storage.reference
-//        val picRef = storageRef.child("users/ProfileImage.jpg")
-//        File.createTempFile("profilePic", null, this.cacheDir)
-//        val cacheFile = File(this.cacheDir, "profilePic")
-//
-//        picRef.getFile(cacheFile).addOnCompleteListener {
-//            Log.d("downloadAndSave", "file created")
-//        }.addOnFailureListener {
-//            Log.d("downloadAndSave", "file not created")
-//        }
-//        setProfilePic()
-//    }
 
     private fun setProfilePic() {
         val fAuth = Firebase.auth

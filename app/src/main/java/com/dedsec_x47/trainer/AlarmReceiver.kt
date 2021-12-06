@@ -7,7 +7,6 @@ import android.content.Intent
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.dedsec_x47.trainer.auth.LogOut
 
 //TODO:if notification comes in working it will open main activity
 
@@ -18,7 +17,7 @@ class AlarmReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
 
-        val intent = Intent(context, LogOut::class.java).apply {
+        val intent = Intent(context, AlarmReceiver::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         } //on tap this activity will open
 

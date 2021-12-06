@@ -84,9 +84,6 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name=".auth.LogOut"
-            android:exported="true" />
-        <activity
             android:name=".auth.SignIn"
             android:exported="true" />
         <activity
