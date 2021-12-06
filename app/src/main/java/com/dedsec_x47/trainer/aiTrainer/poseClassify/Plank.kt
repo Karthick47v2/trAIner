@@ -18,7 +18,7 @@ object Plank {
     // Angle values for PLANK
     private val WESAngle = 90                   //W - wrist E - Elbow S - Shoulder
     private val ESHAngle = 80
-    private val SHKAngle = 175
+    private val SHKAngle = 180
 
     private val angleThreshold = 15
 
@@ -98,7 +98,7 @@ object Plank {
 
         if(WESCHK && ESHCHK){
             if(isExeriseStarted){
-                if(mediaPlayer == null){
+                /*if(mediaPlayer == null){
                     mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
                 }
                 if(mediaPlayer != null && !mediaPlayer!!.isPlaying()){
@@ -106,7 +106,7 @@ object Plank {
                     mediaPlayer = null
                     mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
                     mediaPlayer!!.start()
-                }
+                }*/
             }
             else{
                 isExeriseStarted = true;
@@ -124,19 +124,20 @@ object Plank {
             mediaPlayer = null
             if ((esWESAngleL <= WESAngle - angleThreshold && esWESAngleR <= WESAngle - angleThreshold) ||
                 (esWESAngleL >= WESAngle + angleThreshold && esWESAngleR >= WESAngle + angleThreshold)){
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.straiarms)
+                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.elbshol)
                 mediaPlayer!!.start()
                 Log.d(ContentValues.TAG, "ArmsSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSs")
                 return true
             }
             else if ((esESHAngleL <= ESHAngle - angleThreshold && esESHAngleR <= ESHAngle - angleThreshold) ||
                 (esESHAngleL >= ESHAngle + angleThreshold && esESHAngleR >= ESHAngle + angleThreshold)) {
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.stop)
+                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.elbshol)
                 mediaPlayer!!.start()
                 Log.d(ContentValues.TAG, "SHOULDERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
                 return true
             }
-            else if  (esSHKAngleL <= SHKAngle - angleThreshold && esSHKAngleR <= SHKAngle - angleThreshold) {
+            else if  ((esSHKAngleL <= SHKAngle - angleThreshold && esSHKAngleR <= SHKAngle - angleThreshold) ||
+                (esSHKAngleL >= SHKAngle + angleThreshold && esSHKAngleR >= SHKAngle + angleThreshold)){
                 mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.straiback)
                 mediaPlayer!!.start()
                 Log.d(ContentValues.TAG, "BACKKKKKKKKKKKKKKKKKKKKKKKKK")

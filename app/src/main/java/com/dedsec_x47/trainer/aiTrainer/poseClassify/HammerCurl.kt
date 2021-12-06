@@ -9,6 +9,8 @@ import com.dedsec_x47.trainer.aiTrainer.render.Visual
 import android.media.MediaPlayer
 import android.view.SurfaceView
 import com.dedsec_x47.trainer.R
+import com.dedsec_x47.trainer.View
+import com.dedsec_x47.trainer.aiTrainer.poseDetect
 
 object HammerCurl {
     // Angle vals for Hammercurl SET1
@@ -74,7 +76,15 @@ object HammerCurl {
         val esSHK = arrayOf(esSHKAngleL, esSHKAngleR)
 
 
-        checkPosition(esWES[0], esSHK[0], WESAngle1, WESAngle2, surfaceView)
+        if(poseDetect.currView == View.front){
+            return checkPosition(esWES[1], esWES[0], esSHK[1], esSHK[0],  WESAngleALL1, WESAngleALL2,surfaceView)
+        }
+        else if(poseDetect.currView == View.left){
+            return checkPosition(esWES[0], esSHK[0], WESAngle1, WESAngle2, surfaceView)
+        }
+        else{
+            return checkPosition(esWES[1], esSHK[1], WESAngle1, WESAngle2, surfaceView)
+        }
 
         //checkPosition(esWES[1], esWES[0], esSHK[1], esSHK[0],  WESAngleALL1, WESAngleALL2, surfaceView)
 

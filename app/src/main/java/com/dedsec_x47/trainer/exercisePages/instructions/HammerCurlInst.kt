@@ -17,7 +17,7 @@ class HammerCurlInst : AppCompatActivity() {
 
         btn.setOnClickListener(){
             poseDetect.currentExercise = Exercise.Hammercurl
-            startActivity(Intent(this, poseDetect::class.java))
+            startActivity(Intent(this, HammerCurlViews::class.java))
         }
     }
 
