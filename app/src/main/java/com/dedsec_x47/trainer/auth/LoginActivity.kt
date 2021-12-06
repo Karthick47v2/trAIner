@@ -53,6 +53,8 @@ class LoginActivity : AppCompatActivity() {
                                 newUserName, newUserAge, userGender,
                                 false, " "
                             )
+                        }else{
+                            UserDetails().loadFireStoreData()
                         }
                         home()
                     } else {

@@ -1,19 +1,17 @@
 package com.dedsec_x47.trainer
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
-import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.net.toUri
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.auth.UserDetails
-import com.dedsec_x47.trainer.auth.isNewUser
 import com.dedsec_x47.trainer.homeFragments.*
 import com.facebook.AccessToken
 import com.facebook.login.LoginManager
@@ -24,36 +22,44 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.File
 
+
 class HomeScreen : AppCompatActivity() {
     // TODO : RESTRICT LANDSCAPE ___ SEPARATELY FOR ACTIVITIES////////////////////////
     lateinit var toggle: ActionBarDrawerToggle
-    //lateinit var profPic: ShapeableImageView
+    lateinit var profPic: ShapeableImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         UserDetails().getAlluserNames()
-//        val cacheFile = File(this.cacheDir, "profilePic")
-//        profPic = findViewById(R.id.savProfileImage)
-//        if(!isNewUser) {
-//            if ((!cacheFile.isDirectory)) {
-//                downloadAndSaveProPic()
-//            }else{
-//                setProfilePic()
-//            }
-//        }
+
+        val navView: NavigationView = findViewById(R.id.navView)
+        val hView: View = navView.getHeaderView(0)
+
+        profPic = hView.findViewById(R.id.savProfileImage)
+        val uname: TextView = hView.findViewById(R.id.tvFullName)
 
         //for slider menu
         val drawLayout: DrawerLayout = findViewById(R.id.drawerLayout)
-        toggle = ActionBarDrawerToggle(this, drawLayout, R.string.open, R.string.close)
+        toggle = object : ActionBarDrawerToggle(
+            this,
+            drawLayout,
+            R.string.open,
+            R.string.close
+        ) {
+            override fun onDrawerOpened(drawerView: View) {
+                super.onDrawerOpened(drawerView)
+                setProfilePic()
+            uname.text = UserDetails().readData("Name")
+            }
+        }
+
         drawLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        //TODO - this is toast, change it to click listener
-        val navView: NavigationView = findViewById(R.id.navView)
         navView.setNavigationItemSelectedListener {
+
             val intent1 = Intent(this, SettingsActivity::class.java)
             val intent2 = Intent(this, FeedbackActivity::class.java)
             val intent3 = Intent(this, SetAlarm::class.java)
@@ -97,15 +103,6 @@ class HomeScreen : AppCompatActivity() {
         btnLogout.setOnClickListener {
             logout()
         }
-
-        val head_Nav: com.google.android.material.navigation.NavigationView =
-            findViewById(R.id.navView)
-
-
-//        profPic.setOnClickListener{
-//            selectProfileImage()
-//        }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -131,22 +128,6 @@ class HomeScreen : AppCompatActivity() {
         auth.signOut()
     }
 
-    private fun selectProfileImage() {
-        val openGalleryIntent =
-            Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-        startActivityForResult(openGalleryIntent, 100)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, imgdata: Intent?) {
-        super.onActivityResult(requestCode, resultCode, imgdata)
-        if ((requestCode == 100) && (resultCode == RESULT_OK) && (imgdata != null) && (imgdata.data != null)) {
-            val newUserImageUri = imgdata.data!!
-            Log.d(" ", "Select Image done")
-            UserDetails().saveProfilePic(newUserImageUri)
-            //downloadAndSaveProPic()
-        }
-    }
-
 //    private fun downloadAndSaveProPic() {
 //        val storageRef = Firebase.storage.reference
 //        val picRef = storageRef.child("users/ProfileImage.jpg")
@@ -160,11 +141,19 @@ class HomeScreen : AppCompatActivity() {
 //        }
 //        setProfilePic()
 //    }
-//
-//    private fun setProfilePic(){
-//        val cacheFile = File(this.cacheDir, "profilePic")
-////        val navView: ImageView = findViewById(R.id.savProfileImage)
-//        profPic.setImageURI(cacheFile.toUri())
-//    }
+
+    private fun setProfilePic() {
+        val fAuth = Firebase.auth
+        val currentuser = fAuth.currentUser
+        val storageRef = Firebase.storage.reference
+        val imageRef =
+            storageRef.child("users").child(currentuser?.email.toString()).child("ProfileImage")
+        val localFile = File.createTempFile("ProfileImage", "jpg")
+
+        imageRef.getFile(localFile).addOnSuccessListener {
+            profPic.setImageURI(Uri.fromFile(localFile))
+        }.addOnFailureListener {
+        }
+    }
 
 }
