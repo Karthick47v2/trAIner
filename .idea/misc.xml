@@ -9,7 +9,7 @@
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/btn_black_ripple.xml" value="0.13125" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/ic_baseline_watch_later_24.xml" value="0.13125" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/drawable/spinner_style.xml" value="0.13125" />
-        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_create_new_challange.xml" value="0.2" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_create_new_challange.xml" value="0.15" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_feedback.xml" value="0.11805555555555555" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_hammer_curl_views.xml" value="0.11666666666666667" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_home.xml" value="0.16" />
@@ -31,8 +31,9 @@
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_mini_games.xml" value="0.13" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_posedetect.xml" value="0.1" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_rewards_lose.xml" value="0.16574074074074074" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_setalarm.xml" value="0.12105263157894737" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_settings.xml" value="0.18" />
-        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_signin.xml" value="0.33" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_signin.xml" value="0.2" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_signup.xml" value="0.22" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_starting.xml" value="0.18" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/activity_strength_training.xml" value="0.1" />
@@ -43,10 +44,10 @@
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_challenge.xml" value="0.16576576576576577" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_home.xml" value="0.12" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_leaderboard.xml" value="0.16576576576576577" />
-        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
-        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_stats.xml" value="0.16576576576576577" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_profile.xml" value="0.14" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/fragment_stats.xml" value="0.14" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/nav_header.xml" value="0.16576576576576577" />
-        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/password_reset_popup.xml" value="0.22" />
+        <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/password_reset_popup.xml" value="0.18" />
         <entry key="..\:/GitHub repos/trAIner/app/src/main/res/layout/settings.xml" value="0.11666666666666667" />
         <entry key="..\:/Users/DELL/Desktop/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.290625" />
         <entry key="..\:/Users/DELL/Desktop/trAIner-Gowree/trAIner-Gowree/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.290625" />
@@ -168,7 +169,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.16" />
+        <option name="scale" value="0.14" />
       </ProjectState>
     </option>
   </component>
