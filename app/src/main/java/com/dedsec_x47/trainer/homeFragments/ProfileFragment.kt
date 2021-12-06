@@ -11,14 +11,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.auth.UserDetails
+import com.dedsec_x47.trainer.getUserImage
+import com.dedsec_x47.trainer.setUserImage
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import java.io.ByteArrayOutputStream
 import java.io.File
+import java.util.*
 
 class ProfileFragment : Fragment() {
     override fun onCreateView(
@@ -28,6 +33,8 @@ class ProfileFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
+        view.findViewById<ShapeableImageView>(R.id.savProfileImage).setImageURI(getUserImage())
+
         view.findViewById<TextView>(R.id.tvNameTop).text = UserDetails().readData("Name")
         view.findViewById<TextView>(R.id.tvGetName).text = UserDetails().readData("Name")
         view.findViewById<TextView>(R.id.tvGetGender).text = UserDetails().readData("Gender")
@@ -37,18 +44,6 @@ class ProfileFragment : Fragment() {
             selectProfileImage()
         }
 
-        val fAuth = Firebase.auth
-        val currentuser = fAuth.currentUser
-        val storageRef = Firebase.storage.reference
-        val imageRef =
-            storageRef.child("users").child(currentuser?.email.toString()).child("ProfileImage")
-        val localFile = File.createTempFile("ProfileImage", "jpg")
-
-        imageRef.getFile(localFile).addOnSuccessListener {
-            view.findViewById<ShapeableImageView>(R.id.savProfileImage).setImageURI(Uri.fromFile(localFile))
-        }.addOnFailureListener {
-
-        }
         return view
     }
 
@@ -61,10 +56,11 @@ class ProfileFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, imgdata: Intent?) {
         super.onActivityResult(requestCode, resultCode, imgdata)
         if ((requestCode == 100) && (resultCode == AppCompatActivity.RESULT_OK) && (imgdata != null) && (imgdata.data != null)) {
-            val newUserImageUri = imgdata.data!!
+            val userProfileImageUri = imgdata.data!!
             Log.d(" ", "Select Image done")
-            UserDetails().saveProfilePic(newUserImageUri)
-            (view?.findViewById<ShapeableImageView>(R.id.savProfileImage))?.setImageURI(newUserImageUri)
+            setUserImage(userProfileImageUri)
+            UserDetails().saveProfilePic(userProfileImageUri)
+            (view?.findViewById<ShapeableImageView>(R.id.savProfileImage))?.setImageURI(userProfileImageUri)
         }
     }
 
