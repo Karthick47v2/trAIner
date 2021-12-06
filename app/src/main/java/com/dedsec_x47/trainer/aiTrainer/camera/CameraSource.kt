@@ -24,6 +24,7 @@ import com.dedsec_x47.trainer.aiTrainer.render.RGBConverter
 import com.dedsec_x47.trainer.aiTrainer.pose.PoseDetector
 import com.dedsec_x47.trainer.aiTrainer.data.Human
 import com.dedsec_x47.trainer.aiTrainer.poseClassify.HammerCurl
+import com.dedsec_x47.trainer.aiTrainer.poseClassify.LegRaise
 import com.dedsec_x47.trainer.aiTrainer.poseClassify.Plank
 import com.dedsec_x47.trainer.aiTrainer.poseDetect
 import java.util.*
@@ -190,12 +191,11 @@ class CameraSource(private val surfaceView: SurfaceView, private val listener: C
     private fun visualize(human: Human, bitmap: Bitmap){
         var outputBitmap = bitmap
 
-        if (human.score > MIN_CONFIDENCE){
-            outputBitmap = Visual.drawBodyKeypoints(bitmap, human)
-
-            when(poseDetect.currentExercise){
+        if (human.score > MIN_CONFIDENCE) {
+            if(poseDetect.shDebug!!.isChecked())  outputBitmap = Visual.drawBodyKeypoints(bitmap, human)
+            when (poseDetect.currentExercise) {
                 Exercise.Hammercurl -> HammerCurl.getHammerCurlAngles(human, surfaceView)
-                Exercise.Plank -> Log.d(ContentValues.TAG, "Plank")
+                Exercise.Plank -> Plank.getPlankAngles(human, surfaceView)
                 Exercise.BenchpressBarbell -> Log.d(ContentValues.TAG, "BenchPressB")
                 Exercise.BenchpressDumbbell -> Log.d(ContentValues.TAG, "BenchPressD")
                 Exercise.Chinup -> Log.d(ContentValues.TAG, "Chinup")
@@ -206,22 +206,8 @@ class CameraSource(private val surfaceView: SurfaceView, private val listener: C
                 Exercise.Situp -> Log.d(ContentValues.TAG, "Situp")
                 Exercise.Splitsquat -> Log.d(ContentValues.TAG, "Splitsquat")
                 Exercise.Squat -> Log.d(ContentValues.TAG, "Squat")
-                else -> Log.d(ContentValues.TAG, "LegRaise")
+                else -> LegRaise.getLegRaiseAngles(human, surfaceView)
             }
- /*           //poseDetect.currentExercise = Exercise.Hammercurl
-            if(poseDetect.currentExercise == Exercise.Hammercurl){
-                Log.d(ContentValues.TAG, "YES")
-
-            }
-            if(poseDetect.c)
-            else{
-                Log.d(ContentValues.TAG, "NOPE")
-            }*/
-
-
-            //Squat.getSquatAngles(human, surfaceView)
-            //Plank.getPlankAngles(human, surfaceView)
-            /*Plank.getPlankAngles(person)*/
         }
 
         val holder = surfaceView.holder

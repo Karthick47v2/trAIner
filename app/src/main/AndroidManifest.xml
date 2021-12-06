@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trainer">
         <activity
+            android:name=".exercisePages.instructions.HammerCurlViews"
+            android:exported="true" />
+        <activity
             android:name=".exercisePages.CreateNewChallenge"
             android:exported="true" />
         <activity
@@ -92,11 +95,11 @@
         <activity
             android:name=".auth.LoginActivity"
             android:exported="true">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
         <activity
             android:name=".homeFragments.FeedbackActivity"
@@ -110,23 +113,23 @@
             android:name=".HomeScreen"
             android:exported="true"
             android:theme="@style/FragmentTheme">
-            <intent-filter>
+<!--            <intent-filter>
 
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity
             android:name=".aiTrainer.poseDetect"
             android:exported="true">
 
-            <!--
+<!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
+-->
         </activity>
 
         <receiver android:name=".AlarmReceiver" />

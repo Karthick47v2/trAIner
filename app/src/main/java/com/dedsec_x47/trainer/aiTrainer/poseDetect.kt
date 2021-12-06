@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import com.dedsec_x47.trainer.R
+import com.dedsec_x47.trainer.View
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import com.dedsec_x47.trainer.aiTrainer.camera.CameraSource
@@ -28,7 +29,11 @@ class poseDetect : AppCompatActivity(){
         }
         private const val FRAGMENT_DIALOG = "dialog"
 
-        var currentExercise = Exercise.Plank
+        var currentExercise = Exercise.LegRaise
+        var currView = View.right
+        var skelShow: Boolean = false
+        var shDebug: ToggleButton? = null
+        var repView: TextView? = null
     }
 
     private lateinit var surfaceView: SurfaceView
@@ -53,8 +58,9 @@ class poseDetect : AppCompatActivity(){
         /*ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)*/
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)     //keep screen on while app is running
-        fpsView = findViewById(R.id.fps)
+        //fpsView = findViewById(R.id.fps)
         surfaceView = findViewById(R.id.surfaceView)
+        shDebug = findViewById(R.id.hideSkeletonModeBtn)
         if (!isCameraPermissionGranted()) requestPermission()               //Ask for permission
     }
 
@@ -83,7 +89,7 @@ class poseDetect : AppCompatActivity(){
             if (cameraSource == null){
                 cameraSource = CameraSource(surfaceView, object : CameraSource.CameraSourceListener{
                     override fun onFPSListener(fps: Int){
-                        fpsView.text = getString(R.string.fps, fps)
+                        //fpsView.text = getString(R.string.fps, fps)
                     }
                 }).apply{
                     prepareCamera()

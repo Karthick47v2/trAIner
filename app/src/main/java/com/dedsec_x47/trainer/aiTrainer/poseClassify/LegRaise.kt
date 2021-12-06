@@ -13,12 +13,12 @@ import com.dedsec_x47.trainer.R
 object LegRaise {
     // Angle vals for LegRaise  SET1
     //1- UP 2 - DOWN
-    private val WESAngle = 174
+    private val WESAngle = 170
     private val ESHAngle = 6
-    private val HKAAngle = 174
+    private val HKAAngle = 170
 
     private val SHKAngle1 = 90
-    private val SHKAngle2 = 174
+    private val SHKAngle2 = 165
 
     private val angleThreshold = 5
 
@@ -30,7 +30,7 @@ object LegRaise {
     //check users position
     private var isUp = true                   // initail pos -- triggered when user initializes UP pos
 
-    fun getHammerCurlAngles(person: Human, surfaceView: SurfaceView){
+    fun getLegRaiseAngles(person: Human, surfaceView: SurfaceView){
         // estimated WES angle - LEFT
         var esWESAngleL = Visual.getAngle(
             listOf<PointF>(
@@ -124,7 +124,7 @@ object LegRaise {
                 WESCHK = (esWESAngleL >= WESAngle || esWESAngleR >= WESAngle)
                 ESHCHK = (esESHAngleL <= ESHAngle || esESHAngleR <= ESHAngle)
                 HKACHK = (esHKAAngleL >= HKAAngle || esHKAAngleR >= HKAAngle)
-                SHKCHK = (esSHKAngleL <= SHKAngle2 || esSHKAngleR <= SHKAngle2)
+                SHKCHK = (esSHKAngleL >= SHKAngle2 || esSHKAngleR >= SHKAngle2)
             }
         }
         // else -- listen for up angles
@@ -134,8 +134,8 @@ object LegRaise {
                 WESCHK = (esWESAngleL >= WESAngle || esWESAngleR >= WESAngle)
                 ESHCHK = (esESHAngleL <= ESHAngle || esESHAngleR <= ESHAngle)
                 HKACHK = (esHKAAngleL >= HKAAngle || esHKAAngleR >= HKAAngle)
-                SHKCHK = ((esSHKAngleL <= SHKAngle1 + 5 && esSHKAngleL >= SHKAngle1 - 5) ||
-                        (esSHKAngleR <= SHKAngle1 + 5 && esSHKAngleR >= SHKAngle1 - 5))
+                SHKCHK = ((esSHKAngleL <= SHKAngle1 + 5 && esSHKAngleL >= SHKAngle1 - 15) ||
+                        (esSHKAngleR <= SHKAngle1 + 5 && esSHKAngleR >= SHKAngle1 - 15))
             }
         }
 
@@ -168,18 +168,19 @@ object LegRaise {
         if(mediaPlayer != null && !mediaPlayer!!.isPlaying()) {
             mediaPlayer!!.release()
             mediaPlayer = null
-            if (esWESAngleL <= WESAngle - angleThreshold && esWESAngleR <= WESAngle - angleThreshold) {
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.straiback)
+            if (esWESAngleL <= WESAngle - 15 && esWESAngleR <= WESAngle - 15) {
+                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.handfloor)
                 mediaPlayer!!.start()
                 return true
             }
-            else if (esESHAngleL >= ESHAngle + angleThreshold && esESHAngleR >= ESHAngle + angleThreshold) {
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.straiback)
+            else if (esESHAngleL >= ESHAngle + 30 && esESHAngleR >= ESHAngle + 30) {
+                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.handfloor)
                 mediaPlayer!!.start()
                 return true
             }
-            else if (esHKAAngleL <= HKAAngle - angleThreshold && esHKAAngleR <= HKAAngle - angleThreshold) {
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.straiback)
+            else if (esHKAAngleL <= HKAAngle - 15 && esHKAAngleR <= HKAAngle - 15 ||
+                esHKAAngleL >= HKAAngle + 15 && esHKAAngleR >= HKAAngle + 15) {
+                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.legsstrai)
                 mediaPlayer!!.start()
                 return true
             }

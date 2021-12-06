@@ -83,11 +83,13 @@
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_deadlift_inst.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_feedback.xml" value="0.29483695652173914" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_hammer_curl_inst.xml" value="0.3111413043478261" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_hammer_curl_views.xml" value="0.253125" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_home.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_benchpressbarbell.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_benchpressdumbbell.xml" value="0.21875" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_chinup.xml" value="0.2833333333333333" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_hammercurl.xml" value="0.2833333333333333" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_legraise.xml" value="0.3038949275362319" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_plank.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_shoulderpressbarbell.xml" value="0.21875" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_instructions_shoulderpressdumbbell.xml" value="0.21875" />
@@ -100,7 +102,7 @@
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_mainoo.xml" value="0.3446557971014493" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_mini_games.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_poseDetect.xml" value="0.2776268115942029" />
-        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_posedetect.xml" value="0.2717391304347826" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_posedetect.xml" value="0.33" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_push_up_instr.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_rewards_lose.xml" value="0.2833333333333333" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_rewards_win.xml" value="0.2833333333333333" />

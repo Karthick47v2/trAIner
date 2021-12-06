@@ -20,17 +20,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <include layout="@layout/settings" />
+        <!--<include layout="@layout/settings" />-->
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <Button
+    <ToggleButton
         android:id="@+id/hideSkeletonModeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/round_corner"
         android:padding="10dp"
-        android:text="@string/fixed_enable_hide_skeleton_mode"
+        android:textOff="Show Skelton"
+        android:textOn="Hide Skelton"
         android:textAllCaps="false"
         android:textSize="15sp"
         android:textColor="@color/white"
@@ -68,7 +69,7 @@
             android:id="@+id/tvRepetitionCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/text_count"
+            android:text="03"
             android:textSize="45sp"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"

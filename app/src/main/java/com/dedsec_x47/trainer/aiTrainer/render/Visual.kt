@@ -42,10 +42,7 @@ object Visual {
         bodyJoints.forEach{
             val pointA = person.keyPoints[it.first.position].coordinate
             val pointB = person.keyPoints[it.second.position].coordinate
-            if(it.first == KeyPoints.LEFT_HIP || it.first == KeyPoints.LEFT_SHOULDER || it.first == KeyPoints.LEFT_KNEE){
-                originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine1)
-            }
-            else originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
+            originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
         }
         return output
     }

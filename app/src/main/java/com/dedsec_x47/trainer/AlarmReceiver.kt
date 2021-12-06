@@ -25,9 +25,9 @@ class AlarmReceiver : BroadcastReceiver() {
         val pendingIntent: PendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
 
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.android_logo_2019)   //set icon for notification
-            .setContentTitle("Notification")              //set title of notification
-            .setContentText("Do Task")                    //this is notification message
+            .setSmallIcon(R.mipmap.ic_launcher)   //set icon for notification
+            .setContentTitle("Nithushan has challenged you!")              //set title of notification
+            .setContentText("Click to view")                    //this is notification message
             .setPriority(NotificationCompat.PRIORITY_HIGH) //set priority of notification
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
