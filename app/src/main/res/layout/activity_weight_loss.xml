@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".exercisePages.WeightLoss"
     android:background="@color/bgGrey"
-    >
+    tools:context=".exercisePages.WeightLoss">
 
     <ImageView
         android:id="@+id/imgOrangeBg1"
@@ -23,11 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:text="@string/weight_loss"
-        android:textSize="30sp"
         android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_marginTop="20dp"/>
+        android:textSize="30sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtDescriptionMiniGames"
@@ -60,6 +58,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -103,9 +102,9 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/txtGame1MG"
                         app:layout_constraintHorizontal_bias="0.88"
-                        app:layout_constraintVertical_bias="0.64"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtGame1MG"
+                        app:layout_constraintVertical_bias="0.64"
                         tools:ignore="ContentDescription" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -115,6 +114,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -158,9 +158,9 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/txtSquatWL"
                         app:layout_constraintHorizontal_bias="0.88"
-                        app:layout_constraintVertical_bias="0.64"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtSquatWL"
+                        app:layout_constraintVertical_bias="0.64"
                         tools:ignore="ContentDescription" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -171,6 +171,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -214,9 +215,9 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/txtPlankWL"
                         app:layout_constraintHorizontal_bias="0.88"
-                        app:layout_constraintVertical_bias="0.64"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtPlankWL"
+                        app:layout_constraintVertical_bias="0.64"
                         tools:ignore="ContentDescription" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -227,6 +228,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -270,9 +272,9 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/txtSplitSquatWL"
                         app:layout_constraintHorizontal_bias="0.88"
-                        app:layout_constraintVertical_bias="0.64"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtSplitSquatWL"
+                        app:layout_constraintVertical_bias="0.64"
                         tools:ignore="ContentDescription" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -283,6 +285,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -326,9 +329,9 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/txtSitUpWL"
                         app:layout_constraintHorizontal_bias="0.88"
-                        app:layout_constraintVertical_bias="0.64"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtSitUpWL"
+                        app:layout_constraintVertical_bias="0.64"
                         tools:ignore="ContentDescription" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -339,6 +342,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -382,9 +386,9 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/txtChinUpWL"
                         app:layout_constraintHorizontal_bias="0.88"
-                        app:layout_constraintVertical_bias="0.64"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtChinUpWL"
+                        app:layout_constraintVertical_bias="0.64"
                         tools:ignore="ContentDescription" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -395,6 +399,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -438,9 +443,9 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="@+id/txtLegRaiseWL"
                         app:layout_constraintHorizontal_bias="0.88"
-                        app:layout_constraintVertical_bias="0.64"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtLegRaiseWL"
+                        app:layout_constraintVertical_bias="0.64"
                         tools:ignore="ContentDescription" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -451,6 +456,7 @@
                 android:layout_height="180dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
+                android:foreground="?attr/selectableItemBackground"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="12dp">
 
@@ -460,12 +466,12 @@
                     android:layout_height="180dp"
                     android:layout_gravity="center_horizontal"
                     android:adjustViewBounds="true"
+                    android:background="@color/transparentBlack2"
                     android:maxWidth="140dp"
-                    android:src="@drawable/ic_baseline_add_box_24"
                     android:scaleType="center"
                     android:scaleX="3"
                     android:scaleY="3"
-                    android:background="@color/transparentBlack2"
+                    android:src="@drawable/ic_baseline_add_box_24"
                     tools:ignore="ContentDescription" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout

@@ -9,7 +9,6 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.auth.UserDetails
-import com.dedsec_x47.trainer.auth.isDetailsLoaded
 
 class HomeFragment: Fragment(){
 
@@ -24,7 +23,7 @@ class HomeFragment: Fragment(){
 
         val card1 = view.findViewById<CardView>(R.id.cardWeightLoss)
         val card2 = view.findViewById<CardView>(R.id.cardStrengthTraining)
-        val card3 = view.findViewById<CardView>(R.id.cardHIIT)
+        val card3 = view.findViewById<CardView>(R.id.cardMiniGames)
 
         card1.setOnClickListener {
             startActivity(Intent(context, com.dedsec_x47.trainer.exercisePages.WeightLoss::class.java))
