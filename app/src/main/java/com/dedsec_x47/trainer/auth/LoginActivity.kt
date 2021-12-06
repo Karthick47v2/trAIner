@@ -16,15 +16,10 @@ import com.google.firebase.ktx.Firebase
 
 var isNewUser = false
 
-/*TODO: GET STARTED (ACTIVITY MAIN BINDING) SHOULD ONLY COMES IN FIRST USE.. SO IF USER IS LOGGED IN.. IT SHOULD NOT COME
-DO ACCORDING TO AUTH LISTER,
-AND WHY VERIFICATION EMAIL IS SENT WHEN CONTINUING WTIH FB ? THAT NOT HOW IT IS.. NO NEED OF VERIFICATION FOR THAT..
 
-AND AFTER LOGIN IN GO TO JATHURASHAN MAIN ACTIVITY  ___ HOMESCREEN.KT
-*/
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var auth: FirebaseAuth           // create instance of FirebaseAuth
+    private lateinit var auth: FirebaseAuth
     var isVertificationEmailSent = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
                                 newUserName, newUserAge, userGender,
                                 false, " "
                             )
-                        }else{
+                        } else {
                             UserDetails().loadFireStoreData()
                         }
                         home()
@@ -71,18 +66,18 @@ class LoginActivity : AppCompatActivity() {
                         auth.signOut()
                     }
                 } else {
-                   home()
+                    home()
                 }
             } else {
                 Log.d(" ", "User Null")
                 if (!isVertificationEmailSent) {
-                    signin()                         //User is signed out
+                    signin()
                 }
             }
         }
     }
 
-    private fun sendEmailVerification() {            // send_email_verification
+    private fun sendEmailVerification() {
         val user = auth.currentUser
         user!!.sendEmailVerification()
             .addOnCompleteListener(this) { task ->
@@ -101,19 +96,18 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signin() {
-        //function for sign in task
-        val intent = Intent(this, SignIn::class.java)//intent Sign in activity
-        startActivity(intent)                                     //starts an instance of the Sign in activity
+        val intent = Intent(this, SignIn::class.java)
+        startActivity(intent)
     }
 
-    private fun home() {                                          //function for logout
-        val intent = Intent(this, HomeScreen::class.java)//intent MainActivity2
-        startActivity(intent)                                       //starts an instance of the MainActivity2
+    private fun home() {
+        val intent = Intent(this, HomeScreen::class.java)
+        startActivity(intent)
     }
 
-    private fun setAlarm() {                                          //function for logout
-        val intent = Intent(this, com.dedsec_x47.trainer.SetAlarm::class.java)//intent MainActivity2
-        startActivity(intent)                                       //starts an instance of the MainActivity2
+    private fun setAlarm() {
+        val intent = Intent(this, com.dedsec_x47.trainer.SetAlarm::class.java)
+        startActivity(intent)
     }
 
     private fun createNotificationChannel() {
@@ -124,7 +118,6 @@ class LoginActivity : AppCompatActivity() {
             NotificationChannel(com.dedsec_x47.trainer.CHANNEL_ID, name, importance).apply {
                 description = descriptionText
             }
-        // Register the channel with the system
         val notificationManager: NotificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(channel)

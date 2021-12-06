@@ -66,7 +66,6 @@ class UserDetails {
 //            userData["Email"] = currentUser.email.toString()
 //        }
 
-
         dataBase.collection("users").document(currentUser.email.toString()).set(userData)
             .addOnSuccessListener {
                 Log.d("Save Details", "save Details Successfully ")
@@ -126,11 +125,6 @@ class UserDetails {
             storageRef.child("users").child(currentUser?.email.toString()).child("ProfileImage")
         imageRef.putFile(imageUri).addOnCompleteListener {
             Log.d("Save Details", "Image Uploaded Successfully ")
-//            storageRef.child("users/" + currentUser?.email.toString() + "/ProfileImage").downloadUrl.addOnSuccessListener {
-//                //updateFireStoreData("Profile Pic Uri", it.toString())
-//            }.addOnFailureListener {
-//                // Handle any errors
-//            }
         }.addOnFailureListener {
             Log.d("Save Details", "Image Upload Failure ")
         }

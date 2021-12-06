@@ -2,6 +2,7 @@ package com.dedsec_x47.trainer.auth
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -19,8 +20,6 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-
-//TODO: GRAPH API DETAILS
 
 var isgetStart: Boolean = true
 
@@ -57,7 +56,6 @@ class SignIn : AppCompatActivity() {
                 }
             }
 
-            /*activitySignInBinding.btnFacebook.setReadPermissions(listOf("public_profile"))*/
             activitySignInBinding.btnFacebook.setReadPermissions("public_profile", "email")
             activitySignInBinding.btnFacebook.setOnClickListener {
                 fbSignIn()
@@ -146,9 +144,6 @@ class SignIn : AppCompatActivity() {
 
     private fun fbSignIn() {
 
-        FacebookSdk.setAutoInitEnabled(true)
-        FacebookSdk.fullyInitialize()
-
         activitySignInBinding.btnFacebook.registerCallback(callbackManager,
             object : FacebookCallback<LoginResult> {
 
@@ -156,7 +151,7 @@ class SignIn : AppCompatActivity() {
                     //isfacebookLogin = true
                     Log.d(TAG, "facebook:onSuccess:$result")
                     handleFacebookAccessToken(result.accessToken)
-                    /*getFacebookData(result.accessToken)*/
+                    //getFacebookData(result.accessToken)
                 }
 
                 override fun onCancel() {
@@ -169,40 +164,46 @@ class SignIn : AppCompatActivity() {
             })
     }
 
-/*    private fun getFacebookData(accessToken: AccessToken?) {
-        val request = GraphRequest.newMeRequest(accessToken) { obj, response ->
-            val fbid = obj?.getLong("id").toString()
-
-//            //val avatar = ImageRequest.getProfilePictureUri(fbid, 200, 200).toString()
-//            val avatar = "https://graph.facebook.com//picture?access_token=${accessToken.toString()}"
-////            Glide.with(this)
-////                .load(avatar)
-////                .into(.)
-
-*//*            val gender:String = obj?.getString("gender").toString()
-            val birthday : String = obj?.getString("birthday").toString()
-            val profilename :String = obj?.getString("name").toString()*//*
-
-//            val todayDate = LocalDate.now()
-//            var timestamp: Instant? = null
-//            timestamp = Instant.parse(birthday);
-//            val age = Period.between(timestamp., todayDate).years.toString()
-
-//            GetUserDetails().saveDetailsInFireStore( Uri.EMPTY,profilename,age ,gender, true,fbid )
-//            val profilePic =
-//                "https://graph.facebook.com/${obj?.getString("id")}/picture?width=200&height=200"
-        }
-
-        val parameters = Bundle()
-        parameters.putString("fields", "id,name,email,birthday,gender")
-        request.parameters = parameters
-        request.executeAsync()
-    }*/
+//    private fun getFacebookData(accessToken: AccessToken?) {
+//        val request = GraphRequest.newMeRequest(accessToken) { obj, response ->
+//            Toast.makeText(
+//                baseContext, "RUNNNNNNNNNN",
+//                Toast.LENGTH_LONG
+//            ).show()
+////            val avatar = ImageRequest.getProfilePictureUri(fbid, 200, 200).toString()
+////            val avatar = "https://graph.facebook.com//picture?access_token=${accessToken.toString()}"
+//
+//            val fbid = obj?.getLong("id").toString()
+//            val gender = obj?.getString("gender").toString()
+//            val email:String =obj?.getString("email").toString()
+//            val birthday : String = obj?.getString("birthday").toString()
+//            val profilename :String = obj?.getString("name").toString()
+//            val profilePic: Uri =
+//                "https://graph.facebook.com/${obj?.getString("id")}/picture?width=200&height=200".toUri()
+//            Log.d("FB TAG", fbid+"  "+gender+"  "+birthday+" "+profilePic+ profilename+ email )
+////            val todayDate = LocalDate.now()
+////            var timestamp: Instant? = null
+////            timestamp = Instant.parse(birthday);
+////            val age = Period.between(timestamp., todayDate).years.toString()
+// Toast.makeText(
+//                        baseContext, fbid+"  "+gender+"  "+birthday+" "+profilePic+ profilename+ email,
+//             Toast.LENGTH_LONG
+//                    ).show()
+//            UserDetails().saveDetailsInFireStore(
+//                newUserName, newUserAge, userGender,
+//                false, " "
+//            )
+//
+//        }
+//
+//        val parameters = Bundle()
+//        parameters.putString("fields", "id,name,email,birthday,gender")
+//        request.parameters = parameters
+//        request.executeAsync()
+//    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        // Pass the activity result back to the Facebook SDK
         callbackManager.onActivityResult(requestCode, resultCode, data)
     }
 
@@ -263,6 +264,7 @@ class SignIn : AppCompatActivity() {
 //             Log.d(TAG_FB, "facebook save fail")
 //         }
 //     }
+
 }
 
 
