@@ -14,8 +14,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-var isNewUser = false
-
 
 class LoginActivity : AppCompatActivity() {
 
@@ -43,6 +41,7 @@ class LoginActivity : AppCompatActivity() {
                     if (user.isEmailVerified) {
                         isVertificationEmailSent = false
                         Log.d(" ", "Email Is verified")
+                        isStarting = true
                         if (isNewUser) {
                             UserDetails().saveDetailsInFireStore(
                                 newUserName, newUserAge, userGender,
@@ -51,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
                         } else {
                             UserDetails().loadFireStoreData()
                         }
-                        home()
+                        x()
                     } else {
 
                         Log.d(" ", "Email is not verified ")
@@ -100,15 +99,23 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun x() {
+        bv.listener = object : BooVariable.ChangeListener {
+            override fun onChange() {
+                Log.d("BOOL", bv.get().toString())
+                if (bv.get()) {
+                    home()
+                    bv.set(false)
+                }
+            }
+        }
+    }
+
     private fun home() {
         val intent = Intent(this, HomeScreen::class.java)
         startActivity(intent)
     }
 
-    private fun setAlarm() {
-        val intent = Intent(this, com.dedsec_x47.trainer.SetAlarm::class.java)
-        startActivity(intent)
-    }
 
     private fun createNotificationChannel() {
         val name = "trAIner"
