@@ -1,75 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     tools:context=".homeFragments.ProfileFragment">
 
-    <RelativeLayout
-        android:id="@+id/rlHeader"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="@color/orange"
-        android:padding="20dp"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_profile_fragment"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imgBgOrangeCurve"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleX="1.2"
+        android:scaleType="fitXY"
+        android:src="@drawable/bg_orange"
+        tools:ignore="ContentDescription,MissingConstraints" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/savProfileImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:elevation="20dp"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/no_profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        app:shapeAppearanceOverlay="@style/roundCorners" />
+
+
+    <TextView
+        android:id="@+id/tvNameTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/savProfileImage"
+        android:fontFamily="sans-serif-medium"
+        android:includeFontPadding="false"
+        android:text="@string/user_name"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/savProfileImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/imgBgOrangeCurve" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/savProfileImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerVertical="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/no_profile"
-            app:shapeAppearanceOverlay="@style/roundCorners" />
-
-        <TextView
-            android:id="@+id/tvNameTop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/savProfileImage"
-            android:fontFamily="sans-serif-medium"
-            android:includeFontPadding="false"
-            android:text="@string/user_name"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
-
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rlHeader">
+        app:layout_constraintTop_toBottomOf="@+id/savProfileImage"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/tvName"
+            android:elevation="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:text="@string/name_fixed"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <TextView
             android:id="@+id/tvGetName"
+            android:elevation="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/tvName"
             android:text="@string/user_name"
             android:textColor="@color/grey"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <TextView
+            android:elevation="20dp"
             android:id="@+id/tvGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,9 +98,10 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/gender_fixed"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <TextView
+            android:elevation="20dp"
             android:id="@+id/tvGetGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,9 +111,10 @@
             android:layout_toEndOf="@id/tvGender"
             android:text="@string/text_gender"
             android:textColor="@color/grey"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <TextView
+            android:elevation="20dp"
             android:id="@+id/tvAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,9 +123,10 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/age_fixed"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <TextView
+            android:elevation="20dp"
             android:id="@+id/tvGetAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,10 +135,11 @@
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvAge"
             android:text="@string/age_text"
-            android:textSize="20sp"
-            android:textColor="@color/grey"/>
+            android:textColor="@color/grey"
+            android:textSize="26sp" />
 
         <TextView
+            android:elevation="20dp"
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,9 +148,10 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/email_fixed"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="26sp" />
 
         <TextView
+            android:elevation="20dp"
             android:id="@+id/tvGetEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,8 +160,8 @@
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvEmail"
             android:text="@string/text_email"
-            android:textSize="20sp"
-            android:textColor="@color/grey"/>
+            android:textColor="@color/grey"
+            android:textSize="26sp" />
 
     </RelativeLayout>
 
