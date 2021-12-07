@@ -5,13 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:foreground="@color/transparentBlack"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_create_challenge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
     <TextView
-        android:id="@+id/textViewTitlechallange"
+        android:id="@+id/textViewTitleChallenge"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@color/transparentBlack2"
-        android:text="CREATE  CHALLENGES"
+        android:paddingVertical="10dp"
+        android:text="@string/create_challenges"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="24sp"
@@ -22,60 +35,49 @@
 
     <Button
         android:id="@+id/btnSearch"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="628dp"
+        android:layout_width="90dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="18dp"
         android:background="@drawable/btn_orange_ripple"
         android:text="@string/Search"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="17sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayoutSearch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.971"
-        app:layout_constraintStart_toStartOf="@+id/textViewTitlechallange"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayoutSearch"
         tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,TextContrastCheck" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutEmail"
+        android:id="@+id/textInputLayoutSearch"
         android:layout_width="0dp"
-        android:layout_height="54dp"
+        android:layout_height="56dp"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="18dp"
-        android:hint="@string/enter_email_id"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="5dp"
+        android:hint="@string/search_a_person"
         android:textColorHint="@color/white"
         app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/btnSearch"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitlechallange">
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitleChallenge">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textSearchFriends"
-            android:layout_width="278dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginVertical="8dp"
             android:background="@drawable/edit_text_ripple"
-            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:drawableStart="@drawable/ic_baseline_person_search_24"
             android:drawablePadding="10dp"
             android:inputType="textEmailAddress"
-            android:padding="10dp"
+            android:paddingHorizontal="10dp"
             android:textColor="@color/white"
             android:textSize="17sp"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView4"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:text="Select A Person You want To challenge"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textSize="17sp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView3" />-->
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -87,12 +89,13 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutEmail">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSearch">
 
         <LinearLayout
             android:id="@+id/linearExe1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="20dp"
             android:orientation="vertical">
@@ -102,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparentOrange"
-                android:text="Exercise 1"
+                android:text="@string/workout_1"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="17sp"
@@ -110,14 +113,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="3dp"
-                android:background="@color/transparentBlack">
+                android:background="@color/transparentBlack"
+                android:gravity="fill"
+                android:paddingStart="20dp"
+                tools:ignore="RtlSymmetry">
 
                 <Spinner
                     android:id="@+id/spinnerExe1"
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:layout_marginVertical="3dp"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </LinearLayout>
@@ -127,32 +133,33 @@
                 android:id="@+id/txtRepCounts1"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginVertical="3dp"
+                android:layout_marginVertical="5dp"
                 android:background="@color/transparentBlack"
-                android:hint="Enter repetion count"
+                android:hint="@string/enter_repetition_count"
                 android:paddingHorizontal="20dp"
+                android:inputType="numberDecimal"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="Autofill,TouchTargetSizeCheck" />
 
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/linearExe2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="20dp"
-            android:visibility="gone"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/txtExe2Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparentOrange"
-                android:text="Exercise 2"
+                android:text="@string/workout_2"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="17sp"
@@ -160,16 +167,19 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="3dp"
-                android:background="@color/transparentBlack">
+                android:background="@color/transparentBlack"
+                android:gravity="fill"
+                android:paddingStart="20dp"
+                tools:ignore="RtlSymmetry">
 
                 <Spinner
                     android:id="@+id/spinnerExe2"
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:layout_marginVertical="3dp"
-                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </LinearLayout>
 
 
@@ -177,32 +187,33 @@
                 android:id="@+id/txtRepCounts2"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginVertical="3dp"
+                android:layout_marginVertical="5dp"
                 android:background="@color/transparentBlack"
-                android:hint="Enter repetion count"
+                android:hint="@string/enter_repetition_count"
                 android:paddingHorizontal="20dp"
+                android:inputType="numberDecimal"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="Autofill,TouchTargetSizeCheck" />
 
         </LinearLayout>
-
 
         <LinearLayout
             android:id="@+id/linearExe3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginTop="15dp"
-            android:visibility="gone"
             android:layout_marginBottom="20dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/txtExe3Title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparentOrange"
-                android:text="Exercise 3"
+                android:text="@string/workout_3"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="17sp"
@@ -210,14 +221,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="3dp"
-                android:background="@color/transparentBlack">
+                android:background="@color/transparentBlack"
+                android:gravity="fill"
+                android:paddingStart="20dp"
+                tools:ignore="RtlSymmetry">
 
                 <Spinner
                     android:id="@+id/spinnerExe3"
                     android:layout_width="match_parent"
-                    android:layout_height="36dp"
+                    android:layout_height="40dp"
                     android:layout_marginVertical="3dp"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
             </LinearLayout>
@@ -225,15 +239,16 @@
 
             <EditText
                 android:id="@+id/txtRepCounts3"
+                android:inputType="numberDecimal"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginVertical="3dp"
+                android:layout_marginVertical="5dp"
                 android:background="@color/transparentBlack"
-                android:hint="Enter repetion count"
+                android:hint="@string/enter_repetition_count"
                 android:paddingHorizontal="20dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                tools:ignore="TouchTargetSizeCheck" />
+                tools:ignore="Autofill,TouchTargetSizeCheck" />
 
         </LinearLayout>
 
@@ -260,13 +275,14 @@
         android:id="@+id/btnCancelChallenges"
         android:layout_width="145dp"
         android:layout_height="36dp"
-        android:layout_marginStart="24dp"
         android:background="@drawable/btn_black_ripple"
         android:text="@string/cancel"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCreateChallenges"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:ignore="TouchTargetSizeCheck" />
@@ -275,7 +291,6 @@
         android:id="@+id/btnCreateChallenges"
         android:layout_width="145dp"
         android:layout_height="36dp"
-        android:layout_marginEnd="24dp"
         android:background="@drawable/btn_orange_ripple"
         android:text="@string/create"
         android:textAlignment="center"
@@ -284,6 +299,8 @@
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnCancelChallenges"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:ignore="DuplicateSpeakableTextCheck,TouchTargetSizeCheck,TextContrastCheck" />
 

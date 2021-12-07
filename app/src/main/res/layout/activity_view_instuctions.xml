@@ -12,9 +12,9 @@
         android:layout_marginTop="25dp"
         android:background="@color/transparentOrange"
         android:text="@string/select_a_view"
-        android:textSize="28sp"
-        android:textColor="@color/white"
         android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,9 @@
             android:layout_width="match_parent"
             android:layout_rowWeight="1"
             android:layout_margin="10dp"
+            android:clickable="true"
             android:elevation="12dp"
+            android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="14dp"
             app:cardElevation="10dp">
 
@@ -70,6 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:adjustViewBounds="true"
+                    android:foreground="@color/transparentBlack"
                     android:scaleType="centerCrop"
                     android:src="@drawable/img_front_view"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -102,7 +105,9 @@
             android:layout_width="match_parent"
             android:layout_rowWeight="1"
             android:layout_margin="10dp"
+            android:clickable="true"
             android:elevation="12dp"
+            android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="14dp"
             app:cardElevation="10dp">
 
@@ -116,6 +121,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:adjustViewBounds="true"
+                    android:foreground="@color/transparentBlack"
                     android:scaleType="centerCrop"
                     android:src="@drawable/img_left_hand_view"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -148,7 +154,9 @@
             android:layout_width="match_parent"
             android:layout_rowWeight="1"
             android:layout_margin="10dp"
+            android:clickable="true"
             android:elevation="12dp"
+            android:foreground="?attr/selectableItemBackground"
             app:cardCornerRadius="14dp"
             app:cardElevation="10dp">
 
@@ -162,6 +170,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:adjustViewBounds="true"
+                    android:foreground="@color/transparentBlack"
                     android:scaleType="centerCrop"
                     android:src="@drawable/img_right_hand_view"
                     app:layout_constraintBottom_toBottomOf="parent"
