@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.auth.UserDetails
-import com.dedsec_x47.trainer.getUserImage
-import com.dedsec_x47.trainer.setUserImage
+import com.dedsec_x47.trainer.auth.getUserImage
+import com.dedsec_x47.trainer.auth.setUserImage
 import com.google.android.material.imageview.ShapeableImageView
 
 class ProfileFragment : Fragment() {

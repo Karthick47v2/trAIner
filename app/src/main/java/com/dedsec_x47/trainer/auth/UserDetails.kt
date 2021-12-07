@@ -2,18 +2,28 @@ package com.dedsec_x47.trainer.auth
 
 import android.net.Uri
 import android.util.Log
+import com.dedsec_x47.trainer.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
+import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-lateinit var document: DocumentSnapshot
-var userNameList = ArrayList<String>()
-var isDetailsLoaded = false
+var isgetStart = true                       //diaplay get start page
+var isNewUser = false                       //variable for new user
+var isStarting = false                      //variable for first signin
+var userNameList = ArrayList<String>()      //all user names
+var bv = BooVariable()                      //variable cheak for detail loading
+lateinit var document: DocumentSnapshot     //all details of user
+var userProfileImageUri: Uri = Uri.parse("android.resource://" + "com.dedsec_x47.trainer" + "/" + R.drawable.no_profile)
+
+var newUserName = " "
+var newUserAge: Int = 0
+var userGender = " "
 
 class UserDetails {
 
@@ -24,12 +34,11 @@ class UserDetails {
 
         val fAuth = Firebase.auth
         val currentUser = fAuth.currentUser
-        val currentUserId = currentUser!!.uid
         val dataBase = Firebase.firestore
 
         val userData: MutableMap<String, Any> = HashMap()
         userData["Name"] = name
-        userData["Email"] = currentUser.email.toString()
+        userData["Email"] = currentUser?.email.toString()
         userData["Age"] = age
         userData["Gender"] = gender
         val loss: MutableMap<String, Any> = HashMap()
@@ -66,7 +75,7 @@ class UserDetails {
 //            userData["Email"] = currentUser.email.toString()
 //        }
 
-        dataBase.collection("users").document(currentUser.email.toString()).set(userData)
+        dataBase.collection("users").document(currentUser?.email.toString()).set(userData)
             .addOnSuccessListener {
                 Log.d("Save Details", "save Details Successfully ")
                 UserDetails().loadFireStoreData()
@@ -85,9 +94,16 @@ class UserDetails {
             .addOnCompleteListener { task ->
 
                 if (task.isSuccessful) {
-                    isDetailsLoaded = true
                     document =
                         task.result                              //document is global variable
+                    if (isStarting) {
+                        if(!isNewUser) {
+                            getimagefromstorage()
+                        }else{
+                            isStarting = false
+                            bv.set(true)
+                        }
+                    }
                     Log.d("TAG", "Cached document data: ${document.data}")
                 } else {
                     Log.d("TAG", "Cached get failed: ", task.exception)
@@ -160,6 +176,52 @@ class UserDetails {
                 Log.d("TAG", "Challange Sucess ", exception)
             }
     }
-
 }
+
+fun getimagefromstorage() {
+    val fAuth = Firebase.auth
+    val currentuser = fAuth.currentUser
+    val storageRef = Firebase.storage.reference
+    val imageref =
+        storageRef.child("users").child(currentuser?.email.toString()).child("ProfileImage")
+    val localFile = File.createTempFile("ProfileImage", "jpg")
+
+    imageref.getFile(localFile).addOnSuccessListener {
+        setUserImage(Uri.fromFile(localFile))
+        if(isStarting){
+            isStarting = false
+            bv.set(true)
+        }
+    }.addOnFailureListener {
+    }
+}
+
+fun getUserImage(): Uri {
+    return userProfileImageUri
+}
+
+fun setUserImage(img: Uri) {
+    userProfileImageUri = img
+}
+
+class BooVariable {
+    var isBoo = false
+    fun set(boo: Boolean) {
+        isBoo = boo
+        if (listener != null)
+            listener!!.onChange()
+    }
+
+    fun get(): Boolean {
+        return isBoo
+    }
+
+    var listener: ChangeListener? = null
+
+    interface ChangeListener {
+        fun onChange()
+    }
+}
+
+
 

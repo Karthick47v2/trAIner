@@ -2,7 +2,6 @@ package com.dedsec_x47.trainer.auth
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -13,15 +12,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.databinding.ActivitySigninBinding
-import com.facebook.*
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import com.google.firebase.auth.FacebookAuthProvider
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.android.gms.tasks.Tasks
+import com.google.firebase.auth.*
+import java.lang.Exception
 
-var isgetStart: Boolean = true
 
 class SignIn : AppCompatActivity() {
 
@@ -32,43 +34,43 @@ class SignIn : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        if(isgetStart){
+        if (isgetStart) {
             getStarted()
-
         }
-            activitySignInBinding = ActivitySigninBinding.inflate(layoutInflater)
-            setContentView(activitySignInBinding.root) //set activity sign in layout
-            auth = Firebase.auth
-            callbackManager = CallbackManager.Factory.create()
 
-            activitySignInBinding.btnSignIn.setOnClickListener {
+        activitySignInBinding = ActivitySigninBinding.inflate(layoutInflater)
+        setContentView(activitySignInBinding.root)
+        auth = Firebase.auth
+        callbackManager = CallbackManager.Factory.create()
 
-                val email = activitySignInBinding.textInputEditTextEmail.text.toString()
-                val password = activitySignInBinding.textInputEditTextPassword.text.toString()
+        activitySignInBinding.btnSignIn.setOnClickListener {
 
-                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
-                    Toast.makeText(
-                        baseContext, "Please Enter Your email and Password",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
-                    emailloginaccount(email, password)
-                }
+            val email = activitySignInBinding.textInputEditTextEmail.text.toString()
+            val password = activitySignInBinding.textInputEditTextPassword.text.toString()
+
+            if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+                Toast.makeText(
+                    baseContext, "Please Enter Your email and Password",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                emailloginaccount(email, password)
             }
+        }
 
-            activitySignInBinding.btnFacebook.setReadPermissions("public_profile", "email")
-            activitySignInBinding.btnFacebook.setOnClickListener {
-                fbSignIn()
-            }
+        activitySignInBinding.btnFacebook.setReadPermissions("public_profile", "email")
+        activitySignInBinding.btnFacebook.setOnClickListener {
+            fbSignIn()
+        }
 
-            activitySignInBinding.txtForgotPassword.setOnClickListener() {
-                resetPassword()
-            }
+        activitySignInBinding.txtForgotPassword.setOnClickListener {
+            resetPassword()
+        }
 
-            activitySignInBinding.btnSignUp.setOnClickListener {
-                val intent = Intent(this, SignUp::class.java)
-                startActivity(intent)
-            }
+        activitySignInBinding.btnSignUp.setOnClickListener {
+            val intent = Intent(this, SignUp::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getStarted() {
@@ -142,6 +144,33 @@ class SignIn : AppCompatActivity() {
             }
     }
 
+    private fun linkWithCredential(credential: AuthCredential) {
+        auth.currentUser!!.linkWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Log.d(TAG, "linkWithCredential:success")
+
+                } else {
+                    Log.w(TAG, "linkWithCredential:failure", task.exception)
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    mergeAccounts(credential)
+                }
+            }
+    }
+
+    private fun mergeAccounts(credential: AuthCredential) {
+        val prevUser = auth.currentUser
+        auth.signInWithCredential(credential)
+            .addOnSuccessListener { result ->
+                var currentUser = result.user
+            }
+            .addOnFailureListener {
+            }
+    }
+
     private fun fbSignIn() {
 
         activitySignInBinding.btnFacebook.registerCallback(callbackManager,
@@ -162,6 +191,35 @@ class SignIn : AppCompatActivity() {
                     Log.d(TAG, "facebook:onError", error)
                 }
             })
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        callbackManager.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun handleFacebookAccessToken(token: AccessToken?) {
+        Log.d(TAG, "handleFacebookAccessToken:$token")
+
+        val credential = FacebookAuthProvider.getCredential(token!!.token)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Log.d(TAG_FB, "signInWithCredential:success")
+                   linkWithCredential(credential)
+                } else {
+                    if (AccessToken.getCurrentAccessToken() != null) {
+                        LoginManager.getInstance().logOut()
+                    }
+                    Log.w(TAG_FB, "signInWithCredential:failure", task.exception)
+                    Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    companion object {
+        private const val TAG = "EmailPassword"
+        private const val TAG_FB = "FacebookLogin"
     }
 
 //    private fun getFacebookData(accessToken: AccessToken?) {
@@ -201,35 +259,6 @@ class SignIn : AppCompatActivity() {
 //        request.parameters = parameters
 //        request.executeAsync()
 //    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        callbackManager.onActivityResult(requestCode, resultCode, data)
-    }
-
-    private fun handleFacebookAccessToken(token: AccessToken?) {
-        Log.d(TAG, "handleFacebookAccessToken:$token")
-
-        val credential = FacebookAuthProvider.getCredential(token!!.token)
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d(TAG_FB, "signInWithCredential:success")
-                } else {
-                    if (AccessToken.getCurrentAccessToken() != null) {
-                        LoginManager.getInstance().logOut()
-                    }
-                    Log.w(TAG_FB, "signInWithCredential:failure", task.exception)
-                    Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
-
-    companion object {
-        private const val TAG = "EmailPassword"
-        private const val TAG_FB = "FacebookLogin"
-    }
-
 
 //     private fun getFacebookData() {
 //         val profile = Profile.getCurrentProfile()  //By Profile Class

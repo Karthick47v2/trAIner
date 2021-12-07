@@ -11,21 +11,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.databinding.ActivitySignupBinding
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.EmailAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import java.util.regex.Pattern
 
-
-lateinit var newUserName: String
-var newUserAge: Int = 0
-lateinit var userGender: String
-
 class SignUp : AppCompatActivity() {
 
     lateinit var auth: FirebaseAuth
-    var isProfilePictureSelected = false
-    var isCreateAccountSucess = false
     lateinit var email: String
     lateinit var password1: String
     lateinit var password2: String
@@ -42,23 +37,20 @@ class SignUp : AppCompatActivity() {
         val genSpin = findViewById<Spinner>(R.id.spinnerGender)
 
         if (genSpin != null) {
-            val adapter = ArrayAdapter(
-                this,
+            val adapter = ArrayAdapter(this,
                 android.R.layout.simple_spinner_dropdown_item, genOp
             )
             genSpin.adapter = adapter
 
             genSpin.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>,
-                    view: View, position: Int, id: Long
-                ) {
+                override fun onItemSelected( parent: AdapterView<*>,view: View, position: Int,
+                                             id: Long ) {
                     userGender = genOp[position]
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>) {
-                    // write code to perform some action
+                    Toast.makeText( baseContext, "Select Gender", Toast.LENGTH_SHORT ).show()
                 }
             }
         }
@@ -98,6 +90,8 @@ class SignUp : AppCompatActivity() {
                 if (task.isSuccessful) {
                     isNewUser = true
                     Log.d(TAG, "createUserWithEmail:success")
+                    val credential = EmailAuthProvider.getCredential(email, password)
+                    linkWithCredential(credential)
                 } else {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(
@@ -111,6 +105,32 @@ class SignUp : AppCompatActivity() {
 
     companion object {
         private const val TAG = "EmailPassword"
+    }
+
+    private fun linkWithCredential(credential: AuthCredential) {
+        auth.currentUser!!.linkWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Log.d("SignIn.TAG", "linkWithCredential:success")
+                } else {
+                    Log.w("SignIn.TAG", "linkWithCredential:failure", task.exception)
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    mergeAccounts(credential)
+                }
+            }
+    }
+
+    private fun mergeAccounts(credential: AuthCredential) {
+        val prevUser = auth.currentUser
+        auth.signInWithCredential(credential)
+            .addOnSuccessListener { result ->
+                var currentUser = result.user
+            }
+            .addOnFailureListener {
+            }
     }
 
     private fun detailsValidityChecker(
