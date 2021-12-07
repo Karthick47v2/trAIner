@@ -196,6 +196,7 @@
     <string name="enter_repetition_count">Enter repetition count</string>
     <string name="workout_2">Workout 2</string>
     <string name="workout_3">Workout 3</string>
+    <string name="please_wait_dialog">Please wait ..</string>
 
     <string-array name="models_array">
         <item>Light</item>
