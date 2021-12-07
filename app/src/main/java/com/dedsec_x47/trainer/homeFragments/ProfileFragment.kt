@@ -1,29 +1,20 @@
 package com.dedsec_x47.trainer.homeFragments
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.auth.UserDetails
 import com.dedsec_x47.trainer.getUserImage
 import com.dedsec_x47.trainer.setUserImage
 import com.google.android.material.imageview.ShapeableImageView
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
-import java.io.ByteArrayOutputStream
-import java.io.File
-import java.util.*
 
 class ProfileFragment : Fragment() {
     override fun onCreateView(
@@ -40,7 +31,7 @@ class ProfileFragment : Fragment() {
         view.findViewById<TextView>(R.id.tvGetGender).text = UserDetails().readData("Gender")
         view.findViewById<TextView>(R.id.tvGetAge).text = UserDetails().readData("Age")
         view.findViewById<TextView>(R.id.tvGetEmail).text = UserDetails().readData("Email")
-        view.findViewById<ShapeableImageView>(R.id.savProfileImage).setOnClickListener{
+        view.findViewById<ShapeableImageView>(R.id.savProfileImage).setOnClickListener {
             selectProfileImage()
         }
 
@@ -60,7 +51,9 @@ class ProfileFragment : Fragment() {
             Log.d(" ", "Select Image done")
             setUserImage(userProfileImageUri)
             UserDetails().saveProfilePic(userProfileImageUri)
-            (view?.findViewById<ShapeableImageView>(R.id.savProfileImage))?.setImageURI(userProfileImageUri)
+            (view?.findViewById<ShapeableImageView>(R.id.savProfileImage))?.setImageURI(
+                userProfileImageUri
+            )
         }
     }
 
