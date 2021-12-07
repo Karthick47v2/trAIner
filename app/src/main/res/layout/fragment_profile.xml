@@ -12,7 +12,7 @@
         android:id="@+id/rlHeader"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@color/orange"
+        android:background="@color/orange_opacity_60"
         android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
