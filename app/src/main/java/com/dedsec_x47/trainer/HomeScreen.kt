@@ -12,7 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.auth.UserDetails
-import com.dedsec_x47.trainer.auth.isNewUser
+import com.dedsec_x47.trainer.auth.getUserImage
+import com.dedsec_x47.trainer.auth.setUserImage
 import com.dedsec_x47.trainer.homeFragments.*
 import com.facebook.AccessToken
 import com.facebook.login.LoginManager
@@ -23,7 +24,6 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import java.io.File
 
-lateinit var userProfileImageUri: Uri
 
 class HomeScreen : AppCompatActivity() {
 
@@ -34,30 +34,18 @@ class HomeScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         UserDetails().getAlluserNames()
-        userProfileImageUri =
-            Uri.parse("android.resource://" + packageName + "/" + R.drawable.no_profile);
-        if (!isNewUser) {
-            getimagefromstorage()
-        }
 
         val navView: NavigationView = findViewById(R.id.navView)
         val hView: View = navView.getHeaderView(0)
 
         profPic = hView.findViewById(R.id.savProfileImage)
+        profPic.setImageURI(getUserImage())
+
         val uname: TextView = hView.findViewById(R.id.tvFullName)
+        uname.text = UserDetails().readData("Name")
 
         val drawLayout: DrawerLayout = findViewById(R.id.drawerLayout)
-        toggle = object : ActionBarDrawerToggle(
-            this,
-            drawLayout,
-            R.string.open,
-            R.string.close
-        ) {
-            override fun onDrawerOpened(drawerView: View) {
-                super.onDrawerOpened(drawerView)
-                uname.text = UserDetails().readData("Name")
-            }
-        }
+        toggle = ActionBarDrawerToggle(this,drawLayout, R.string.open, R.string.close)
 
         drawLayout.addDrawerListener(toggle)
         toggle.syncState()
@@ -132,31 +120,4 @@ class HomeScreen : AppCompatActivity() {
         val auth = Firebase.auth
         auth.signOut()
     }
-
-    fun getimagefromstorage() {
-        val fAuth = Firebase.auth
-        val currentuser = fAuth.currentUser
-        val storageRef = Firebase.storage.reference
-        val imageref =
-            storageRef.child("users").child(currentuser?.email.toString()).child("ProfileImage")
-        val localFile = File.createTempFile("ProfileImage", "jpg")
-
-        imageref.getFile(localFile).addOnSuccessListener {
-            userProfileImageUri = Uri.fromFile(localFile)
-            setProfilePic()
-        }.addOnFailureListener {
-        }
-    }
-
-    private fun setProfilePic() {
-        profPic.setImageURI(userProfileImageUri)
-    }
-}
-
-fun getUserImage(): Uri {
-    return userProfileImageUri
-}
-
-fun setUserImage(img: Uri) {
-    userProfileImageUri = img
 }
