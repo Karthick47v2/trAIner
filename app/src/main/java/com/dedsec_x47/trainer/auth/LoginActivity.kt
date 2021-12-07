@@ -36,7 +36,7 @@ class LoginActivity : AppCompatActivity() {
                 user.reload()
 
                 val accessToken = AccessToken.getCurrentAccessToken()
-                val isLoggedIn = accessToken != null && !accessToken.isExpired
+                val isLoggedIn = (accessToken != null && !accessToken.isExpired)
                 Log.d("fblog", "" + isLoggedIn)
 
                 if (!isLoggedIn) {

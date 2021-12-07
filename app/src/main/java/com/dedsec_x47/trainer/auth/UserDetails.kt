@@ -12,7 +12,7 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 lateinit var document: DocumentSnapshot
-public var userNameList = ArrayList<String>()
+var userNameList = ArrayList<String>()
 var isDetailsLoaded = false
 
 class UserDetails {
@@ -76,7 +76,7 @@ class UserDetails {
     }
 
     fun loadFireStoreData() {
-        Log.d("Tag","Load starting")
+        Log.d("Tag", "Load starting")
         val dataBase = Firebase.firestore
         val fAuth = Firebase.auth
         val currentUser = fAuth.currentUser
@@ -120,7 +120,6 @@ class UserDetails {
         val fAuth = Firebase.auth
         val currentUser = fAuth.currentUser
         val storageRef = Firebase.storage.reference
-
         val imageRef =
             storageRef.child("users").child(currentUser?.email.toString()).child("ProfileImage")
         imageRef.putFile(imageUri).addOnCompleteListener {

@@ -29,11 +29,6 @@ class SetAlarm : AppCompatActivity() {
         cal = Calendar.getInstance()       //getting calender instance
         binding.button.setOnClickListener{
             showTimePicker()
-//            if(!isDetailsSaved && isNewUser) {
-//                isNewUser = false
-//                Toast.makeText(this, "Data sync failed please login Again", Toast.LENGTH_LONG).show()
-//                Firebase.auth.signOut()
-//            }
         }
 
         binding.button2.setOnClickListener{
@@ -51,7 +46,7 @@ class SetAlarm : AppCompatActivity() {
         //use alarm manager for the notification
         alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
         //this intent will be called when taping the notification
-        var notificationIntent = Intent(this, AlarmReceiver::class.java)
+        var notificationIntent = Intent(this, HomeScreen::class.java)
         //this pendingIntent will be called by the broadcast receiver
         broadcast = PendingIntent.getBroadcast(
             this,
@@ -70,8 +65,8 @@ class SetAlarm : AppCompatActivity() {
         cal[Calendar.SECOND] = 0
 
         //alarm manager will repeat the notification each day at the set time
-        alarmManager.setInexactRepeating(
-            AlarmManager.RTC_WAKEUP,
+        alarmManager.setRepeating(
+            AlarmManager.ELAPSED_REALTIME_WAKEUP,
             cal.timeInMillis,
             AlarmManager.INTERVAL_DAY,
             broadcast
