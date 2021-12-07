@@ -89,12 +89,12 @@
             android:textSize="26sp" />
 
         <TextView
-            android:elevation="20dp"
             android:id="@+id/tvGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvName"
             android:layout_marginTop="20dp"
+            android:elevation="20dp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/gender_fixed"
             android:textColor="@color/white"
