@@ -55,7 +55,6 @@ class HomeScreen : AppCompatActivity() {
         ) {
             override fun onDrawerOpened(drawerView: View) {
                 super.onDrawerOpened(drawerView)
-                setProfilePic()
                 uname.text = UserDetails().readData("Name")
             }
         }
@@ -144,6 +143,7 @@ class HomeScreen : AppCompatActivity() {
 
         imageref.getFile(localFile).addOnSuccessListener {
             userProfileImageUri = Uri.fromFile(localFile)
+            setProfilePic()
         }.addOnFailureListener {
         }
     }
