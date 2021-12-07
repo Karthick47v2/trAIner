@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtWrongPosesTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your Wrong Poses"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/transparentOrange"/>
+
+    <TextView
+        android:id="@+id/txtWrongPosesDiscription"
+        android:layout_width="match_parent"
+        android:background="@color/transparentBlack"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtWrongPosesTitle"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:padding="10dp"
+        android:text="Check out and correct your self next time."
+        android:textAlignment="center"
+        android:layout_marginVertical="10dp"/>
+
+    <GridView
+        android:id="@+id/gvWrongPoses"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txtWrongPosesDiscription"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="3"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp" />
+
+
+</RelativeLayout>
