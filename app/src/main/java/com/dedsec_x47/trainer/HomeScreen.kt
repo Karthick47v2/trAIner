@@ -1,8 +1,8 @@
 package com.dedsec_x47.trainer
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
@@ -13,9 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.HandlerCompat.postDelayed
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import com.dedsec_x47.trainer.auth.BooVariable
 import com.dedsec_x47.trainer.auth.UserDetails
 import com.dedsec_x47.trainer.auth.getUserImage
-import com.dedsec_x47.trainer.auth.setUserImage
 import com.dedsec_x47.trainer.homeFragments.*
 import com.facebook.AccessToken
 import com.facebook.login.LoginManager
@@ -23,42 +23,37 @@ import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.ktx.storage
-import java.io.File
-
 
 class HomeScreen : AppCompatActivity() {
 
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var profPic: ShapeableImageView
+    lateinit var navView: NavigationView
+    lateinit var hView: View
+    lateinit var uname: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         UserDetails().getAlluserNames()
 
-        val navView: NavigationView = findViewById(R.id.navView)
-        val hView: View = navView.getHeaderView(0)
+        navView = findViewById(R.id.navView)
+        hView = navView.getHeaderView(0)
 
         profPic = hView.findViewById(R.id.savProfileImage)
         profPic.setImageURI(getUserImage())
 
-        val uname: TextView = hView.findViewById(R.id.tvFullName)
+        uname = hView.findViewById(R.id.tvFullName)
         uname.text = UserDetails().readData("Name")
 
         val drawLayout: DrawerLayout = findViewById(R.id.drawerLayout)
-        toggle = object :ActionBarDrawerToggle(this,drawLayout, R.string.open, R.string.close){
-            override fun onDrawerOpened(drawerView: View) {
-                uname.text = UserDetails().readData("Name")
-            }
-        }
+        toggle = ActionBarDrawerToggle(this, drawLayout, R.string.open, R.string.close)
 
         drawLayout.addDrawerListener(toggle)
         toggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         navView.setNavigationItemSelectedListener {
-
             val intent1 = Intent(this, SettingsActivity::class.java)
             val intent2 = Intent(this, FeedbackActivity::class.java)
             val intent3 = Intent(this, SetAlarm::class.java)
@@ -103,6 +98,7 @@ class HomeScreen : AppCompatActivity() {
             logout()
         }
 
+        updateName()
         //For loading alert dialog
         //TODO - set when to create this dialog and the delay currently set to 5 seconds
         /*
@@ -138,5 +134,17 @@ class HomeScreen : AppCompatActivity() {
         }
         val auth = Firebase.auth
         auth.signOut()
+    }
+
+    private fun updateName() {
+        isNameUpdated.listener = object : BooVariable.ChangeListener {
+            override fun onChange() {
+                Log.d("BOOL", isNameUpdated.get().toString())
+                if (isNameUpdated.get()) {
+                    uname.text = UserDetails().readData("Name")
+                    isNameUpdated.set(false)
+                }
+            }
+        }
     }
 }
