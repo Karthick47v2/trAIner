@@ -63,7 +63,6 @@ class poseDetect : AppCompatActivity(){
         surfaceView = findViewById(R.id.surfaceView)
         shDebug = findViewById(R.id.hideSkeletonModeBtn)
         repView = findViewById(R.id.tvRepetitionCount)
-        //repView!!.text = count.toString()
         if (!isCameraPermissionGranted()) requestPermission()               //Ask for permission
     }
 
@@ -103,9 +102,6 @@ class poseDetect : AppCompatActivity(){
             }
             createPoseEstimator()
         }
-
-        //Log.d(ContentValues.TAG, "Count from  PoseDetect" + count)
-        //repView!!.text = count.toString()
     }
 
     private fun createPoseEstimator(){
