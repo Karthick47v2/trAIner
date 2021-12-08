@@ -69,13 +69,13 @@
 
         <TextView
             android:id="@+id/tvName"
-            android:elevation="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="20dp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/name_fixed"
             android:textColor="@color/white"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/tvGetName"
@@ -86,7 +86,7 @@
             android:layout_toEndOf="@id/tvName"
             android:text="@string/user_name"
             android:textColor="@color/grey"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/tvGender"
@@ -98,7 +98,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/gender_fixed"
             android:textColor="@color/white"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:elevation="20dp"
@@ -111,7 +111,7 @@
             android:layout_toEndOf="@id/tvGender"
             android:text="@string/text_gender"
             android:textColor="@color/grey"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:elevation="20dp"
@@ -123,7 +123,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/age_fixed"
             android:textColor="@color/white"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:elevation="20dp"
@@ -136,7 +136,7 @@
             android:layout_toEndOf="@id/tvAge"
             android:text="@string/age_text"
             android:textColor="@color/grey"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:elevation="20dp"
@@ -148,7 +148,7 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/email_fixed"
             android:textColor="@color/white"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:elevation="20dp"
@@ -161,7 +161,7 @@
             android:layout_toEndOf="@id/tvEmail"
             android:text="@string/text_email"
             android:textColor="@color/grey"
-            android:textSize="26sp" />
+            android:textSize="22sp" />
 
     </RelativeLayout>
 
