@@ -7,6 +7,14 @@
     android:background="@color/black">
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:foreground="@color/transparentBlack"
+        android:src="@drawable/bg_profile_fragment"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
         android:id="@+id/ivFeaturedWorkouts"
         android:layout_width="match_parent"
         android:layout_height="100dp"
