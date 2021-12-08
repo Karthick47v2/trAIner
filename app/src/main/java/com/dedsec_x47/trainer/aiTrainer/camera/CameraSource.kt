@@ -1,5 +1,6 @@
 package com.dedsec_x47.trainer.aiTrainer.camera
 
+import android.app.Activity
 import android.content.ContentValues
 import android.content.Context
 import android.graphics.Bitmap
@@ -17,6 +18,7 @@ import android.os.HandlerThread
 import android.util.Log
 import android.view.Surface
 import android.view.SurfaceView
+import android.widget.TextView
 import com.dedsec_x47.trainer.aiTrainer.Exercise
 import kotlinx.coroutines.suspendCancellableCoroutine
 import com.dedsec_x47.trainer.aiTrainer.render.Visual
@@ -31,7 +33,7 @@ import java.util.*
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
-class CameraSource(private val surfaceView: SurfaceView, private val listener: CameraSourceListener? = null){
+class CameraSource(private var act: Activity, private var repView: TextView, private val surfaceView: SurfaceView, private val listener: CameraSourceListener? = null){
 
     companion object {
         private const val PREVIEW_WIDTH = 640
@@ -62,6 +64,7 @@ class CameraSource(private val surfaceView: SurfaceView, private val listener: C
     private var imageReaderThread: HandlerThread? = null
     private var imageReaderHandler: Handler? = null
     private var cameraId: String = ""                           // only front cam
+    var count = 0
 
     suspend fun initCamera(){
         camera = openCamera(cameraManager, cameraId)
@@ -79,6 +82,7 @@ class CameraSource(private val surfaceView: SurfaceView, private val listener: C
                 rotateMatrix.postScale(-1f, 1f)
 
                 val rotatedBitmap = Bitmap.createBitmap(imageBitmap, 0, 0, PREVIEW_WIDTH, PREVIEW_HEIGHT, rotateMatrix, false)
+
                 processImage(rotatedBitmap)
                 image.close()
             }
@@ -93,6 +97,8 @@ class CameraSource(private val surfaceView: SurfaceView, private val listener: C
                 session?.setRepeatingRequest(it, null, null)
             }
         }
+        Log.d(ContentValues.TAG, "ArmsSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSs")
+        repView.text = count.toString()
     }
 
     private suspend fun createSession(targets: List<Surface>): CameraCaptureSession =
@@ -190,11 +196,10 @@ class CameraSource(private val surfaceView: SurfaceView, private val listener: C
 
     private fun visualize(human: Human, bitmap: Bitmap){
         var outputBitmap = bitmap
-
-        if (human.score > MIN_CONFIDENCE) {
+            if (human.score > MIN_CONFIDENCE) {
             if(poseDetect.shDebug!!.isChecked())  outputBitmap = Visual.drawBodyKeypoints(bitmap, human)
             when (poseDetect.currentExercise) {
-                Exercise.Hammercurl -> HammerCurl.getHammerCurlAngles(human, surfaceView)
+                Exercise.Hammercurl -> count = HammerCurl.getHammerCurlAngles(human, bitmap, surfaceView)
                 Exercise.Plank -> Plank.getPlankAngles(human, surfaceView)
                 Exercise.BenchpressBarbell -> Log.d(ContentValues.TAG, "BenchPressB")
                 Exercise.BenchpressDumbbell -> Log.d(ContentValues.TAG, "BenchPressD")
@@ -208,6 +213,9 @@ class CameraSource(private val surfaceView: SurfaceView, private val listener: C
                 Exercise.Squat -> Log.d(ContentValues.TAG, "Squat")
                 else -> LegRaise.getLegRaiseAngles(human, surfaceView)
             }
+                this.act.runOnUiThread(java.lang.Runnable {
+                    this.repView.text = count.toString()
+                })
         }
 
         val holder = surfaceView.holder
@@ -238,44 +246,6 @@ class CameraSource(private val surfaceView: SurfaceView, private val listener: C
                 outputBitmap, Rect(0, 0, outputBitmap.width, outputBitmap.height),
                 Rect(left, top, right, bottom), null
             )
-
-            /*val filename = "${System.currentTimeMillis()}.jpg"
-            var fos: OutputStream? = null
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                // getting the contentResolver
-                surfaceView.context.contentResolver?.also { resolver ->
-
-                    // Content resolver will process the contentvalues
-                    val contentValues = ContentValues().apply {
-
-                        // putting file information in content values
-                        put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
-                        put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg")
-                        put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
-                    }
-
-                    // Inserting the contentValues to
-                    // contentResolver and getting the Uri
-                    val imageUri: Uri? = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-
-                    // Opening an outputstream with the Uri that we got
-                    fos = imageUri?.let { resolver.openOutputStream(it) }
-                }
-            } else {
-                // These for devices running on android < Q
-                val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                val image = File(imagesDir, filename)
-                fos = FileOutputStream(image)
-            }
-
-            fos?.use {
-                // Finally writing the bitmap to the output stream that we opened
-                // Log.d(ContentValues.TAG, filename)
-                outputBitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
-                Toast.makeText(surfaceView.context , "Captured View and saved to Gallery" , Toast.LENGTH_SHORT).show()
-            }*/
-            //
             surfaceView.holder.unlockCanvasAndPost(canvas)
         }
     }

@@ -87,6 +87,7 @@
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_bench_press_dinst.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_deadlift_inst.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_feedback.xml" value="0.29483695652173914" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_gallery_view.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_hammer_curl_inst.xml" value="0.3111413043478261" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_hammer_curl_views.xml" value="0.253125" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/activity_home.xml" value="0.3446557971014493" />
@@ -131,8 +132,10 @@
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/fragment_leaderboard.xml" value="0.2653985507246377" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/fragment_profile.xml" value="0.3161231884057971" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/fragment_stats.xml" value="0.2653985507246377" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/full_image_view.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/nav_header.xml" value="0.2653985507246377" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/password_reset_popup.xml" value="0.2833333333333333" />
+        <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/row_item_image.xml" value="0.2513586956521739" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/layout/settings.xml" value="0.22780797101449277" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/menu/activity_main.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/KTK_47/Documents/GitHub/trAIner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.38697916666666665" />

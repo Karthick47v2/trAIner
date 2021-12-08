@@ -3,10 +3,12 @@ package com.dedsec_x47.trainer.aiTrainer
 import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.ContentValues
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Process
+import android.util.Log
 import android.view.SurfaceView
 import android.view.WindowManager
 import android.widget.*
@@ -29,14 +31,14 @@ class poseDetect : AppCompatActivity(){
         }
         private const val FRAGMENT_DIALOG = "dialog"
 
-        var currentExercise = Exercise.LegRaise
+        var currentExercise = Exercise.Hammercurl
         var currView = View.right
         var skelShow: Boolean = false
         var shDebug: ToggleButton? = null
-        var repView: TextView? = null
     }
 
     private lateinit var surfaceView: SurfaceView
+    private lateinit var repView: TextView
 
     private var accelerator = Accelerator.CPU
 
@@ -58,9 +60,9 @@ class poseDetect : AppCompatActivity(){
         /*ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)*/
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)     //keep screen on while app is running
-        //fpsView = findViewById(R.id.fps)
         surfaceView = findViewById(R.id.surfaceView)
         shDebug = findViewById(R.id.hideSkeletonModeBtn)
+        repView = findViewById(R.id.tvRepetitionCount)
         if (!isCameraPermissionGranted()) requestPermission()               //Ask for permission
     }
 
@@ -87,9 +89,9 @@ class poseDetect : AppCompatActivity(){
     private fun openCamera(){
         if (isCameraPermissionGranted()){
             if (cameraSource == null){
-                cameraSource = CameraSource(surfaceView, object : CameraSource.CameraSourceListener{
+                cameraSource = CameraSource(this ,repView, surfaceView, object : CameraSource.CameraSourceListener{
                     override fun onFPSListener(fps: Int){
-                        //fpsView.text = getString(R.string.fps, fps)
+                        //fpsView.text = getString(R.string.fps, fps
                     }
                 }).apply{
                     prepareCamera()

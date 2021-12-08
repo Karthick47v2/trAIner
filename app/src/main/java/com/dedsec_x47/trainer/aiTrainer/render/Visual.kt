@@ -1,40 +1,44 @@
 package com.dedsec_x47.trainer.aiTrainer.render
 
+import android.content.ContentValues
 import android.graphics.*
+import android.net.Uri
+import android.os.Build
+import android.os.Environment
+import android.provider.MediaStore
+import android.view.SurfaceView
 import com.dedsec_x47.trainer.aiTrainer.data.KeyPoints
 import com.dedsec_x47.trainer.aiTrainer.data.Human
+import java.io.File
+import java.io.FileOutputStream
+import java.io.OutputStream
 import kotlin.math.*
 
 object Visual {
     private const val LINE_WIDTH = 4f
 
     private val bodyJoints = listOf(
-        Pair(KeyPoints.NOSE, KeyPoints.LEFT_SHOULDER),
-        Pair(KeyPoints.NOSE, KeyPoints.RIGHT_SHOULDER),
-        Pair(KeyPoints.LEFT_SHOULDER, KeyPoints.LEFT_ELBOW),
-        Pair(KeyPoints.LEFT_ELBOW, KeyPoints.LEFT_WRIST),
-        Pair(KeyPoints.RIGHT_SHOULDER, KeyPoints.RIGHT_ELBOW),
-        Pair(KeyPoints.RIGHT_ELBOW, KeyPoints.RIGHT_WRIST),
-        Pair(KeyPoints.LEFT_SHOULDER, KeyPoints.RIGHT_SHOULDER),
-        Pair(KeyPoints.LEFT_SHOULDER, KeyPoints.LEFT_HIP),
-        Pair(KeyPoints.RIGHT_SHOULDER, KeyPoints.RIGHT_HIP),
-        Pair(KeyPoints.LEFT_HIP, KeyPoints.RIGHT_HIP),
-        Pair(KeyPoints.LEFT_HIP, KeyPoints.LEFT_KNEE),
-        Pair(KeyPoints.LEFT_KNEE, KeyPoints.LEFT_ANKLE),
-        Pair(KeyPoints.RIGHT_HIP, KeyPoints.RIGHT_KNEE),
-        Pair(KeyPoints.RIGHT_KNEE, KeyPoints.RIGHT_ANKLE)
+        Pair(KeyPoints.NOSE, KeyPoints.LEFT_SHOULDER),                      //0
+        Pair(KeyPoints.NOSE, KeyPoints.RIGHT_SHOULDER),                     //1
+        Pair(KeyPoints.LEFT_SHOULDER, KeyPoints.LEFT_ELBOW),                //2
+        Pair(KeyPoints.LEFT_ELBOW, KeyPoints.LEFT_WRIST),                   //3
+        Pair(KeyPoints.RIGHT_SHOULDER, KeyPoints.RIGHT_ELBOW),              //4
+        Pair(KeyPoints.RIGHT_ELBOW, KeyPoints.RIGHT_WRIST),                 //5
+        Pair(KeyPoints.LEFT_SHOULDER, KeyPoints.RIGHT_SHOULDER),            //6
+        Pair(KeyPoints.LEFT_SHOULDER, KeyPoints.LEFT_HIP),                  //7
+        Pair(KeyPoints.RIGHT_SHOULDER, KeyPoints.RIGHT_HIP),                //8
+        Pair(KeyPoints.LEFT_HIP, KeyPoints.RIGHT_HIP),                      //9
+        Pair(KeyPoints.LEFT_HIP, KeyPoints.LEFT_KNEE),                      //10
+        Pair(KeyPoints.LEFT_KNEE, KeyPoints.LEFT_ANKLE),                    //11
+        Pair(KeyPoints.RIGHT_HIP, KeyPoints.RIGHT_KNEE),                    //12
+        Pair(KeyPoints.RIGHT_KNEE, KeyPoints.RIGHT_ANKLE)                   //13
     )
 
     // Draw line and point indicate body pose
     fun drawBodyKeypoints(input: Bitmap, person: Human): Bitmap{
         val paintLine = Paint().apply{
             strokeWidth = LINE_WIDTH
-            color = Color.RED
-            style = Paint.Style.FILL
-        }
-        val paintLine1 = Paint().apply{
-            strokeWidth = LINE_WIDTH
-            color = Color.BLUE
+            color = Color.GREEN
             style = Paint.Style.FILL
         }
         val output = input.copy(Bitmap.Config.ARGB_8888,true)
@@ -45,6 +49,27 @@ object Visual {
             originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
         }
         return output
+    }
+
+    // Draw wrong angled joints
+    fun drawWrongPose(input: Bitmap, surfaceView: SurfaceView, person: Human, no1: Int, no2: Int){
+        val paintLine = Paint().apply{
+            strokeWidth = LINE_WIDTH
+            color = Color.RED
+            style = Paint.Style.FILL
+        }
+        val output = input.copy(Bitmap.Config.ARGB_8888,true)
+        val originalSizeCanvas = Canvas(output)
+
+        var pointA = person.keyPoints[bodyJoints[no1].first.position].coordinate
+        var pointB = person.keyPoints[bodyJoints[no1].second.position].coordinate
+        originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
+
+        pointA = person.keyPoints[bodyJoints[no2].first.position].coordinate
+        pointB = person.keyPoints[bodyJoints[no2].second.position].coordinate
+        originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
+
+        saveImg(surfaceView, output)
     }
 
     // get angle bw 3 joints
@@ -61,5 +86,44 @@ object Visual {
         if(angle > 180) angle = 360 - angle
         if(angle < 0) angle *= -1
         return angle
+    }
+
+    fun saveImg(surfaceView: SurfaceView, outputBitmap: Bitmap){
+        val filename = "${System.currentTimeMillis()}.jpg"
+        var fos: OutputStream? = null
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            // getting the contentResolver
+            surfaceView.context.contentResolver?.also { resolver ->
+
+                // Content resolver will process the contentvalues
+                val contentValues = ContentValues().apply {
+
+                    // putting file information in content values
+                    put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
+                    put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg")
+                    put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
+                }
+
+                // Inserting the contentValues to
+                // contentResolver and getting the Uri
+                val imageUri: Uri? = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+
+                // Opening an outputstream with the Uri that we got
+                fos = imageUri?.let { resolver.openOutputStream(it) }
+            }
+        } else {
+            // These for devices running on android < Q
+            val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+            val image = File(imagesDir, filename)
+            fos = FileOutputStream(image)
+        }
+
+        fos?.use {
+            // Finally writing the bitmap to the output stream that we opened
+            // Log.d(ContentValues.TAG, filename)
+            outputBitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
+            //Toast.makeText(surfaceView.context , "Captured View and saved to Gallery" , Toast.LENGTH_SHORT).show()
+        }
     }
 }
