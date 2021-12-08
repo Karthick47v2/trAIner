@@ -16,7 +16,7 @@
     <ImageView
         android:id="@+id/imgBgOrangeCurve"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
         android:scaleX="1.2"
         android:scaleType="fitXY"
         android:src="@drawable/bg_orange"
@@ -26,16 +26,15 @@
         android:id="@+id/savProfileImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:elevation="20dp"
         android:layout_centerVertical="true"
+        android:elevation="20dp"
         android:scaleType="centerCrop"
         android:src="@drawable/no_profile"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgBgOrangeCurve"
+        app:layout_constraintStart_toStartOf="@+id/imgBgOrangeCurve"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintVertical_bias="0.19999999"
         app:shapeAppearanceOverlay="@style/roundCorners" />
 
 
@@ -49,7 +48,7 @@
         android:includeFontPadding="false"
         android:text="@string/user_name"
         android:textColor="@color/white"
-        android:textSize="32sp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/savProfileImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,18 +74,18 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/name_fixed"
             android:textColor="@color/white"
-            android:textSize="22sp" />
+            android:textSize="19sp" />
 
         <TextView
             android:id="@+id/tvGetName"
-            android:elevation="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@id/tvName"
+            android:elevation="20dp"
             android:text="@string/user_name"
             android:textColor="@color/grey"
-            android:textSize="22sp" />
+            android:textSize="19sp" />
 
         <TextView
             android:id="@+id/tvGender"
@@ -98,10 +97,9 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/gender_fixed"
             android:textColor="@color/white"
-            android:textSize="22sp" />
+            android:textSize="19sp" />
 
         <TextView
-            android:elevation="20dp"
             android:id="@+id/tvGetGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,24 +107,24 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvGender"
+            android:elevation="20dp"
             android:text="@string/text_gender"
             android:textColor="@color/grey"
-            android:textSize="22sp" />
+            android:textSize="19sp" />
 
         <TextView
-            android:elevation="20dp"
             android:id="@+id/tvAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvGender"
             android:layout_marginTop="20dp"
+            android:elevation="20dp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/age_fixed"
             android:textColor="@color/white"
-            android:textSize="22sp" />
+            android:textSize="19sp" />
 
         <TextView
-            android:elevation="20dp"
             android:id="@+id/tvGetAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -134,24 +132,24 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvAge"
+            android:elevation="20dp"
             android:text="@string/age_text"
             android:textColor="@color/grey"
-            android:textSize="22sp" />
+            android:textSize="19sp" />
 
         <TextView
-            android:elevation="20dp"
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tvAge"
             android:layout_marginTop="20dp"
+            android:elevation="20dp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/email_fixed"
             android:textColor="@color/white"
-            android:textSize="22sp" />
+            android:textSize="19sp"/>
 
         <TextView
-            android:elevation="20dp"
             android:id="@+id/tvGetEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -159,9 +157,10 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_toEndOf="@id/tvEmail"
+            android:elevation="20dp"
             android:text="@string/text_email"
             android:textColor="@color/grey"
-            android:textSize="22sp" />
+            android:textSize="19sp"/>
 
     </RelativeLayout>
 
