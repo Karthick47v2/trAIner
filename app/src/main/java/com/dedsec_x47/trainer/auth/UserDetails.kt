@@ -18,7 +18,7 @@ var isNewUser = false                       //variable for new user
 var isStarting = false                      //variable for first signin
 var userNameList = ArrayList<String>()      //all user names
 var bv = BooVariable()                      //variable cheak for detail loading
-lateinit var document: DocumentSnapshot     //all details of user
+var document: MutableMap<String, Any>? = null    //all details of user
 var userProfileImageUri: Uri =
     Uri.parse("android.resource://" + "com.dedsec_x47.trainer" + "/" + R.drawable.no_profile)
 
@@ -95,8 +95,7 @@ class UserDetails {
             .addOnCompleteListener { task ->
 
                 if (task.isSuccessful) {
-                    document =
-                        task.result                              //document is global variable
+                    document = task.result.data                             //document is global variable
                     if (isStarting) {
                         if (!isNewUser) {
                             getimagefromstorage()
@@ -105,7 +104,7 @@ class UserDetails {
                             bv.set(true)
                         }
                     }
-                    Log.d("TAG", "Cached document data: ${document.data}")
+                    Log.d("TAG", "Cached document data: $document")
                 } else {
                     Log.d("TAG", "Cached get failed: ", task.exception)
                 }
@@ -113,23 +112,23 @@ class UserDetails {
     }
 
     fun readData(field: String): String {
-        Log.d("TAG", field + "data: ${document.get(field).toString()}")
-        return document.get(field).toString()
+        Log.d("TAG", field + "data: ${document?.get(field).toString()}")
+        return document?.get(field).toString()
     }
 
-    fun updateFireStoreData(field: String, value: Any) {
+    fun updateLocalDocument(userData: MutableMap<String, Any> = HashMap()){
+        for ((key, value) in userData.entries)
+        document?.set(key,value)
+    }
+
+    fun updateFireStoreData(userData: MutableMap<String, Any> = HashMap()) {
         val fAuth = Firebase.auth
         val currentUser = fAuth.currentUser
         val dataBase = Firebase.firestore
 
         dataBase.collection("users").document(currentUser?.email.toString())
-            .update(
-                mapOf(
-                    field to value
-                )
-            )
+            .update(userData)
             .addOnSuccessListener {
-                loadFireStoreData()
             }
     }
 

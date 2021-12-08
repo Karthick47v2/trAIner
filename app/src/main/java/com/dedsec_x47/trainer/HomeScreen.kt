@@ -47,7 +47,11 @@ class HomeScreen : AppCompatActivity() {
         uname.text = UserDetails().readData("Name")
 
         val drawLayout: DrawerLayout = findViewById(R.id.drawerLayout)
-        toggle = ActionBarDrawerToggle(this,drawLayout, R.string.open, R.string.close)
+        toggle = object :ActionBarDrawerToggle(this,drawLayout, R.string.open, R.string.close){
+            override fun onDrawerOpened(drawerView: View) {
+                uname.text = UserDetails().readData("Name")
+            }
+        }
 
         drawLayout.addDrawerListener(toggle)
         toggle.syncState()
