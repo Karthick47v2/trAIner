@@ -49,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tfFullName">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tfEditAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/age_text"
@@ -79,6 +80,7 @@
         app:layout_constraintEnd_toStartOf="@id/btn3">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tfEditGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/text_gender"
@@ -98,6 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
+        android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
