@@ -15,6 +15,7 @@ import com.dedsec_x47.trainer.aiTrainer.poseDetect
 object HammerCurl {
     // Angle vals for Hammercurl SET1
     //1 -hands UP 2 - DOWN
+
     private val WESAngle1 = 80                  //W - wrist E - Elbow S - Shoulder
     private val SHKAngle = 180
 
@@ -26,14 +27,15 @@ object HammerCurl {
     private val angleThreshold = 15
 
     private var isExeriseStarted: Boolean = false
-    private var count = 0
+    //private var count = 0
 
     private var mediaPlayer: MediaPlayer? = null
+    private var count: Int = 0
 
     //check users position
     private var isUp = true                   // initail pos -- triggered when user initializes UP pos
 
-    fun getHammerCurlAngles(person: Human, surfaceView: SurfaceView){
+    fun getHammerCurlAngles(person: Human, surfaceView: SurfaceView): Int{
         // estimated WES angle - LEFT
         var esWESAngleL = Visual.getAngle(
             listOf<PointF>(
@@ -85,12 +87,9 @@ object HammerCurl {
         else{
             return checkPosition(esWES[1], esSHK[1], WESAngle1, WESAngle2, surfaceView)
         }
-
-        //checkPosition(esWES[1], esWES[0], esSHK[1], esSHK[0],  WESAngleALL1, WESAngleALL2, surfaceView)
-
     }
 
-    private fun checkPosition(esWESAngle: Double, esSHKAngle: Double, angle1: Int, angle2: Int, surfaceView: SurfaceView){
+    private fun checkPosition(esWESAngle: Double, esSHKAngle: Double, angle1: Int, angle2: Int, surfaceView: SurfaceView): Int{
 
         var WESCHK = false/////////////////////NEED TO CHECK HIP ALSOOOOOOOOOOOOOO
 
@@ -117,7 +116,14 @@ object HammerCurl {
                     mediaPlayer!!.start()
                 }
 
-                if(isUp) count++
+                if(isUp){
+                    count++
+                    /*if (cnt != null) {
+                        cnt = cnt + 1
+                    }
+                    */
+                    Log.d(ContentValues.TAG, "Count from  HammerCurl" + count)
+                }
                 isUp = !isUp
             }
             else{
@@ -125,9 +131,11 @@ object HammerCurl {
                 isUp = false;
             }
         }
+        return count
     }
 
-    private fun checkPosition(esWESAngleL: Double, esWESAngleR: Double, esSHKAngleL: Double, esSHKAngleR: Double, angle1: Int, angle2: Int, surfaceView: SurfaceView){
+    private fun checkPosition(esWESAngleL: Double, esWESAngleR: Double, esSHKAngleL: Double, esSHKAngleR: Double, angle1: Int, angle2: Int,
+                              surfaceView: SurfaceView): Int{
 
         var WESCHK = false;
 
@@ -158,7 +166,15 @@ object HammerCurl {
                     mediaPlayer!!.start()
                 }
 
-                if(isUp) count++
+                if(isUp){
+                    count++
+                    /*if (cnt != null) {
+                        cnt = cnt + 1
+                    }
+                    Log.d(ContentValues.TAG, "Count from  HammerCurl" + cnt)*/
+                    Log.d(ContentValues.TAG, "Count from  HammerCurl" + count)
+                }
+
                 isUp = !isUp
             }
             else{
@@ -166,6 +182,7 @@ object HammerCurl {
                 isUp = false;
             }
         }
+        return count
     }
 
     private fun chk(esWES: Double, esSHK: Double, angle1: Int, angle2: Int, surfaceView: SurfaceView): Boolean{
