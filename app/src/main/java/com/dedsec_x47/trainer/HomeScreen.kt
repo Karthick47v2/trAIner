@@ -8,7 +8,9 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.HandlerCompat.postDelayed
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.auth.UserDetails
@@ -100,6 +102,19 @@ class HomeScreen : AppCompatActivity() {
         btnLogout.setOnClickListener {
             logout()
         }
+
+        //For loading alert dialog
+        //TODO - set when to create this dialog and the delay currently set to 5 seconds
+        /*
+        val builder = AlertDialog.Builder(this)
+        val dialogView = layoutInflater.inflate(R.layout.activity_loading,null)
+        builder.setView(dialogView)
+        builder.setCancelable(false)
+        val dialog = builder.create()
+        dialog.show()
+
+        Handler.postDelayed({dialog.dismiss()},5000)
+        */
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
