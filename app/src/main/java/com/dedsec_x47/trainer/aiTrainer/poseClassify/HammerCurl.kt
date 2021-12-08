@@ -84,17 +84,17 @@ object HammerCurl {
             return checkPosition(esWES[1], esWES[0], esSHK[1], esSHK[0],  WESAngleALL1, WESAngleALL2, person, bitmap, surfaceView)
         }
         else if(poseDetect.currView == View.left){
-            return checkPosition(esWES[0], esSHK[0], WESAngle1, WESAngle2, person,  bitmap, surfaceView)
+            return checkPosition(esWES[1], esSHK[1], WESAngle1, WESAngle2, person,  bitmap, surfaceView)
         }
         else{
-            return checkPosition(esWES[1], esSHK[1], WESAngle1, WESAngle2, person, bitmap, surfaceView)
+            return checkPosition(esWES[0], esSHK[0], WESAngle1, WESAngle2, person, bitmap, surfaceView)
         }
     }
 
     private fun checkPosition(esWESAngle: Double, esSHKAngle: Double, angle1: Int, angle2: Int, person: Human, bitmap: Bitmap,
                               surfaceView: SurfaceView): Int{
 
-        var WESCHK = false/////////////////////NEED TO CHECK HIP ALSOOOOOOOOOOOOOO
+        var WESCHK = false
 
         // if already up -- listen for down angles
         if(isUp){
@@ -193,19 +193,15 @@ object HammerCurl {
             mediaPlayer!!.release()
             mediaPlayer = null
             if (esSHK <= SHKAngle - angleThreshold || esSHK >= SHKAngle + angleThreshold) {
-                drawOnImg(surfaceView, bitmap, person, R.raw.straiback, 8, 12, 7, 10)
+                drawOnImg(surfaceView, bitmap, person, R.raw.straiback, 7, 10, 8, 12)
                 return true
             }
             else if (esWES >= angle2 + angleThreshold) {
-                drawOnImg(surfaceView, bitmap, person, R.raw.bringelbfrnt, 4, 5, 2, 3)
-/*                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.bringelbfrnt)
-                mediaPlayer!!.start()*/
+                drawOnImg(surfaceView, bitmap, person, R.raw.bringelbfrnt, 2, 3, 4, 5)
                 return true
             }
             else if (esWES <= angle1 - angleThreshold) {
-                drawOnImg(surfaceView, bitmap, person, R.raw.tooclsshoul, 4, 5, 2, 3)
-                /*mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.tooclsshoul)
-                mediaPlayer!!.start()*/
+                drawOnImg(surfaceView, bitmap, person, R.raw.tooclsshoul, 2, 3, 4, 5)
                 return true
             }
         }
@@ -217,14 +213,14 @@ object HammerCurl {
         mediaPlayer = MediaPlayer.create(surfaceView.context, uri)
         mediaPlayer!!.start()
 
-        var outputBitmap = bitmap
-
-        when(poseDetect.currView){
-            View.right -> Visual.drawWrongPose(bitmap, surfaceView, person, no1, no2)
-            View.left -> Visual.drawWrongPose(bitmap, surfaceView, person, no3, no4)
-            else -> {
-                Visual.drawWrongPose(bitmap, surfaceView, person, no1, no2)
-                Visual.drawWrongPose(bitmap, surfaceView, person, no3, no4)
+        if(isExeriseStarted) {
+            when (poseDetect.currView) {
+                View.right -> Visual.drawWrongPose(bitmap, surfaceView, person, no1, no2)
+                View.left -> Visual.drawWrongPose(bitmap, surfaceView, person, no3, no4)
+                else -> {
+                    Visual.drawWrongPose(bitmap, surfaceView, person, no1, no2)
+                    Visual.drawWrongPose(bitmap, surfaceView, person, no3, no4)
+                }
             }
         }
     }

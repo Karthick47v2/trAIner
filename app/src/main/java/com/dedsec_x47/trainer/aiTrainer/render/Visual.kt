@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.view.SurfaceView
 import com.dedsec_x47.trainer.aiTrainer.data.KeyPoints
 import com.dedsec_x47.trainer.aiTrainer.data.Human
@@ -58,18 +59,30 @@ object Visual {
             color = Color.RED
             style = Paint.Style.FILL
         }
+
         val output = input.copy(Bitmap.Config.ARGB_8888,true)
         val originalSizeCanvas = Canvas(output)
 
         var pointA = person.keyPoints[bodyJoints[no1].first.position].coordinate
         var pointB = person.keyPoints[bodyJoints[no1].second.position].coordinate
+
         originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
+        originalSizeCanvas.drawCircle(pointA.x, pointA.y, 5f, paintLine)
+        originalSizeCanvas.drawCircle(pointB.x, pointB.y, 5f, paintLine)
 
         pointA = person.keyPoints[bodyJoints[no2].first.position].coordinate
         pointB = person.keyPoints[bodyJoints[no2].second.position].coordinate
-        originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
 
-        saveImg(surfaceView, output)
+        originalSizeCanvas.drawLine(pointA.x, pointA.y, pointB.x, pointB.y, paintLine)
+        originalSizeCanvas.drawCircle(pointA.x, pointA.y, 5f, paintLine)
+        originalSizeCanvas.drawCircle(pointB.x, pointB.y, 5f, paintLine)
+
+
+
+        var score = (person.keyPoints[bodyJoints[no1].first.position].score + person.keyPoints[bodyJoints[no1].second.position].score
+                + person.keyPoints[bodyJoints[no2].first.position].score + person.keyPoints[bodyJoints[no2].second.position].score)
+
+        if(score > 2) saveImg(surfaceView, output)
     }
 
     // get angle bw 3 joints

@@ -20,8 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <!--<include layout="@layout/settings" />-->
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <ToggleButton
@@ -69,7 +67,7 @@
             android:id="@+id/tvRepetitionCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="03"
+            android:text="0"
             android:textSize="45sp"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
