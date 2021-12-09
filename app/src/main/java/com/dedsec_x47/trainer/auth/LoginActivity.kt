@@ -91,6 +91,13 @@ class LoginActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        if ( dialog != null && dialog.isShowing() ){
+            dialog.cancel();
+        }
+    }
+
     private fun sendEmailVerification() {
         val user = auth.currentUser
         user!!.sendEmailVerification()

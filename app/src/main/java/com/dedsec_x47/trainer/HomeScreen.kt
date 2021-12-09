@@ -72,6 +72,8 @@ class HomeScreen : AppCompatActivity() {
             findViewById(R.id.bottomNavigationView)
         botNavView.itemIconTintList = null
 
+        botNavView.setSelectedItemId(R.id.miHome)
+
         //TODO - set the home icon size bigger and set home icon as current icon
 
         val challengeFragment = ChallengeFragment()

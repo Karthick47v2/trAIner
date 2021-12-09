@@ -74,8 +74,6 @@ object HammerCurl {
             )
         )
 
-        Log.d(ContentValues.TAG, esSHKAngleL.toString())
-
         val esWES = arrayOf(esWESAngleL, esWESAngleR)
         val esSHK = arrayOf(esSHKAngleL, esSHKAngleR)
 

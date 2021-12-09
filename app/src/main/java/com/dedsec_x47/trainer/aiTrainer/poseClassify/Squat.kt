@@ -17,8 +17,8 @@ object Squat {
 
     private val WESAngle = 170
 
-    private val ESHAngle1 = 90
-    private val ESHAngle2 = 120
+    //private val ESHAngle = 90
+    private val ESHAngle = 90
 
     private val SHKAAngle1 = 160
     private val SHKAAngle2 = 45
@@ -31,7 +31,7 @@ object Squat {
     private var count: Int = 0
 
     //check users position
-    private var isUp = true                   // initail pos -- triggered when user initializes UP pos
+    private var isUp = false                   // initail pos -- triggered when user initializes UP pos
 
     fun getSquatAngles(person: Human, bitmap: Bitmap, surfaceView: SurfaceView): Int {
         // estimated WES angle - LEFT
@@ -106,6 +106,8 @@ object Squat {
             )
         )
 
+        Log.d(ContentValues.TAG, "ARMS L : "  + esESHAngleL.toString() + "  R : " + esESHAngleR.toString())
+
         return checkPosition(
             esWESAngleL,
             esWESAngleR,
@@ -135,9 +137,9 @@ object Squat {
             if (chk(esWESAngleL, esWESAngleR, esESHAngleL, esESHAngleR, esSHKAngleL, esSHKAngleR, esHKAAngleL, esHKAAngleR, person, bitmap, surfaceView)) {
             } else {
                 WESCHK = (esWESAngleL >= WESAngle - 10 || esWESAngleR >= WESAngle - 10)
-                ESHCHK = (esESHAngleL <= ESHAngle2 || esESHAngleR <= ESHAngle2)
-                SHKCHK = (esSHKAngleL <= SHKAAngle2 || esSHKAngleR <= SHKAAngle2)
-                HKACHA = (esHKAAngleL <= SHKAAngle2 || esHKAAngleR <= SHKAAngle2)
+                ESHCHK = (esESHAngleL <= ESHAngle || esESHAngleR <= ESHAngle)
+                SHKCHK = (esSHKAngleL <= SHKAAngle2 + 45 || esSHKAngleR <= SHKAAngle2 + 45)
+                HKACHA = (esHKAAngleL <= SHKAAngle2 + 45 || esHKAAngleR <= SHKAAngle2 + 45)
             }
         }
         // else -- listen for up angles
@@ -145,7 +147,7 @@ object Squat {
             if (chk(esWESAngleL, esWESAngleR, esESHAngleL, esESHAngleR, esSHKAngleL, esSHKAngleR, esHKAAngleL, esHKAAngleR, person, bitmap, surfaceView)) {
             } else{
                 WESCHK = (esWESAngleL >= WESAngle - 10 || esWESAngleR >= WESAngle - 10)
-                ESHCHK = (esESHAngleL <= ESHAngle1 || esESHAngleR <= ESHAngle1)
+                ESHCHK = (esESHAngleL <= ESHAngle || esESHAngleR <= ESHAngle)
                 SHKCHK = (esSHKAngleL >= SHKAAngle1 || esSHKAngleR >= SHKAAngle1)
                 HKACHA = (esHKAAngleL >= SHKAAngle1 || esHKAAngleR >= SHKAAngle1)
             }
@@ -167,7 +169,7 @@ object Squat {
                 isUp = !isUp
             } else {
                 isExeriseStarted = true;
-                isUp = false;
+                isUp = !isUp;
             }
         }
         return count
@@ -194,19 +196,15 @@ object Squat {
                     drawOnImg(surfaceView, bitmap, person, R.raw.thigsparafloor, 10, 11, 12,13)
                     return true
                 }
-                else if((esESHAngleL <= ESHAngle2 - angleThreshold && esESHAngleR <= ESHAngle2 - angleThreshold) ||
-                    (esESHAngleL >= ESHAngle2 + angleThreshold && esESHAngleR >= ESHAngle2 + angleThreshold)){
+                /*else if((esESHAngleL <= ESHAngle - 25 && esESHAngleR <= ESHAngle - 25) ||
+                    (esESHAngleL >= ESHAngle + 25 && esESHAngleR >= ESHAngle + 25)){
                     drawOnImg(surfaceView, bitmap, person, R.raw.armsparafloor, 2, 7, 4,8)
                     return true
-                }
+                }*/
             }
             else if(isUp){
-                if(esSHKAngleL <= SHKAAngle1 - 15 && esSHKAngleR <= SHKAAngle1 - 15){
-                    drawOnImg(surfaceView, bitmap, person, R.raw.straibody, 7, 10, 8, 12)
-                    return true
-                }
-                else if((esESHAngleL <= ESHAngle1 - angleThreshold && esESHAngleR <= ESHAngle1 - angleThreshold) ||
-                    (esESHAngleL >= ESHAngle1 + angleThreshold && esESHAngleR >= ESHAngle1 + angleThreshold)){
+                if((esESHAngleL <= ESHAngle - 25 && esESHAngleR <= ESHAngle - 25) ||
+                    (esESHAngleL >= ESHAngle + 25 && esESHAngleR >= ESHAngle + 25)){
                     drawOnImg(surfaceView, bitmap, person, R.raw.armsparafloor, 2, 7, 4,8)
                     return true
                 }
@@ -218,8 +216,8 @@ object Squat {
 
     private fun drawOnImg(surfaceView: SurfaceView, bitmap: Bitmap, person: Human, uri: Int,
                           no1: Int, no2: Int, no3: Int, no4: Int) {
-        mediaPlayer = MediaPlayer.create(surfaceView.context, uri)
-        mediaPlayer!!.start()
+/*        mediaPlayer = MediaPlayer.create(surfaceView.context, uri)
+        mediaPlayer!!.start()*/
 
         if (isExeriseStarted) {
             Visual.drawWrongPose(bitmap, surfaceView, person, no1, no2)
