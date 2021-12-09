@@ -4,7 +4,6 @@ import android.net.Uri
 import android.util.Log
 import com.dedsec_x47.trainer.R
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -42,31 +41,21 @@ class UserDetails {
         userData["Email"] = currentUser?.email.toString()
         userData["Age"] = age
         userData["Gender"] = gender
-        val loss: MutableMap<String, Any> = HashMap()
-        loss["Squat"] = 0
-        loss["Split Squat"] = 0
-        loss["Leg raise"] = 0
-        loss["Sit up"] = 0
-        loss["Chin up"] = 0
-        loss["Push up"] = 0
-        loss["Plank"] = 0
-        userData["Loss"] = loss
 
-        val Strength: MutableMap<String, Any> = HashMap()
-        Strength["bench press"] = hashMapOf(
-            "Barbell" to 0,
-            "Bumbell" to 0
-        )
-        Strength["Shoulder Press"] = hashMapOf(
-            "Barbell" to 0,
-            "Bumbell" to 0
-        )
-        Strength["SitUp"] = 0
-        Strength["Hammer Curl"] = 0
-        Strength["Deadlift"] = 0
-        Strength["Chin up"] = 0
-        Strength["Push up"] = 0
-        userData["Strength"] = Strength
+        userData["Squat"] = 0
+        userData["Split Squat"] = 0
+        userData["Leg raise"] = 0
+        userData["Sit Up"] = 0
+        userData["Chin Up"] = 0
+        userData["Push up"] = 0
+        userData["Plank"] = 0
+        userData["Hammer Curl"] = 0
+        userData["Dead lift"] = 0
+        userData["Bench press Barbell"] = 0
+        userData["Bench press Dumbbell"] = 0
+        userData["Shoulder Press Barbell"] = 0
+        userData["Shoulder Press Dumbbell"] = 0
+
 
 //        if (isFbLogin) {
 //            userData["Facebook Id"] = fid
@@ -95,7 +84,8 @@ class UserDetails {
             .addOnCompleteListener { task ->
 
                 if (task.isSuccessful) {
-                    document = task.result.data                             //document is global variable
+                    document =
+                        task.result.data                             //document is global variable
                     if (isStarting) {
                         if (!isNewUser) {
                             getimagefromstorage()
@@ -116,9 +106,9 @@ class UserDetails {
         return document?.get(field).toString()
     }
 
-    fun updateLocalDocument(userData: MutableMap<String, Any> = HashMap()){
+    fun updateLocalDocument(userData: MutableMap<String, Any> = HashMap()) {
         for ((key, value) in userData.entries)
-        document?.set(key,value)
+            document?.set(key, value)
     }
 
     fun updateFireStoreData(userData: MutableMap<String, Any> = HashMap()) {
