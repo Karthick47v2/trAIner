@@ -139,7 +139,7 @@
     <string name="oops_you_failed">Oops! You failed.</string>
     <string name="loss_txt">You were close, Don\'t give up, You can still make it, CHALLANGE AGAIN.</string>
     <string name="send">SEND</string>
-    <string name="txt_password_reset">A link will be sent to your email with further details. Please check.</string>
+    <string name="txt_password_reset">A link will be sent to your email with further details. Enter your email here and check.</string>
     <string name="reset_password">Reset Password</string>
     <string name="add_new">Add</string>
     <string name="fixed_daily_challenges">Daily Challenges</string>
@@ -171,6 +171,7 @@
     <string name="workout_3">Workout 3</string>
     <string name="please_wait_dialog">Please wait ..</string>
     <string name="your_workout_stats">YOUR WORKOUT STATS</string>
+    <string name="challenge_moto">Time to show who you are. Let\'s GO !</string>
 
     <string-array name="models_array">
         <item>Light</item>
