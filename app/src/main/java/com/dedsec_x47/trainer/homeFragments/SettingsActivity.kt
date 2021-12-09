@@ -1,7 +1,12 @@
 package com.dedsec_x47.trainer.homeFragments
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.EditText
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.view.get
 import androidx.appcompat.app.AppCompatActivity
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.auth.BooVariable
@@ -21,12 +26,12 @@ class SettingsActivity : AppCompatActivity() {
 
         val userData: MutableMap<String, Any> = HashMap()
         val name = findViewById<TextInputEditText>(R.id.tfEditName)
-        val age = findViewById<TextInputEditText>(R.id.tfEditAge)
-        val gender = findViewById<TextInputEditText>(R.id.tfEditGender)
 
+        val age  = findViewById<TextInputEditText>(R.id.tfEditAge)
+        //val gender = findViewById<TextInputEditText>(R.id.tfEditGender)
         name.setText(UserDetails().readData("Name"))
         age.setText(UserDetails().readData("Age"))
-        gender.setText(UserDetails().readData("Gender"))
+        //gender.setText(UserDetails().readData("Gender"))
 
         findViewById<Button>(R.id.btn1).setOnClickListener {
             userData["Name"] = name.text.toString()
@@ -34,8 +39,10 @@ class SettingsActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn2).setOnClickListener {
             userData["Age"] = age.text.toString()
         }
-        findViewById<Button>(R.id.btn3).setOnClickListener {
-            userData["Gender"] = gender.text.toString()
+
+        findViewById<Button>(R.id.btn3).setOnClickListener{
+            //userData["Gender"] = gender.text.toString()
+
         }
 
         findViewById<Button>(R.id.btnUpdate).setOnClickListener {

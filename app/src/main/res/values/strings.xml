@@ -171,6 +171,8 @@
     <string name="workout_3">Workout 3</string>
     <string name="please_wait_dialog">Please wait ..</string>
     <string name="your_workout_stats">YOUR WORKOUT STATS</string>
+    <string name="reps_count">03</string>
+    <string name="edit_details_text">EDIT DETAILS</string>
     <string name="challenge_moto">Time to show who you are. Let\'s GO !</string>
     <string name="challenges_to_be_done">Challenges To Be Done</string>
     <string name="challenge_to_do_moto">Time to work. Let\'s conquer one by one. Let\'s GO.</string>
@@ -185,5 +187,10 @@
         <item>CPU</item>
         <item>GPU</item>
         <item>NNAPI</item>
+    </string-array>
+
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
     </string-array>
 </resources>

@@ -40,28 +40,27 @@
         app:layout_constraintVertical_bias="0.95" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:background="@drawable/round_corner"
-        android:padding="6dp"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.005">
+        app:layout_constraintVertical_bias="0.04000002">
 
         <TextView
             android:id="@+id/tvRepetition"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-medium"
             android:text="@string/fixed_repetition_count"
-            android:textSize="15sp"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <Chronometer
             android:id="@+id/c_meter"
@@ -78,13 +77,13 @@
             android:id="@+id/tvRepetitionCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="@string/reps_count"
             android:visibility="visible"
-            android:textSize="45sp"
             android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvRepetition" />
+            android:textSize="45sp"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepetition"
+            app:layout_constraintStart_toStartOf="@+id/tvRepetition"
+            app:layout_constraintEnd_toEndOf="@+id/tvRepetition"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
