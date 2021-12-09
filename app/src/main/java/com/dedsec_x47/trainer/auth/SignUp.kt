@@ -1,5 +1,6 @@
 package com.dedsec_x47.trainer.auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -82,7 +83,7 @@ class SignUp : AppCompatActivity() {
         }
 
         activitySignupBinding.btnCancel.setOnClickListener {
-            finish()
+            gotoSignin()
         }
 
     }
@@ -94,7 +95,8 @@ class SignUp : AppCompatActivity() {
                     isNewUser = true
                     Log.d(TAG, "createUserWithEmail:success")
                     val credential = EmailAuthProvider.getCredential(email, password)
-                    linkWithCredential(credential)
+//                    linkWithCredential(credential)
+                    gotoLogin()
                 } else {
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
                     Toast.makeText(
@@ -106,35 +108,47 @@ class SignUp : AppCompatActivity() {
             }
     }
 
+    private fun gotoLogin(){
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun gotoSignin() {
+        val intent = Intent(this, SignIn::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     companion object {
         private const val TAG = "EmailPassword"
     }
 
-    private fun linkWithCredential(credential: AuthCredential) {
-        auth.currentUser!!.linkWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d("SignIn.TAG", "linkWithCredential:success")
-                } else {
-                    Log.w("SignIn.TAG", "linkWithCredential:failure", task.exception)
-                    Toast.makeText(
-                        baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    mergeAccounts(credential)
-                }
-            }
-    }
-
-    private fun mergeAccounts(credential: AuthCredential) {
-        val prevUser = auth.currentUser
-        auth.signInWithCredential(credential)
-            .addOnSuccessListener { result ->
-                var currentUser = result.user
-            }
-            .addOnFailureListener {
-            }
-    }
+//    private fun linkWithCredential(credential: AuthCredential) {
+//        auth.currentUser!!.linkWithCredential(credential)
+//            .addOnCompleteListener(this) { task ->
+//                if (task.isSuccessful) {
+//                    Log.d("SignIn.TAG", "linkWithCredential:success")
+//                } else {
+//                    Log.w("SignIn.TAG", "linkWithCredential:failure", task.exception)
+//                    Toast.makeText(
+//                        baseContext, "Authentication failed.",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    mergeAccounts(credential)
+//                }
+//            }
+//    }
+//
+//    private fun mergeAccounts(credential: AuthCredential) {
+//        val prevUser = auth.currentUser
+//        auth.signInWithCredential(credential)
+//            .addOnSuccessListener { result ->
+//                var currentUser = result.user
+//            }
+//            .addOnFailureListener {
+//            }
+//    }
 
     private fun detailsValidityChecker(
         name: String,

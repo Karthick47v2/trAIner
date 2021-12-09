@@ -14,6 +14,7 @@ import androidx.core.os.HandlerCompat.postDelayed
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.auth.BooVariable
+import com.dedsec_x47.trainer.auth.SignIn
 import com.dedsec_x47.trainer.auth.UserDetails
 import com.dedsec_x47.trainer.auth.getUserImage
 import com.dedsec_x47.trainer.homeFragments.*
@@ -99,18 +100,6 @@ class HomeScreen : AppCompatActivity() {
         }
 
         updateName()
-        //For loading alert dialog
-        //TODO - set when to create this dialog and the delay currently set to 5 seconds
-        /*
-        val builder = AlertDialog.Builder(this)
-        val dialogView = layoutInflater.inflate(R.layout.activity_loading,null)
-        builder.setView(dialogView)
-        builder.setCancelable(false)
-        val dialog = builder.create()
-        dialog.show()
-
-        Handler.postDelayed({dialog.dismiss()},5000)
-        */
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -129,11 +118,14 @@ class HomeScreen : AppCompatActivity() {
     }
 
     private fun logout() {
+        val intent = Intent(this, SignIn::class.java)
         if (AccessToken.getCurrentAccessToken() != null) {
             LoginManager.getInstance().logOut()
         }
         val auth = Firebase.auth
         auth.signOut()
+        startActivity(intent)
+        finish()
     }
 
     private fun updateName() {

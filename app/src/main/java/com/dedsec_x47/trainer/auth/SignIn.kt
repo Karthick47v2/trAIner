@@ -68,8 +68,7 @@ class SignIn : AppCompatActivity() {
         }
 
         activitySignInBinding.btnSignUp.setOnClickListener {
-            val intent = Intent(this, SignUp::class.java)
-            startActivity(intent)
+            gotoSignUpPage()
         }
     }
 
@@ -134,6 +133,7 @@ class SignIn : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithEmail:success")
+                    gotoLoginPage()
                 } else {
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                     Toast.makeText(
@@ -144,32 +144,32 @@ class SignIn : AppCompatActivity() {
             }
     }
 
-    private fun linkWithCredential(credential: AuthCredential) {
-        auth.currentUser!!.linkWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d(TAG, "linkWithCredential:success")
-
-                } else {
-                    Log.w(TAG, "linkWithCredential:failure", task.exception)
-                    Toast.makeText(
-                        baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    mergeAccounts(credential)
-                }
-            }
-    }
-
-    private fun mergeAccounts(credential: AuthCredential) {
-        val prevUser = auth.currentUser
-        auth.signInWithCredential(credential)
-            .addOnSuccessListener { result ->
-                var currentUser = result.user
-            }
-            .addOnFailureListener {
-            }
-    }
+//    private fun linkWithCredential(credential: AuthCredential) {
+//        auth.currentUser!!.linkWithCredential(credential)
+//            .addOnCompleteListener(this) { task ->
+//                if (task.isSuccessful) {
+//                    Log.d(TAG, "linkWithCredential:success")
+//
+//                } else {
+//                    Log.w(TAG, "linkWithCredential:failure", task.exception)
+//                    Toast.makeText(
+//                        baseContext, "Authentication failed.",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    mergeAccounts(credential)
+//                }
+//            }
+//    }
+//
+//    private fun mergeAccounts(credential: AuthCredential) {
+//        val prevUser = auth.currentUser
+//        auth.signInWithCredential(credential)
+//            .addOnSuccessListener { result ->
+//                var currentUser = result.user
+//            }
+//            .addOnFailureListener {
+//            }
+//    }
 
     private fun fbSignIn() {
 
@@ -193,6 +193,18 @@ class SignIn : AppCompatActivity() {
             })
     }
 
+    private fun gotoSignUpPage(){
+        val intent = Intent(this, SignUp::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun gotoLoginPage(){
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         callbackManager.onActivityResult(requestCode, resultCode, data)
@@ -206,7 +218,7 @@ class SignIn : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG_FB, "signInWithCredential:success")
-                    linkWithCredential(credential)
+                    //linkWithCredential(credential)
                 } else {
                     if (AccessToken.getCurrentAccessToken() != null) {
                         LoginManager.getInstance().logOut()
