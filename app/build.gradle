@@ -16,11 +16,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        /*externalNativeBuild {
+        externalNativeBuild {
             cmake {
                 cppFlags ''
             }
-        }*/
+        }
     }
 
     buildTypes {
@@ -36,13 +36,12 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    /*
     externalNativeBuild {
         cmake {
             path file('src/main/cpp/CMakeLists.txt')
             version '3.10.2'
         }
-    }*/
+    }
     buildFeatures {
         // Enable view binding
         viewBinding = true

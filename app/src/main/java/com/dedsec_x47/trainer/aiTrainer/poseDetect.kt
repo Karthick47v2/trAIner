@@ -33,7 +33,7 @@ class poseDetect : AppCompatActivity(){
         }
         private const val FRAGMENT_DIALOG = "dialog"
 
-        var currentExercise = Exercise.Deadlift
+        var currentExercise = Exercise.Squat
         var currView = View.right
         var skelShow: Boolean = false
         var shDebug: ToggleButton? = null
