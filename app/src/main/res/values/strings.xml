@@ -172,6 +172,9 @@
     <string name="please_wait_dialog">Please wait ..</string>
     <string name="your_workout_stats">YOUR WORKOUT STATS</string>
     <string name="challenge_moto">Time to show who you are. Let\'s GO !</string>
+    <string name="challenges_to_be_done">Challenges To Be Done</string>
+    <string name="challenge_to_do_moto">Time to work. Let\'s conquer one by one. Let\'s GO.</string>
+    <string name="start">Start</string>
 
     <string-array name="models_array">
         <item>Light</item>
