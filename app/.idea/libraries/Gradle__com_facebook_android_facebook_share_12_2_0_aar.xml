@@ -1,15 +1,15 @@
 <component name="libraryTable">
-  <library name="Gradle: com.facebook.android:facebook-share:12.1.0@aar">
+  <library name="Gradle: com.facebook.android:facebook-share:12.2.0@aar">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/235bb9ccd2be9900d345fd02817f3567/transformed/jetified-facebook-share-12.1.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/235bb9ccd2be9900d345fd02817f3567/transformed/jetified-facebook-share-12.1.0/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/235bb9ccd2be9900d345fd02817f3567/transformed/jetified-facebook-share-12.1.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-share/12.1.0/ae420277e2420062c9704ed2a1bd0909454575fe/facebook-share-12.1.0-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-share/12.2.0/9e54a7f94a5168d4e5f99615237b2000157c3758/facebook-share-12.2.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-share/12.1.0/c148093c2b5256c859b13cedb214a7aa5f47953b/facebook-share-12.1.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.android/facebook-share/12.2.0/55f0e1a56fb66d1b274c86c70202a24cb45127ea/facebook-share-12.2.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
