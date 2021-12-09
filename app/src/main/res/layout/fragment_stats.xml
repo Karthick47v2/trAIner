@@ -46,8 +46,8 @@
 
     <ImageView
         android:id="@+id/imgRunner"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:scaleType="fitCenter"
         android:src="@drawable/img_running"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,9 +61,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:paddingVertical="20dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/bg_challenges_box"
         android:orientation="vertical"
+        android:paddingVertical="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,12 +86,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:paddingStart="20dp"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:paddingStart="20dp"
                 android:text="Push Up"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtPushUpCount"
@@ -100,7 +101,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -119,11 +120,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:paddingStart="20dp"
                 android:text="Chin Up"
                 android:textAlignment="textStart"
-                android:paddingStart="20dp"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtChinUpCount"
@@ -133,7 +134,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -152,11 +153,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:paddingStart="20dp"
                 android:text="Sit Up"
                 android:textAlignment="textStart"
-                android:paddingStart="20dp"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtSitUpCount"
@@ -166,7 +167,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -184,12 +185,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Bench Press Barbell"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
-                android:textAlignment="textStart"
                 android:paddingStart="20dp"
+                android:text="Bench Press Barbell"
+                android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtBenchPressBarbellCount"
@@ -199,7 +200,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -217,12 +218,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Bench Press Dumbbell"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
-                android:textAlignment="textStart"
                 android:paddingStart="20dp"
+                android:text="Bench Press Dumbbell"
+                android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtBenchPressDumbbellCount"
@@ -232,7 +233,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -250,12 +251,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Shoulder Press Barbell"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
-                android:textAlignment="textStart"
                 android:paddingStart="20dp"
+                android:text="Shoulder Press Barbell"
+                android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtShoulderPressBarbellCount"
@@ -265,7 +266,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -283,12 +284,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Shoulder Press Dumbbell"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
-                android:textAlignment="textStart"
                 android:paddingStart="20dp"
+                android:text="Shoulder Press Dumbbell"
+                android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtShoulderPressDumbbellCount"
@@ -298,7 +299,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -316,12 +317,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Hammer curl"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
-                android:textAlignment="textStart"
                 android:paddingStart="20dp"
+                android:text="Hammer curl"
+                android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtHammerCurlCount"
@@ -331,7 +332,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -349,12 +350,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Plank"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
-                android:textAlignment="textStart"
                 android:paddingStart="20dp"
+                android:text="Plank"
+                android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtPlankCount"
@@ -364,7 +365,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -382,12 +383,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Leg Raise"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
-                android:textAlignment="textStart"
                 android:paddingStart="20dp"
+                android:text="Leg Raise"
+                android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtLegRaiseCount"
@@ -397,7 +398,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -415,12 +416,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Squat"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
-                android:textAlignment="textStart"
                 android:paddingStart="20dp"
+                android:text="Squat"
+                android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtSquatCount"
@@ -430,7 +431,7 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -448,12 +449,12 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Split Squat"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
-                android:textAlignment="textStart"
                 android:paddingStart="20dp"
+                android:text="Split Squat"
+                android:textAlignment="textStart"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtSplitSquatCount"
@@ -463,10 +464,8 @@
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
-
-
 
 
     </LinearLayout>

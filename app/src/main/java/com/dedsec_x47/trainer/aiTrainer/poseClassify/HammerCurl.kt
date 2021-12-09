@@ -1,15 +1,18 @@
 package com.dedsec_x47.trainer.aiTrainer.poseClassify
 
 import android.content.ContentValues
+import android.graphics.Bitmap
 import android.graphics.PointF
 import android.util.Log
 import com.dedsec_x47.trainer.aiTrainer.data.Human
 import com.dedsec_x47.trainer.aiTrainer.data.KeyPoints
 import com.dedsec_x47.trainer.aiTrainer.render.Visual
 import android.media.MediaPlayer
+import android.net.Uri
 import android.view.SurfaceView
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.View
+import com.dedsec_x47.trainer.aiTrainer.camera.CameraSource
 import com.dedsec_x47.trainer.aiTrainer.poseDetect
 
 object HammerCurl {
@@ -27,7 +30,6 @@ object HammerCurl {
     private val angleThreshold = 15
 
     private var isExeriseStarted: Boolean = false
-    //private var count = 0
 
     private var mediaPlayer: MediaPlayer? = null
     private var count: Int = 0
@@ -35,7 +37,7 @@ object HammerCurl {
     //check users position
     private var isUp = true                   // initail pos -- triggered when user initializes UP pos
 
-    fun getHammerCurlAngles(person: Human, surfaceView: SurfaceView): Int{
+    fun getHammerCurlAngles(person: Human, bitmap: Bitmap, surfaceView: SurfaceView): Int{
         // estimated WES angle - LEFT
         var esWESAngleL = Visual.getAngle(
             listOf<PointF>(
@@ -79,28 +81,29 @@ object HammerCurl {
 
 
         if(poseDetect.currView == View.front){
-            return checkPosition(esWES[1], esWES[0], esSHK[1], esSHK[0],  WESAngleALL1, WESAngleALL2,surfaceView)
+            return checkPosition(esWES[1], esWES[0], esSHK[1], esSHK[0],  WESAngleALL1, WESAngleALL2, person, bitmap, surfaceView)
         }
         else if(poseDetect.currView == View.left){
-            return checkPosition(esWES[0], esSHK[0], WESAngle1, WESAngle2, surfaceView)
+            return checkPosition(esWES[1], esSHK[1], WESAngle1, WESAngle2, person,  bitmap, surfaceView)
         }
         else{
-            return checkPosition(esWES[1], esSHK[1], WESAngle1, WESAngle2, surfaceView)
+            return checkPosition(esWES[0], esSHK[0], WESAngle1, WESAngle2, person, bitmap, surfaceView)
         }
     }
 
-    private fun checkPosition(esWESAngle: Double, esSHKAngle: Double, angle1: Int, angle2: Int, surfaceView: SurfaceView): Int{
+    private fun checkPosition(esWESAngle: Double, esSHKAngle: Double, angle1: Int, angle2: Int, person: Human, bitmap: Bitmap,
+                              surfaceView: SurfaceView): Int{
 
-        var WESCHK = false/////////////////////NEED TO CHECK HIP ALSOOOOOOOOOOOOOO
+        var WESCHK = false
 
         // if already up -- listen for down angles
         if(isUp){
-            if(chk(esWESAngle,esSHKAngle, angle1, angle2, surfaceView)){}
+            if(chk(esWESAngle,esSHKAngle, angle1, angle2, person, bitmap, surfaceView)){}
             else WESCHK = esWESAngle >= angle2
         }
         // else -- listen for up angles
         else{
-            if(chk(esWESAngle,esSHKAngle, angle1, angle2, surfaceView)){}
+            if(chk(esWESAngle,esSHKAngle, angle1, angle2, person, bitmap, surfaceView)){}
             else WESCHK = esWESAngle <= angle1
         }
 
@@ -116,14 +119,7 @@ object HammerCurl {
                     mediaPlayer!!.start()
                 }
 
-                if(isUp){
-                    count++
-                    /*if (cnt != null) {
-                        cnt = cnt + 1
-                    }
-                    */
-                    Log.d(ContentValues.TAG, "Count from  HammerCurl" + count)
-                }
+                if(isUp) count++
                 isUp = !isUp
             }
             else{
@@ -135,20 +131,22 @@ object HammerCurl {
     }
 
     private fun checkPosition(esWESAngleL: Double, esWESAngleR: Double, esSHKAngleL: Double, esSHKAngleR: Double, angle1: Int, angle2: Int,
-                              surfaceView: SurfaceView): Int{
+                              person: Human,bitmap: Bitmap, surfaceView: SurfaceView): Int{
 
         var WESCHK = false;
 
         // if already up -- listen for down angles
         if(isUp){
-            if(chk(esWESAngleL,180.0, angle1, angle2, surfaceView) || chk(esWESAngleR,180.0, angle1, angle2, surfaceView)){}
+            if(chk(esWESAngleL,180.0, angle1, angle2, person, bitmap, surfaceView) ||
+                chk(esWESAngleR,180.0, angle1, angle2, person, bitmap, surfaceView)){}
             else{
                 WESCHK = (esWESAngleL >= angle2 && esWESAngleR >= angle2)
             }
         }
         // else -- listen for up angles
         else{
-            if(chk(esWESAngleL,180.0, angle1, angle2, surfaceView) || chk(esWESAngleR,180.0, angle1, angle2, surfaceView)){}
+            if(chk(esWESAngleL,180.0, angle1, angle2, person, bitmap, surfaceView) ||
+                chk(esWESAngleR,180.0, angle1, angle2, person, bitmap, surfaceView)){}
             else{
                 WESCHK = (esWESAngleL <= angle1 && esWESAngleR <= angle1)
             }
@@ -166,15 +164,7 @@ object HammerCurl {
                     mediaPlayer!!.start()
                 }
 
-                if(isUp){
-                    count++
-                    /*if (cnt != null) {
-                        cnt = cnt + 1
-                    }
-                    Log.d(ContentValues.TAG, "Count from  HammerCurl" + cnt)*/
-                    Log.d(ContentValues.TAG, "Count from  HammerCurl" + count)
-                }
-
+                if(isUp) count++
                 isUp = !isUp
             }
             else{
@@ -185,7 +175,8 @@ object HammerCurl {
         return count
     }
 
-    private fun chk(esWES: Double, esSHK: Double, angle1: Int, angle2: Int, surfaceView: SurfaceView): Boolean{
+    private fun chk(esWES: Double, esSHK: Double, angle1: Int, angle2: Int, person: Human,
+                    bitmap: Bitmap, surfaceView: SurfaceView): Boolean{
         if(mediaPlayer == null){
             mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
         }
@@ -193,21 +184,35 @@ object HammerCurl {
             mediaPlayer!!.release()
             mediaPlayer = null
             if (esSHK <= SHKAngle - angleThreshold || esSHK >= SHKAngle + angleThreshold) {
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.straiback)
-                mediaPlayer!!.start()
+                drawOnImg(surfaceView, bitmap, person, R.raw.straiback, 7, 10, 8, 12)
                 return true
             }
             else if (esWES >= angle2 + angleThreshold) {
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.bringelbfrnt)
-                mediaPlayer!!.start()
+                drawOnImg(surfaceView, bitmap, person, R.raw.bringelbfrnt, 2, 3, 4, 5)
                 return true
             }
             else if (esWES <= angle1 - angleThreshold) {
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.tooclsshoul)
-                mediaPlayer!!.start()
+                drawOnImg(surfaceView, bitmap, person, R.raw.tooclsshoul, 2, 3, 4, 5)
                 return true
             }
         }
         return false
+    }
+
+    private fun drawOnImg(surfaceView: SurfaceView, bitmap: Bitmap, person: Human, uri: Int,
+                          no1: Int, no2: Int, no3: Int, no4: Int){
+        mediaPlayer = MediaPlayer.create(surfaceView.context, uri)
+        mediaPlayer!!.start()
+
+        if(isExeriseStarted) {
+            when (poseDetect.currView) {
+                View.right -> Visual.drawWrongPose(bitmap, surfaceView, person, no1, no2)
+                View.left -> Visual.drawWrongPose(bitmap, surfaceView, person, no3, no4)
+                else -> {
+                    Visual.drawWrongPose(bitmap, surfaceView, person, no1, no2)
+                    Visual.drawWrongPose(bitmap, surfaceView, person, no3, no4)
+                }
+            }
+        }
     }
 }

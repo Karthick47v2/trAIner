@@ -20,8 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <!--<include layout="@layout/settings" />-->
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <ToggleButton
@@ -64,11 +62,23 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <Chronometer
+            android:id="@+id/c_meter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="45sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRepetition" />
+
         <TextView
             android:id="@+id/tvRepetitionCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/reps_count"
+            android:visibility="visible"
             android:textColor="@color/white"
             android:textSize="45sp"
             app:layout_constraintTop_toBottomOf="@+id/tvRepetition"

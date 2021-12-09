@@ -15,9 +15,11 @@ import android.media.ImageReader
 import android.os.Debug
 import android.os.Handler
 import android.os.HandlerThread
+import android.os.SystemClock
 import android.util.Log
 import android.view.Surface
 import android.view.SurfaceView
+import android.widget.Chronometer
 import android.widget.TextView
 import com.dedsec_x47.trainer.aiTrainer.Exercise
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -25,6 +27,7 @@ import com.dedsec_x47.trainer.aiTrainer.render.Visual
 import com.dedsec_x47.trainer.aiTrainer.render.RGBConverter
 import com.dedsec_x47.trainer.aiTrainer.pose.PoseDetector
 import com.dedsec_x47.trainer.aiTrainer.data.Human
+import com.dedsec_x47.trainer.aiTrainer.poseClassify.DeadLift
 import com.dedsec_x47.trainer.aiTrainer.poseClassify.HammerCurl
 import com.dedsec_x47.trainer.aiTrainer.poseClassify.LegRaise
 import com.dedsec_x47.trainer.aiTrainer.poseClassify.Plank
@@ -33,7 +36,7 @@ import java.util.*
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
-class CameraSource(private var act: Activity, private var repView: TextView, private val surfaceView: SurfaceView, private val listener: CameraSourceListener? = null){
+class CameraSource(private var act: Activity, private var repView: TextView, private var chronometer: Chronometer, private val surfaceView: SurfaceView, private val listener: CameraSourceListener? = null){
 
     companion object {
         private const val PREVIEW_WIDTH = 640
@@ -64,7 +67,8 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
     private var imageReaderThread: HandlerThread? = null
     private var imageReaderHandler: Handler? = null
     private var cameraId: String = ""                           // only front cam
-    var count = 0
+    private var count = 0
+    private var timer = 0L
 
     suspend fun initCamera(){
         camera = openCamera(cameraManager, cameraId)
@@ -199,25 +203,33 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
             if (human.score > MIN_CONFIDENCE) {
             if(poseDetect.shDebug!!.isChecked())  outputBitmap = Visual.drawBodyKeypoints(bitmap, human)
             when (poseDetect.currentExercise) {
-                Exercise.Hammercurl -> count = HammerCurl.getHammerCurlAngles(human, surfaceView)
-                Exercise.Plank -> Plank.getPlankAngles(human, surfaceView)
+                Exercise.Hammercurl -> count = HammerCurl.getHammerCurlAngles(human, bitmap, surfaceView)                   //OK
+                Exercise.Plank -> timer = Plank.getPlankAngles(human, bitmap, act, chronometer, surfaceView)                //OK
                 Exercise.BenchpressBarbell -> Log.d(ContentValues.TAG, "BenchPressB")
                 Exercise.BenchpressDumbbell -> Log.d(ContentValues.TAG, "BenchPressD")
                 Exercise.Chinup -> Log.d(ContentValues.TAG, "Chinup")
-                Exercise.Deadlift -> Log.d(ContentValues.TAG, "DeadLift")
+                Exercise.Deadlift -> count = DeadLift.getDeadLiftAngles(human, bitmap, surfaceView)                         //OK
                 Exercise.Pushup -> Log.d(ContentValues.TAG, "Pushup")
                 Exercise.ShoulderpressBarbell -> Log.d(ContentValues.TAG, "ShoulderpreB")
                 Exercise.ShoulderpressDumbell -> Log.d(ContentValues.TAG, "ShoulderpeeD")
                 Exercise.Situp -> Log.d(ContentValues.TAG, "Situp")
                 Exercise.Splitsquat -> Log.d(ContentValues.TAG, "Splitsquat")
                 Exercise.Squat -> Log.d(ContentValues.TAG, "Squat")
-                else -> LegRaise.getLegRaiseAngles(human, surfaceView)
+                else -> count = LegRaise.getLegRaiseAngles(human, surfaceView)
             }
                 this.act.runOnUiThread(java.lang.Runnable {
-                    this.repView.text = count.toString()
+                    if(poseDetect.currentExercise != Exercise.Plank){
+                        this.repView.text = count.toString()
+                    }
                 })
-                Log.d(ContentValues.TAG, "Count from  HammerCurl" + count)
         }
+/*
+        this.act.runOnUiThread(java.lang.Runnable {
+            if(poseDetect.currentExercise != Exercise.Plank){
+                this.chronometer.base = SystemClock.elapsedRealtime()
+                this.chronometer.stop()
+            }
+        })*/
 
         val holder = surfaceView.holder
         val surfaceCanvas = holder.lockCanvas()
@@ -247,44 +259,6 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
                 outputBitmap, Rect(0, 0, outputBitmap.width, outputBitmap.height),
                 Rect(left, top, right, bottom), null
             )
-
-            /*val filename = "${System.currentTimeMillis()}.jpg"
-            var fos: OutputStream? = null
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                // getting the contentResolver
-                surfaceView.context.contentResolver?.also { resolver ->
-
-                    // Content resolver will process the contentvalues
-                    val contentValues = ContentValues().apply {
-
-                        // putting file information in content values
-                        put(MediaStore.MediaColumns.DISPLAY_NAME, filename)
-                        put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg")
-                        put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
-                    }
-
-                    // Inserting the contentValues to
-                    // contentResolver and getting the Uri
-                    val imageUri: Uri? = resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-
-                    // Opening an outputstream with the Uri that we got
-                    fos = imageUri?.let { resolver.openOutputStream(it) }
-                }
-            } else {
-                // These for devices running on android < Q
-                val imagesDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
-                val image = File(imagesDir, filename)
-                fos = FileOutputStream(image)
-            }
-
-            fos?.use {
-                // Finally writing the bitmap to the output stream that we opened
-                // Log.d(ContentValues.TAG, filename)
-                outputBitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
-                Toast.makeText(surfaceView.context , "Captured View and saved to Gallery" , Toast.LENGTH_SHORT).show()
-            }*/
-            //
             surfaceView.holder.unlockCanvasAndPost(canvas)
         }
     }

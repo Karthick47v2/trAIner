@@ -13,7 +13,9 @@ import android.view.SurfaceView
 import android.view.WindowManager
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import com.dedsec_x47.trainer.R
@@ -31,7 +33,7 @@ class poseDetect : AppCompatActivity(){
         }
         private const val FRAGMENT_DIALOG = "dialog"
 
-        var currentExercise = Exercise.Hammercurl
+        var currentExercise = Exercise.Deadlift
         var currView = View.right
         var skelShow: Boolean = false
         var shDebug: ToggleButton? = null
@@ -39,6 +41,8 @@ class poseDetect : AppCompatActivity(){
 
     private lateinit var surfaceView: SurfaceView
     private lateinit var repView: TextView
+    private lateinit var repType: TextView
+    private lateinit var timerView: Chronometer
 
     private var accelerator = Accelerator.CPU
 
@@ -56,15 +60,26 @@ class poseDetect : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
+        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) ||
+            (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) ||
+            (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)){
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.CAMERA), 101);
+        }
         setContentView(R.layout.activity_posedetect)
-        /*ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
-        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), 1)*/
+
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)     //keep screen on while app is running
         surfaceView = findViewById(R.id.surfaceView)
         shDebug = findViewById(R.id.hideSkeletonModeBtn)
         repView = findViewById(R.id.tvRepetitionCount)
-        //repView!!.text = count.toString()
-        if (!isCameraPermissionGranted()) requestPermission()               //Ask for permission
+        repType = findViewById(R.id.tvRepetition)
+        timerView = findViewById(R.id.c_meter)
+
+        if(currentExercise == Exercise.Plank){
+            repView.isVisible = false
+            timerView.isVisible = true
+            repType.text = "Time"
+        }
     }
 
     override fun onStart(){
@@ -90,7 +105,7 @@ class poseDetect : AppCompatActivity(){
     private fun openCamera(){
         if (isCameraPermissionGranted()){
             if (cameraSource == null){
-                cameraSource = CameraSource(this ,repView, surfaceView, object : CameraSource.CameraSourceListener{
+                cameraSource = CameraSource(this ,repView, timerView, surfaceView, object : CameraSource.CameraSourceListener{
                     override fun onFPSListener(fps: Int){
                         //fpsView.text = getString(R.string.fps, fps
                     }
@@ -103,9 +118,6 @@ class poseDetect : AppCompatActivity(){
             }
             createPoseEstimator()
         }
-
-        //Log.d(ContentValues.TAG, "Count from  PoseDetect" + count)
-        //repView!!.text = count.toString()
     }
 
     private fun createPoseEstimator(){
@@ -118,6 +130,7 @@ class poseDetect : AppCompatActivity(){
                 openCamera()
             }
             else -> {
+                //requestPermission.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 requestPermission.launch(Manifest.permission.CAMERA)
             }
         }
