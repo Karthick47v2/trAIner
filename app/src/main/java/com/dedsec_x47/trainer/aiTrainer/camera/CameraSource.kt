@@ -15,9 +15,11 @@ import android.media.ImageReader
 import android.os.Debug
 import android.os.Handler
 import android.os.HandlerThread
+import android.os.SystemClock
 import android.util.Log
 import android.view.Surface
 import android.view.SurfaceView
+import android.widget.Chronometer
 import android.widget.TextView
 import com.dedsec_x47.trainer.aiTrainer.Exercise
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -33,7 +35,7 @@ import java.util.*
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
-class CameraSource(private var act: Activity, private var repView: TextView, private val surfaceView: SurfaceView, private val listener: CameraSourceListener? = null){
+class CameraSource(private var act: Activity, private var repView: TextView, private var chronometer: Chronometer, private val surfaceView: SurfaceView, private val listener: CameraSourceListener? = null){
 
     companion object {
         private const val PREVIEW_WIDTH = 640
@@ -64,7 +66,7 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
     private var imageReaderThread: HandlerThread? = null
     private var imageReaderHandler: Handler? = null
     private var cameraId: String = ""                           // only front cam
-    var count = 0
+    private var count = 0
 
     suspend fun initCamera(){
         camera = openCamera(cameraManager, cameraId)
@@ -200,7 +202,7 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
             if(poseDetect.shDebug!!.isChecked())  outputBitmap = Visual.drawBodyKeypoints(bitmap, human)
             when (poseDetect.currentExercise) {
                 Exercise.Hammercurl -> count = HammerCurl.getHammerCurlAngles(human, bitmap, surfaceView)
-                Exercise.Plank -> Plank.getPlankAngles(human, surfaceView)
+                Exercise.Plank -> Plank.getPlankAngles(human, bitmap, act, chronometer, surfaceView)
                 Exercise.BenchpressBarbell -> Log.d(ContentValues.TAG, "BenchPressB")
                 Exercise.BenchpressDumbbell -> Log.d(ContentValues.TAG, "BenchPressD")
                 Exercise.Chinup -> Log.d(ContentValues.TAG, "Chinup")
@@ -214,7 +216,9 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
                 else -> LegRaise.getLegRaiseAngles(human, surfaceView)
             }
                 this.act.runOnUiThread(java.lang.Runnable {
-                    this.repView.text = count.toString()
+                    if(poseDetect.currentExercise != Exercise.Plank){
+                        this.repView.text = count.toString()
+                    }
                 })
         }
 

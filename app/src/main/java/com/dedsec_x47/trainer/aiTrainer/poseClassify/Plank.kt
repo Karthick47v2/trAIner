@@ -1,14 +1,22 @@
 package com.dedsec_x47.trainer.aiTrainer.poseClassify
 
+import android.app.Activity
 import android.content.ContentValues
+import android.graphics.Bitmap
 import android.graphics.PointF
 import android.util.Log
 import com.dedsec_x47.trainer.aiTrainer.data.Human
 import com.dedsec_x47.trainer.aiTrainer.data.KeyPoints
 import com.dedsec_x47.trainer.aiTrainer.render.Visual
 import android.media.MediaPlayer
+import android.os.SystemClock
 import android.view.SurfaceView
+import android.widget.Chronometer
 import com.dedsec_x47.trainer.R
+import com.dedsec_x47.trainer.View
+import com.dedsec_x47.trainer.aiTrainer.Exercise
+import com.dedsec_x47.trainer.aiTrainer.camera.CameraSource
+import com.dedsec_x47.trainer.aiTrainer.poseDetect
 
 object Plank {
     //
@@ -17,7 +25,7 @@ object Plank {
 
     // Angle values for PLANK
     private val WESAngle = 90                   //W - wrist E - Elbow S - Shoulder
-    private val ESHAngle = 80
+    private val ESHAngle = 90
     private val SHKAngle = 180
 
     private val angleThreshold = 15
@@ -25,8 +33,10 @@ object Plank {
     private var isExeriseStarted: Boolean = false
 
     private var mediaPlayer: MediaPlayer? = null
+    private var timer = 0L
+    private var offSet = 0L
 
-    fun getPlankAngles(person: Human, surfaceView: SurfaceView){
+    fun getPlankAngles(person: Human, bitmap: Bitmap, act: Activity, chronometer: Chronometer, surfaceView: SurfaceView){
         // estimated WES angle - LEFT
         var esWESAngleL = Visual.getAngle(
             listOf<PointF>(
@@ -80,42 +90,58 @@ object Plank {
                 person.keyPoints[KeyPoints.RIGHT_KNEE.position].coordinate
             )
         )
-        checkPosition(esWESAngleL, esWESAngleR, esESHAngleL, esESHAngleR, esSHKAngleL, esSHKAngleR, surfaceView)
+        checkPosition(esWESAngleL, esWESAngleR, esESHAngleL, esESHAngleR, esSHKAngleL, esSHKAngleR, act, chronometer, person, bitmap, surfaceView)
     }
 
     private fun checkPosition(esWESAngleL: Double, esWESAngleR: Double, esESHAngleL: Double, esESHAngleR: Double,
-                              esSHKAngleL: Double, esSHKAngleR: Double, surfaceView: SurfaceView){
+                              esSHKAngleL: Double, esSHKAngleR: Double, act: Activity, chronometer: Chronometer,
+                              person: Human, bitmap: Bitmap, surfaceView: SurfaceView){
 
         var WESCHK = false
         var ESHCHK = false
         var SHKCHK = false
 
-        if(chk(esWESAngleL, esWESAngleR, esESHAngleL, esESHAngleR, esSHKAngleL, esSHKAngleR, surfaceView)){}
+        if(chk(esWESAngleL, esWESAngleR, esESHAngleL, esESHAngleR, esSHKAngleL, esSHKAngleR, person, bitmap, surfaceView)){}
         else{
             WESCHK = (esWESAngleL <= WESAngle || esWESAngleR <= WESAngle)
             ESHCHK = (esESHAngleL <= ESHAngle || esESHAngleR <= ESHAngle)
+            SHKCHK = ((esSHKAngleL <= SHKAngle + 20 && esSHKAngleL >= SHKAngle - 20) ||
+                    (esSHKAngleR <= SHKAngle + 20 && esSHKAngleR >= SHKAngle - 20))
         }
 
-        if(WESCHK && ESHCHK){
+        if(WESCHK && ESHCHK && SHKCHK){
             if(isExeriseStarted){
-                /*if(mediaPlayer == null){
-                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
+                if(mediaPlayer == null){
+                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.tick)
                 }
                 if(mediaPlayer != null && !mediaPlayer!!.isPlaying()){
                     mediaPlayer!!.release()
                     mediaPlayer = null
-                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
+                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.tick)
                     mediaPlayer!!.start()
-                }*/
+                }
             }
             else{
                 isExeriseStarted = true;
+                act.runOnUiThread(java.lang.Runnable {
+                    Log.d(ContentValues.TAG, "BenchPressB")
+                    chronometer.base = SystemClock.elapsedRealtime() - offSet
+                    chronometer.start()
+                })
+            }
+        }
+        else{
+            if(isExeriseStarted){
+                offSet = SystemClock.elapsedRealtime() - chronometer.base
+                if(offSet > timer) timer = offSet
+                offSet = 0
+                chronometer.start()
             }
         }
     }
 
     private fun chk(esWESAngleL: Double, esWESAngleR: Double, esESHAngleL: Double, esESHAngleR: Double,
-                    esSHKAngleL: Double, esSHKAngleR: Double, surfaceView: SurfaceView): Boolean{
+                    esSHKAngleL: Double, esSHKAngleR: Double,person: Human, bitmap: Bitmap, surfaceView: SurfaceView): Boolean{
         if(mediaPlayer == null){
             mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
         }
@@ -124,26 +150,31 @@ object Plank {
             mediaPlayer = null
             if ((esWESAngleL <= WESAngle - angleThreshold && esWESAngleR <= WESAngle - angleThreshold) ||
                 (esWESAngleL >= WESAngle + angleThreshold && esWESAngleR >= WESAngle + angleThreshold)){
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.elbshol)
-                mediaPlayer!!.start()
-                Log.d(ContentValues.TAG, "ArmsSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSs")
+                drawOnImg(surfaceView, bitmap, person, R.raw.elbshol, 2, 3, 4, 5)
                 return true
             }
             else if ((esESHAngleL <= ESHAngle - angleThreshold && esESHAngleR <= ESHAngle - angleThreshold) ||
                 (esESHAngleL >= ESHAngle + angleThreshold && esESHAngleR >= ESHAngle + angleThreshold)) {
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.elbshol)
-                mediaPlayer!!.start()
-                Log.d(ContentValues.TAG, "SHOULDERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR")
+                drawOnImg(surfaceView, bitmap, person, R.raw.elbshol, 2, 7, 4, 8)
                 return true
             }
-            else if  ((esSHKAngleL <= SHKAngle - angleThreshold && esSHKAngleR <= SHKAngle - angleThreshold) ||
-                (esSHKAngleL >= SHKAngle + angleThreshold && esSHKAngleR >= SHKAngle + angleThreshold)){
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.straiback)
-                mediaPlayer!!.start()
-                Log.d(ContentValues.TAG, "BACKKKKKKKKKKKKKKKKKKKKKKKKK")
+            else if  ((esSHKAngleL <= SHKAngle - 20 && esSHKAngleR <= SHKAngle - 20) ||
+                (esSHKAngleL >= SHKAngle + 20 && esSHKAngleR >= SHKAngle + 20)){
+                drawOnImg(surfaceView, bitmap, person, R.raw.straiback, 7, 10, 8, 12)
                 return true
             }
         }
         return false
+    }
+
+    private fun drawOnImg(surfaceView: SurfaceView, bitmap: Bitmap, person: Human, uri: Int,
+                          no1: Int, no2: Int, no3: Int, no4: Int){
+        mediaPlayer = MediaPlayer.create(surfaceView.context, uri)
+        mediaPlayer!!.start()
+
+        if(isExeriseStarted) {
+            Visual.drawWrongPose(bitmap, surfaceView, person, no1, no2)
+            Visual.drawWrongPose(bitmap, surfaceView, person, no3, no4)
+        }
     }
 }

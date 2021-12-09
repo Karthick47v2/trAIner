@@ -179,7 +179,7 @@ object Squat {
             else if(isUp){
                 if(esESHL >= ESHAngle1 + angleThreshold && esESHR >= ESHAngle1 + angleThreshold){
                     Log.d(ContentValues.TAG, "STOP " + esESHL.toString() + "  " + esESHR.toString())
-                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.stop)
+                    //mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.stop)
                     mediaPlayer!!.start()
                     return true
                 }

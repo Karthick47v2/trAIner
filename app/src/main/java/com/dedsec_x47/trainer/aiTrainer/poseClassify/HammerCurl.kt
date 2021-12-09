@@ -168,15 +168,6 @@ object HammerCurl {
                 isUp = !isUp
             }
             else{
-                if(mediaPlayer == null){
-                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.started)
-                }
-                if(mediaPlayer != null && !mediaPlayer!!.isPlaying()){
-                    mediaPlayer!!.release()
-                    mediaPlayer = null
-                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.started)
-                    mediaPlayer!!.start()
-                }
                 isExeriseStarted = true;
                 isUp = false;
             }
