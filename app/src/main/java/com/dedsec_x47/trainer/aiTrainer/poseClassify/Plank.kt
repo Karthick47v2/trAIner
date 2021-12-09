@@ -25,7 +25,7 @@ object Plank {
 
     // Angle values for PLANK
     private val WESAngle = 90                   //W - wrist E - Elbow S - Shoulder
-    private val ESHAngle = 90
+    private val ESHAngle = 70
     private val SHKAngle = 180
 
     private val angleThreshold = 15
@@ -35,8 +35,9 @@ object Plank {
     private var mediaPlayer: MediaPlayer? = null
     private var timer = 0L
     private var offSet = 0L
+    private var isTimerRunning = false
 
-    fun getPlankAngles(person: Human, bitmap: Bitmap, act: Activity, chronometer: Chronometer, surfaceView: SurfaceView){
+    fun getPlankAngles(person: Human, bitmap: Bitmap, act: Activity, chronometer: Chronometer, surfaceView: SurfaceView): Long{
         // estimated WES angle - LEFT
         var esWESAngleL = Visual.getAngle(
             listOf<PointF>(
@@ -91,6 +92,7 @@ object Plank {
             )
         )
         checkPosition(esWESAngleL, esWESAngleR, esESHAngleL, esESHAngleR, esSHKAngleL, esSHKAngleR, act, chronometer, person, bitmap, surfaceView)
+        return timer
     }
 
     private fun checkPosition(esWESAngleL: Double, esWESAngleR: Double, esESHAngleL: Double, esESHAngleR: Double,
@@ -109,6 +111,10 @@ object Plank {
                     (esSHKAngleR <= SHKAngle + 20 && esSHKAngleR >= SHKAngle - 20))
         }
 
+        offSet = (SystemClock.elapsedRealtime() - chronometer.base) / 1000
+        if(offSet > timer) timer = offSet
+        Log.d(ContentValues.TAG, "SSSSSSSSSSSSSSSS " + offSet.toString())
+
         if(WESCHK && ESHCHK && SHKCHK){
             if(isExeriseStarted){
                 if(mediaPlayer == null){
@@ -120,22 +126,25 @@ object Plank {
                     mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.tick)
                     mediaPlayer!!.start()
                 }
+                act.runOnUiThread(java.lang.Runnable {
+                    if(!isTimerRunning) {
+                        chronometer.base = SystemClock.elapsedRealtime()
+                        chronometer.start()
+                        isTimerRunning = true
+                    }
+                })
             }
             else{
                 isExeriseStarted = true;
-                act.runOnUiThread(java.lang.Runnable {
-                    Log.d(ContentValues.TAG, "BenchPressB")
-                    chronometer.base = SystemClock.elapsedRealtime() - offSet
-                    chronometer.start()
-                })
             }
         }
         else{
             if(isExeriseStarted){
-                offSet = SystemClock.elapsedRealtime() - chronometer.base
-                if(offSet > timer) timer = offSet
-                offSet = 0
-                chronometer.start()
+                act.runOnUiThread(java.lang.Runnable {
+                    chronometer.base = SystemClock.elapsedRealtime()
+                    chronometer.stop()
+                    isTimerRunning = false
+                })
             }
         }
     }

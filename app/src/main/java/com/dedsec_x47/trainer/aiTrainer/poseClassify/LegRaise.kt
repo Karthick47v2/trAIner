@@ -30,7 +30,7 @@ object LegRaise {
     //check users position
     private var isUp = true                   // initail pos -- triggered when user initializes UP pos
 
-    fun getLegRaiseAngles(person: Human, surfaceView: SurfaceView){
+    fun getLegRaiseAngles(person: Human, surfaceView: SurfaceView): Int{
         // estimated WES angle - LEFT
         var esWESAngleL = Visual.getAngle(
             listOf<PointF>(
@@ -107,13 +107,13 @@ object LegRaise {
         Log.d(ContentValues.TAG, esSHKAngleL.toString())
 
         checkPosition(esWESAngleL, esWESAngleR, esESHAngleL, esESHAngleR, esHKAAngleL, esHKAAngleR, esSHKAngleL, esSHKAngleR, surfaceView)
+        return count
     }
 
     private fun checkPosition(esWESAngleL: Double, esWESAngleR: Double, esESHAngleL: Double, esESHAngleR: Double,
             esHKAAngleL: Double, esHKAAngleR: Double, esSHKAngleL: Double, esSHKAngleR: Double, surfaceView: SurfaceView){
 
         var WESCHK = false
-        var ESHCHK = false
         var HKACHK = false
         var SHKCHK = false
 
@@ -122,7 +122,6 @@ object LegRaise {
             if(chk(esWESAngleL, esWESAngleR, esESHAngleL, esESHAngleR, esHKAAngleL, esHKAAngleR, esSHKAngleL, esSHKAngleR, surfaceView)){}
             else{
                 WESCHK = (esWESAngleL >= WESAngle || esWESAngleR >= WESAngle)
-                ESHCHK = (esESHAngleL <= ESHAngle || esESHAngleR <= ESHAngle)
                 HKACHK = (esHKAAngleL >= HKAAngle || esHKAAngleR >= HKAAngle)
                 SHKCHK = (esSHKAngleL >= SHKAngle2 || esSHKAngleR >= SHKAngle2)
             }
@@ -132,14 +131,13 @@ object LegRaise {
             if(chk(esWESAngleL, esWESAngleR, esESHAngleL, esESHAngleR, esHKAAngleL, esHKAAngleR, esSHKAngleL, esSHKAngleR, surfaceView)){}
             else{
                 WESCHK = (esWESAngleL >= WESAngle || esWESAngleR >= WESAngle)
-                ESHCHK = (esESHAngleL <= ESHAngle || esESHAngleR <= ESHAngle)
                 HKACHK = (esHKAAngleL >= HKAAngle || esHKAAngleR >= HKAAngle)
                 SHKCHK = ((esSHKAngleL <= SHKAngle1 + 5 && esSHKAngleL >= SHKAngle1 - 15) ||
                         (esSHKAngleR <= SHKAngle1 + 5 && esSHKAngleR >= SHKAngle1 - 15))
             }
         }
 
-        if(WESCHK && ESHCHK && HKACHK && SHKCHK){
+        if(WESCHK && HKACHK && SHKCHK){
             if(isExeriseStarted){
                 if(mediaPlayer == null){
                     mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
@@ -154,6 +152,15 @@ object LegRaise {
                 isUp = !isUp
             }
             else{
+                if(mediaPlayer == null){
+                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
+                }
+                if(mediaPlayer != null && !mediaPlayer!!.isPlaying()){
+                    mediaPlayer!!.release()
+                    mediaPlayer = null
+                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.started)
+                    mediaPlayer!!.start()
+                }
                 isExeriseStarted = true;
                 isUp = false;
             }
@@ -168,13 +175,9 @@ object LegRaise {
         if(mediaPlayer != null && !mediaPlayer!!.isPlaying()) {
             mediaPlayer!!.release()
             mediaPlayer = null
-            if (esWESAngleL <= WESAngle - 15 && esWESAngleR <= WESAngle - 15) {
+            if (esWESAngleL <= WESAngle - 30 && esWESAngleR <= WESAngle - 30) {
                 mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.handfloor)
-                mediaPlayer!!.start()
-                return true
-            }
-            else if (esESHAngleL >= ESHAngle + 30 && esESHAngleR >= ESHAngle + 30) {
-                mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.handfloor)
+                Log.d(ContentValues.TAG, "Hand L : " + esWESAngleL.toString() + "  R : " + esWESAngleR.toString())
                 mediaPlayer!!.start()
                 return true
             }
@@ -186,7 +189,7 @@ object LegRaise {
             }
             else if(isUp){
                 if(esSHKAngleL <= SHKAngle1 - angleThreshold && esSHKAngleR <= SHKAngle1 - angleThreshold){
-                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.straiarms)/////////////////
+                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.bendtoo)/////////////////
                     mediaPlayer!!.start()
                     return true
                 }
