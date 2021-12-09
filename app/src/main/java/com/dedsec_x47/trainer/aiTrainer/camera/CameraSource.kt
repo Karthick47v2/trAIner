@@ -27,9 +27,7 @@ import com.dedsec_x47.trainer.aiTrainer.render.Visual
 import com.dedsec_x47.trainer.aiTrainer.render.RGBConverter
 import com.dedsec_x47.trainer.aiTrainer.pose.PoseDetector
 import com.dedsec_x47.trainer.aiTrainer.data.Human
-import com.dedsec_x47.trainer.aiTrainer.poseClassify.HammerCurl
-import com.dedsec_x47.trainer.aiTrainer.poseClassify.LegRaise
-import com.dedsec_x47.trainer.aiTrainer.poseClassify.Plank
+import com.dedsec_x47.trainer.aiTrainer.poseClassify.*
 import com.dedsec_x47.trainer.aiTrainer.poseDetect
 import java.util.*
 import kotlin.coroutines.resume
@@ -67,6 +65,7 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
     private var imageReaderHandler: Handler? = null
     private var cameraId: String = ""                           // only front cam
     private var count = 0
+    private var timer = 0L
 
     suspend fun initCamera(){
         camera = openCamera(cameraManager, cameraId)
@@ -201,19 +200,19 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
             if (human.score > MIN_CONFIDENCE) {
             if(poseDetect.shDebug!!.isChecked())  outputBitmap = Visual.drawBodyKeypoints(bitmap, human)
             when (poseDetect.currentExercise) {
-                Exercise.Hammercurl -> count = HammerCurl.getHammerCurlAngles(human, bitmap, surfaceView)
-                Exercise.Plank -> Plank.getPlankAngles(human, bitmap, act, chronometer, surfaceView)
+                Exercise.Hammercurl -> count = HammerCurl.getHammerCurlAngles(human, bitmap, surfaceView)                   //OK
+                Exercise.Plank -> timer = Plank.getPlankAngles(human, bitmap, act, chronometer, surfaceView)                //OK
                 Exercise.BenchpressBarbell -> Log.d(ContentValues.TAG, "BenchPressB")
                 Exercise.BenchpressDumbbell -> Log.d(ContentValues.TAG, "BenchPressD")
                 Exercise.Chinup -> Log.d(ContentValues.TAG, "Chinup")
-                Exercise.Deadlift -> Log.d(ContentValues.TAG, "DeadLift")
+                Exercise.Deadlift -> count = DeadLift.getDeadLiftAngles(human, bitmap, surfaceView)                         //OK
                 Exercise.Pushup -> Log.d(ContentValues.TAG, "Pushup")
                 Exercise.ShoulderpressBarbell -> Log.d(ContentValues.TAG, "ShoulderpreB")
                 Exercise.ShoulderpressDumbell -> Log.d(ContentValues.TAG, "ShoulderpeeD")
                 Exercise.Situp -> Log.d(ContentValues.TAG, "Situp")
                 Exercise.Splitsquat -> Log.d(ContentValues.TAG, "Splitsquat")
-                Exercise.Squat -> Log.d(ContentValues.TAG, "Squat")
-                else -> LegRaise.getLegRaiseAngles(human, surfaceView)
+                Exercise.Squat -> count = Squat.getSquatAngles(human, bitmap, surfaceView)
+                else -> count = LegRaise.getLegRaiseAngles(human, surfaceView)
             }
                 this.act.runOnUiThread(java.lang.Runnable {
                     if(poseDetect.currentExercise != Exercise.Plank){
@@ -221,6 +220,13 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
                     }
                 })
         }
+/*
+        this.act.runOnUiThread(java.lang.Runnable {
+            if(poseDetect.currentExercise != Exercise.Plank){
+                this.chronometer.base = SystemClock.elapsedRealtime()
+                this.chronometer.stop()
+            }
+        })*/
 
         val holder = surfaceView.holder
         val surfaceCanvas = holder.lockCanvas()

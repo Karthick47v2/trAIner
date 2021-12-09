@@ -1,34 +1,37 @@
 package com.dedsec_x47.trainer.aiTrainer.poseClassify
 
+import android.content.ContentValues
+import android.graphics.Bitmap
 import android.graphics.PointF
+import android.util.Log
 import com.dedsec_x47.trainer.aiTrainer.data.Human
 import com.dedsec_x47.trainer.aiTrainer.data.KeyPoints
 import com.dedsec_x47.trainer.aiTrainer.render.Visual
+import android.media.MediaPlayer
+import android.view.SurfaceView
+import com.dedsec_x47.trainer.R
 
-class DeadLift {
-    //
-    //
-    // As sit up contains 2 sets of pics, check exercise is done correctly by sequentially checking....
+object DeadLift {
+    // Angle vals for Hammercurl SET1
+    //1 -hands UP 2 - DOWN
 
-    // Angle vals for DeadLift SET1
+    private val SHKAngle1 = 160
+    private val SHKAngle2 = 45
 
-    //1 - Down 2 - Up
-    private val WESAngle = 160                  //W - wrist E - Elbow S - Shoulder
-    private val SHKAngle1 = 60                  //E - elbow S - shoulder H - hip
-    private val HKAAngle1 = 60
+    private val WESAngle2 = 160
 
-    // you could create an array of each joints angle instead of 2 vars -- bt both takes same amt of memory -- so anything is ok
-    private val SHKAngle2 = 100
-    private val HKAAngle2 = 80
-
-    private val angleThreshold = 15             //// We will make it global, as of current time being declare it in every exs
+    private val angleThreshold = 15
 
     private var isExeriseStarted: Boolean = false
 
-    //check users position
-    private var isUp =false;                   // initail pos -- triggered when user initializes UP pos
+    private var mediaPlayer: MediaPlayer? = null
+    private var count: Int = 0
 
-    private fun getDeadLiftAngles(person: Human) {
+    //check users position
+    private var isUp =
+        true                   // initail pos -- triggered when user initializes UP pos
+
+    fun getDeadLiftAngles(person: Human, bitmap: Bitmap, surfaceView: SurfaceView): Int {
         // estimated WES angle - LEFT
         var esWESAngleL = Visual.getAngle(
             listOf<PointF>(
@@ -48,7 +51,7 @@ class DeadLift {
         )
 
         // estimated SHK angle - LEFT
-        var esSHKAngleL= Visual.getAngle(
+        var esSHKAngleL = Visual.getAngle(
             listOf<PointF>(
                 person.keyPoints[KeyPoints.LEFT_SHOULDER.position].coordinate,
                 person.keyPoints[KeyPoints.LEFT_HIP.position].coordinate,
@@ -57,7 +60,7 @@ class DeadLift {
         )
 
         // estimated SHK angle - RIGHT
-        var esSHKAngleR= Visual.getAngle(
+        var esSHKAngleR = Visual.getAngle(
             listOf<PointF>(
                 person.keyPoints[KeyPoints.RIGHT_SHOULDER.position].coordinate,
                 person.keyPoints[KeyPoints.RIGHT_HIP.position].coordinate,
@@ -65,82 +68,93 @@ class DeadLift {
             )
         )
 
-        // estimated HKA angle - LEFT
-        var esHKAAngleL = Visual.getAngle(
-            listOf<PointF>(
-                person.keyPoints[KeyPoints.LEFT_HIP.position].coordinate,
-                person.keyPoints[KeyPoints.LEFT_KNEE.position].coordinate,
-                person.keyPoints[KeyPoints.LEFT_ANKLE.position].coordinate
-            )
-        )
+        Log.d(ContentValues.TAG, "ANGLE  L :" + esSHKAngleL.toString() + "  R : " + esSHKAngleR.toString())
 
-        // estimated HKA angle - RIGHT
-        var esHKAAngleR = Visual.getAngle(
-            listOf<PointF>(
-                person.keyPoints[KeyPoints.RIGHT_HIP.position].coordinate,
-                person.keyPoints[KeyPoints.RIGHT_KNEE.position].coordinate,
-                person.keyPoints[KeyPoints.RIGHT_ANKLE.position].coordinate
-            )
-        )
-        checkPosition(
+        return checkPosition(
             esWESAngleL,
             esWESAngleR,
             esSHKAngleL,
             esSHKAngleR,
-            esHKAAngleL,
-            esHKAAngleR
+            person,
+            bitmap,
+            surfaceView
         )
     }
 
-    private fun checkPosition(esWESAngleL: Double, esWESAngleR: Double,
-                              esSHKAngleL: Double, esSHKAngleR: Double, esHKAAngleL : Double, esHKAAngleR : Double){
+    private fun checkPosition(esWESAngleL: Double, esWESAngleR: Double, esSHKAngleL: Double, esSHKAngleR: Double,
+        person: Human, bitmap: Bitmap, surfaceView: SurfaceView): Int {
 
-        var WESLCHK = (esWESAngleL <= WESAngle - angleThreshold || esWESAngleL >= WESAngle + angleThreshold)
-        var WESRCHK = (esWESAngleR <= WESAngle - angleThreshold || esWESAngleR >= WESAngle + angleThreshold)
-
-        var SHKLCHK = false;
-        var SHKRCHK = false;
-        var HKALCHK = false;
-        var HKARCHK = false;
+        var WESCHK = false
+        var SHKCHK = false
 
         // if already up -- listen for down angles
         if (isUp) {
-            SHKLCHK = (esSHKAngleL <= SHKAngle1 - angleThreshold || esSHKAngleL >= SHKAngle1 + angleThreshold)
-            SHKRCHK = (esSHKAngleR <= SHKAngle1 - angleThreshold || esSHKAngleR >= SHKAngle1 + angleThreshold)
-            HKALCHK = (esHKAAngleL <= HKAAngle1 - angleThreshold || esHKAAngleL >= HKAAngle1 + angleThreshold)
-            HKARCHK = (esHKAAngleR <= HKAAngle1 - angleThreshold || esHKAAngleR >= HKAAngle1 + angleThreshold)
+            if (chk(esWESAngleL, esWESAngleR, esSHKAngleL, esSHKAngleR, person, bitmap, surfaceView)) {
+            } else {
+                WESCHK = (esWESAngleL >= WESAngle2 || esWESAngleR >= WESAngle2)
+                SHKCHK = (esSHKAngleL <= SHKAngle2 || esSHKAngleR <= SHKAngle2)
+            }
         }
         // else -- listen for up angles
         else {
-            SHKLCHK = (esSHKAngleL <= SHKAngle2 - angleThreshold || esSHKAngleL >= SHKAngle2 + angleThreshold)
-            SHKRCHK = (esSHKAngleR <= SHKAngle2 - angleThreshold || esSHKAngleR >= SHKAngle2 + angleThreshold)
-            HKALCHK = (esHKAAngleL <= HKAAngle2 - angleThreshold || esHKAAngleL >= HKAAngle2 + angleThreshold)
-            HKARCHK = (esHKAAngleR <= HKAAngle2 - angleThreshold || esHKAAngleR >= HKAAngle2 + angleThreshold)
+            if (chk(esWESAngleL, esWESAngleR, esSHKAngleL, esSHKAngleR, person, bitmap, surfaceView)) {
+            } else{
+                WESCHK = (esWESAngleL >= WESAngle2 || esWESAngleR >= WESAngle2)
+                SHKCHK = (esSHKAngleL >= SHKAngle1 || esSHKAngleR >= SHKAngle1)
+            }
         }
 
-
-
-        if (WESLCHK && WESRCHK && SHKLCHK && SHKRCHK && HKALCHK && HKARCHK) {
+        if (WESCHK && SHKCHK) {
             if (isExeriseStarted) {
-                //Start timer
-                //return true
+                if (mediaPlayer == null) {
+                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
+                }
+                if (mediaPlayer != null && !mediaPlayer!!.isPlaying()) {
+                    mediaPlayer!!.release()
+                    mediaPlayer = null
+                    mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
+                    mediaPlayer!!.start()
+                }
 
-                // increment time/rep
+                if (isUp) count++
                 isUp = !isUp
             } else {
                 isExeriseStarted = true;
-                isUp = true;
+                isUp = false;
             }
-        } else if (isExeriseStarted) {
-            // pause / stop timer
-            /*if(!WESLCHK) {} // NOTIFY
-            else if(!WESRCHK) {} // NOTIFY
-            else if(!SHKLCHK) {} // NOTIFY
-            else if(!SHKRCHK) {} // NOTIFY
-            else if(!HKALCHK) {} // NOTIFY
-            else if(!HKARCHK) {} // NOTIFY */
-            //NEEED
         }
-        //return  false
+        return count
+    }
+
+    private fun chk(esWESAngleL: Double, esWESAngleR: Double, esSHKAngleL: Double, esSHKAngleR: Double, person: Human,
+        bitmap: Bitmap, surfaceView: SurfaceView): Boolean {
+        if (mediaPlayer == null) {
+            mediaPlayer = MediaPlayer.create(surfaceView.context, R.raw.ring)
+        }
+        if (mediaPlayer != null && !mediaPlayer!!.isPlaying()) {
+            mediaPlayer!!.release()
+            mediaPlayer = null
+            if (esWESAngleL <= WESAngle2 - angleThreshold && esWESAngleR <= WESAngle2 - angleThreshold) {
+                drawOnImg(surfaceView, bitmap, person, R.raw.straiarms, 2, 3, 4, 5)
+                return true
+            } else if (!isUp) {
+                if(esSHKAngleL <= SHKAngle2 - 5 && esSHKAngleR <= SHKAngle2 - 5){
+                    drawOnImg(surfaceView, bitmap, person, R.raw.bendtoo, 7, 10, 8, 12)
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    private fun drawOnImg(surfaceView: SurfaceView, bitmap: Bitmap, person: Human, uri: Int,
+        no1: Int, no2: Int, no3: Int, no4: Int) {
+        mediaPlayer = MediaPlayer.create(surfaceView.context, uri)
+        mediaPlayer!!.start()
+
+        if (isExeriseStarted) {
+            Visual.drawWrongPose(bitmap, surfaceView, person, no1, no2)
+            Visual.drawWrongPose(bitmap, surfaceView, person, no3, no4)
+        }
     }
 }

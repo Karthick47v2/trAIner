@@ -96,8 +96,9 @@ object Visual {
 
         var angle = Math.toDegrees((atan2((y1 - y2), (x1 - x2)) - atan2((y3 - y2), (x3 - x2))).toDouble())
 
-        if(angle > 180) angle = 360 - angle
         if(angle < 0) angle *= -1
+        if(angle > 180) angle = 360 - angle
+
         return angle
     }
 

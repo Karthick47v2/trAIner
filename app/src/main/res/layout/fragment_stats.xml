@@ -51,8 +51,8 @@
         android:scaleType="fitCenter"
         android:src="@drawable/img_running"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.110000014"
         tools:ignore="ContentDescription" />
@@ -83,9 +83,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Push Up"
@@ -97,8 +96,8 @@
                 android:id="@+id/txtPushUpCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
+                android:layout_marginStart="25dp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -116,9 +115,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Chin Up"
@@ -128,9 +126,9 @@
 
             <TextView
                 android:id="@+id/txtChinUpCount"
+                android:layout_marginStart="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
@@ -149,9 +147,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Sit Up"
@@ -163,8 +160,8 @@
                 android:id="@+id/txtSitUpCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
+                android:layout_marginStart="25dp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -182,9 +179,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Bench Press Barbell"
@@ -196,8 +192,8 @@
                 android:id="@+id/txtBenchPressBarbellCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
+                android:layout_marginStart="25dp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -215,9 +211,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Bench Press Dumbbell"
@@ -229,9 +224,9 @@
                 android:id="@+id/txtBenchPressDumbbellCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
                 android:textAlignment="center"
+                android:layout_marginStart="25dp"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -248,9 +243,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Shoulder Press Barbell"
@@ -262,10 +256,10 @@
                 android:id="@+id/txtShoulderPressBarbellCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
+                android:layout_marginStart="25dp"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -281,9 +275,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Shoulder Press Dumbbell"
@@ -295,9 +288,9 @@
                 android:id="@+id/txtShoulderPressDumbbellCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
                 android:textAlignment="center"
+                android:layout_marginStart="25dp"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -314,9 +307,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Hammer curl"
@@ -328,9 +320,9 @@
                 android:id="@+id/txtHammerCurlCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
                 android:textAlignment="center"
+                android:layout_marginStart="25dp"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -347,9 +339,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Plank"
@@ -360,8 +351,8 @@
             <TextView
                 android:id="@+id/txtPlankCount"
                 android:layout_width="wrap_content"
+                android:layout_marginStart="25dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
@@ -380,9 +371,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Leg Raise"
@@ -393,8 +383,8 @@
             <TextView
                 android:id="@+id/txtLegRaiseCount"
                 android:layout_width="wrap_content"
+                android:layout_marginStart="25dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
                 android:textAlignment="center"
                 android:textColor="@color/white"
@@ -413,9 +403,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Squat"
@@ -427,8 +416,8 @@
                 android:id="@+id/txtSquatCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
+                android:layout_marginStart="25dp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -446,9 +435,8 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:paddingStart="20dp"
                 android:text="Split Squat"
@@ -460,9 +448,9 @@
                 android:id="@+id/txtSplitSquatCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="0"
                 android:textAlignment="center"
+                android:layout_marginStart="25dp"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
