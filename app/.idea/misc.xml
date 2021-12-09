@@ -18,6 +18,7 @@
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/drawable/gradient_dark_red.xml" value="0.16578947368421051" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/drawable/ic_create_challenge.xml" value="0.23333333333333334" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/drawable/orange_btn__white_border.xml" value="0.199609375" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/drawable/rectangle.xml" value="0.2625" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/drawable/ripple_effect.xml" value="0.23333333333333334" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/drawable/round_corner.xml" value="0.196875" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/drawable/weekly_challenge_bg_opacity.xml" value="0.23657407407407408" />
@@ -25,6 +26,7 @@
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/font/roboto_thin.xml" value="0.2490740740740741" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_create_new_challange.xml" value="0.264" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_feedback.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_gallery_view.xml" value="0.24635416666666668" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_instructions_benchpressbarbell.xml" value="0.15789473684210525" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_instructions_benchpressdumbbell.xml" value="0.15789473684210525" />
@@ -41,7 +43,7 @@
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_main2.xml" value="0.25" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_mini_games.xml" value="0.24635416666666668" />
-        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_posedetect.xml" value="0.264" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_posedetect.xml" value="0.2" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_posedetect_2.xml" value="0.1642361111111111" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_rewards_lose.xml" value="0.1875" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_rewards_win.xml" value="0.1875" />
@@ -52,6 +54,7 @@
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_starting.xml" value="0.16216216216216217" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_strength_training.xml" value="0.25" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/activity_weight_loss.xml" value="0.25" />
+        <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/challenge_popup.xml" value="0.24635416666666668" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/example_item.xml" value="0.25" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_challenge.xml" value="0.264" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/fragment_home.xml" value="0.264" />
