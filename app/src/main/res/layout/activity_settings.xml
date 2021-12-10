@@ -175,6 +175,7 @@
             android:background="@drawable/edit_text_ripple"
             android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
             android:drawableStart="@drawable/ic_baseline_account_circle_24"
+            android:layout_height="48dp"
             android:drawablePadding="10dp"
             android:inputType="textFilter"
             android:padding="10dp"
@@ -224,7 +225,6 @@
             app:layout_constraintStart_toEndOf="@+id/ivGender"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageButton

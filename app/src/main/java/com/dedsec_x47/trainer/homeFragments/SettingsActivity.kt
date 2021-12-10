@@ -1,10 +1,7 @@
 package com.dedsec_x47.trainer.homeFragments
 
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.Button
-import android.widget.EditText
+import android.widget.*
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.get
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +13,7 @@ import kotlin.collections.HashMap
 import kotlin.collections.MutableMap
 import kotlin.collections.set
 
-var isNameUpdated = BooVariable()
+var isNameOrPicUpdated = BooVariable()
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -28,10 +25,10 @@ class SettingsActivity : AppCompatActivity() {
         val name = findViewById<TextInputEditText>(R.id.tfEditName)
 
         val age  = findViewById<TextInputEditText>(R.id.tfEditAge)
-        //val gender = findViewById<TextInputEditText>(R.id.tfEditGender)
+//        val gender = findViewById<Spinner>(R.id.tfEditGender)
         name.setText(UserDetails().readData("Name"))
         age.setText(UserDetails().readData("Age"))
-        //gender.setText(UserDetails().readData("Gender"))
+//        gender.prompt(UserDetails().readData("Gender"))
 
         findViewById<Button>(R.id.btn1).setOnClickListener {
             userData["Name"] = name.text.toString()

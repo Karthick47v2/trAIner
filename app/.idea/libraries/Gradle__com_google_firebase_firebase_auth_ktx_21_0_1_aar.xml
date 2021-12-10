@@ -2,8 +2,9 @@
   <library name="Gradle: com.google.firebase:firebase-auth-ktx:21.0.1@aar">
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/016411422652a7ce69c3bcec2d796ba7/transformed/jetified-firebase-auth-ktx-21.0.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/92df123a808c443d9f68924e4c89cd84/transformed/jetified-firebase-auth-ktx-21.0.1/AndroidManifest.xml" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/92df123a808c443d9f68924e4c89cd84/transformed/jetified-firebase-auth-ktx-21.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/7ab66c175b5fe0c16c7bd6b633687ca0/transformed/jetified-firebase-auth-ktx-21.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/92df123a808c443d9f68924e4c89cd84/transformed/jetified-firebase-auth-ktx-21.0.1/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/92df123a808c443d9f68924e4c89cd84/transformed/jetified-firebase-auth-ktx-21.0.1/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
