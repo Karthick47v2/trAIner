@@ -51,7 +51,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tfEditName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:drawablePadding="10dp"
             android:textColor="@color/white"
             android:text="@string/user_name" />
@@ -86,9 +86,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tfEditAge"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:digits="1234567890"
             android:drawablePadding="10dp"
+            android:layout_height="48dp"
             android:inputType="number"
             android:textColor="@color/white"
             android:text="@string/age_text" />

@@ -1,37 +1,86 @@
 package com.dedsec_x47.trainer.exercisePages
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.Editable
 import android.text.TextUtils
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.auth.UserDetails
 import com.dedsec_x47.trainer.databinding.ActivityCreateNewChallangeBinding
-import java.util.*
-import kotlin.collections.HashMap
 
 
 class CreateNewChallenge : AppCompatActivity() {
-
+    lateinit var textview: TextView
+    lateinit var dialog: Dialog
     private lateinit var activityCreateNewChallangeBinding: ActivityCreateNewChallangeBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        var isFriendFound = false
+        var isFriendselected = false
+        val challenge: MutableMap<String, Any> = HashMap()
         super.onCreate(savedInstanceState)
         activityCreateNewChallangeBinding =
             ActivityCreateNewChallangeBinding.inflate(layoutInflater)
         setContentView(activityCreateNewChallangeBinding.root)
 
+        textview = findViewById(R.id.testView)
+        val arraylist = UserDetails().returnList()
+
+        textview.setOnClickListener(View.OnClickListener {
+
+            dialog = Dialog(this)
+            dialog.setContentView(R.layout.dialog_searchable_spinner)
+            dialog.window!!.setLayout(1000, 1000)
+            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.show()
+
+            val editText = dialog.findViewById<EditText>(R.id.edit_text)
+            val listView = dialog.findViewById<ListView>(R.id.list_view)
+
+            val adapter = ArrayAdapter(
+                this, android.R.layout.simple_spinner_dropdown_item,
+                arraylist
+            )
+
+            listView.adapter = adapter
+
+            editText.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
+
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    adapter.filter.filter(s)
+                }
+
+                override fun afterTextChanged(s: Editable) {}
+            })
+
+            listView.onItemClickListener =
+                AdapterView.OnItemClickListener { parent, view, position, id ->
+                    textview.text = adapter.getItem(position)
+                    isFriendselected = true
+                    dialog.dismiss()
+                    challenge.clear()
+                    challenge["To"] = adapter.getItem(position).toString()
+                }
+        })
+
         val exercises = resources.getStringArray(R.array.exerciseDropdown)
         val spin1 = activityCreateNewChallangeBinding.spinnerExe1
         val spin2 = activityCreateNewChallangeBinding.spinnerExe2
         val spin3 = activityCreateNewChallangeBinding.spinnerExe3
-
-        val challangeCard1 = activityCreateNewChallangeBinding.linearExe1
         val challangeCard2 = activityCreateNewChallangeBinding.linearExe2
         val challangeCard3 = activityCreateNewChallangeBinding.linearExe3
 
@@ -58,7 +107,6 @@ class CreateNewChallenge : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // write code to perform some action
             }
         }
 
@@ -72,7 +120,6 @@ class CreateNewChallenge : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // write code to perform some action
             }
         }
 
@@ -86,32 +133,11 @@ class CreateNewChallenge : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // write code to perform some action
-            }
-        }
-
-        var challenge: MutableMap<String, Any> = HashMap()
-        activityCreateNewChallangeBinding.btnSearch.setOnClickListener {
-            isFriendFound = false
-            val friendName = activityCreateNewChallangeBinding.textSearchFriends.text.toString()
-            val NameList = UserDetails().returnList()
-
-            for (element in NameList) {
-                if (element.contains(friendName.lowercase(Locale.getDefault()))) {
-                    challenge.clear()
-                    challenge["To"] = friendName
-                    Toast.makeText(baseContext, "Friend Found", Toast.LENGTH_SHORT).show()
-                    isFriendFound = true
-                    break
-                }
-            }
-            if (!isFriendFound) {
-                Toast.makeText(baseContext, "Friend not Found", Toast.LENGTH_SHORT).show()
             }
         }
 
         activityCreateNewChallangeBinding.btnAddChallenge.setOnClickListener {
-            if (isFriendFound) when {
+            if (isFriendselected) when {
                 challangeCard2.visibility == View.GONE -> {
                     challangeCard2.visibility = View.VISIBLE
                 }
@@ -119,7 +145,7 @@ class CreateNewChallenge : AppCompatActivity() {
                     challangeCard3.visibility = View.VISIBLE
                 }
                 else -> {
-                    toast("Maximum Challange Amount Reached")
+                    toast("Maximum Challenge Amount Reached")
                 }
             }
             else {
@@ -191,15 +217,11 @@ class CreateNewChallenge : AppCompatActivity() {
 
     private fun isAllFilled(exercise: String, repetationCount: String, cardNo: Int): Boolean {
         if (exercise != "Push up" && exercise != "Sit up" && exercise != "Chin up" && exercise != "Hammer Curl" && exercise != "Squat") {
-            Toast.makeText(
-                baseContext, "Please select a exercise in $cardNo", Toast.LENGTH_SHORT
-            ).show()
+            toast("Please select a exercise in $cardNo")
             return false
         }
         if (TextUtils.isEmpty(repetationCount)) {
-            Toast.makeText(
-                baseContext, "Please Enter Repetition Count$cardNo", Toast.LENGTH_SHORT
-            ).show()
+            toast("Please Enter Repetition Count$cardNo")
             return false
         }
         return true
