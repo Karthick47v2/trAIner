@@ -112,7 +112,6 @@ class LoginActivity : AppCompatActivity() {
     private fun signin() {
         val intent = Intent(this, SignIn::class.java)
         startActivity(intent)
-        dialog.dismiss()
         finish()
     }
 
