@@ -179,6 +179,7 @@
     <string name="workout_name">Workout name</string>
     <string name="remaining_fixed">remaining</string>
     <string name="remaining_workout_count">5</string>
+    <string name="choose_a_friend">Choose A Friend</string>
 
     <string-array name="models_array">
         <item>Light</item>

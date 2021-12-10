@@ -8,7 +8,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dedsec_x47.trainer.HomeScreen
@@ -23,11 +22,12 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     var isVertificationEmailSent = false
-    lateinit var dialog : Dialog
+    lateinit var dialog: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        loadng()
         createNotificationChannel()
-         loadng()
+
         auth = Firebase.auth
         auth.addAuthStateListener { auth ->
 
@@ -81,21 +81,14 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadng(){
-        Log.d("LOAD","START LOADONG")
+    private fun loadng() {
+        Log.d("LOAD", "START LOADONG")
         val builder = AlertDialog.Builder(this)
-        val dialogView = layoutInflater.inflate(R.layout.activity_loading,null)
+        val dialogView = layoutInflater.inflate(R.layout.activity_loading, null)
         builder.setView(dialogView)
         builder.setCancelable(false)
         dialog = builder.create()
         dialog.show()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        if ( dialog != null && dialog.isShowing() ){
-            dialog.cancel();
-        }
     }
 
     private fun sendEmailVerification() {
@@ -133,7 +126,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onChange() {
                 Log.d("BOOL", bv.get().toString())
                 if (bv.get()) {
-                    //dialog.dismiss()
+                    dialog.dismiss()
                     home()
                     bv.set(false)
                 }

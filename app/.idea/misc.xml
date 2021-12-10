@@ -69,8 +69,9 @@
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/layout/settings.xml" value="0.1555921052631579" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="..\:/JATHURSH/Git_Projects/GitHub/trAIner/myRepos/app/src/main/res/menu/nav_drawer_menu.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.12916666666666668" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/drawable-v21/app_widget_background.xml" value="0.2765625" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_create_new_challange.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_create_new_challange.xml" value="0.4" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_feedback.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_get_user_details.xml" value="0.1334853090172239" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_home.xml" value="0.1" />
@@ -85,21 +86,24 @@
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_rewards_lose.xml" value="0.25677083333333334" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_rewards_win.xml" value="0.25677083333333334" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_setalarm.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_settings.xml" value="0.1" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_settings.xml" value="0.264" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_sign_in.xml" value="0.1334853090172239" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_signin.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_signup.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_starting.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/activity_strength_training.xml" value="0.19202898550724637" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/cloudmessagingservice.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/dialog_searchable_spinner.xml" value="0.25677083333333334" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/fragment_challenge.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/fragment_home.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/fragment_leaderboard.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/fragment_profile.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/fragment_stats.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/item_spinner.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/nav_header.xml" value="0.1" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/password_reset_popup.xml" value="0.25677083333333334" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/settings.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/layout/temp.xml" value="0.25677083333333334" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/menu/nav_drawer_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/DELL/Documents/GitHub/trAIner/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22037037037037038" />
