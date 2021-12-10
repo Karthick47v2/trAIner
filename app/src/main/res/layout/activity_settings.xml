@@ -33,138 +33,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfFullName"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="30dp"
-            android:padding="2dp"
-            android:hint="@string/user_name_hint_1"
-            app:hintTextColor="@color/grey"
-            android:background="@color/dark_grey"
-            app:layout_constraintEnd_toStartOf="@+id/btn1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tfEditName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawablePadding="10dp"
-                android:textColor="@color/white"
-                android:text="@string/user_name" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <ImageButton
-            android:id="@+id/btn1"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/ripple_effect"
-            android:src="@drawable/ic_done_settings"
-            app:layout_constraintBottom_toBottomOf="@+id/tfFullName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tfFullName" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfAge"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
-            android:padding="2dp"
-            android:hint="@string/age_hint"
-            app:hintTextColor="@color/grey"
-            android:background="@color/dark_grey"
-            app:layout_constraintEnd_toStartOf="@+id/btn2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tfFullName">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tfEditAge"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:digits="1234567890"
-                android:drawablePadding="10dp"
-                android:inputType="number"
-                android:textColor="@color/white"
-                android:text="@string/age_text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <ImageButton
-            android:id="@+id/btn2"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginEnd="15dp"
-            android:src="@drawable/ic_done_settings"
-            android:background="@drawable/ripple_effect"
-            app:layout_constraintBottom_toBottomOf="@+id/tfAge"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tfAge" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfGender"
-            android:layout_width="0dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="10dp"
-            android:padding="2dp"
-            android:hint="@string/gender_hint"
-            app:hintTextColor="@color/grey"
-            android:background="@color/dark_grey"
-            app:layout_constraintEnd_toStartOf="@id/btn3"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tfAge">
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:entries="@array/gender" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <ImageButton
-            android:id="@+id/btn3"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/ripple_effect"
-            android:src="@drawable/ic_done_settings"
-            app:layout_constraintBottom_toBottomOf="@+id/tfGender"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tfGender" />
-
-        <Button
-            android:id="@+id/btnUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ripple_effect"
-            android:padding="5dp"
-            android:text="@string/text_update"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/tfGender"
-            app:layout_constraintStart_toStartOf="@+id/tfGender"
-            app:layout_constraintTop_toBottomOf="@+id/tfGender" />
-    -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tfFullName"
         android:layout_width="0dp"
         android:layout_height="54dp"
         android:layout_marginStart="15dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginTop="30dp"
+        android:padding="2dp"
         android:hint="@string/user_name_hint_1"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/orange"
-        app:layout_constraintEnd_toStartOf="@id/btn1"
+        app:hintTextColor="@color/grey"
+        android:background="@color/dark_grey"
+        app:layout_constraintEnd_toStartOf="@+id/btn1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
@@ -172,16 +51,10 @@
             android:id="@+id/tfEditName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/edit_text_ripple"
-            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
-            android:drawableStart="@drawable/ic_baseline_account_circle_24"
-            android:layout_height="48dp"
             android:drawablePadding="10dp"
-            android:inputType="textFilter"
-            android:padding="10dp"
             android:textColor="@color/white"
-            android:textSize="17sp"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:text="@string/user_name" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
@@ -195,26 +68,56 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tfFullName" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clGender"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tfAge"
         android:layout_width="0dp"
         android:layout_height="54dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/edit_text_ripple"
-        app:layout_constraintEnd_toEndOf="@+id/tfFullName"
-        app:layout_constraintStart_toStartOf="@+id/tfFullName"
+        android:padding="2dp"
+        android:hint="@string/age_hint"
+        app:hintTextColor="@color/grey"
+        android:background="@color/dark_grey"
+        app:layout_constraintEnd_toStartOf="@+id/btn2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfFullName">
 
-        <ImageView
-            android:id="@+id/ivGender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingStart="10dp"
-            android:src="@drawable/ic_baseline_sentiment_satisfied_alt_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="ContentDescription,RtlSymmetry" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tfEditAge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:digits="1234567890"
+            android:drawablePadding="10dp"
+            android:inputType="number"
+            android:textColor="@color/white"
+            android:text="@string/age_text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/btn2"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/ic_done_settings"
+        android:background="@drawable/ripple_effect"
+        app:layout_constraintBottom_toBottomOf="@+id/tfAge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tfAge" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tfGender"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:padding="2dp"
+        android:hint="@string/gender_hint"
+        app:hintTextColor="@color/grey"
+        android:background="@color/dark_grey"
+        app:layout_constraintEnd_toStartOf="@id/btn3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tfAge">
 
         <Spinner
             android:id="@+id/spinGender"
@@ -222,48 +125,10 @@
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivGender"
+            android:textColor="@color/white"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageButton
-        android:id="@+id/btn2"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/ripple_effect"
-        android:src="@drawable/ic_done_settings"
-        app:layout_constraintBottom_toBottomOf="@+id/clGender"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/clGender" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tfAge"
-        android:layout_width="0dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="10dp"
-        android:hint="@string/age_hint"
-        android:textColorHint="@color/white"
-        app:hintTextColor="@color/orange"
-        app:layout_constraintEnd_toEndOf="@+id/clGender"
-        app:layout_constraintStart_toStartOf="@+id/clGender"
-        app:layout_constraintTop_toBottomOf="@+id/clGender">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tfEditAge"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/edit_text_ripple"
-            android:digits="1234567890"
-            android:drawableStart="@drawable/ic_baseline_calendar_today_24"
-            android:drawablePadding="10dp"
-            android:inputType="number"
-            android:padding="10dp"
-            android:textColor="@color/white"
-            android:textSize="17sp"
-            tools:ignore="TouchTargetSizeCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <ImageButton
         android:id="@+id/btn3"
@@ -272,9 +137,9 @@
         android:layout_marginEnd="15dp"
         android:background="@drawable/ripple_effect"
         android:src="@drawable/ic_done_settings"
-        app:layout_constraintBottom_toBottomOf="@+id/tfAge"
+        app:layout_constraintBottom_toBottomOf="@+id/tfGender"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tfAge" />
+        app:layout_constraintTop_toTopOf="@+id/tfGender" />
 
     <Button
         android:id="@+id/btnUpdate"
@@ -287,10 +152,148 @@
         android:text="@string/text_update"
         android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="@+id/tfAge"
-        app:layout_constraintStart_toStartOf="@+id/tfAge"
-        app:layout_constraintTop_toBottomOf="@+id/tfAge" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/tfGender"
+        app:layout_constraintStart_toStartOf="@+id/tfGender"
+        app:layout_constraintTop_toBottomOf="@+id/tfGender" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/tfFullName"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="54dp"-->
+    <!--        android:layout_marginStart="15dp"-->
+    <!--        android:layout_marginEnd="10dp"-->
+    <!--        android:layout_marginTop="30dp"-->
+    <!--        android:hint="@string/user_name_hint_1"-->
+    <!--        android:textColorHint="@color/white"-->
+    <!--        app:hintTextColor="@color/orange"-->
+    <!--        app:layout_constraintEnd_toStartOf="@id/btn1"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/textView3">-->
+
+    <!--        <com.google.android.material.textfield.TextInputEditText-->
+    <!--            android:id="@+id/tfEditName"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:background="@drawable/edit_text_ripple"-->
+    <!--            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"-->
+    <!--            android:drawableStart="@drawable/ic_baseline_account_circle_24"-->
+    <!--            android:drawablePadding="10dp"-->
+    <!--            android:inputType="textFilter"-->
+    <!--            android:padding="10dp"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textSize="17sp"-->
+    <!--            tools:ignore="TouchTargetSizeCheck" />-->
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/btn1"-->
+    <!--        android:layout_width="54dp"-->
+    <!--        android:layout_height="54dp"-->
+    <!--        android:layout_marginEnd="15dp"-->
+    <!--        android:background="@drawable/ripple_effect"-->
+    <!--        android:src="@drawable/ic_done_settings"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/tfFullName"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/tfFullName" />-->
+
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:id="@+id/clGender"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="54dp"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:background="@drawable/edit_text_ripple"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tfFullName"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tfFullName"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tfFullName">-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/ivGender"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:paddingStart="10dp"-->
+    <!--            android:src="@drawable/ic_baseline_sentiment_satisfied_alt_24"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            tools:ignore="ContentDescription,RtlSymmetry" />-->
+
+    <!--        <Spinner-->
+    <!--            android:id="@+id/spinGender"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/ivGender"-->
+    <!--            app:layout_constraintTop_toTopOf="parent"-->
+    <!--            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />-->
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/btn2"-->
+    <!--        android:layout_width="54dp"-->
+    <!--        android:layout_height="54dp"-->
+    <!--        android:layout_marginEnd="15dp"-->
+    <!--        android:background="@drawable/ripple_effect"-->
+    <!--        android:src="@drawable/ic_done_settings"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/clGender"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/clGender" />-->
+
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/tfAge"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="54dp"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:hint="@string/age_hint"-->
+    <!--        android:textColorHint="@color/white"-->
+    <!--        app:hintTextColor="@color/orange"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/clGender"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/clGender"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/clGender">-->
+
+    <!--        <com.google.android.material.textfield.TextInputEditText-->
+    <!--            android:id="@+id/tfEditAge"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:background="@drawable/edit_text_ripple"-->
+    <!--            android:digits="1234567890"-->
+    <!--            android:drawableStart="@drawable/ic_baseline_calendar_today_24"-->
+    <!--            android:drawablePadding="10dp"-->
+    <!--            android:inputType="number"-->
+    <!--            android:padding="10dp"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textSize="17sp"-->
+    <!--            tools:ignore="TouchTargetSizeCheck" />-->
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/btn3"-->
+    <!--        android:layout_width="54dp"-->
+    <!--        android:layout_height="54dp"-->
+    <!--        android:layout_marginEnd="15dp"-->
+    <!--        android:background="@drawable/ripple_effect"-->
+    <!--        android:src="@drawable/ic_done_settings"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/tfAge"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/tfAge" />-->
+
+    <!--    <Button-->
+    <!--        android:id="@+id/btnUpdate"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginHorizontal="15dp"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:background="@drawable/ripple_effect"-->
+    <!--        android:padding="5dp"-->
+    <!--        android:text="@string/text_update"-->
+    <!--        android:textAllCaps="true"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:textSize="17sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/tfAge"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/tfAge"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tfAge" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
