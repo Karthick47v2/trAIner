@@ -4,19 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     tools:context=".homeFragments.ChallengeFragment">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:foreground="@color/transparentBlack"
+        android:scaleType="centerCrop"
         android:src="@drawable/bg_profile_fragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/transparentBlack"
+        android:fontFamily="@font/roboto_medium"
+        android:paddingVertical="10dp"
+        android:text="CHALLENGES"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clDailyChallenge"
@@ -25,21 +40,24 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/dail_challenge_bg_opacity"
+        android:elevation="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <TextView
             android:id="@+id/tvDailyChallenge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="@string/fixed_daily_challenges"
-            android:textAlignment="center"
             android:background="@color/orange_opacity_60"
             android:padding="5dp"
-            android:textSize="20sp"
+            android:text="@string/fixed_daily_challenges"
+            android:textAlignment="center"
             android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,8 +70,8 @@
             android:layout_marginEnd="80dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_push_up"
-            android:textSize="15sp"
             android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintEnd_toStartOf="@+id/tvSitUp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDailyChallenge" />
@@ -63,23 +81,23 @@
             style="@style/CircularDeterminateProgressBar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            tools:progress="80"
             app:layout_constraintEnd_toEndOf="@+id/tvPushUp"
             app:layout_constraintStart_toStartOf="@+id/tvPushUp"
-            app:layout_constraintTop_toBottomOf="@+id/tvPushUp"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvPushUp"
+            tools:progress="80" />
 
         <TextView
             android:id="@+id/tvProgressPushUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/progressPushUp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/pbPushUp"
             app:layout_constraintEnd_toEndOf="@+id/pbPushUp"
             app:layout_constraintStart_toStartOf="@+id/pbPushUp"
-            app:layout_constraintTop_toTopOf="@+id/pbPushUp"
-            android:textSize="15sp"
-            android:text="@string/progressPushUp"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="@+id/pbPushUp" />
 
         <TextView
             android:id="@+id/tvSitUp"
@@ -88,8 +106,8 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_sit_up"
-            android:textSize="15sp"
             android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tvPushUp"
@@ -100,23 +118,23 @@
             style="@style/CircularDeterminateProgressBar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            tools:progress="0"
             app:layout_constraintEnd_toEndOf="@+id/tvSitUp"
             app:layout_constraintStart_toStartOf="@+id/tvSitUp"
-            app:layout_constraintTop_toBottomOf="@+id/tvSitUp"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvSitUp"
+            tools:progress="0" />
 
         <TextView
             android:id="@+id/tvProgressSitUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/progressSitUp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/pbSitUp"
             app:layout_constraintEnd_toEndOf="@+id/pbSitUp"
             app:layout_constraintStart_toStartOf="@+id/pbSitUp"
-            app:layout_constraintTop_toTopOf="@+id/pbSitUp"
-            android:textSize="15sp"
-            android:text="@string/progressSitUp"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="@+id/pbSitUp" />
 
         <TextView
             android:id="@+id/tvSquats"
@@ -125,34 +143,34 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_squats"
-            android:textSize="15sp"
             android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="@+id/pbPushUp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/pbPushUp"
-            app:layout_constraintTop_toBottomOf="@+id/pbPushUp"/>
+            app:layout_constraintStart_toStartOf="@+id/pbPushUp"
+            app:layout_constraintTop_toBottomOf="@+id/pbPushUp" />
 
         <ProgressBar
             android:id="@+id/pbSquats"
             style="@style/CircularDeterminateProgressBar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            tools:progress="0"
             app:layout_constraintEnd_toEndOf="@+id/tvSquats"
             app:layout_constraintStart_toStartOf="@+id/tvSquats"
-            app:layout_constraintTop_toBottomOf="@+id/tvSquats"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvSquats"
+            tools:progress="0" />
 
         <TextView
             android:id="@+id/tvProgressSquats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/progressSquats"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/pbSquats"
             app:layout_constraintEnd_toEndOf="@+id/pbSquats"
             app:layout_constraintStart_toStartOf="@+id/pbSquats"
-            app:layout_constraintTop_toTopOf="@+id/pbSquats"
-            android:textSize="15sp"
-            android:text="@string/progressSquats"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="@+id/pbSquats" />
 
         <TextView
             android:id="@+id/tvPlank"
@@ -161,34 +179,34 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_plank"
-            android:textSize="15sp"
             android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="@+id/pbSitUp"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/pbSitUp"
-            app:layout_constraintTop_toBottomOf="@+id/pbSitUp"/>
+            app:layout_constraintStart_toStartOf="@+id/pbSitUp"
+            app:layout_constraintTop_toBottomOf="@+id/pbSitUp" />
 
         <ProgressBar
             android:id="@+id/pbPlank"
             style="@style/CircularDeterminateProgressBar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            tools:progress="0"
             app:layout_constraintEnd_toEndOf="@+id/tvPlank"
             app:layout_constraintStart_toStartOf="@+id/tvPlank"
-            app:layout_constraintTop_toBottomOf="@+id/tvPlank"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvPlank"
+            tools:progress="0" />
 
         <TextView
             android:id="@+id/tvProgressPlank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/progressPlank"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/pbPlank"
             app:layout_constraintEnd_toEndOf="@+id/pbPlank"
             app:layout_constraintStart_toStartOf="@+id/pbPlank"
-            app:layout_constraintTop_toTopOf="@+id/pbPlank"
-            android:textSize="15sp"
-            android:text="@string/progressPlank"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="@+id/pbPlank" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -199,7 +217,9 @@
         android:layout_marginHorizontal="10dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/weekly_challenge_bg_opacity"
+        android:elevation="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/clDailyChallenge">
 
@@ -208,12 +228,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="@string/fixed_weekly_challenges"
-            android:textColor="@color/white"
-            android:textAlignment="center"
             android:background="@color/orange_opacity_60"
             android:padding="5dp"
+            android:text="@string/fixed_weekly_challenges"
+            android:textAlignment="center"
+            android:textColor="@color/white"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -226,8 +247,8 @@
             android:layout_marginEnd="80dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_push_up"
-            android:textSize="15sp"
             android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintEnd_toStartOf="@+id/tvChinUp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvWeeklyChallenges" />
@@ -237,23 +258,23 @@
             style="@style/CircularDeterminateProgressBar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            tools:progress="0"
             app:layout_constraintEnd_toEndOf="@+id/tvPushUp1"
             app:layout_constraintStart_toStartOf="@+id/tvPushUp1"
-            app:layout_constraintTop_toBottomOf="@+id/tvPushUp1"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvPushUp1"
+            tools:progress="0" />
 
         <TextView
             android:id="@+id/tvProgressPushUp1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/progressPushUp1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/pbPushUp1"
             app:layout_constraintEnd_toEndOf="@+id/pbPushUp1"
             app:layout_constraintStart_toStartOf="@+id/pbPushUp1"
-            app:layout_constraintTop_toTopOf="@+id/pbPushUp1"
-            android:textSize="15sp"
-            android:text="@string/progressPushUp1"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="@+id/pbPushUp1" />
 
         <TextView
             android:id="@+id/tvChinUp"
@@ -262,8 +283,8 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_chin_up"
-            android:textSize="15sp"
             android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tvPushUp1"
@@ -274,23 +295,23 @@
             style="@style/CircularDeterminateProgressBar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            tools:progress="0"
             app:layout_constraintEnd_toEndOf="@+id/tvChinUp"
             app:layout_constraintStart_toStartOf="@+id/tvChinUp"
-            app:layout_constraintTop_toBottomOf="@+id/tvChinUp"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvChinUp"
+            tools:progress="0" />
 
         <TextView
             android:id="@+id/tvProgressChinUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/progressChinUp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/pbChinUp"
             app:layout_constraintEnd_toEndOf="@+id/pbChinUp"
             app:layout_constraintStart_toStartOf="@+id/pbChinUp"
-            app:layout_constraintTop_toTopOf="@+id/pbChinUp"
-            android:textSize="15sp"
-            android:text="@string/progressChinUp"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="@+id/pbChinUp" />
 
         <TextView
             android:id="@+id/tvPlank1"
@@ -299,8 +320,8 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_plank"
-            android:textSize="15sp"
             android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/pbPushUp1"
             app:layout_constraintStart_toStartOf="@+id/pbPushUp1"
             app:layout_constraintTop_toBottomOf="@+id/pbPushUp1" />
@@ -310,23 +331,23 @@
             style="@style/CircularDeterminateProgressBar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            tools:progress="0"
             app:layout_constraintEnd_toEndOf="@+id/tvPlank1"
             app:layout_constraintStart_toStartOf="@+id/tvPlank1"
-            app:layout_constraintTop_toBottomOf="@+id/tvPlank1"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvPlank1"
+            tools:progress="0" />
 
         <TextView
             android:id="@+id/tvProgressPlank1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/progressPlank1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/pbPlank1"
             app:layout_constraintEnd_toEndOf="@+id/pbPlank1"
             app:layout_constraintStart_toStartOf="@+id/pbPlank1"
-            app:layout_constraintTop_toTopOf="@+id/pbPlank1"
-            android:textSize="15sp"
-            android:text="@string/progressPlank1"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="@+id/pbPlank1" />
 
         <TextView
             android:id="@+id/tvHammerCurl"
@@ -335,8 +356,8 @@
             android:layout_marginTop="5dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/fixed_hammer_curl"
-            android:textSize="15sp"
             android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/pbChinUp"
             app:layout_constraintStart_toStartOf="@+id/pbChinUp"
             app:layout_constraintTop_toBottomOf="@+id/pbChinUp" />
@@ -346,23 +367,23 @@
             style="@style/CircularDeterminateProgressBar"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            tools:progress="0"
             app:layout_constraintEnd_toEndOf="@+id/tvHammerCurl"
             app:layout_constraintStart_toStartOf="@+id/tvHammerCurl"
-            app:layout_constraintTop_toBottomOf="@+id/tvHammerCurl"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvHammerCurl"
+            tools:progress="0" />
 
         <TextView
             android:id="@+id/tvProgressHammerCurl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/progressHammerCurl"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/pbHammerCurl"
             app:layout_constraintEnd_toEndOf="@+id/pbHammerCurl"
             app:layout_constraintStart_toStartOf="@+id/pbHammerCurl"
-            app:layout_constraintTop_toTopOf="@+id/pbHammerCurl"
-            android:textSize="15sp"
-            android:text="@string/progressHammerCurl"
-            android:textColor="@color/white"/>
+            app:layout_constraintTop_toTopOf="@+id/pbHammerCurl" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -371,16 +392,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:padding="8dp"
-        android:textSize="18sp"
-        android:textAlignment="center"
+        android:background="@drawable/btn_orange_ripple"
         android:drawableLeft="@drawable/ic_create_challenge"
+        android:padding="8dp"
         android:text="@string/create_challenge_fixed"
+        android:textAlignment="center"
         android:textAllCaps="false"
-        android:background="@color/orange_opacity_60"
-        app:layout_constraintTop_toBottomOf="@+id/clWeeklyChallenge"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clWeeklyChallenge" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
