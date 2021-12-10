@@ -54,6 +54,7 @@ class ProfileFragment : Fragment() {
             (view?.findViewById<ShapeableImageView>(R.id.savProfileImage))?.setImageURI(
                 userProfileImageUri
             )
+            isNameOrPicUpdated.set(true)
         }
     }
 
