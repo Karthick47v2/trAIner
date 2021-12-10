@@ -40,8 +40,10 @@
         android:layout_height="54dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
+        android:padding="2dp"
         android:hint="@string/user_name_hint_1"
         app:hintTextColor="@color/grey"
+        android:background="@color/dark_grey"
         app:layout_constraintEnd_toStartOf="@+id/btn1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
@@ -56,15 +58,13 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/btn1"
-        android:layout_width="wrap_content"
+        android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/ripple_effect"
-        android:text="@string/save_username"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:src="@drawable/ic_done_settings"
         app:layout_constraintBottom_toBottomOf="@+id/tfFullName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tfFullName" />
@@ -75,8 +75,10 @@
         android:layout_height="54dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
+        android:padding="2dp"
         android:hint="@string/age_hint"
         app:hintTextColor="@color/grey"
+        android:background="@color/dark_grey"
         app:layout_constraintEnd_toStartOf="@+id/btn2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfFullName">
@@ -93,28 +95,27 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/btn2"
-        android:layout_width="wrap_content"
+        android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_marginEnd="15dp"
+        android:src="@drawable/ic_done_settings"
         android:background="@drawable/ripple_effect"
-        android:text="@string/save_age"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/tfAge"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tfAge" />
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:id="@+id/tfGender"
         android:layout_width="0dp"
         android:layout_height="54dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
+        android:padding="2dp"
         android:hint="@string/gender_hint"
         app:hintTextColor="@color/grey"
+        android:background="@color/dark_grey"
         app:layout_constraintEnd_toStartOf="@id/btn3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tfAge">
@@ -126,15 +127,13 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/btn3"
-        android:layout_width="wrap_content"
+        android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/ripple_effect"
-        android:text="@string/save_age"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:src="@drawable/ic_done_settings"
         app:layout_constraintBottom_toBottomOf="@+id/tfGender"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tfGender" />
