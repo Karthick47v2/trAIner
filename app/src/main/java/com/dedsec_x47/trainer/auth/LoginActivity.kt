@@ -1,14 +1,18 @@
 package com.dedsec_x47.trainer.auth
 
+import android.app.AlertDialog
+import android.app.Dialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.dedsec_x47.trainer.HomeScreen
+import com.dedsec_x47.trainer.R
 import com.facebook.AccessToken
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -19,11 +23,11 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     var isVertificationEmailSent = false
-
+    lateinit var dialog : Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         createNotificationChannel()
-
+         loadng()
         auth = Firebase.auth
         auth.addAuthStateListener { auth ->
 
@@ -39,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
 
                 if (!isLoggedIn) {
                     if (user.isEmailVerified) {
+
                         isVertificationEmailSent = false
                         Log.d(" ", "Email Is verified")
                         isStarting = true
@@ -50,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
                         } else {
                             UserDetails().loadFireStoreData()
                         }
-                        x()
+                        downloadAndStart()
                     } else {
 
                         Log.d(" ", "Email is not verified ")
@@ -76,6 +81,23 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun loadng(){
+        Log.d("LOAD","START LOADONG")
+        val builder = AlertDialog.Builder(this)
+        val dialogView = layoutInflater.inflate(R.layout.activity_loading,null)
+        builder.setView(dialogView)
+        builder.setCancelable(false)
+        dialog = builder.create()
+        dialog.show()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if ( dialog != null && dialog.isShowing() ){
+            dialog.cancel();
+        }
+    }
+
     private fun sendEmailVerification() {
         val user = auth.currentUser
         user!!.sendEmailVerification()
@@ -97,25 +119,27 @@ class LoginActivity : AppCompatActivity() {
     private fun signin() {
         val intent = Intent(this, SignIn::class.java)
         startActivity(intent)
+        finish()
     }
 
-    private fun x() {
+    private fun home() {
+        val intent = Intent(this, HomeScreen::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun downloadAndStart() {
         bv.listener = object : BooVariable.ChangeListener {
             override fun onChange() {
                 Log.d("BOOL", bv.get().toString())
                 if (bv.get()) {
+                    //dialog.dismiss()
                     home()
                     bv.set(false)
                 }
             }
         }
     }
-
-    private fun home() {
-        val intent = Intent(this, HomeScreen::class.java)
-        startActivity(intent)
-    }
-
 
     private fun createNotificationChannel() {
         val name = "trAIner"

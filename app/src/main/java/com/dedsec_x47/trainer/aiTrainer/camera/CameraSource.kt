@@ -27,10 +27,7 @@ import com.dedsec_x47.trainer.aiTrainer.render.Visual
 import com.dedsec_x47.trainer.aiTrainer.render.RGBConverter
 import com.dedsec_x47.trainer.aiTrainer.pose.PoseDetector
 import com.dedsec_x47.trainer.aiTrainer.data.Human
-import com.dedsec_x47.trainer.aiTrainer.poseClassify.DeadLift
-import com.dedsec_x47.trainer.aiTrainer.poseClassify.HammerCurl
-import com.dedsec_x47.trainer.aiTrainer.poseClassify.LegRaise
-import com.dedsec_x47.trainer.aiTrainer.poseClassify.Plank
+import com.dedsec_x47.trainer.aiTrainer.poseClassify.*
 import com.dedsec_x47.trainer.aiTrainer.poseDetect
 import java.util.*
 import kotlin.coroutines.resume
@@ -214,7 +211,7 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
                 Exercise.ShoulderpressDumbell -> Log.d(ContentValues.TAG, "ShoulderpeeD")
                 Exercise.Situp -> Log.d(ContentValues.TAG, "Situp")
                 Exercise.Splitsquat -> Log.d(ContentValues.TAG, "Splitsquat")
-                Exercise.Squat -> Log.d(ContentValues.TAG, "Squat")
+                Exercise.Squat -> count = Squat.getSquatAngles(human, bitmap, surfaceView)
                 else -> count = LegRaise.getLegRaiseAngles(human, surfaceView)
             }
                 this.act.runOnUiThread(java.lang.Runnable {
