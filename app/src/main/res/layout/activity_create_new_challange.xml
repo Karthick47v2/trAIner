@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/imageView5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:foreground="@color/transparentBlack"
@@ -34,30 +35,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutSearch"
+    <TextView
+        android:id="@+id/testView"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="18dp"
+        android:layout_height="48dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:hint="@string/search_a_person"
-        android:textColorHint="@color/black"
-        app:hintTextColor="@color/black"
+        android:layout_marginHorizontal="10dp"
+        android:paddingEnd="15dp"
+        android:background="@drawable/edit_text_ripple"
+        android:gravity="center_vertical"
+        android:text="@string/choose_a_friend"
+        android:paddingStart="30dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitleChallenge">
-
-        <TextView
-            android:id="@+id/testView"
-            android:layout_width="385dp"
-            android:layout_height="48dp"
-            android:background="@android:drawable/editbox_background"
-            android:gravity="center_vertical"
-            android:hint="@string/choose_a_friend"
-            app:hintTextColor="@color/black"
-            android:padding="12dp"
-            android:textColor="@color/black" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitleChallenge"
+        app:drawableEndCompat="@drawable/ic_baseline_arrow_drop_down_circle_24" />
 
 
     <LinearLayout
@@ -65,13 +59,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/bg_challenges_box"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutSearch">
+        app:layout_constraintTop_toBottomOf="@+id/testView">
 
         <LinearLayout
             android:id="@+id/linearExe1"

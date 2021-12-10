@@ -104,7 +104,7 @@
     <string name="text_height">170</string>
     <string name="email_fixed">Email :</string>
     <string name="text_email">example@gmail.com</string>
-    <string name="create_challenge_fixed">Create challenge</string>
+    <string name="create_challenge_fixed">Create Challenge</string>
     <string name="select_time_fixed">Select time</string>
     <string name="text_time">8 : 00 PM</string>
     <string name="set_remainder_fixed">Set remainder</string>
@@ -179,7 +179,7 @@
     <string name="workout_name">Workout name</string>
     <string name="remaining_fixed">remaining</string>
     <string name="remaining_workout_count">5</string>
-    <string name="choose_a_friend">Choose A Friend</string>
+    <string name="choose_a_friend">Select A Person</string>
 
     <string-array name="models_array">
         <item>Light</item>
