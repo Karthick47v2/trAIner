@@ -46,7 +46,7 @@ class SettingsActivity : AppCompatActivity() {
             UserDetails().updateFireStoreData(userData)
             UserDetails().updateLocalDocument(userData)
             if (userData.containsKey("Name")) {
-                isNameUpdated.set(true)
+                //isNameUpdated.set(true)
             }
             userData.clear()
         }
