@@ -8,9 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.HandlerCompat.postDelayed
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.auth.BooVariable
@@ -101,7 +99,7 @@ class HomeScreen : AppCompatActivity() {
             logout()
         }
 
-        updateName()
+        autoUpdate()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -130,13 +128,14 @@ class HomeScreen : AppCompatActivity() {
         finish()
     }
 
-    private fun updateName() {
-        isNameUpdated.listener = object : BooVariable.ChangeListener {
+    private fun autoUpdate() {
+        isNameOrPicUpdated.listener = object : BooVariable.ChangeListener {
             override fun onChange() {
-                Log.d("BOOL", isNameUpdated.get().toString())
-                if (isNameUpdated.get()) {
+                Log.d("BOOL", isNameOrPicUpdated.get().toString())
+                if (isNameOrPicUpdated.get()) {
                     uname.text = UserDetails().readData("Name")
-                    isNameUpdated.set(false)
+                    profPic.setImageURI(getUserImage())
+                    isNameOrPicUpdated.set(false)
                 }
             }
         }

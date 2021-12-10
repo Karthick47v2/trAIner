@@ -13,7 +13,7 @@ import kotlin.collections.HashMap
 import kotlin.collections.MutableMap
 import kotlin.collections.set
 
-var isNameUpdated = BooVariable()
+var isNameOrPicUpdated = BooVariable()
 
 class SettingsActivity : AppCompatActivity() {
 
