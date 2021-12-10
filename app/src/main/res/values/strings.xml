@@ -66,7 +66,6 @@
     <string name="get_started">GET STARTED</string>
     <string name="welcome">WELCOME</string>
     <string name="text_about">Train and live the new experience of AI powered exercising at your home with trAIner and save your trainer costs!</string>
-    <string name="start">Start</string>
     <string name="important">IMPORTANT</string>
     <string name="push_up_caps">PUSH UP</string>
     <string name="cam_view_instruction">Place your mobile camera to obatain the view aproximately as shown in the above images (Direction can be flipped) in order to read your body movements accurately and assist you by the trAIner AI model</string>
@@ -176,6 +175,10 @@
     <string name="challenge_moto">Time to show who you are. Let\'s GO !</string>
     <string name="challenges_to_be_done">Challenges To Be Done</string>
     <string name="challenge_to_do_moto">Time to work. Let\'s conquer one by one. Let\'s GO.</string>
+    <string name="start">Start</string>
+    <string name="workout_name">Workout name</string>
+    <string name="remaining_fixed">remaining</string>
+    <string name="remaining_workout_count">5</string>
 
     <string-array name="models_array">
         <item>Light</item>
