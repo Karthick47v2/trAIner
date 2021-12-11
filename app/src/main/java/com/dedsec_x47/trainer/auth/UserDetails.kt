@@ -6,6 +6,7 @@ import com.dedsec_x47.trainer.R
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.storage.ktx.storage
 import java.io.File
 import java.util.*
@@ -65,7 +66,7 @@ class UserDetails {
 //            userData["Email"] = currentUser.email.toString()
 //        }
 
-        dataBase.collection("users").document(currentUser?.email.toString()).set(userData)
+        dataBase.collection("users").document(currentUser?.email.toString()).update(userData)
             .addOnSuccessListener {
                 Log.d("Save Details", "save Details Successfully ")
                 UserDetails().loadFireStoreData()
@@ -84,9 +85,7 @@ class UserDetails {
             .addOnCompleteListener { task ->
 
                 if (task.isSuccessful) {
-                    document =
-                        task.result.data
-                    fcm = readData("Registration Token")
+                    document = task.result.data
 
                     if (isStarting) {
                         if (!isNewUser) {
@@ -215,5 +214,12 @@ class BooVariable {
     }
 }
 
+//class FCM : FirebaseMessagingService() {
+//    override fun onNewToken(newtoken: String) {
+//        Log.d("TOKEN", "Refreshed token: $newtoken")
+//        fcm = newtoken
+//        UserDetails().updateFireStoreData(hashMapOf("Registration Token" to fcm))
+//    }
+//}
 
 

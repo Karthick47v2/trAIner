@@ -17,8 +17,6 @@ class HomeFragment: Fragment(){
         savedInstanceState: Bundle?
     ): View? {
 
-        UserDetails().loadFireStoreData()
-
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
         val card1 = view.findViewById<CardView>(R.id.cardWeightLoss)

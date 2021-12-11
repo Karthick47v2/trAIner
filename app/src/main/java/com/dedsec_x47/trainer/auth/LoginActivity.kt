@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.dedsec_x47.trainer.CHANNEL_ID
 import com.dedsec_x47.trainer.HomeScreen
 import com.dedsec_x47.trainer.R
 import com.facebook.AccessToken
@@ -25,9 +26,9 @@ class LoginActivity : AppCompatActivity() {
     lateinit var dialog: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loadng()
         createNotificationChannel()
-
+        loadng()
+//        FCM()
         auth = Firebase.auth
         auth.addAuthStateListener { auth ->
 
@@ -140,7 +141,7 @@ class LoginActivity : AppCompatActivity() {
         val descriptionText = "remainder"
         val importance = NotificationManager.IMPORTANCE_HIGH
         val channel =
-            NotificationChannel(com.dedsec_x47.trainer.CHANNEL_ID, name, importance).apply {
+            NotificationChannel(CHANNEL_ID, name, importance).apply {
                 description = descriptionText
             }
         val notificationManager: NotificationManager =
