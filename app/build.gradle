@@ -105,3 +105,8 @@ dependencies {
     //progress dialog library
     implementation 'com.jpardogo.googleprogressbar:library:1.2.0'
 }
+buildscript {
+    dependencies {
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31'
+    }
+}

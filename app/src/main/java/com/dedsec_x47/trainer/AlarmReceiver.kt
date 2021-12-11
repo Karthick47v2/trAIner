@@ -9,6 +9,8 @@ import android.content.pm.PackageManager
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.dedsec_x47.trainer.exercisePages.CreateNewChallenge
+import com.dedsec_x47.trainer.exercisePages.instructions.Challenge_popup
 
 //TODO:if notification comes in working it will open main activity
 
@@ -27,7 +29,7 @@ class AlarmReceiver : BroadcastReceiver() {
                 PackageManager.DONT_KILL_APP
             )
 
-            val intent = Intent(context, HomeScreen::class.java).apply {
+            val intent = Intent(context,Challenge_popup::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             } //on tap this activity will open
 

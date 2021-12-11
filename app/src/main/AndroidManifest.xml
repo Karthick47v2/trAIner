@@ -22,8 +22,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trainer">
         <activity
+            android:name=".exercisePages.instructions.Challenge_popup"
+            android:exported="true" />
+        <activity
             android:name=".aiTrainer.GalleryView"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".aiTrainer.FullImageView"
             android:exported="true" />
@@ -112,8 +115,7 @@
         <activity
             android:name=".homeFragments.SettingsActivity"
             android:exported="true"
-            android:theme="@style/FragmentTheme">
-        </activity>
+            android:theme="@style/FragmentTheme"></activity>
         <activity
             android:name=".HomeScreen"
             android:exported="true"
@@ -139,9 +141,12 @@
             android:name=".AlarmReceiver"
             android:enabled="false"
             android:exported="true">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </receiver>
     </application>
 
