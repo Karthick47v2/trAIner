@@ -22,9 +22,9 @@ android {
             }
         }
 
-        ndk{
+/*        ndk{
             abiFilters 'armeabi-v7a', 'arm64-v8a'
-        }
+        }*/
     }
 
     buildTypes {
@@ -108,7 +108,9 @@ dependencies {
     //progress dialog library
     implementation 'com.jpardogo.googleprogressbar:library:1.2.0'
 
+/*
     implementation project(':unityLibrary')
     implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\libs'), include: ['*.jar'])
+*/
 
 }
