@@ -35,7 +35,7 @@ class UserDetails {
         val fAuth = Firebase.auth
         val currentUser = fAuth.currentUser
         val dataBase = Firebase.firestore
-
+        val token = currentUser?.getIdToken(true)
         val userData: MutableMap<String, Any> = HashMap()
         userData["Name"] = name
         userData["Email"] = currentUser?.email.toString()
