@@ -13,6 +13,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.auth.UserDetails
+import com.dedsec_x47.trainer.auth.userNameMap
 import com.dedsec_x47.trainer.databinding.ActivityCreateNewChallangeBinding
 
 
@@ -79,7 +80,7 @@ class CreateNewChallenge : AppCompatActivity() {
                     isFriendselected = true
                     dialog.dismiss()
                     challenge.clear()
-                    challenge["To"] = adapter.getItem(position).toString()
+                    challenge["To"] = userNameMap[adapter.getItem(position).toString()].toString()
                     challenge["From"] = UserDetails().readData("Name")
                 }
         })
