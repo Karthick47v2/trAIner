@@ -58,7 +58,7 @@ class ProfileFragment : Fragment() {
             isNameOrPicUpdated.set(true)
         }
     }
-    
+
     private fun autoUpdateProfile(view: View){
         isProfileUpdated.listener = object : BooVariable.ChangeListener {
             override fun onChange() {
