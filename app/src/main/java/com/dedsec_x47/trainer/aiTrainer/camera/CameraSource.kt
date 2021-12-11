@@ -220,13 +220,6 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
                     }
                 })
         }
-/*
-        this.act.runOnUiThread(java.lang.Runnable {
-            if(poseDetect.currentExercise != Exercise.Plank){
-                this.chronometer.base = SystemClock.elapsedRealtime()
-                this.chronometer.stop()
-            }
-        })*/
 
         val holder = surfaceView.holder
         val surfaceCanvas = holder.lockCanvas()
