@@ -18,11 +18,13 @@ import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 
 
 class SignIn : AppCompatActivity() {
@@ -133,7 +135,7 @@ class SignIn : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithEmail:success")
-                    gotoLoginPage()
+                    getCurrentRegistrationToken()
                 } else {
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                     Toast.makeText(
@@ -142,6 +144,19 @@ class SignIn : AppCompatActivity() {
                     ).show()
                 }
             }
+    }
+
+    private fun getCurrentRegistrationToken(){
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+            val token = task.result
+            UserDetails().updateFireStoreData(hashMapOf("Registration Token" to token))
+            Log.d("TOKEN ", token)
+            gotoLoginPage()
+        })
     }
 
 //    private fun linkWithCredential(credential: AuthCredential) {

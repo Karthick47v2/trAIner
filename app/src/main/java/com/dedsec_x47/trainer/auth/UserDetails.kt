@@ -20,7 +20,7 @@ var bv = BooVariable()                      //variable cheak for detail loading
 var document: MutableMap<String, Any>? = null    //all details of user
 var userProfileImageUri: Uri =
     Uri.parse("android.resource://" + "com.dedsec_x47.trainer" + "/" + R.drawable.no_profile)
-
+var fcm = ""
 var newUserName = " "
 var newUserAge: Int = 0
 var userGender = " "
@@ -35,7 +35,7 @@ class UserDetails {
         val fAuth = Firebase.auth
         val currentUser = fAuth.currentUser
         val dataBase = Firebase.firestore
-        val token = currentUser?.getIdToken(true)
+
         val userData: MutableMap<String, Any> = HashMap()
         userData["Name"] = name
         userData["Email"] = currentUser?.email.toString()
@@ -85,7 +85,9 @@ class UserDetails {
 
                 if (task.isSuccessful) {
                     document =
-                        task.result.data                             //document is global variable
+                        task.result.data
+                    fcm = readData("Registration Token")
+
                     if (isStarting) {
                         if (!isNewUser) {
                             getimagefromstorage()
