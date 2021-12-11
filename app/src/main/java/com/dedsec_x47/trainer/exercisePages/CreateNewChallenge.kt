@@ -31,7 +31,13 @@ class CreateNewChallenge : AppCompatActivity() {
         setContentView(activityCreateNewChallangeBinding.root)
 
         textview = findViewById(R.id.testView)
-        val arraylist = UserDetails().returnList()
+        val arrayMap = UserDetails().returnMap()
+
+        var arraylist = ArrayList<String>()
+
+        for(key in arrayMap.keys){
+            arrayMap[key]?.let { arraylist.add(it) }
+        }
 
         textview.setOnClickListener(View.OnClickListener {
 
@@ -73,7 +79,8 @@ class CreateNewChallenge : AppCompatActivity() {
                     isFriendselected = true
                     dialog.dismiss()
                     challenge.clear()
-                    challenge["To"] = adapter.getItem(position).toString()
+                    challenge["To"] = arrayMap.keys.first {adapter.getItem(position).toString() == arrayMap[it]}
+                    challenge["From"] = UserDetails().returname()
                 }
         })
 
