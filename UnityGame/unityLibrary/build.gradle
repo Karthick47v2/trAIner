@@ -67,7 +67,7 @@ def BuildIl2Cpp(String workingDir, String targetDirectory, String architecture, 
         environment "ANDROID_SDK_ROOT", getSdkDir()
     }
     delete workingDir + targetDirectory + abi + "/libil2cpp.sym.so"
-    ant.move(file: workingDir + targetDirectory + abi + "/libil2cpp.dbg.so", tofile: workingDir + "/symbols/" + abi + "/libil2cpp.so")
+//    ant.move(file: workingDir + targetDirectory + abi + "/libil2cpp.dbg.so", tofile: workingDir + "/symbols/" + abi + "/libil2cpp.so")
 }
 
 android {
