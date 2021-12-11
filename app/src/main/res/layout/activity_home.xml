@@ -28,7 +28,7 @@
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="65dp"
-            android:background="@drawable/top_round_corners"
+            android:background="@color/black_menu"
             app:flow_verticalAlign="center"
             app:itemIconSize="34dp"
             app:itemTextColor="@color/white"
