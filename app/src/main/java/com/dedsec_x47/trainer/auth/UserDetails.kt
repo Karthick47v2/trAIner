@@ -16,6 +16,7 @@ var isgetStart = true                       //diaplay get start page
 var isNewUser = false                       //variable for new user
 var isStarting = false                      //variable for first signin
 var userNameList = ArrayList<String>()      //all user names
+var userNameMap = HashMap<String, String>()
 var bv = BooVariable()                      //variable cheak for detail loading
 var document: MutableMap<String, Any>? = null    //all details of user
 var userProfileImageUri: Uri =
@@ -137,8 +138,16 @@ class UserDetails {
         }
     }
 
-    fun returnList(): ArrayList<String> {
+    /*fun returnList(): ArrayList<String> {
         return userNameList
+    }*/
+
+    fun returnMap(): HashMap<String, String> {
+        return userNameMap
+    }
+
+    fun returname(): String{
+        return readData("Name")
     }
 
     fun getAlluserNames() {
@@ -147,8 +156,9 @@ class UserDetails {
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    userNameList.add(document["Name"].toString().lowercase(Locale.getDefault()))
-                    Log.d("TAG", userNameList.last())
+                    userNameMap.put(document["Email"].toString(), document["Name"].toString())
+                    //userNameList.add(document["Name"].toString().lowercase(Locale.getDefault()))
+                    //Log.d("TAG", userNameList.last())
                 }
             }
             .addOnFailureListener { exception ->
@@ -159,8 +169,9 @@ class UserDetails {
     fun createChallange(challengeHashMap: MutableMap<String, Any>) {
         val dataBase = Firebase.firestore
         val userName = readData("Name")
+        val email = readData("Email")
 
-        dataBase.collection("cloud").document(userName).set(challengeHashMap)
+        dataBase.collection("cloud").document(email).set(challengeHashMap)
             .addOnSuccessListener {
                 Log.d("TAG", "Challange Sucess ")
             }

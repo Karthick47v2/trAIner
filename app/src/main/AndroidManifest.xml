@@ -111,8 +111,7 @@
             android:theme="@style/FragmentTheme" />
         <activity
             android:name=".homeFragments.SettingsActivity"
-            android:exported="true"
-            android:theme="@style/FragmentTheme">
+            android:exported="true">
         </activity>
         <activity
             android:name=".HomeScreen"
@@ -129,10 +128,10 @@
             android:name=".aiTrainer.poseDetect"
             android:exported="true">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+<!--             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>-->
         </activity>
 
         <receiver

@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.ContentValues
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,6 +26,7 @@ import kotlinx.coroutines.launch
 import com.dedsec_x47.trainer.aiTrainer.camera.CameraSource
 import com.dedsec_x47.trainer.aiTrainer.data.Accelerator
 import com.dedsec_x47.trainer.aiTrainer.pose.PoseEstimate
+import com.dedsec_x47.trainer.auth.SignIn
 
 class poseDetect : AppCompatActivity(){
     companion object{
@@ -43,6 +45,7 @@ class poseDetect : AppCompatActivity(){
     private lateinit var repView: TextView
     private lateinit var repType: TextView
     private lateinit var timerView: Chronometer
+    private lateinit var doneBtn: Button
 
     private var accelerator = Accelerator.CPU
 
@@ -74,6 +77,12 @@ class poseDetect : AppCompatActivity(){
         repView = findViewById(R.id.tvRepetitionCount)
         repType = findViewById(R.id.tvRepetition)
         timerView = findViewById(R.id.c_meter)
+        doneBtn = findViewById(R.id.doneBtn)
+
+        doneBtn.setOnClickListener(){
+            val intent = Intent(this, GalleryView::class.java)
+            startActivity(intent)
+        }
 
         if(currentExercise == Exercise.Plank){
             repView.isVisible = false
