@@ -26,7 +26,13 @@
             android:exported="true" />
         <activity
             android:name=".aiTrainer.GalleryView"
-            android:exported="true" />
+            android:exported="true">
+<!--        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>-->
+        </activity>
         <activity
             android:name=".aiTrainer.FullImageView"
             android:exported="true" />
@@ -114,17 +120,16 @@
             android:theme="@style/FragmentTheme" />
         <activity
             android:name=".homeFragments.SettingsActivity"
-            android:exported="true"
-            android:theme="@style/FragmentTheme"></activity>
+            android:exported="true" />
         <activity
             android:name=".HomeScreen"
             android:exported="true"
             android:theme="@style/FragmentTheme">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+<!--             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter> -->
 
         </activity>
         <activity
@@ -148,6 +153,12 @@
             </intent-filter>
             -->
         </receiver>
+
+        <service android:name=".auth.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
