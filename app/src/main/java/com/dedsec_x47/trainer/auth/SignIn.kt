@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
@@ -166,7 +167,7 @@ class SignIn : AppCompatActivity() {
     private fun uploadToken(email: String) {
         val userData: MutableMap<String, Any> = HashMap()
         userData["Registration Token"] = fcm
-        Firebase.firestore.collection("users").document(email).update(userData)
+        Firebase.firestore.collection("users").document(email).set(userData, SetOptions.merge())
             .addOnSuccessListener {
                 Log.w(TAG, "update Token success")
                 gotoLoginPage()
