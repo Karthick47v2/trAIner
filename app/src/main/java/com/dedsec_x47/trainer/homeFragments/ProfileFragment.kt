@@ -11,12 +11,14 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.dedsec_x47.trainer.R
+import com.dedsec_x47.trainer.auth.BooVariable
 import com.dedsec_x47.trainer.auth.UserDetails
 import com.dedsec_x47.trainer.auth.getUserImage
 import com.dedsec_x47.trainer.auth.setUserImage
 import com.google.android.material.imageview.ShapeableImageView
 
 class ProfileFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,16 +27,15 @@ class ProfileFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
         view.findViewById<ShapeableImageView>(R.id.savProfileImage).setImageURI(getUserImage())
-
-        view.findViewById<TextView>(R.id.tvNameTop).text = UserDetails().readData("Name")
-        view.findViewById<TextView>(R.id.tvGetName).text = UserDetails().readData("Name")
         view.findViewById<TextView>(R.id.tvGetGender).text = UserDetails().readData("Gender")
         view.findViewById<TextView>(R.id.tvGetAge).text = UserDetails().readData("Age")
+        view.findViewById<TextView>(R.id.tvNameTop).text = UserDetails().readData("Name")
+        view.findViewById<TextView>(R.id.tvGetName).text = UserDetails().readData("Name")
         view.findViewById<TextView>(R.id.tvGetEmail).text = UserDetails().readData("Email")
         view.findViewById<ShapeableImageView>(R.id.savProfileImage).setOnClickListener {
             selectProfileImage()
         }
-
+        autoUpdateProfile(view)
         return view
     }
 
@@ -57,5 +58,19 @@ class ProfileFragment : Fragment() {
             isNameOrPicUpdated.set(true)
         }
     }
-
+    
+    private fun autoUpdateProfile(view: View){
+        isProfileUpdated.listener = object : BooVariable.ChangeListener {
+            override fun onChange() {
+                Log.d("BOOL", isProfileUpdated.get().toString())
+                if (isProfileUpdated.get()) {
+                    view.findViewById<TextView>(R.id.tvGetGender).text = UserDetails().readData("Gender")
+                    view.findViewById<TextView>(R.id.tvGetAge).text = UserDetails().readData("Age")
+                    view.findViewById<TextView>(R.id.tvNameTop).text = UserDetails().readData("Name")
+                    view.findViewById<TextView>(R.id.tvGetName).text = UserDetails().readData("Name")
+                    isProfileUpdated.set(false)
+                }
+            }
+        }
+    }
 }

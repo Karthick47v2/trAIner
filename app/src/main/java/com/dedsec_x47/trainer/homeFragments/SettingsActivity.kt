@@ -12,14 +12,8 @@ import com.google.android.material.textfield.TextInputEditText
 import kotlin.collections.set
 import android.widget.ArrayAdapter
 
-
-
-
-
-
-
 var isNameOrPicUpdated = BooVariable()
-
+var isProfileUpdated = BooVariable()
 class SettingsActivity : AppCompatActivity() {
 
     lateinit var activitySettingsBinding: ActivitySettingsBinding
@@ -54,10 +48,10 @@ class SettingsActivity : AppCompatActivity() {
 
         name.setText(UserDetails().readData("Name"))
         age.setText(UserDetails().readData("Age"))
-        if(UserDetails().readData("Age")=="Male") {
-            genSpin.setSelection(0)
-        }else{
+        if(UserDetails().readData("Gender")=="Male") {
             genSpin.setSelection(1)
+        }else{
+            genSpin.setSelection(2)
         }
 
         activitySettingsBinding.btn1.setOnClickListener {
@@ -76,6 +70,7 @@ class SettingsActivity : AppCompatActivity() {
             if (userData.containsKey("Name")) {
                 isNameOrPicUpdated.set(true)
             }
+            isProfileUpdated.set(true)
             userData.clear()
         }
 
