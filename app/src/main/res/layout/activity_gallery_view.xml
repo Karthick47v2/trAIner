@@ -7,10 +7,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"
         android:foreground="@color/transparentBlack"
-        android:src="@drawable/bg_profile_fragment"
-        />
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_profile_fragment" />
 
     <TextView
         android:id="@+id/txtWrongPosesTitle"

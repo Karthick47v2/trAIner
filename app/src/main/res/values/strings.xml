@@ -180,6 +180,7 @@
     <string name="remaining_fixed">remaining</string>
     <string name="remaining_workout_count">5</string>
     <string name="choose_a_friend">Select A Person</string>
+    <string name="game_view_content_description">Game view</string>
 
     <string-array name="models_array">
         <item>Light</item>

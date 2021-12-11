@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdk 31
-    ndkVersion '23.0.7599858'
+    ndkVersion '21.3.6528147'
 
     defaultConfig {
         applicationId "com.dedsec_x47.trainer"
@@ -20,6 +20,10 @@ android {
             cmake {
                 cppFlags ''
             }
+        }
+
+        ndk{
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
         }
     }
 
@@ -103,4 +107,8 @@ dependencies {
 
     //progress dialog library
     implementation 'com.jpardogo.googleprogressbar:library:1.2.0'
+
+    implementation project(':unityLibrary')
+    implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString() + ('\\libs'), include: ['*.jar'])
+
 }
