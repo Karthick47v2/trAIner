@@ -19,10 +19,10 @@ import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 
@@ -135,7 +135,7 @@ class SignIn : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithEmail:success")
-                    getCurrentRegistrationToken()
+                    getCurrentRegistrationToken(email)
                 } else {
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
                     Toast.makeText(
@@ -146,45 +146,32 @@ class SignIn : AppCompatActivity() {
             }
     }
 
-    private fun getCurrentRegistrationToken(){
+    private fun getCurrentRegistrationToken(email: String) {
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w(TAG, "Fetching FCM registration token failed", task.exception)
                 return@OnCompleteListener
             }
-            val token = task.result
-            UserDetails().updateFireStoreData(hashMapOf("Registration Token" to token))
-            Log.d("TOKEN ", token)
-            gotoLoginPage()
+            if (task.result != null) {
+                Log.w("TOK", "Token not null" + task.result)
+                fcm = task.result
+                uploadToken(email)
+            } else {
+                Log.w("TOK", "Token null")
+                gotoLoginPage()
+            }
         })
     }
 
-//    private fun linkWithCredential(credential: AuthCredential) {
-//        auth.currentUser!!.linkWithCredential(credential)
-//            .addOnCompleteListener(this) { task ->
-//                if (task.isSuccessful) {
-//                    Log.d(TAG, "linkWithCredential:success")
-//
-//                } else {
-//                    Log.w(TAG, "linkWithCredential:failure", task.exception)
-//                    Toast.makeText(
-//                        baseContext, "Authentication failed.",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                    mergeAccounts(credential)
-//                }
-//            }
-//    }
-//
-//    private fun mergeAccounts(credential: AuthCredential) {
-//        val prevUser = auth.currentUser
-//        auth.signInWithCredential(credential)
-//            .addOnSuccessListener { result ->
-//                var currentUser = result.user
-//            }
-//            .addOnFailureListener {
-//            }
-//    }
+    private fun uploadToken(email: String) {
+        val userData: MutableMap<String, Any> = HashMap()
+        userData["Registration Token"] = fcm
+        Firebase.firestore.collection("users").document(email).update(userData)
+            .addOnSuccessListener {
+                Log.w(TAG, "update Token success")
+                gotoLoginPage()
+            }
+    }
 
     private fun fbSignIn() {
 
@@ -208,13 +195,13 @@ class SignIn : AppCompatActivity() {
             })
     }
 
-    private fun gotoSignUpPage(){
+    private fun gotoSignUpPage() {
         val intent = Intent(this, SignUp::class.java)
         startActivity(intent)
         finish()
     }
 
-    private fun gotoLoginPage(){
+    private fun gotoLoginPage() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
@@ -338,4 +325,32 @@ class SignIn : AppCompatActivity() {
 //            .load(profilePic)
 //            .into()
 //        val name = obj?.getString("name")
+//    }
+
+
+//    private fun linkWithCredential(credential: AuthCredential) {
+//        auth.currentUser!!.linkWithCredential(credential)
+//            .addOnCompleteListener(this) { task ->
+//                if (task.isSuccessful) {
+//                    Log.d(TAG, "linkWithCredential:success")
+//
+//                } else {
+//                    Log.w(TAG, "linkWithCredential:failure", task.exception)
+//                    Toast.makeText(
+//                        baseContext, "Authentication failed.",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    mergeAccounts(credential)
+//                }
+//            }
+//    }
+//
+//    private fun mergeAccounts(credential: AuthCredential) {
+//        val prevUser = auth.currentUser
+//        auth.signInWithCredential(credential)
+//            .addOnSuccessListener { result ->
+//                var currentUser = result.user
+//            }
+//            .addOnFailureListener {
+//            }
 //    }
