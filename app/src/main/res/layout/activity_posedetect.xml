@@ -34,6 +34,8 @@
         android:textOn="Hide Skelton"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/doneBtn"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
@@ -50,6 +52,7 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/hideSkeletonModeBtn"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
@@ -119,12 +122,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/remaining_workout_count"
-            android:visibility="gone"
             android:textColor="@color/white"
             android:textSize="15sp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvRemainingText"
@@ -135,9 +138,9 @@
             android:textColor="@color/white"
             android:textSize="15sp"
             android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvWorkout"
             app:layout_constraintStart_toEndOf="@+id/tvWorkout"
-            app:layout_constraintTop_toTopOf="@+id/tvWorkout"
-            app:layout_constraintBottom_toBottomOf="@+id/tvWorkout"/>
+            app:layout_constraintTop_toTopOf="@+id/tvWorkout" />
 
         <TextView
             android:id="@+id/tvWorkout"
@@ -145,12 +148,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="@string/workout_name"
-            android:visibility="gone"
             android:textColor="@color/white"
             android:textSize="15sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tvRemainingCount"
             app:layout_constraintStart_toEndOf="@+id/tvRemainingCount"
-            app:layout_constraintTop_toTopOf="@+id/tvRemainingCount"
-            app:layout_constraintBottom_toBottomOf="@+id/tvRemainingCount"/>
+            app:layout_constraintTop_toTopOf="@+id/tvRemainingCount" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
