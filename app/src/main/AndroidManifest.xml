@@ -120,8 +120,7 @@
             android:theme="@style/FragmentTheme" />
         <activity
             android:name=".homeFragments.SettingsActivity"
-            android:exported="true"
-            android:theme="@style/FragmentTheme"></activity>
+            android:exported="true" />
         <activity
             android:name=".HomeScreen"
             android:exported="true"

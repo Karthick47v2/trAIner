@@ -160,7 +160,7 @@ class UserDetails {
 
     fun createChallange(challengeHashMap: MutableMap<String, Any>) {
 
-        dataBase.collection("cloud").document( userNameMap[ challengeHashMap["To"]].toString() ).set(challengeHashMap)
+        dataBase.collection("cloud").document( challengeHashMap["To"].toString()).set(challengeHashMap)
             .addOnSuccessListener {
                 Log.d("TAG", "Challange Sucess ")
             }
