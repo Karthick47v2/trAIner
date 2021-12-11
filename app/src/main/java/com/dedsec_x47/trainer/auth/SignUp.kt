@@ -88,7 +88,9 @@ class SignUp : AppCompatActivity() {
 
     }
 
-    private fun createAccount(email: String, password: String) {     // create_user_with_email]
+    private fun createAccount(email: String, password: String) {
+        isVertificationEmailSent = false
+
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {

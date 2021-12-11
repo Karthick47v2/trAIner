@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trainer">
         <activity
-            android:name=".exercisePages.instructions.Challenge_popup"
+            android:name=".exercisePages.Challenge_popup"
             android:exported="true" />
         <activity
             android:name=".aiTrainer.GalleryView"

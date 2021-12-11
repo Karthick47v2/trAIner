@@ -4,6 +4,8 @@ import android.net.Uri
 import android.util.Log
 import com.dedsec_x47.trainer.R
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -26,9 +28,11 @@ var fcm = ""
 var newUserName = " "
 var newUserAge: Int = 0
 var userGender = " "
+var challange: DocumentSnapshot? = null
+var isChallangeDetailsFetched = BooVariable()
 
 class UserDetails {
-
+    val dataBase = Firebase.firestore
     fun saveDetailsInFireStore(
         name: String, age: Int, gender: String, isFbLogin: Boolean,
         fid: String
@@ -36,7 +40,6 @@ class UserDetails {
 
         val fAuth = Firebase.auth
         val currentUser = fAuth.currentUser
-        val dataBase = Firebase.firestore
 
         val userData: MutableMap<String, Any> = HashMap()
         userData["Name"] = name
@@ -67,7 +70,8 @@ class UserDetails {
 //            userData["Email"] = currentUser.email.toString()
 //        }
 
-        dataBase.collection("users").document(currentUser?.email.toString()).update(userData)
+        dataBase.collection("users").document(currentUser?.email.toString()).set(userData,
+            SetOptions.merge())
             .addOnSuccessListener {
                 Log.d("Save Details", "save Details Successfully ")
                 UserDetails().loadFireStoreData()
@@ -78,7 +82,6 @@ class UserDetails {
 
     fun loadFireStoreData() {
         Log.d("Tag", "Load starting")
-        val dataBase = Firebase.firestore
         val fAuth = Firebase.auth
         val currentUser = fAuth.currentUser
         dataBase.collection("users").document(currentUser?.email.toString())
@@ -116,7 +119,6 @@ class UserDetails {
     fun updateFireStoreData(userData: MutableMap<String, Any> = HashMap()) {
         val fAuth = Firebase.auth
         val currentUser = fAuth.currentUser
-        val dataBase = Firebase.firestore
 
         dataBase.collection("users").document(currentUser?.email.toString())
             .update(userData)
@@ -137,25 +139,16 @@ class UserDetails {
         }
     }
 
-    /*fun returnList(): ArrayList<String> {
-        return userNameList
-    }*/
-
     fun returnMap(): HashMap<String, String> {
         return userNameMap
     }
 
-    fun returname(): String{
-        return readData("Name")
-    }
-
     fun getAlluserNames() {
-        val dataBase = Firebase.firestore
         dataBase.collection("users")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    userNameMap.put(document["Email"].toString(), document["Name"].toString())
+                    userNameMap[document["Name"].toString()] = document["Email"].toString()
                     //userNameList.add(document["Name"].toString().lowercase(Locale.getDefault()))
                     //Log.d("TAG", userNameList.last())
                 }
@@ -166,16 +159,30 @@ class UserDetails {
     }
 
     fun createChallange(challengeHashMap: MutableMap<String, Any>) {
-        val dataBase = Firebase.firestore
-        val userName = readData("Name")
-        val email = readData("Email")
 
-        dataBase.collection("cloud").document(email).set(challengeHashMap)
+        dataBase.collection("cloud").document( userNameMap[ challengeHashMap["To"]].toString() ).set(challengeHashMap)
             .addOnSuccessListener {
                 Log.d("TAG", "Challange Sucess ")
             }
             .addOnFailureListener { exception ->
                 Log.d("TAG", "Challange Sucess ", exception)
+            }
+    }
+
+    fun getChallangeDetails(){
+        val fAuth = Firebase.auth
+        val currentUser = fAuth.currentUser
+        dataBase.collection("cloud").document(currentUser?.email.toString())
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful){
+                    challange = task.result
+                    Log.d("TAG","data: $challange")
+                    isChallangeDetailsFetched.set(true)
+                }
+            }
+            .addOnFailureListener{
+                Log.d("TAG", "Error getting challenge: ", it)
             }
     }
 }

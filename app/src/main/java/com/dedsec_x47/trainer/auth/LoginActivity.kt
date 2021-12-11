@@ -19,11 +19,11 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 
-
+var isVertificationEmailSent = false
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    var isVertificationEmailSent = false
+
     lateinit var dialog: Dialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

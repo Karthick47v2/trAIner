@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.dedsec_x47.trainer.auth.SignIn
 import com.dedsec_x47.trainer.databinding.ActivitySetalarmBinding
+import com.dedsec_x47.trainer.exercisePages.Challenge_popup
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import java.util.*
@@ -110,6 +112,8 @@ class SetAlarm : AppCompatActivity() {
         alarmManager.cancel(broadcast)
 
         Toast.makeText(this,"Remainder cancelled", Toast.LENGTH_LONG).show()
+        //for testing
+        startActivity(Intent(this, Challenge_popup::class.java))
     }
 
 }
