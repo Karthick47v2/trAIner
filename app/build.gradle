@@ -6,7 +6,7 @@ plugins {
 
 android {
     compileSdk 31
-    ndkVersion '21.3.6528147'
+    ndkVersion '21.4.7075529'
 
     defaultConfig {
         applicationId "com.dedsec_x47.trainer"

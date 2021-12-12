@@ -232,12 +232,5 @@ class BooVariable {
     }
 }
 
-//class FCM : FirebaseMessagingService() {
-//    override fun onNewToken(newtoken: String) {
-//        Log.d("TOKEN", "Refreshed token: $newtoken")
-//        fcm = newtoken
-//        UserDetails().updateFireStoreData(hashMapOf("Registration Token" to fcm))
-//    }
-//}
 
 
