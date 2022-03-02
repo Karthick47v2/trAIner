@@ -68,13 +68,13 @@
             app:layout_constraintEnd_toEndOf="@+id/tvPushUp"
             app:layout_constraintStart_toStartOf="@+id/tvPushUp"
             app:layout_constraintTop_toBottomOf="@+id/tvPushUp"
-            tools:progress="80" />
+            tools:progress="100" />
 
         <TextView
             android:id="@+id/tvProgressPushUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/progressPushUp"
+            android:text="5/5"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
             android:textSize="15sp"
@@ -177,13 +177,13 @@
             app:layout_constraintEnd_toEndOf="@+id/tvPlank"
             app:layout_constraintStart_toStartOf="@+id/tvPlank"
             app:layout_constraintTop_toBottomOf="@+id/tvPlank"
-            tools:progress="0" />
+            tools:progress="20" />
 
         <TextView
             android:id="@+id/tvProgressPlank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/progressPlank"
+            android:text="11/60"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
             android:textSize="15sp"
@@ -245,13 +245,13 @@
             app:layout_constraintEnd_toEndOf="@+id/tvPushUp1"
             app:layout_constraintStart_toStartOf="@+id/tvPushUp1"
             app:layout_constraintTop_toBottomOf="@+id/tvPushUp1"
-            tools:progress="0" />
+            tools:progress="19" />
 
         <TextView
             android:id="@+id/tvProgressPushUp1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/progressPushUp1"
+            android:text="7/40"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
             android:textSize="15sp"
@@ -318,16 +318,16 @@
             app:layout_constraintEnd_toEndOf="@+id/tvPlank1"
             app:layout_constraintStart_toStartOf="@+id/tvPlank1"
             app:layout_constraintTop_toBottomOf="@+id/tvPlank1"
-            tools:progress="0" />
+            tools:progress="15" />
 
         <TextView
             android:id="@+id/tvProgressPlank1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/progressPlank1"
+            android:text="83/500"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
-            android:textSize="15sp"
+            android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@+id/pbPlank1"
             app:layout_constraintEnd_toEndOf="@+id/pbPlank1"
             app:layout_constraintStart_toStartOf="@+id/pbPlank1"
@@ -354,13 +354,13 @@
             app:layout_constraintEnd_toEndOf="@+id/tvHammerCurl"
             app:layout_constraintStart_toStartOf="@+id/tvHammerCurl"
             app:layout_constraintTop_toBottomOf="@+id/tvHammerCurl"
-            tools:progress="0" />
+            tools:progress="30" />
 
         <TextView
             android:id="@+id/tvProgressHammerCurl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/progressHammerCurl"
+            android:text="12/40"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
             android:textSize="15sp"

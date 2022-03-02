@@ -61,7 +61,7 @@
             android:id="@+id/txtNameWinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name has won"
+            android:text="Gowreesan has won"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="24sp"

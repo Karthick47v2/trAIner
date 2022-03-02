@@ -60,7 +60,7 @@
             android:id="@+id/txtRewardWinner1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/reward_txt1"
+            android:text="You won 100 trAIner coins"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="28sp"

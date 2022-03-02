@@ -206,9 +206,9 @@ class CameraSource(private var act: Activity, private var repView: TextView, pri
                 Exercise.BenchpressDumbbell -> Log.d(ContentValues.TAG, "BenchPressD")
                 Exercise.Chinup -> Log.d(ContentValues.TAG, "Chinup")
                 Exercise.Deadlift -> count = DeadLift.getDeadLiftAngles(human, bitmap, surfaceView)                         //OK
-                Exercise.Pushup -> Log.d(ContentValues.TAG, "Pushup")
+                Exercise.Pushup -> count = PushUp.getPushUpAngles(human, bitmap, surfaceView)                               //OK
                 Exercise.ShoulderpressBarbell -> Log.d(ContentValues.TAG, "ShoulderpreB")
-                Exercise.ShoulderpressDumbell -> Log.d(ContentValues.TAG, "ShoulderpeeD")
+                Exercise.ShoulderpressDumbell -> count = ShoulderPressD.getShoulderPressDAngles(human, bitmap, surfaceView) //OK
                 Exercise.Situp -> Log.d(ContentValues.TAG, "Situp")
                 Exercise.Splitsquat -> Log.d(ContentValues.TAG, "Splitsquat")
                 Exercise.Squat -> count = Squat.getSquatAngles(human, bitmap, surfaceView)

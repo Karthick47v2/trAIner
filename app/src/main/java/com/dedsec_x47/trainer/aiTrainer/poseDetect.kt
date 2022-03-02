@@ -19,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
+import com.dedsec_x47.trainer.HomeScreen
 import com.dedsec_x47.trainer.R
 import com.dedsec_x47.trainer.View
 import kotlinx.coroutines.Dispatchers
@@ -35,7 +36,7 @@ class poseDetect : AppCompatActivity(){
         }
         private const val FRAGMENT_DIALOG = "dialog"
 
-        var currentExercise = Exercise.Hammercurl
+        var currentExercise = Exercise.ShoulderpressDumbell
         var currView = View.right
         var skelShow: Boolean = false
         var shDebug: ToggleButton? = null
@@ -80,7 +81,7 @@ class poseDetect : AppCompatActivity(){
         doneBtn = findViewById(R.id.doneBtn)
 
         doneBtn.setOnClickListener(){
-            val intent = Intent(this, GalleryView::class.java)
+            val intent = Intent(this, HomeScreen::class.java)
             startActivity(intent)
         }
 

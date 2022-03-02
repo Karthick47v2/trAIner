@@ -216,8 +216,8 @@ object Squat {
 
     private fun drawOnImg(surfaceView: SurfaceView, bitmap: Bitmap, person: Human, uri: Int,
                           no1: Int, no2: Int, no3: Int, no4: Int) {
-/*        mediaPlayer = MediaPlayer.create(surfaceView.context, uri)
-        mediaPlayer!!.start()*/
+        mediaPlayer = MediaPlayer.create(surfaceView.context, uri)
+        mediaPlayer!!.start()
 
         if (isExeriseStarted) {
             Visual.drawWrongPose(bitmap, surfaceView, person, no1, no2)

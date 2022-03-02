@@ -19,7 +19,7 @@ class StatsFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_stats, container, false)
 
-        view.findViewById<TextView>(R.id.txtPushUpCount).text = UserDetails().readData("Push up")
+/*        view.findViewById<TextView>(R.id.txtPushUpCount).text = UserDetails().readData("Push up")
         view.findViewById<TextView>(R.id.txtChinUpCount).text = UserDetails().readData("Chin Up")
         view.findViewById<TextView>(R.id.txtSitUpCount).text = UserDetails().readData("Sit Up")
         view.findViewById<TextView>(R.id.txtBenchPressBarbellCount).text =
@@ -37,7 +37,7 @@ class StatsFragment : Fragment() {
             UserDetails().readData("Leg raise")
         view.findViewById<TextView>(R.id.txtSquatCount).text = UserDetails().readData("Squat")
         view.findViewById<TextView>(R.id.txtSplitSquatCount).text =
-            UserDetails().readData("Split Squat")
+            UserDetails().readData("Split Squat")*/
 
         return view
     }

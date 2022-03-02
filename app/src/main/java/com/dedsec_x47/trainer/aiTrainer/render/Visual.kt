@@ -60,7 +60,7 @@ object Visual {
             style = Paint.Style.FILL
         }
 
-        val output = input.copy(Bitmap.Config.ARGB_8888,true)
+ /*       val output = input.copy(Bitmap.Config.ARGB_8888,true)
         val originalSizeCanvas = Canvas(output)
 
         var pointA = person.keyPoints[bodyJoints[no1].first.position].coordinate
@@ -82,7 +82,7 @@ object Visual {
         var score = (person.keyPoints[bodyJoints[no1].first.position].score + person.keyPoints[bodyJoints[no1].second.position].score
                 + person.keyPoints[bodyJoints[no2].first.position].score + person.keyPoints[bodyJoints[no2].second.position].score)
 
-        if(score > 2) saveImg(surfaceView, output)
+        if(score > 2) saveImg(surfaceView, output)*/
     }
 
     // get angle bw 3 joints

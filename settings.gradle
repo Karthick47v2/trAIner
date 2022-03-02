@@ -9,8 +9,6 @@ dependencyResolutionManagement {
 rootProject.name = "trAIner"
 include ':app'
 
-/*
 include ':unityLibrary'
 project(':unityLibrary').projectDir=new File('UnityGame\\unityLibrary')
 
-*/

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Layout
 import android.view.View
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.dedsec_x47.trainer.R
@@ -43,6 +44,13 @@ class Challenge_popup : AppCompatActivity() {
                     isChallangeDetailsFetched.set(false)
                 }
             }
+        }
+
+        var acpt = findViewById<Button>(R.id.btnChallengeAccept)
+        var dec = findViewById<Button>(R.id.btnChallengeDecline)
+
+        dec.setOnClickListener(){
+            setContentView(R.layout.activity_rewards_lose)
         }
     }
 }

@@ -80,7 +80,7 @@
                     android:layout_gravity="center_horizontal"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:src="@null"
+                    android:src="@drawable/space"
                     tools:ignore="ContentDescription,ImageContrastCheck" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -123,7 +123,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/underconstruction"
+                    android:src="@drawable/cc"
                     tools:ignore="ContentDescription" />
 
 
