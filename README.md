@@ -1,3 +1,23 @@
-**Fork and clone it first**
+# trAIner - Virtual personal fitness assistant #
 
-**Currently login screen is first activity making Jathurshan's as first activity will result errors as some resources missing
+This is our CO--- Project. Project proposal and sample videos are in `Docs` folder
+
+trAIner is an android application which monitors users' activity while workout and give feedback about whether they are doing it correctly or not. Also keep count of reps. 
+
+Features
+- Monitors majority of strength and weight loss exercises and give feedback
+- Daily / Weekly challenges and user-created challenges
+- Mini-games to make exercise fun
+- Remind regularly
+
+In order to build this project, you need,
+ - Firebase Auth, Cloud Functions and Firestore
+ - Unity (Required things for setting up unity is explained [here](ssssssssssss)
+ - Android Studio
+
+Future works
+- Add more exercises
+- Add more games
+- Improve the performance of Unity app
+
+**Unity exported file is not included, you can export it by cloning [this repo](sssssssssssssss)**

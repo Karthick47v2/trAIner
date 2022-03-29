@@ -1,3 +1,0 @@
-int style BaseUnityTheme 0x0
-int style UnityThemeSelector 0x0
-int style UnityThemeSelector_Translucent 0x0
