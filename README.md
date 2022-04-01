@@ -4,10 +4,12 @@ This is our Project for 4th Semi module 'CO2307 Software Engineering'. Project p
 
 trAIner is an android application which monitors users' activity while workout and give feedback about whether they are doing it correctly or not. Also keep count of reps. 
 
-<img src="./docs/intro.gif" alt="intro" height="400">
-<img src="./docs/challenges.gif" alt="challenges" height="400">
-<img src="./docs/squat.gif" alt="squat" height="400">
-<img src="./docs/pushup.gif" alt="pushup" height="400">
+<p float="left">
+    <img src="./docs/intro.gif" alt="intro" height="400">
+    <img src="./docs/challenges.gif" alt="challenges" height="400">
+    <img src="./docs/squat.gif" alt="squat" height="400">
+    <img src="./docs/pushup.gif" alt="pushup" height="400">
+</p>
 
 
 Features
