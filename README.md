@@ -29,3 +29,8 @@ Future works
 - Improve the performance of Unity app
 
 **Unity exported file is not included, you can export it by cloning [this repo](https://github.com/Karthick47v2/trAIner-mini-game)**
+
+Technologies and Frameworks:
+- Native Android Development - Android Studio (Kotlin)
+- Tensorflow
+- Firebase - Auth, Firestore, Cloud Functions, Cloud Messaging, Storage
