@@ -1,7 +1,5 @@
 # trAIner - Virtual personal fitness assistant #
 
-This is our Project for 4th Semi module 'CO2307 Software Engineering'. Project proposal and sample videos are in `docs` folder
-
 trAIner is an android application which monitors users' activity while workout and give feedback about whether they are doing it correctly or not. Also keep count of reps. 
 
 <p float="left">
